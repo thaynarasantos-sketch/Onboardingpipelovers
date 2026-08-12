@@ -216,7 +216,7 @@ thead th{
   text-align:left;font-weight:500;color:var(--text-2);text-transform:uppercase;
   font-size:10.5px;letter-spacing:.5px;padding:12px 14px;
   border-bottom:1px solid var(--border);background:rgba(255,255,255,.02);
-  white-space:nowrap;position:sticky;top:65px;
+  white-space:nowrap;
 }
 tbody tr.row-main{
   cursor:pointer;border-bottom:1px solid var(--border);transition:.12s;
