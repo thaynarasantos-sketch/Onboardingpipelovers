@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PipeLovers · Painel de Onboarding CS/CX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div class="brand-mark">PL</div>
+    <div class="brand-text">
+      <div class="t1">PipeLovers</div>
+      <div class="t2">Painel de Ativação · Onboarding CS &amp; CX</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="pill" id="status-pill"><span class="dot"></span><span class="txt">Carregando dados…</span></div>
+    <button class="btn-refresh" id="btn-refresh">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg>
+      Atualizar
+    </button>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="cs">CS <span class="tag">Empresas</span></button>
+  <button class="tab-btn" data-tab="cx">CX <span class="tag">Membros</span></button>
+</div>
+
+<!-- ============================= ABA CS ============================= -->
+<div class="view active" id="view-cs">
+
+  <div class="kpi-row" id="cs-kpis">
+    <div class="state-box"><div class="spinner"></div><div class="big">Calculando indicadores…</div></div>
+  </div>
+
+  <div class="filters">
+    <div class="f-group"><label>CS</label><div id="cs-f-analista"></div></div>
+    <div class="f-group"><label>Mês da meta</label><div id="cs-f-meta"></div></div>
+    <div class="f-group"><label>Fechamento de</label><input type="date" class="f-input" id="cs-f-fechfrom"></div>
+    <div class="f-group"><label>Fechamento até</label><input type="date" class="f-input" id="cs-f-fechto"></div>
+    <div class="f-group"><label>Handoff de</label><input type="date" class="f-input" id="cs-f-hofrom"></div>
+    <div class="f-group"><label>Handoff até</label><input type="date" class="f-input" id="cs-f-hoto"></div>
+    <div class="f-group grow"><label>Empresa</label><input type="text" class="f-input" id="cs-f-nome" placeholder="Buscar por nome…"></div>
+    <button class="btn-clear" id="cs-f-clear">Limpar filtros</button>
+    <div class="result-count" id="cs-result-count"></div>
+  </div>
+
+  <div class="section-title"><h2>Empresas na carteira</h2></div>
+  <div class="table-wrap" id="cs-table-wrap">
+    <div class="state-box"><div class="spinner"></div><div class="big">Carregando empresas…</div></div>
+  </div>
+
+  <div class="footer-note">
+    Empresa <b>ativada</b> = % de membros com 3 aulas concluídas ≥ limite da empresa (65% se &gt;20 usuários, 60% se ≤20)
+    <b>e</b> data de handoff preenchida até o fim do mês da meta. Empresas em <b>churn</b> entram na base da carteira
+    (denominador) mas não são consideradas ativáveis.
+  </div>
+</div>
+
+<!-- ============================= ABA CX ============================= -->
+<div class="view" id="view-cx">
+
+  <div class="kpi-row" id="cx-kpis">
+    <div class="state-box"><div class="spinner"></div><div class="big">Calculando indicadores…</div></div>
+  </div>
+
+  <div class="filters">
+    <div class="f-group"><label>CX</label><div id="cx-f-analista"></div></div>
+    <div class="f-group"><label>Mês da meta</label><div id="cx-f-meta"></div></div>
+    <div class="f-group"><label>Status</label><div id="cx-f-status"></div></div>
+    <div class="f-group"><label>CS</label><div id="cx-f-cs"></div></div>
+    <div class="f-group grow"><label>Empresa</label><input type="text" class="f-input" id="cx-f-empresa" placeholder="Buscar por empresa…"></div>
+    <div class="f-group grow"><label>E-mail do membro</label><input type="text" class="f-input" id="cx-f-email" placeholder="Buscar por e-mail…"></div>
+    <button class="btn-clear" id="cx-f-clear">Limpar filtros</button>
+    <div class="result-count" id="cx-result-count"></div>
+  </div>
+
+  <div class="section-title"><h2>Membros agrupados por empresa</h2></div>
+  <div class="table-wrap" id="cx-table-wrap">
+    <div class="state-box"><div class="spinner"></div><div class="big">Carregando membros…</div></div>
+  </div>
+
+  <div class="footer-note">
+    Membro <b>ativado</b> = 3 aulas concluídas (100%) até o fim do mês da meta. <b>Alerta</b> = nenhum registro em
+    consumo. <b>Desengajado</b> = última aula assistida há mais de 30 dias. Empresas marcadas como <b>Ongoing</b>
+    não estão na base de carteira do CS — são clientes já em fase de ongoing.
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
