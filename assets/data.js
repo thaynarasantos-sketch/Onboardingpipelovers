@@ -88,7 +88,10 @@ function csTargetPct(csName) {
 /* ---------------------------- CSV loading ------------------------------- */
 
 function fetchCSV(path) {
-  return fetch(path, { cache: "no-store" }).then((res) => {
+  // cache-busting: garante que o navegador e a CDN do GitHub Pages nunca sirvam
+  // uma cópia antiga do CSV depois de uma atualização de dados.
+  const bustedPath = `${path}?v=${Date.now()}`;
+  return fetch(bustedPath, { cache: "no-store" }).then((res) => {
     if (!res.ok) throw new Error(`Não foi possível carregar ${path} (HTTP ${res.status})`);
     return res.text();
   }).then((text) => {
