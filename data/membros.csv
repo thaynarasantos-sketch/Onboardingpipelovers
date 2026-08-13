@@ -1,27 +1,216 @@
 Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócios,Analista Onboarding,Data de Onboarding
-30/06/2026,Star Diesel,Nilson,nilsonank@gmail.com,Mariana Vieira,Mariana Vieira,
-30/06/2026,Star Diesel,Bárbara,barbara@stardieselservicos.com.br,Mariana Vieira,Mariana Vieira,
-30/06/2026,Star Diesel,Thaylon,recepcao@stardieselservicos.com.br,Mariana Vieira,Mariana Vieira,28/07/2026
-30/06/2026,Carioli Engenharia,Rafael Ribas de Lima,rafaelribas@carioliengenharia.com.br,João Fabrício,João Fabrício,10/07/2026
-30/06/2026,Carioli Engenharia,José Henrique Gonçalves de Campos,josehenrique@carioliengenharia.com.br,João Fabrício,João Fabrício,15/07/2026
-30/06/2026,Marco Andrade,Marco Andrade,comercial@carioliengenharia.com.br,João Fabrício,João Fabrício,13/07/2026
-26/06/2026,PTA Rental,LUAN AUGUSTO,luan.machado@ptarental.com.br,Mariana Vieira,Mariana Vieira,06/07/2026
-26/06/2026,PTA Rental,DENO GONÇALVES,deno.goncalves@ptarental.com.br,Mariana Vieira,Mariana Vieira,02/07/2026
-26/06/2026,PTA Rental,FABIO SAVE,fabio.amaral@ptarental.com.br,Mariana Vieira,Mariana Vieira,03/07/2026
-26/06/2026,PTA Rental,ALEXANDRE WAGNER,alexandre.wagner@ptarental.com.br,Mariana Vieira,Mariana Vieira,06/07/2026
-26/06/2026,PTA Rental,ADEILTON SANTOS,adeilton.santos@ptarental.com.br,Mariana Vieira,Mariana Vieira,23/07/2026
-26/06/2026,PTA Rental,MATHEUS MACIEL,matheus.maciel@ptarental.com.br,Mariana Vieira,Mariana Vieira,02/07/2026
-26/06/2026,PTA Rental,MARCUS VINICIUS KOJIMA,marcus.kojima@ptarental.com.br,Mariana Vieira,Mariana Vieira,13/07/2026
-26/06/2026,PTA Rental,MARA CRISTINA,mara.cristina@ptarental.com.br,Mariana Vieira,Mariana Vieira,06/07/2026
-26/06/2026,PTA Rental,CRISTINA RODRIGUES,cristina.rodrigues@ptarental.com.br,Mariana Vieira,Mariana Vieira,08/07/2026
-26/06/2026,PTA Rental,DANIELA FERNANDES,daniela.fernandes@ptarental.com.br,Mariana Vieira,Mariana Vieira,07/07/2026
-26/06/2026,PTA Rental,BRENNDA RIBEIRO,brennda.ribeiro@ptarental.com.br,Mariana Vieira,Mariana Vieira,04/08/2026
-26/06/2026,PTA Rental,AMANDA CAMELO CASTRO AQUINO,amanda.castro@ptarental.com.br,Mariana Vieira,Mariana Vieira,
-26/06/2026,PTA Rental,DIEGO SANTOS,diego.santos@ptarental.com.br,Mariana Vieira,Mariana Vieira,07/07/2026
-26/06/2026,PTA Rental,VIVIANE SODRE,viviane.sodre@ptarental.com.br,Mariana Vieira,Mariana Vieira,13/07/2026
-26/06/2026,PTA Rental,TATIANE MERCEDES,tatiane.mercedes@ptarental.com.br,Mariana Vieira,Mariana Vieira,24/07/2026
-26/06/2026,PTA Rental,DIANGELIS ALVES,diangelis.alves@ptarental.com.br,Mariana Vieira,Mariana Vieira,06/07/2026
-26/06/2026,PTA Rental,DOUGLAS SAMORINHA,douglas.santos@ptarental.com.br,Mariana Vieira,Mariana Vieira,08/07/2026
+01/06/2026,Just Travel,Henrique Dias,henrique.dias@justtraveltour.com,Mariana Vieira,Mariana Vieira,
+02/06/2026,Tecnogera,JANAINA DA SILVA,janaina.silva@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
+02/06/2026,Bluefields,Roberto Tsukino,roberto@bluefieldsdev.com,Anne Siqueira,Anne Siqueira,17/06/2026
+02/06/2026,Bluefields,Laura,laura@bluefieldsdev.com,Anne Siqueira,Anne Siqueira,05/08/2026
+03/06/2026,Gleebem,CRISLAINE DOS SANTOS VITORINO,crislaine.vitorino@gleebem.com.br,Mariana Vieira,Mariana Vieira,22/07/2026
+03/06/2026,Gleebem,REBECA SANTANA DE ANDRADE,rebeca.andrade@gleebem.com.br,Mariana Vieira,Mariana Vieira,25/06/2026
+03/06/2026,Gleebem,Ana Luiza Almeida Trindade,ana.trindade@gleebem.com.br,Mariana Vieira,Mariana Vieira,26/06/2026
+03/06/2026,Gleebem,ICARO DOS SANTOS RAMOS,icaro.ramos@gleebem.com.br,Thabata Harumi,Mariana Vieira,09/06/2026
+03/06/2026,Gleebem,Vanessa Conceição Nascimento,vanessa.nascimento@gleebem.com.br,Mariana Vieira,Mariana Vieira,25/06/2026
+03/06/2026,Gleebem,RODRIGO SANTANA CHAVES,rodrigo.chaves@gleebem.com.br,Mariana Vieira,Mariana Vieira,
+03/06/2026,Gleebem,ANDRE LUIZ DOS SANTOS,andre.santos@gleebem.com.br,Mariana Vieira,Mariana Vieira,22/06/2026
+03/06/2026,Gleebem,EDSON HENRIQUE ALVES DE LIMA,henrique@gleebem.com.br,Mariana Vieira,Mariana Vieira,31/05/2026
+03/06/2026,Gleebem,MARIA ANGÉLICA LIMA MENEZES,angelica.menezes@gleebem.com.br,Mariana Vieira,Mariana Vieira,
+03/06/2026,BOA DIGITAL,Ricardo Melgar Silva,ricardo.gsilva@boadigital.com.br,Anne Siqueira,Anne Siqueira,05/08/2026
+03/06/2026,BOA DIGITAL,Michele de Souza,michele.souza@boadigital.com.br,Anne Siqueira,Anne Siqueira,05/08/2026
+05/06/2026,Ultrafitas,CHURN - Pedro Pigatti,pedro4742@gmail.com,Thaynara Santos,Mariana Vieira,
+05/06/2026,Ultrafitas,CHURN - David Capital,ultrafitas.mkt@gmail.com,Thaynara Santos,Mariana Vieira,
+08/06/2026,Tecnogera,Danielle Baptista,danielle.baptista@tecnogera.com.br,João Fabrício,João Fabrício,08/06/2026
+08/06/2026,Eaí,Manoel Moura,manoel.moura@eai.net.br,Mariana Vieira,Mariana Vieira,
+08/06/2026,Eaí,Josiane Lippert,josiane.lippert@eai.net.br,Mariana Vieira,Mariana Vieira,23/06/2026
+08/06/2026,B2C,B2C - Priscilla Bonfim,priscillabonfimsantos@gmail.com,Mariana Vieira,Mariana Vieira,
+09/06/2026,PagUtil,CHURN - Deborah Araujo,deborah.araujo@pagutil.com.br,Thaynara Santos,Mariana Vieira,
+10/06/2026,NewSoft,Carla,tecnica@newsoft.etc.br,Anne Siqueira,Anne Siqueira,14/07/2026
+10/06/2026,Melbourne Engenharia,Rafael Imperial,rafael@melbourneengenharia.com.br,Anne Siqueira,Anne Siqueira,01/07/2026
+10/06/2026,Melbourne Engenharia,Lucas Barbosa,barbosa@melbourneengenharia.com.br,Anne Siqueira,Anne Siqueira,22/06/2026
+10/06/2026,Melbourne Engenharia,Nadson Souza de Jesus,nadson.melbourne@gmail.com,Anne Siqueira,Anne Siqueira,10/07/2026
+10/06/2026,Just Travel,Alanys Dantas,alanys.dantas@justtraveltour.com,Mariana Vieira,Mariana Vieira,03/07/2026
+10/06/2026,Just Travel,Romeu Nogueira,romeu.nogueira@justtraveltour.com,João Fabrício,João Fabrício,29/06/2026
+10/06/2026,Grupo Vocical,Carlos Boiate Jr,gerencia.jacical@grupovocical.com.br,Anne Siqueira,Anne Siqueira,02/06/2026
+11/06/2026,M2D Telecom,Talisson Alves,talissonalves972@gmail.com,Mariana Vieira,Mariana Vieira,
+11/06/2026,M2D Telecom,Gabriela Oliveira,gabrielam2dtelecom@gmail.com,Mariana Vieira,Mariana Vieira,24/06/2026
+12/06/2026,Just Travel,Beatriz Oliveira,beatriz.oliveira@justtraveltour.com,Anne Siqueira,Anne Siqueira,30/07/2026
+12/06/2026,Just Travel,Rebeca Barbosa,rebeca.barbosa@justtraveltour.com,Mariana Vieira,Mariana Vieira,29/06/2026
+13/06/2026,Just Travel,Pedro Fiuza,pedro.fiuza@justtraveltour.com,Mariana Vieira,Mariana Vieira,13/07/2026
+13/06/2026,CEM,Bianca Marengoni,bianca.fisio12@gmail.com,Mariana Vieira,Mariana Vieira,
+13/06/2026,CEM,Matheus Urquiza,matheusdj53@gmail.com,Mariana Vieira,Mariana Vieira,12/08/2026
+13/06/2026,CEM,Gabrielle Soares,soaresgabrielle88@gmail.com,Mariana Vieira,Mariana Vieira,
+13/06/2026,CEM,Luana Antunes,luana.antunes94@gmail.com,Mariana Vieira,Mariana Vieira,22/06/2026
+13/06/2026,CEM,Josiane Leão,josileao13@gmail.com,Mariana Vieira,Mariana Vieira,
+13/06/2026,CEM,Thiago Alves,thiago.alvesnascimento14@hotmail.com,Mariana Vieira,Mariana Vieira,
+13/06/2026,CEM,Lais Kuster,laiskuster@hotmail.com,Mariana Vieira,Mariana Vieira,08/06/2026
+14/06/2026,CEM,INATIVO - Kelly Ferreira,kellygomesferreira528@gmail.com,Thabata Harumi,Mariana Vieira,03/07/2026
+16/06/2026,Voip do Brasil,Analu Novelli,analunovelli@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,26/06/2026
+16/06/2026,Voip do Brasil,Caroline Andrade,caroline@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,01/07/2026
+16/06/2026,Voip do Brasil,Izabel Cristina,izabel.cristina@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,17/07/2026
+16/06/2026,Voip do Brasil,Thais Stefani,stefani@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,29/06/2026
+16/06/2026,Voip do Brasil,Aline Ferraciolli,aline@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,26/06/2026
+16/06/2026,Voip do Brasil,Carlos Eduardo,carlos.eduardo@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,25/06/2026
+16/06/2026,Voip do Brasil,Tamires Santos,tamires.santos@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,24/06/2026
+16/06/2026,Voip do Brasil,Edson Ribeiro,edson.ribeiro@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,30/06/2026
+16/06/2026,Tecnogera,Vinicius Mello,vinicius.mello@tecnogera.com.br,João Fabrício,João Fabrício,
+16/06/2026,Tecnogera,Daiane Santana,daiane.santana@tecnogera.com.br,João Fabrício,João Fabrício,
+16/06/2026,Tecnogera,David Araki,david.araki@tecnogera.com.br,João Fabrício,João Fabrício,02/07/2026
+16/06/2026,Melbourne Engenharia,CHURN - Eurico Francisco,vendas1.melbourne@gmail.com,Thaynara Santos,Anne Siqueira,
+16/06/2026,Max Protection,Gabriel Azevedo,gabriel.azevedo@maxprotection.com.br,Anne Siqueira,Anne Siqueira,22/07/2026
+16/06/2026,Max Protection,Willian Cunha,willian.cunha@maxprotection.com.br,Anne Siqueira,Anne Siqueira,23/06/2026
+16/06/2026,Max Protection,Daian Feldens,daian@maxprotection.com.br,Anne Siqueira,Anne Siqueira,22/07/2026
+16/06/2026,Max Protection,Nycolas Santos,nycolas.santos@maxprotection.com.br,Anne Siqueira,Anne Siqueira,18/06/2026
+16/06/2026,Max Protection,Danielle Dusi,danielle@maxprotection.com.br,Anne Siqueira,Anne Siqueira,24/06/2026
+16/06/2026,Max Protection,Alessandro Nuñez,alessandro.nunez@maxprotection.com.br,Anne Siqueira,Anne Siqueira,19/06/2026
+16/06/2026,Max Protection,Bruno Gottardi,bruno@maxprotection.com.br,Anne Siqueira,Anne Siqueira,22/06/2026
+16/06/2026,LEMA,Ariadne Maciel,ariadne@lemaef.com.br,João Fabrício,João Fabrício,19/06/2026
+16/06/2026,LEMA,Daniele Carvalho,daniele@lemaef.com.br,João Fabrício,João Fabrício,23/06/2026
+16/06/2026,LEMA,Vitor Leitão,vitor@lemaef.com.br,João Fabrício,João Fabrício,13/07/2026
+16/06/2026,LEMA,Gil Pereira,gil@lemaef.com.br,João Fabrício,João Fabrício,25/06/2026
+16/06/2026,LEMA,Rodolpho Malafaia,rodolpho@lemaef.com.br,João Fabrício,João Fabrício,23/06/2026
+16/06/2026,LEMA,Fernanda Fioreli,fernanda@lemaef.com.br,João Fabrício,João Fabrício,24/06/2026
+16/06/2026,LEMA,Marcela Silva,marcela@lemaef.com.br,João Fabrício,João Fabrício,30/07/2026
+16/06/2026,LEMA,Vitor Hugo Cruz,vitorhugo@lemaef.com.br,João Fabrício,João Fabrício,26/06/2026
+16/06/2026,LEMA,Rodrigo Guimarães,rodrigo@lemaef.com.br,João Fabrício,João Fabrício,02/07/2026
+16/06/2026,LEMA,Gustavo Leite,gustavo@lemaef.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,Suzanne Silva,suzanne.silva@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,FERNANDA DA SILVA RIBEIRO,fernanda.ribeiro@falavinha.com.br,João Fabrício,João Fabrício,20/07/2026
+16/06/2026,Falavinha Next,ROGER DE SOUSA FERNANDES,roger.fernandes@falavinha.com.br,João Fabrício,João Fabrício,17/06/2026
+16/06/2026,Falavinha Next,TASSIO VINICIUS DALA ROSA LEITE,tassio.leite@falavinha.com.br,João Fabrício,João Fabrício,14/07/2026
+16/06/2026,Falavinha Next,THAYANA MADALENA RAMOS,thayana.ramos@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,PATRICIA BARBOSA,patricia.barbosa@falavinha.com.br,João Fabrício,João Fabrício,19/06/2026
+16/06/2026,Falavinha Next,CASSIANO ALMEIDA,cassiano.almeida@falavinha.com.br,João Fabrício,João Fabrício,07/07/2026
+16/06/2026,Falavinha Next,ROSANA APARECIDA BRAGA,rosana.braga@falavinha.com.br,João Fabrício,João Fabrício,03/07/2026
+16/06/2026,Falavinha Next,KETHILIN BARBOZA,kethelin.barboza@falavinha.com.br,João Fabrício,João Fabrício,18/06/2026
+16/06/2026,Falavinha Next,NELSON SOUZA,nelson.souza@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,KAROLYNE GLUSZCZYNSKI,Karolyne.gluszczynski@falavinha.com.br,João Fabrício,João Fabrício,24/06/2026
+16/06/2026,Falavinha Next,MAIRA CAROLINE OLIVEIRA,maira.oliveira@falavinha.com.br,João Fabrício,João Fabrício,17/06/2026
+16/06/2026,Falavinha Next,JHENIFFER QUADROS,jheniffer.quadros@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,RAFAELA LETTNIN,rafaela.venske@falavinha.com.br,João Fabrício,João Fabrício,18/06/2026
+16/06/2026,Falavinha Next,CAMILA MORAIS CAMILA MORAIS,camila.morais@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,SARAH BETELLI,sarah.betelli@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,EMANOELA SACRAMENTO,emanoele.batista@falavinha.com.br,João Fabrício,João Fabrício,08/07/2026
+16/06/2026,Falavinha Next,KEVILLY OLIVEIRA,kevilly.oliveira@falavinha.com.br,João Fabrício,João Fabrício,06/07/2026
+16/06/2026,Falavinha Next,ARTUR BUSETTI,artur.busetti@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,THAIS ANISIA GUIMARAES OLIVIERA,thais.oliveira@falavinha.com.br,João Fabrício,João Fabrício,20/07/2026
+16/06/2026,Falavinha Next,DANILO CEZAR BEDRETCHUK,danilo@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,MARIA EDUARDA PEREIRA,maria.pereira@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,MURILO TORRES,murillo.torres@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,WILLIAM EDWARD BOND,william.bond@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,KAILAINY VANESSA SOUZA DE LIMA,kailainy.lima@falavinha.com.br,João Fabrício,João Fabrício,
+16/06/2026,Falavinha Next,Henrique Silva,henrique.silva@falavinha.com.br,Thabata Harumi,João Fabrício,
+16/06/2026,Falavinha Next,Vinicius Macedo,vinicius.macedo@falavinha.com.br,João Fabrício,João Fabrício,15/06/2026
+16/06/2026,Falavinha Next,Bruno Lobo,bruno.lobo@falavinha.com.br,João Fabrício,João Fabrício,15/06/2026
+16/06/2026,BBM Logistica S.A,MARISTELA GARCIA,maristela.garcia@dialogologistica.com.br,Mariana Vieira,Mariana Vieira,01/07/2026
+16/06/2026,Armando Pneus,Dâmala Neves de Sá,damalaneves@yahoo.com.br,Anne Siqueira,Anne Siqueira,17/06/2026
+16/06/2026,Armando Pneus,FELIPE CHAGAS ARAUJO,felipe.chagas.araujo08@gmail.com,Anne Siqueira,Anne Siqueira,02/07/2026
+16/06/2026,Armando Pneus,LUAN MARTINI MOTHE HOINHAS,luanmartini0018@outlook.com,Anne Siqueira,Anne Siqueira,02/07/2026
+16/06/2026,Armando Pneus,LIDIANA DA SILVA BERTOQUI GOMES,lidianabertoqui@hotmail.com,Anne Siqueira,Anne Siqueira,26/06/2026
+16/06/2026,Armando Pneus,RAQUEL DOS SANTOS SOUZA,raxsouza@hotmail.com,João Fabrício,João Fabrício,08/07/2026
+16/06/2026,Armando Pneus,IAGO GERMANO ALMEIDA,iagogermano48@gmail.com,João Fabrício,João Fabrício,06/08/2026
+16/06/2026,Armando Pneus,ROGERIO LUIZ DAROS,geldaros@gmail.com,Anne Siqueira,Anne Siqueira,22/06/2026
+16/06/2026,Armando Pneus,GABRIEL ALMEIDA SALORDANE,gabrielasalordane2702@gmail.com,Anne Siqueira,Anne Siqueira,16/07/2026
+16/06/2026,Armando Pneus,MARCIA RIBEIRO DOS SANTOS FABIANO,marcia.rsfabiano123@gmail.com,Anne Siqueira,Anne Siqueira,02/07/2026
+16/06/2026,Armando Pneus,JOAO VITOR RODRIGUES GOMES PRIMO,jvrodriguesgp11@gmail.com,Anne Siqueira,Anne Siqueira,22/06/2026
+16/06/2026,Armando Pneus,FELIPE CORREA DA SILVA,felipe.batista01c@gmail.com,Anne Siqueira,Anne Siqueira,16/06/2026
+16/06/2026,Armando Pneus,FELIPE TEIXEIRA DA COSTA,teixeirafelipecosta@gmail.com,Anne Siqueira,Anne Siqueira,22/07/2026
+16/06/2026,Armando Pneus,YURI SILVA AZEVEDO,yurisilvaazevedo10@gmail.com,Anne Siqueira,Anne Siqueira,01/07/2026
+16/06/2026,AF Mkt,João Raphael,joaoraphael.hnd@gmail.com,Mariana Vieira,Mariana Vieira,22/06/2026
+16/06/2026,AF Mkt,Jackeline Graça,jackeline51@gmail.com,Mariana Vieira,Mariana Vieira,22/06/2026
+16/06/2026,Tecnogera,Camila Fedelis,camila.fedelis@tecnogera.com.br,João Fabrício,João Fabrício,
+17/06/2026,Veritas saúde animal,Jeison Lima,Jeysonliimaa@gmail.com,Mariana Vieira,Mariana Vieira,22/06/2026
+17/06/2026,Veritas saúde animal,Eduardo Dias,Eduardo.fdsdias@gmail.com,Mariana Vieira,Mariana Vieira,25/06/2026
+17/06/2026,Veritas saúde animal,Daniel Freitas,danielfreitaspirangibe1@gmail.com,Mariana Vieira,Mariana Vieira,23/06/2026
+17/06/2026,Tecnogera,Micaele Silva,micaele.silva@tecnogera.com.br,João Fabrício,João Fabrício,02/07/2026
+17/06/2026,Londrilimp,Murilo Pita,murilo@casadalimpeza.com.br,Mariana Vieira,Mariana Vieira,
+17/06/2026,Localize Digital LTDA,Taila,taila@ldlocal.com.br,Mariana Vieira,Mariana Vieira,
+18/06/2026,Tecnogera,Jessica Silva,jessica.silva@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
+18/06/2026,S2M Consultoria,Renata Martins,renata.martins@s2m.com.br,Mariana Vieira,Mariana Vieira,29/06/2026
+18/06/2026,Rvops,Talissa	Leal,talissa@rvops.com,João Fabrício,João Fabrício,15/07/2026
+18/06/2026,Rvops,Gabriel Risso,g.risso@rvops.com,João Fabrício,João Fabrício,13/07/2026
+18/06/2026,MAIS SAÚDE,Helida,helida@maissaudeplanos.com,Mariana Vieira,Mariana Vieira,
+18/06/2026,Checklist Fácil,Leticia Tiburcio Pereira,leticia.pereira@starian.com,João Fabrício,João Fabrício,30/06/2026
+18/06/2026,agência DM pixels,Marcela Campos,marcelabeatriz2108@gmail.com,Mariana Vieira,Mariana Vieira,26/06/2026
+18/06/2026,Rvops,Gabrielle Lucena,gabrielle@rvops.com,João Fabrício,João Fabrício,
+18/06/2026,Rvops,Roger Violi,roger@nelsys.com.br,João Fabrício,João Fabrício,
+19/06/2026,Teruya Ferramentas,Giovanna Batista,giovanna.batista@teruya.com.br,Mariana Vieira,Mariana Vieira,
+19/06/2026,Tecnogera,Bruno Calazans,bruno.calazans@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
+19/06/2026,Tecnogera,Nilton Silva,nilton.silva@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
+19/06/2026,Tecnogera,Jaqueline Molina,jaqueline.molina@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
+19/06/2026,Tecnogera,Fabio Vasconcelos,fabio.vasconcelos@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
+19/06/2026,SalesHunter,Pedro Henrique,pedro.henrique@saleshunter.ai,Thaynara Santos,Mariana Vieira,02/07/2026
+19/06/2026,SalesHunter,Lorena,lorena.costa@saleshunter.ai,Thaynara Santos,Mariana Vieira,16/07/2026
+19/06/2026,SalesHunter,Maria Eduarda Linhares,maria.eduarda@saleshunter.ai,Mariana Vieira,Mariana Vieira,03/07/2026
+19/06/2026,Omni Ribeirão Preto,Pablo,comercial.rp@omniassessoria.com.br,Mariana Vieira,Mariana Vieira,
+19/06/2026,Omni Ribeirão Preto,Julia Victoria,julia.victoria@omniassessoria.com.br,Mariana Vieira,Mariana Vieira,15/07/2026
+19/06/2026,Omni Ribeirão Preto,Eduardo Fonseca,eduardo.fonseca@omniassessoria.com.br,Mariana Vieira,Mariana Vieira,
+19/06/2026,Mantomac,André	Fernandes,andre.fernandes@mantomac.com.br,Mariana Vieira,Mariana Vieira,31/07/2026
+19/06/2026,Mantomac,Marcos Galdino,marcos.galdino@mantomac.com.br,Mariana Vieira,Mariana Vieira,
+19/06/2026,Mantomac,Robson Nunes,robson.nunes@mantomac.com.br,Mariana Vieira,Mariana Vieira,
+19/06/2026,Mantomac,Juliano Gonçalves,juliano@mantomac.com.br,Mariana Vieira,Mariana Vieira,14/07/2026
+19/06/2026,Mantomac,Valdir Correa,valdir.correa@mantomac.com.br,Mariana Vieira,Mariana Vieira,
+19/06/2026,Mantomac,Bruno Decol,bruno.decol@mantomac.com.br,Mariana Vieira,Mariana Vieira,07/07/2026
+19/06/2026,Mantomac,Paulo Rech,paulo.rech@mantomac.com.br,Mariana Vieira,Mariana Vieira,17/07/2026
+19/06/2026,Mantomac,Victor Malheiro,victor.malheiro@mantomac.com.br,Mariana Vieira,Mariana Vieira,
+19/06/2026,Mantomac,Pedro Zanella,pedro.zanela@mantomac.com.br,Mariana Vieira,Mariana Vieira,20/07/2026
+19/06/2026,Mantomac,Elizandro Cominetti,elizandro@mantomac.com.br,Mariana Vieira,Mariana Vieira,10/07/2026
+19/06/2026,Mantomac,Andreia Antunes Machado,adm1.equipamentos@mantomac.com.br,Mariana Vieira,Mariana Vieira,
+19/06/2026,Mantomac,Davi Bohnen,davi.antonio@mantomac.com.br,Mariana Vieira,Mariana Vieira,13/07/2026
+19/06/2026,Mantomac,Adélcio Moratelli,adelcio@mantomac.com.br,Mariana Vieira,Mariana Vieira,17/07/2026
+19/06/2026,Mantomac,Luiz Fernando Rech,rech@mantomac.com.br,Mariana Vieira,Mariana Vieira,10/07/2026
+19/06/2026,Mantomac,Francois Lara,francois.machado@mantomac.com.br,Mariana Vieira,Mariana Vieira,
+19/06/2026,Mantomac,Elonir Malheiro,elonir@mantomac.com.br,Mariana Vieira,Mariana Vieira,
+19/06/2026,Grupo Skill,Isabela Silva,isabela.silva@gruposkill.com.brr,Mariana Vieira,Mariana Vieira,15/07/2026
+19/06/2026,Grupo Skill,Daniela Santana,daniela.santana@gruposkill.com.br,Mariana Vieira,Mariana Vieira,29/06/2026
+19/06/2026,Databem,Guilherme Perdigão,gpbenvenuti@hotmail.com,João Fabrício,João Fabrício,
+21/06/2026,Caelimp,Regiane dias,comercial@caelimp.com.br,Mariana Vieira,Mariana Vieira,
+21/06/2026,Caelimp,tais araujo,taisaraujo@caelimp.com.br,Mariana Vieira,Mariana Vieira,03/07/2026
+22/06/2026,Just Travel,Pedro Mascarenhas,pedro.mascarenhas@justtraveltour.com,Mariana Vieira,Mariana Vieira,
+22/06/2026,BMC Hyundai,Matheus Miquelasso,matheus.miquelasso@bmchyundai.com.br,João Fabrício,João Fabrício,22/06/2026
+22/06/2026,Ayo entregas,Thais Cândido,thais@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
+22/06/2026,Ayo entregas,Bruna Gomes,bruna.gomes@ayoapp.com.br,Mariana Vieira,Mariana Vieira,03/07/2026
+22/06/2026,Ayo entregas,Janderson Barbosa,janderson@ayoapp.com.br,Mariana Vieira,Mariana Vieira,15/06/2026
+22/06/2026,Ayo entregas,Nikson Guilherme,nikson.guilherme@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
+22/06/2026,Ayo entregas,Wendell Rosa Krueger,wendell@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
+22/06/2026,Ayo entregas,Nerisney Lucena,nerisney@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
+22/06/2026,Ayo entregas,Sarah Caroline,sarah.caroline@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
+22/06/2026,Ayo entregas,Karen Gabriele Santos Souza,karen.gabriele@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
+22/06/2026,Ayo entregas,Jackson Kennedy José de Luna,jackson.kennedy@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
+22/06/2026,Ayo entregas,Raquel Aniello,raquel.aniello@ayoapp.com.br,Mariana Vieira,Mariana Vieira,21/07/2026
+22/06/2026,Ayo entregas,Paula Manuela,paula@ayoapp.com.br,Mariana Vieira,Mariana Vieira,25/06/2026
+23/06/2026,Engeform Energia,Matheus Ferrari,matheus.ferrari@engeformenergia.com.br,Mariana Vieira,Mariana Vieira,
+23/06/2026,Conta Simples,Alaiane Rocha,alaiane.rocha@contasimples.com,João Fabrício,João Fabrício,
+24/06/2026,Tecnogera,Bruna Pires,bruna.pires@tecnogera.com.br,Mariana Vieira,Mariana Vieira,
+24/06/2026,Armando Pneus,THIAGO SILVA DE OLIVEIRA,thiagotso88@gmail.com,Anne Siqueira,Anne Siqueira,10/06/2026
+25/06/2026,Catho,KAREN CRISTINA SILVA COSTA CRISTINA SILVA COSTA,karen.costa@catho.com,Anne Siqueira,Anne Siqueira,28/07/2026
+25/06/2026,Catho,TATIANE COSTA ROLA COSTA ROLA,tatiane.costa@infojobs.com.br,Anne Siqueira,Anne Siqueira,07/07/2026
+25/06/2026,Catho,MAYARA SALES AUGUSTO SALES AUGUSTO,mayara.augusto@infojobs.com.br,Anne Siqueira,Anne Siqueira,
+25/06/2026,Catho,KARINA PEREIRA DE OLIVEIRA PEREIRA DE OLIVEIRA,karina.pereira@catho.com,Anne Siqueira,Anne Siqueira,
+25/06/2026,Catho,JACQUELINE APARECIDA OSHIKA APARECIDA OSHIKA,jacqueline.oshika@infojobs.com.br,Anne Siqueira,Anne Siqueira,17/07/2026
+25/06/2026,Catho,MARCIA LORENA DE CARVALHO LORENA DE CARVALHO,marcia.carvalho@infojobs.com.br,Anne Siqueira,Anne Siqueira,05/08/2026
+25/06/2026,Catho,DARLANE CARDOZO DA SILVA CARDOZO DA SILVA,darlane.silva@catho.com,Anne Siqueira,Anne Siqueira,
+25/06/2026,Catho,LUCIANA BITENCOURT RANGEL BITENCOURT RANGEL,luciana.rangel@catho.com,Anne Siqueira,Anne Siqueira,15/07/2026
+25/06/2026,Catho,Letícia Santos Santos,leticia.santos@catho.com,Anne Siqueira,Anne Siqueira,31/07/2026
+25/06/2026,Catho,CAMILA CANDIDO CANDIDO,camila.candido@infojobs.com.br,Anne Siqueira,Anne Siqueira,
+25/06/2026,Catho,MARCUS VINICIUS DE ALMEIDA SAMOEL DAVID VINICIUS DE ALMEIDA SAMOEL DAVID,marcus.david@catho.com,Anne Siqueira,Anne Siqueira,
+25/06/2026,Catho,SCARLET DOS SANTOS DE PAULA DOS SANTOS DE PAULA,scarlet.paula@catho.com,Anne Siqueira,Anne Siqueira,
+25/06/2026,Catho,ARIELLY BERNARDINO SILVA BERNARDINO SILVA,arielly.silva@catho.com,Anne Siqueira,Anne Siqueira,13/07/2026
+25/06/2026,Catho,DENFER PAULINA DE OLIVEIRA CARVALHO PAULINA DE OLIVEIRA CARVALHO,denfer.carvalho@catho.com,Anne Siqueira,Anne Siqueira,06/08/2026
+25/06/2026,Catho,SHIRLEY DE LIMA SILVA DE LIMA SILVA,shirley.silva@catho.com,Anne Siqueira,Anne Siqueira,23/07/2026
+25/06/2026,Catho,SIMONE MARIA SILVA DA COSTA MARIA SILVA DA COSTA,simone.costa@catho.com,Anne Siqueira,Anne Siqueira,31/07/2026
+25/06/2026,Catho,EVELLYN PASSOS TAUHYL PASSOS TAUHYL,evellyn.tauhyl@infojobs.com.br,Anne Siqueira,Anne Siqueira,
+25/06/2026,Catho,CLEIDIANA SILVA TARGINO SILVA TARGINO,cleidiana.targino@catho.com,Anne Siqueira,Anne Siqueira,05/08/2026
+25/06/2026,Catho,JESSICA DAIANE DA S OLIVEIRA MENDONCA DAIANE DA S OLIVEIRA MENDONCA,jessica.mendonca@catho.com,Anne Siqueira,Anne Siqueira,20/07/2026
+25/06/2026,Catho,MICHELLE BORGES LOURENCO BORGES LOURENCO,michelle.lourenco@infojobs.com.br,Anne Siqueira,Anne Siqueira,23/06/2026
+25/06/2026,Catho,KARINE SARAIVA ALEXANDRE DE FARIAS SARAIVA ALEXANDRE DE FARIAS,karine.farias@catho.com,Anne Siqueira,Anne Siqueira,05/08/2026
+25/06/2026,Catho,IVONE SILVA OLIVEIRA DOS SANTOS SILVA OLIVEIRA DOS SANTOS,ivone.santos@catho.com,Anne Siqueira,Anne Siqueira,15/07/2026
+25/06/2026,Catho,Patricia Rosa Rosa,patricia.oliveira@catho.com,Anne Siqueira,Anne Siqueira,
+25/06/2026,Catho,HALANA ALONSO FREITAS ALONSO FREITAS,halana.freitas@infojobs.com.br,Anne Siqueira,Anne Siqueira,
+25/06/2026,Catho,THAIS GIMENEZ GODOI GIMENEZ GODOI,thais.godoi@infojobs.com.br,Anne Siqueira,Anne Siqueira,31/07/2026
+25/06/2026,Catho,TATIANA SALINO SALINO,tatiana.salino@catho.com,Anne Siqueira,Anne Siqueira,
+25/06/2026,Catho,ALIENAI VIEIRA DA SILVA VIEIRA DA SILVA,alienai.silva@infojobs.com.br,Anne Siqueira,Anne Siqueira,06/07/2026
+25/06/2026,Catho,IRIS DAIANE XAVIER SILVA DAIANE XAVIER SILVA,iris.xavier@catho.com,Anne Siqueira,Anne Siqueira,
+25/06/2026,ALTAVE,Kassandra Fiuza,kassandra.fiuza@altave.com.br,Mariana Vieira,Mariana Vieira,26/06/2026
+26/06/2026,Tecnogera,Franciney Perdigão,franciney.perdigao@tecnogera.com.br,João Fabrício,João Fabrício,24/06/2026
+26/06/2026,Catho,GRAZIELLE LUANA MACIEL DE ARAUJO LUANA MACIEL DE ARAUJO,grazielle.araujo@infojobs.com.br,Anne Siqueira,Anne Siqueira,29/07/2026
+26/06/2026,Catho,Thomas Araújo,thomas.costa@infojobs.com.br,Anne Siqueira,Anne Siqueira,14/07/2026
 26/06/2026,Catho,EDIANE MACHADO BLANCO CALDEIRA MACHADO BLANCO CALDEIRA,ediane.machado@infojobs.com.br,Anne Siqueira,Anne Siqueira,31/07/2026
 26/06/2026,Catho,MICHELLE CORDEIRO DE AGUIAR CORDEIRO DE AGUIAR,michelle.aguiar@infojobs.com.br,Anne Siqueira,Anne Siqueira,
 26/06/2026,Catho,ANA PAULA SATURNINO DA SILVA FIDELIS PAULA SATURNINO DA SILVA FIDELIS,anapaula.fidelis@infojobs.com.br,Anne Siqueira,Anne Siqueira,
@@ -106,213 +295,449 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 26/06/2026,Catho,JULYA BORTOLO DOS SANTOS BORTOLO DOS SANTOS,julya.santos@infojobs.com.br,Anne Siqueira,Anne Siqueira,06/08/2026
 26/06/2026,Catho,GUSTAVO MESSIAS BACHETTA MESSIAS BACHETTA,gustavo.bachetta@catho.com,Anne Siqueira,Anne Siqueira,06/08/2026
 26/06/2026,Catho,MARIA APARECIDA LIMA DOS SANTOS APARECIDA LIMA DOS SANTOS,maria.santos@infojobs.com.br,Anne Siqueira,Anne Siqueira,27/07/2026
-26/06/2026,Tecnogera,Franciney Perdigão,franciney.perdigao@tecnogera.com.br,João Fabrício,João Fabrício,24/06/2026
-26/06/2026,Armando Pneus,RAFAELA FELICIANO SILVA,rafaelafelicio155@gmail.com,Anne Siqueira,Anne Siqueira,26/06/2026
 26/06/2026,Catho,Fernanda Rangel Rangel,fernanda.rangel@catho.com,Anne Siqueira,Anne Siqueira,14/07/2026
-26/06/2026,Catho,Thomas Araújo,thomas.costa@infojobs.com.br,Anne Siqueira,Anne Siqueira,14/07/2026
-26/06/2026,Catho,GRAZIELLE LUANA MACIEL DE ARAUJO LUANA MACIEL DE ARAUJO,grazielle.araujo@infojobs.com.br,Anne Siqueira,Anne Siqueira,29/07/2026
-25/06/2026,Catho,KAREN CRISTINA SILVA COSTA CRISTINA SILVA COSTA,karen.costa@catho.com,Anne Siqueira,Anne Siqueira,28/07/2026
-25/06/2026,Catho,TATIANE COSTA ROLA COSTA ROLA,tatiane.costa@infojobs.com.br,Anne Siqueira,Anne Siqueira,07/07/2026
-25/06/2026,Catho,MAYARA SALES AUGUSTO SALES AUGUSTO,mayara.augusto@infojobs.com.br,Anne Siqueira,Anne Siqueira,
-25/06/2026,Catho,KARINA PEREIRA DE OLIVEIRA PEREIRA DE OLIVEIRA,karina.pereira@catho.com,Anne Siqueira,Anne Siqueira,
-25/06/2026,Catho,JACQUELINE APARECIDA OSHIKA APARECIDA OSHIKA,jacqueline.oshika@infojobs.com.br,Anne Siqueira,Anne Siqueira,17/07/2026
-25/06/2026,Catho,MARCIA LORENA DE CARVALHO LORENA DE CARVALHO,marcia.carvalho@infojobs.com.br,Anne Siqueira,Anne Siqueira,05/08/2026
-25/06/2026,Catho,DARLANE CARDOZO DA SILVA CARDOZO DA SILVA,darlane.silva@catho.com,Anne Siqueira,Anne Siqueira,
-25/06/2026,Catho,LUCIANA BITENCOURT RANGEL BITENCOURT RANGEL,luciana.rangel@catho.com,Anne Siqueira,Anne Siqueira,15/07/2026
-25/06/2026,Catho,Letícia Santos Santos,leticia.santos@catho.com,Anne Siqueira,Anne Siqueira,31/07/2026
-25/06/2026,Catho,CAMILA CANDIDO CANDIDO,camila.candido@infojobs.com.br,Anne Siqueira,Anne Siqueira,
-25/06/2026,ALTAVE,Kassandra Fiuza,kassandra.fiuza@altave.com.br,Mariana Vieira,Mariana Vieira,26/06/2026
-25/06/2026,Catho,MARCUS VINICIUS DE ALMEIDA SAMOEL DAVID VINICIUS DE ALMEIDA SAMOEL DAVID,marcus.david@catho.com,Anne Siqueira,Anne Siqueira,
-25/06/2026,Catho,SCARLET DOS SANTOS DE PAULA DOS SANTOS DE PAULA,scarlet.paula@catho.com,Anne Siqueira,Anne Siqueira,
-25/06/2026,Catho,ARIELLY BERNARDINO SILVA BERNARDINO SILVA,arielly.silva@catho.com,Anne Siqueira,Anne Siqueira,13/07/2026
-25/06/2026,Catho,DENFER PAULINA DE OLIVEIRA CARVALHO PAULINA DE OLIVEIRA CARVALHO,denfer.carvalho@catho.com,Anne Siqueira,Anne Siqueira,06/08/2026
-25/06/2026,Catho,SHIRLEY DE LIMA SILVA DE LIMA SILVA,shirley.silva@catho.com,Anne Siqueira,Anne Siqueira,23/07/2026
-25/06/2026,Catho,SIMONE MARIA SILVA DA COSTA MARIA SILVA DA COSTA,simone.costa@catho.com,Anne Siqueira,Anne Siqueira,31/07/2026
-25/06/2026,Catho,EVELLYN PASSOS TAUHYL PASSOS TAUHYL,evellyn.tauhyl@infojobs.com.br,Anne Siqueira,Anne Siqueira,
-25/06/2026,Catho,CLEIDIANA SILVA TARGINO SILVA TARGINO,cleidiana.targino@catho.com,Anne Siqueira,Anne Siqueira,05/08/2026
-25/06/2026,Catho,JESSICA DAIANE DA S OLIVEIRA MENDONCA DAIANE DA S OLIVEIRA MENDONCA,jessica.mendonca@catho.com,Anne Siqueira,Anne Siqueira,20/07/2026
-25/06/2026,Catho,MICHELLE BORGES LOURENCO BORGES LOURENCO,michelle.lourenco@infojobs.com.br,Anne Siqueira,Anne Siqueira,23/06/2026
-25/06/2026,Catho,KARINE SARAIVA ALEXANDRE DE FARIAS SARAIVA ALEXANDRE DE FARIAS,karine.farias@catho.com,Anne Siqueira,Anne Siqueira,05/08/2026
-25/06/2026,Catho,IVONE SILVA OLIVEIRA DOS SANTOS SILVA OLIVEIRA DOS SANTOS,ivone.santos@catho.com,Anne Siqueira,Anne Siqueira,15/07/2026
-25/06/2026,Catho,Patricia Rosa Rosa,patricia.oliveira@catho.com,Anne Siqueira,Anne Siqueira,
-25/06/2026,Catho,HALANA ALONSO FREITAS ALONSO FREITAS,halana.freitas@infojobs.com.br,Anne Siqueira,Anne Siqueira,
-25/06/2026,Catho,THAIS GIMENEZ GODOI GIMENEZ GODOI,thais.godoi@infojobs.com.br,Anne Siqueira,Anne Siqueira,31/07/2026
-25/06/2026,Catho,TATIANA SALINO SALINO,tatiana.salino@catho.com,Anne Siqueira,Anne Siqueira,
-25/06/2026,Catho,ALIENAI VIEIRA DA SILVA VIEIRA DA SILVA,alienai.silva@infojobs.com.br,Anne Siqueira,Anne Siqueira,06/07/2026
-25/06/2026,Catho,IRIS DAIANE XAVIER SILVA DAIANE XAVIER SILVA,iris.xavier@catho.com,Anne Siqueira,Anne Siqueira,
-24/06/2026,Tecnogera,Bruna Pires,bruna.pires@tecnogera.com.br,Mariana Vieira,Mariana Vieira,
-24/06/2026,Armando Pneus,THIAGO SILVA DE OLIVEIRA,thiagotso88@gmail.com,Anne Siqueira,Anne Siqueira,10/06/2026
-23/06/2026,Engeform Energia,Matheus Ferrari,matheus.ferrari@engeformenergia.com.br,Mariana Vieira,Mariana Vieira,
-23/06/2026,Conta Simples,Alaiane Rocha,alaiane.rocha@contasimples.com,João Fabrício,João Fabrício,
-22/06/2026,BMC Hyundai,Matheus Miquelasso,matheus.miquelasso@bmchyundai.com.br,João Fabrício,João Fabrício,22/06/2026
-22/06/2026,Ayo entregas,Thais Cândido,thais@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
-22/06/2026,Ayo entregas,Bruna Gomes,bruna.gomes@ayoapp.com.br,Mariana Vieira,Mariana Vieira,03/07/2026
-22/06/2026,Ayo entregas,Janderson Barbosa,janderson@ayoapp.com.br,Mariana Vieira,Mariana Vieira,15/06/2026
-22/06/2026,Ayo entregas,Nikson Guilherme,nikson.guilherme@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
-22/06/2026,Ayo entregas,Wendell Rosa Krueger,wendell@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
-22/06/2026,Ayo entregas,Nerisney Lucena,nerisney@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
-22/06/2026,Ayo entregas,Sarah Caroline,sarah.caroline@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
-22/06/2026,Ayo entregas,Karen Gabriele Santos Souza,karen.gabriele@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
-22/06/2026,Ayo entregas,Jackson Kennedy José de Luna,jackson.kennedy@ayoapp.com.br,Mariana Vieira,Mariana Vieira,
-22/06/2026,Ayo entregas,Raquel Aniello,raquel.aniello@ayoapp.com.br,Mariana Vieira,Mariana Vieira,21/07/2026
-22/06/2026,Ayo entregas,Paula Manuela,paula@ayoapp.com.br,Mariana Vieira,Mariana Vieira,25/06/2026
-22/06/2026,Just Travel,Pedro Mascarenhas,pedro.mascarenhas@justtraveltour.com,Mariana Vieira,Mariana Vieira,
-21/06/2026,Caelimp,Regiane dias,comercial@caelimp.com.br,Mariana Vieira,Mariana Vieira,
-21/06/2026,Caelimp,tais araujo,taisaraujo@caelimp.com.br,Mariana Vieira,Mariana Vieira,03/07/2026
-19/06/2026,Grupo Skill,Isabela Silva,isabela.silva@gruposkill.com.brr,Mariana Vieira,Mariana Vieira,15/07/2026
-19/06/2026,Mantomac,André	Fernandes,andre.fernandes@mantomac.com.br,Mariana Vieira,Mariana Vieira,31/07/2026
-19/06/2026,Mantomac,Marcos Galdino,marcos.galdino@mantomac.com.br,Mariana Vieira,Mariana Vieira,
-19/06/2026,Mantomac,Robson Nunes,robson.nunes@mantomac.com.br,Mariana Vieira,Mariana Vieira,
-19/06/2026,Mantomac,Juliano Gonçalves,juliano@mantomac.com.br,Mariana Vieira,Mariana Vieira,14/07/2026
-19/06/2026,Mantomac,Valdir Correa,valdir.correa@mantomac.com.br,Mariana Vieira,Mariana Vieira,
-19/06/2026,Mantomac,Bruno Decol,bruno.decol@mantomac.com.br,Mariana Vieira,Mariana Vieira,07/07/2026
-19/06/2026,Mantomac,Paulo Rech,paulo.rech@mantomac.com.br,Mariana Vieira,Mariana Vieira,17/07/2026
-19/06/2026,Mantomac,Victor Malheiro,victor.malheiro@mantomac.com.br,Mariana Vieira,Mariana Vieira,
-19/06/2026,Mantomac,Pedro Zanella,pedro.zanela@mantomac.com.br,Mariana Vieira,Mariana Vieira,20/07/2026
-19/06/2026,Mantomac,Elizandro Cominetti,elizandro@mantomac.com.br,Mariana Vieira,Mariana Vieira,10/07/2026
-19/06/2026,Mantomac,Andreia Antunes Machado,adm1.equipamentos@mantomac.com.br,Mariana Vieira,Mariana Vieira,
-19/06/2026,Mantomac,Davi Bohnen,davi.antonio@mantomac.com.br,Mariana Vieira,Mariana Vieira,13/07/2026
-19/06/2026,Mantomac,Adélcio Moratelli,adelcio@mantomac.com.br,Mariana Vieira,Mariana Vieira,17/07/2026
-19/06/2026,Mantomac,Luiz Fernando Rech,rech@mantomac.com.br,Mariana Vieira,Mariana Vieira,10/07/2026
-19/06/2026,Mantomac,Francois Lara,francois.machado@mantomac.com.br,Mariana Vieira,Mariana Vieira,
-19/06/2026,Mantomac,Elonir Malheiro,elonir@mantomac.com.br,Mariana Vieira,Mariana Vieira,
-19/06/2026,Teruya Ferramentas,Giovanna Batista,giovanna.batista@teruya.com.br,Mariana Vieira,Mariana Vieira,
-19/06/2026,Omni Ribeirão Preto,Pablo,comercial.rp@omniassessoria.com.br,Mariana Vieira,Mariana Vieira,
-19/06/2026,Grupo Skill,Daniela Santana,daniela.santana@gruposkill.com.br,Mariana Vieira,Mariana Vieira,29/06/2026
-19/06/2026,SalesHunter,Pedro Henrique,pedro.henrique@saleshunter.ai,Thaynara Santos,Mariana Vieira,02/07/2026
-19/06/2026,Omni Ribeirão Preto,Julia Victoria,julia.victoria@omniassessoria.com.br,Mariana Vieira,Mariana Vieira,15/07/2026
-19/06/2026,Tecnogera,Bruno Calazans,bruno.calazans@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
-19/06/2026,SalesHunter,Lorena,lorena.costa@saleshunter.ai,Thaynara Santos,Mariana Vieira,16/07/2026
-19/06/2026,Tecnogera,Nilton Silva,nilton.silva@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
-19/06/2026,Tecnogera,Jaqueline Molina,jaqueline.molina@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
-19/06/2026,Tecnogera,Fabio Vasconcelos,fabio.vasconcelos@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
-19/06/2026,SalesHunter,Maria Eduarda Linhares,maria.eduarda@saleshunter.ai,Mariana Vieira,Mariana Vieira,03/07/2026
-19/06/2026,Omni Ribeirão Preto,Eduardo Fonseca,eduardo.fonseca@omniassessoria.com.br,Mariana Vieira,Mariana Vieira,
-18/06/2026,Rvops,Gabrielle Lucena,gabrielle@rvops.com,João Fabrício,João Fabrício,
-18/06/2026,Rvops,Talissa	Leal,talissa@rvops.com,João Fabrício,João Fabrício,15/07/2026
-18/06/2026,Rvops,Gabriel Risso,g.risso@rvops.com,João Fabrício,João Fabrício,13/07/2026
-18/06/2026,MAIS SAÚDE,Helida,helida@maissaudeplanos.com,Mariana Vieira,Mariana Vieira,
-18/06/2026,Tecnogera,Jessica Silva,jessica.silva@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
-18/06/2026,agência DM pixels,Marcela Campos,marcelabeatriz2108@gmail.com,Mariana Vieira,Mariana Vieira,26/06/2026
-18/06/2026,S2M Consultoria,Renata Martins,renata.martins@s2m.com.br,Mariana Vieira,Mariana Vieira,29/06/2026
-17/06/2026,Veritas,Jeison Lima,Jeysonliimaa@gmail.com,Mariana Vieira,Mariana Vieira,22/06/2026
-17/06/2026,Veritas,Eduardo Dias,Eduardo.fdsdias@gmail.com,Mariana Vieira,Mariana Vieira,25/06/2026
-17/06/2026,Veritas,Daniel Freitas,danielfreitaspirangibe1@gmail.com,Mariana Vieira,Mariana Vieira,23/06/2026
-17/06/2026,Tecnogera,Micaele Silva,micaele.silva@tecnogera.com.br,João Fabrício,João Fabrício,02/07/2026
-17/06/2026,Localize Digital LTDA,Taila,taila@ldlocal.com.br,Mariana Vieira,Mariana Vieira,
-17/06/2026,Londrilimp,Murilo Pita,murilo@casadalimpeza.com.br,Mariana Vieira,Mariana Vieira,
-16/06/2026,Max Protection,Gabriel Azevedo,gabriel.azevedo@maxprotection.com.br,Anne Siqueira,Anne Siqueira,22/07/2026
-16/06/2026,Falavinha Next,Suzanne Silva,suzanne.silva@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,Falavinha Next,FERNANDA DA SILVA RIBEIRO,fernanda.ribeiro@falavinha.com.br,João Fabrício,João Fabrício,20/07/2026
-16/06/2026,LEMA,Ariadne Maciel,ariadne@lemaef.com.br,João Fabrício,João Fabrício,19/06/2026
-16/06/2026,Falavinha Next,ROGER DE SOUSA FERNANDES,roger.fernandes@falavinha.com.br,João Fabrício,João Fabrício,17/06/2026
-16/06/2026,Falavinha Next,TASSIO VINICIUS DALA ROSA LEITE,tassio.leite@falavinha.com.br,João Fabrício,João Fabrício,14/07/2026
-16/06/2026,Max Protection,Willian Cunha,willian.cunha@maxprotection.com.br,Anne Siqueira,Anne Siqueira,23/06/2026
-16/06/2026,Max Protection,Daian Feldens,daian@maxprotection.com.br,Anne Siqueira,Anne Siqueira,22/07/2026
-16/06/2026,Falavinha Next,THAYANA MADALENA RAMOS,thayana.ramos@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,LEMA,Daniele Carvalho,daniele@lemaef.com.br,João Fabrício,João Fabrício,23/06/2026
-16/06/2026,Falavinha Next,PATRICIA BARBOSA,patricia.barbosa@falavinha.com.br,João Fabrício,João Fabrício,19/06/2026
-16/06/2026,Voip do Brasil,Analu Novelli,analunovelli@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,26/06/2026
-16/06/2026,Falavinha Next,CASSIANO ALMEIDA,cassiano.almeida@falavinha.com.br,João Fabrício,João Fabrício,07/07/2026
-16/06/2026,LEMA,Vitor Leitão,vitor@lemaef.com.br,João Fabrício,João Fabrício,13/07/2026
-16/06/2026,LEMA,Gil Pereira,gil@lemaef.com.br,João Fabrício,João Fabrício,25/06/2026
-16/06/2026,Max Protection,Nycolas Santos,nycolas.santos@maxprotection.com.br,Anne Siqueira,Anne Siqueira,18/06/2026
-16/06/2026,Falavinha Next,ROSANA APARECIDA BRAGA,rosana.braga@falavinha.com.br,João Fabrício,João Fabrício,03/07/2026
-16/06/2026,Max Protection,Danielle Dusi,danielle@maxprotection.com.br,Anne Siqueira,Anne Siqueira,24/06/2026
-16/06/2026,LEMA,Rodolpho Malafaia,rodolpho@lemaef.com.br,João Fabrício,João Fabrício,23/06/2026
-16/06/2026,Falavinha Next,KETHILIN BARBOZA,kethelin.barboza@falavinha.com.br,João Fabrício,João Fabrício,18/06/2026
-16/06/2026,Voip do Brasil,Caroline Andrade,caroline@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,01/07/2026
-16/06/2026,Voip do Brasil,Izabel Cristina,izabel.cristina@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,17/07/2026
-16/06/2026,Falavinha Next,NELSON SOUZA,nelson.souza@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,Falavinha Next,KAROLYNE GLUSZCZYNSKI,Karolyne.gluszczynski@falavinha.com.br,João Fabrício,João Fabrício,24/06/2026
-16/06/2026,Tecnogera,Vinicius Mello,vinicius.mello@tecnogera.com.br,João Fabrício,João Fabrício,
-16/06/2026,Tecnogera,Daiane Santana,daiane.santana@tecnogera.com.br,João Fabrício,João Fabrício,
-16/06/2026,Voip do Brasil,Thais Stefani,stefani@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,29/06/2026
-16/06/2026,LEMA,Fernanda Fioreli,fernanda@lemaef.com.br,João Fabrício,João Fabrício,24/06/2026
-16/06/2026,Voip do Brasil,Aline Ferraciolli,aline@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,26/06/2026
-16/06/2026,Falavinha Next,MAIRA CAROLINE OLIVEIRA,maira.oliveira@falavinha.com.br,João Fabrício,João Fabrício,17/06/2026
-16/06/2026,Falavinha Next,JHENIFFER QUADROS,jheniffer.quadros@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,Falavinha Next,RAFAELA LETTNIN,rafaela.venske@falavinha.com.br,João Fabrício,João Fabrício,18/06/2026
-16/06/2026,Falavinha Next,CAMILA MORAIS CAMILA MORAIS,camila.morais@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,LEMA,Marcela Silva,marcela@lemaef.com.br,João Fabrício,João Fabrício,30/07/2026
-16/06/2026,Falavinha Next,SARAH BETELLI,sarah.betelli@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,Voip do Brasil,Carlos Eduardo,carlos.eduardo@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,25/06/2026
-16/06/2026,Max Protection,Alessandro Nuñez,alessandro.nunez@maxprotection.com.br,Anne Siqueira,Anne Siqueira,19/06/2026
-16/06/2026,Falavinha Next,EMANOELA SACRAMENTO,emanoele.batista@falavinha.com.br,João Fabrício,João Fabrício,08/07/2026
-16/06/2026,Falavinha Next,KEVILLY OLIVEIRA,kevilly.oliveira@falavinha.com.br,João Fabrício,João Fabrício,06/07/2026
-16/06/2026,Voip do Brasil,Tamires Santos,tamires.santos@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,24/06/2026
-16/06/2026,LEMA,Vitor Hugo Cruz,vitorhugo@lemaef.com.br,João Fabrício,João Fabrício,26/06/2026
-16/06/2026,Falavinha Next,ARTUR BUSETTI,artur.busetti@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,Falavinha Next,THAIS ANISIA GUIMARAES OLIVIERA,thais.oliveira@falavinha.com.br,João Fabrício,João Fabrício,20/07/2026
-16/06/2026,Falavinha Next,DANILO CEZAR BEDRETCHUK,danilo@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,Falavinha Next,MARIA EDUARDA PEREIRA,maria.pereira@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,Max Protection,Bruno Gottardi,bruno@maxprotection.com.br,Anne Siqueira,Anne Siqueira,22/06/2026
-16/06/2026,Voip do Brasil,Edson Ribeiro,edson.ribeiro@voipdobrasil.com.br,Anne Siqueira,Anne Siqueira,30/06/2026
-16/06/2026,Falavinha Next,MURILO TORRES,murillo.torres@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,Falavinha Next,WILLIAM EDWARD BOND,william.bond@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,LEMA,Rodrigo Guimarães,rodrigo@lemaef.com.br,João Fabrício,João Fabrício,02/07/2026
-16/06/2026,LEMA,Gustavo Leite,gustavo@lemaef.com.br,João Fabrício,João Fabrício,
-16/06/2026,Falavinha Next,KAILAINY VANESSA SOUZA DE LIMA,kailainy.lima@falavinha.com.br,João Fabrício,João Fabrício,
-16/06/2026,Falavinha Next,Henrique Silva,henrique.silva@falavinha.com.br,Thabata Harumi,João Fabrício,
-16/06/2026,AF Mkt,João Raphael,joaoraphael.hnd@gmail.com,Mariana Vieira,Mariana Vieira,22/06/2026
-16/06/2026,AF Mkt,Jackeline Graça,jackeline51@gmail.com,Mariana Vieira,Mariana Vieira,22/06/2026
-16/06/2026,Tecnogera,David Araki,david.araki@tecnogera.com.br,João Fabrício,João Fabrício,02/07/2026
-16/06/2026,Armando Pneus,Dâmala Neves de Sá,damalaneves@yahoo.com.br,Anne Siqueira,Anne Siqueira,17/06/2026
-16/06/2026,Armando Pneus,FELIPE CHAGAS ARAUJO,felipe.chagas.araujo08@gmail.com,Anne Siqueira,Anne Siqueira,02/07/2026
-16/06/2026,Armando Pneus,LUAN MARTINI MOTHE HOINHAS,luanmartini0018@outlook.com,Anne Siqueira,Anne Siqueira,02/07/2026
-16/06/2026,Armando Pneus,LIDIANA DA SILVA BERTOQUI GOMES,lidianabertoqui@hotmail.com,Anne Siqueira,Anne Siqueira,26/06/2026
-16/06/2026,Falavinha Next,Vinicius Macedo,vinicius.macedo@falavinha.com.br,João Fabrício,João Fabrício,15/06/2026
-16/06/2026,Falavinha Next,Bruno Lobo,bruno.lobo@falavinha.com.br,João Fabrício,João Fabrício,15/06/2026
-16/06/2026,Armando Pneus,RAQUEL DOS SANTOS SOUZA,raxsouza@hotmail.com,João Fabrício,João Fabrício,08/07/2026
-16/06/2026,Armando Pneus,IAGO GERMANO ALMEIDA,iagogermano48@gmail.com,João Fabrício,João Fabrício,06/08/2026
-16/06/2026,Armando Pneus,ROGERIO LUIZ DAROS,geldaros@gmail.com,Anne Siqueira,Anne Siqueira,22/06/2026
-16/06/2026,Armando Pneus,GABRIEL ALMEIDA SALORDANE,gabrielasalordane2702@gmail.com,Anne Siqueira,Anne Siqueira,16/07/2026
-16/06/2026,Armando Pneus,MARCIA RIBEIRO DOS SANTOS FABIANO,marcia.rsfabiano123@gmail.com,Anne Siqueira,Anne Siqueira,02/07/2026
-16/06/2026,Armando Pneus,JOAO VITOR RODRIGUES GOMES PRIMO,jvrodriguesgp11@gmail.com,Anne Siqueira,Anne Siqueira,22/06/2026
-16/06/2026,Armando Pneus,FELIPE CORREA DA SILVA,felipe.batista01c@gmail.com,Anne Siqueira,Anne Siqueira,16/06/2026
-16/06/2026,Armando Pneus,FELIPE TEIXEIRA DA COSTA,teixeirafelipecosta@gmail.com,Anne Siqueira,Anne Siqueira,22/07/2026
-16/06/2026,Armando Pneus,YURI SILVA AZEVEDO,yurisilvaazevedo10@gmail.com,Anne Siqueira,Anne Siqueira,01/07/2026
-16/06/2026,Melbourne Engenharia,CHURN - Eurico Francisco,vendas1.melbourne@gmail.com,Thaynara Santos,Anne Siqueira,
-16/06/2026,BBM Logistica S.A,MARISTELA GARCIA,maristela.garcia@dialogologistica.com.br,Mariana Vieira,Mariana Vieira,01/07/2026
-16/06/2026,Tecnogera,Camila Fedelis,camila.fedelis@tecnogera.com.br,João Fabrício,João Fabrício,
-14/06/2026,CEM,INATIVO - Kelly Ferreira,kellygomesferreira528@gmail.com,Thabata Harumi,Mariana Vieira,03/07/2026
-13/06/2026,CEM,Bianca Marengoni,bianca.fisio12@gmail.com,Mariana Vieira,Mariana Vieira,
-13/06/2026,CEM,Matheus Urquiza,matheusdj53@gmail.com,Mariana Vieira,Mariana Vieira,
-13/06/2026,CEM,Gabrielle Soares,soaresgabrielle88@gmail.com,Mariana Vieira,Mariana Vieira,
-13/06/2026,CEM,Luana Antunes,luana.antunes94@gmail.com,Mariana Vieira,Mariana Vieira,22/06/2026
-13/06/2026,CEM,Josiane Leão,josileao13@gmail.com,Mariana Vieira,Mariana Vieira,
-13/06/2026,CEM,Thiago Alves,thiago.alvesnascimento14@hotmail.com,Mariana Vieira,Mariana Vieira,
-13/06/2026,CEM,Lais Kuster,laiskuster@hotmail.com,Mariana Vieira,Mariana Vieira,08/06/2026
-13/06/2026,Just Travel,Pedro Fiuza,pedro.fiuza@justtraveltour.com,Mariana Vieira,Mariana Vieira,13/07/2026
-12/06/2026,Just Travel,Beatriz Oliveira,beatriz.oliveira@justtraveltour.com,Anne Siqueira,Anne Siqueira,30/07/2026
-12/06/2026,Just Travel,Rebeca Barbosa,rebeca.barbosa@justtraveltour.com,Mariana Vieira,Mariana Vieira,29/06/2026
-11/06/2026,M2D Telecom,Talisson Alves,talissonalves972@gmail.com,Mariana Vieira,Mariana Vieira,
-11/06/2026,M2D Telecom,Gabriela Oliveira,gabrielam2dtelecom@gmail.com,Mariana Vieira,Mariana Vieira,24/06/2026
-10/06/2026,Just Travel,Alanys Dantas,alanys.dantas@justtraveltour.com,Mariana Vieira,Mariana Vieira,03/07/2026
-10/06/2026,Just Travel,Romeu Nogueira,romeu.nogueira@justtraveltour.com,João Fabrício,João Fabrício,29/06/2026
-10/06/2026,Melbourne Engenharia,Rafael Imperial,rafael@melbourneengenharia.com.br,Anne Siqueira,Anne Siqueira,01/07/2026
-10/06/2026,Melbourne Engenharia,Lucas Barbosa,barbosa@melbourneengenharia.com.br,Anne Siqueira,Anne Siqueira,22/06/2026
-10/06/2026,Melbourne Engenharia,Nadson Souza de Jesus,nadson.melbourne@gmail.com,Anne Siqueira,Anne Siqueira,10/07/2026
-09/06/2026,Tecnogera,Jean Wilson Martins de Oliveira,jean.oliveira@tecnogera.com.br,João Fabrício,João Fabrício,
-09/06/2026,PagUtil,CHURN - Deborah Araujo,deborah.araujo@pagutil.com.br,Thaynara Santos,Mariana Vieira,
-08/06/2026,Eaí,Manoel Moura,manoel.moura@eai.net.br,Mariana Vieira,Mariana Vieira,
-08/06/2026,Eaí,Josiane Lippert,josiane.lippert@eai.net.br,Mariana Vieira,Mariana Vieira,23/06/2026
-08/06/2026,Tecnogera,Danielle Baptista,danielle.baptista@tecnogera.com.br,João Fabrício,João Fabrício,08/06/2026
-08/06/2026,B2C,B2C - Priscilla Bonfim,priscillabonfimsantos@gmail.com,Mariana Vieira,Mariana Vieira,
-05/06/2026,Ultrafitas,CHURN - Pedro Pigatti,pedro4742@gmail.com,Thaynara Santos,Mariana Vieira,
-05/06/2026,Ultrafitas,CHURN - David Capital,ultrafitas.mkt@gmail.com,Thaynara Santos,Mariana Vieira,
-03/06/2026,BOA DIGITAL,Ricardo Melgar Silva,ricardo.gsilva@boadigital.com.br,Anne Siqueira,Anne Siqueira,05/08/2026
-03/06/2026,Gleebem,CRISLAINE DOS SANTOS VITORINO,crislaine.vitorino@gleebem.com.br,Mariana Vieira,Mariana Vieira,22/07/2026
-03/06/2026,Gleebem,REBECA SANTANA DE ANDRADE,rebeca.andrade@gleebem.com.br,Mariana Vieira,Mariana Vieira,25/06/2026
-03/06/2026,Gleebem,Ana Luiza Almeida Trindade,ana.trindade@gleebem.com.br,Mariana Vieira,Mariana Vieira,26/06/2026
-03/06/2026,Gleebem,ICARO DOS SANTOS RAMOS,icaro.ramos@gleebem.com.br,Thabata Harumi,Mariana Vieira,09/06/2026
-03/06/2026,Gleebem,Vanessa Conceição Nascimento,vanessa.nascimento@gleebem.com.br,Mariana Vieira,Mariana Vieira,25/06/2026
-03/06/2026,Gleebem,RODRIGO SANTANA CHAVES,rodrigo.chaves@gleebem.com.br,Mariana Vieira,Mariana Vieira,
-03/06/2026,Gleebem,ANDRE LUIZ DOS SANTOS,andre.santos@gleebem.com.br,Mariana Vieira,Mariana Vieira,22/06/2026
-03/06/2026,Gleebem,EDSON HENRIQUE ALVES DE LIMA,henrique@gleebem.com.br,Mariana Vieira,Mariana Vieira,31/05/2026
-03/06/2026,Gleebem,MARIA ANGÉLICA LIMA MENEZES,angelica.menezes@gleebem.com.br,Mariana Vieira,Mariana Vieira,
-03/06/2026,BOA DIGITAL,Michele de Souza,michele.souza@boadigital.com.br,Anne Siqueira,Anne Siqueira,05/08/2026
-02/06/2026,Bluefields,Roberto Tsukino,roberto@bluefieldsdev.com,Anne Siqueira,Anne Siqueira,17/06/2026
-02/06/2026,Bluefields,Laura,laura@bluefieldsdev.com,Anne Siqueira,Anne Siqueira,05/08/2026
-02/06/2026,Tecnogera,JANAINA DA SILVA,janaina.silva@tecnogera.com.br,Thaynara Santos,Mariana Vieira,
-01/06/2026,Just Travel,Henrique Dias,henrique.dias@justtraveltour.com,Mariana Vieira,Mariana Vieira,
+26/06/2026,Armando Pneus,RAFAELA FELICIANO SILVA,rafaelafelicio155@gmail.com,Anne Siqueira,Anne Siqueira,26/06/2026
+26/06/2026,PTA Rental,LUAN AUGUSTO,luan.machado@ptarental.com.br,Mariana Vieira,Mariana Vieira,06/07/2026
+26/06/2026,PTA Rental,DENO GONÇALVES,deno.goncalves@ptarental.com.br,Mariana Vieira,Mariana Vieira,02/07/2026
+26/06/2026,PTA Rental,FABIO SAVE,fabio.amaral@ptarental.com.br,Mariana Vieira,Mariana Vieira,03/07/2026
+26/06/2026,PTA Rental,ALEXANDRE WAGNER,alexandre.wagner@ptarental.com.br,Mariana Vieira,Mariana Vieira,06/07/2026
+26/06/2026,PTA Rental,ADEILTON SANTOS,adeilton.santos@ptarental.com.br,Mariana Vieira,Mariana Vieira,23/07/2026
+26/06/2026,PTA Rental,MATHEUS MACIEL,matheus.maciel@ptarental.com.br,Mariana Vieira,Mariana Vieira,02/07/2026
+26/06/2026,PTA Rental,MARCUS VINICIUS KOJIMA,marcus.kojima@ptarental.com.br,Mariana Vieira,Mariana Vieira,13/07/2026
+26/06/2026,PTA Rental,MARA CRISTINA,mara.cristina@ptarental.com.br,Mariana Vieira,Mariana Vieira,06/07/2026
+26/06/2026,PTA Rental,CRISTINA RODRIGUES,cristina.rodrigues@ptarental.com.br,Mariana Vieira,Mariana Vieira,08/07/2026
+26/06/2026,PTA Rental,DANIELA FERNANDES,daniela.fernandes@ptarental.com.br,Mariana Vieira,Mariana Vieira,07/07/2026
+26/06/2026,PTA Rental,BRENNDA RIBEIRO,brennda.ribeiro@ptarental.com.br,Mariana Vieira,Mariana Vieira,04/08/2026
+26/06/2026,PTA Rental,AMANDA CAMELO CASTRO AQUINO,amanda.castro@ptarental.com.br,Mariana Vieira,Mariana Vieira,
+26/06/2026,PTA Rental,DIEGO SANTOS,diego.santos@ptarental.com.br,Mariana Vieira,Mariana Vieira,07/07/2026
+26/06/2026,PTA Rental,VIVIANE SODRE,viviane.sodre@ptarental.com.br,Mariana Vieira,Mariana Vieira,13/07/2026
+26/06/2026,PTA Rental,TATIANE MERCEDES,tatiane.mercedes@ptarental.com.br,Mariana Vieira,Mariana Vieira,24/07/2026
+26/06/2026,PTA Rental,DIANGELIS ALVES,diangelis.alves@ptarental.com.br,Mariana Vieira,Mariana Vieira,06/07/2026
+26/06/2026,PTA Rental,DOUGLAS SAMORINHA,douglas.santos@ptarental.com.br,Mariana Vieira,Mariana Vieira,08/07/2026
+30/06/2026,Star Diesel,Nilson,nilsonank@gmail.com,Mariana Vieira,Mariana Vieira,
+30/06/2026,Star Diesel,Bárbara,barbara@stardieselservicos.com.br,Mariana Vieira,Mariana Vieira,
+30/06/2026,Star Diesel,Thaylon,recepcao@stardieselservicos.com.br,Mariana Vieira,Mariana Vieira,28/07/2026
+30/06/2026,Marco Andrade,Marco Andrade,comercial@carioliengenharia.com.br,João Fabrício,João Fabrício,13/07/2026
+30/06/2026,Carioli Engenharia,Rafael Ribas de Lima,rafaelribas@carioliengenharia.com.br,João Fabrício,João Fabrício,10/07/2026
+30/06/2026,Carioli Engenharia,José Henrique Gonçalves de Campos,josehenrique@carioliengenharia.com.br,João Fabrício,João Fabrício,15/07/2026
+02/07/2026,Studio Kore,LUARA PONTES,luarapontes0@gmail.com,João Fabrício,João Fabrício,07/07/2026
+02/07/2026,Studio Kore,RENAN SHIGA,rshiga10@gmail.com,João Fabrício,João Fabrício,03/07/2026
+02/07/2026,Studio Kore,STEPHANIE MAZZALI,stehmazzali@gmail.com,João Fabrício,João Fabrício,03/07/2026
+02/07/2026,Grupo Dom Bosco,ANA CARLA DE SOUZA BRAGA,ana.braga@undb.edu.br,João Fabrício,João Fabrício,14/07/2026
+02/07/2026,Grupo Dom Bosco,ANDERSON CUNHA DUARTE,anderson.duarte@undb.edu.br,João Fabrício,João Fabrício,14/07/2026
+02/07/2026,Grupo Dom Bosco,ILANA MARIA CARVALHO VIANA,ilana.carvalho@dbosco.com.br,João Fabrício,João Fabrício,16/07/2026
+02/07/2026,Grupo Dom Bosco,ALLYSON VERAS GOMES DE MENESES,allyson.meneses@undb.edu.br,João Fabrício,João Fabrício,14/07/2026
+06/07/2026,Tecnogera,Fernanda Peres,fernanda.peres@tecnogera.com.br,Mariana Vieira,Mariana Vieira,
+06/07/2026,Qualisign,Luciana Justino,ljustino@qualisign.com.br,João Fabrício,João Fabrício,22/07/2026
+06/07/2026,Qualisign,Leandro Vilas Boas,lboas@qualisign.com.br,João Fabrício,João Fabrício,22/07/2026
+06/07/2026,Qualisign,Kellen Garcia,kgarcia@qualisign.com.br,João Fabrício,João Fabrício,
+06/07/2026,Qualisign,Kleber Leme,kleme@qualisign.com.br,João Fabrício,João Fabrício,23/07/2026
+07/07/2026,Transformação Digital,Rafaela Fernandes,rafaela.fernandes@transformacaodigital.com,João Fabrício,João Fabrício,10/08/2026
+07/07/2026,Transformação Digital,Gabriel Túlio,gabriel.tulio@somostd.com.br,João Fabrício,João Fabrício,
+07/07/2026,Transformação Digital,Leticia Charro,leticia.charro@somostd.com.br,João Fabrício,João Fabrício,31/07/2026
+07/07/2026,Transformação Digital,Isadora Campos,isadora.campos@somostd.com.br,João Fabrício,João Fabrício,31/07/2026
+07/07/2026,Transformação Digital,Rayssa Alves,rayssa.alves@somostd.com.br,João Fabrício,João Fabrício,27/07/2026
+07/07/2026,Transformação Digital,Pedro Martinez,pedro.martinez@somostd.com.br,João Fabrício,João Fabrício,28/07/2026
+07/07/2026,Transformação Digital,Yago Rocha,yago.rocha@somostd.com.br,João Fabrício,João Fabrício,29/07/2026
+07/07/2026,Transformação Digital,Mainara Wilson,mainara.serrano@somostd.com.br,João Fabrício,João Fabrício,31/07/2026
+07/07/2026,Transformação Digital,Gustavo Martins,gustavo.martins@somostd.com.br,Thaynara Santos,João Fabrício,
+07/07/2026,Transformação Digital,Gabriela Sander,gabriela.sander@somostd.com.br,João Fabrício,João Fabrício,31/07/2026
+07/07/2026,Transformação Digital,Gabriela Lorenzo,gabriela.lorenzo@transformacaodigital.com,João Fabrício,João Fabrício,06/08/2026
+07/07/2026,Starian,Heloisa Melo,heloisa.melo@starian.com,João Fabrício,João Fabrício,25/06/2026
+07/07/2026,Questor,Ligia Leite,ligia.leite@questores.com.br,Mariana Vieira,Mariana Vieira,
+07/07/2026,MPL Corretora de Seguros,Lucimeire Moraes,meire@mplseguros.com.br,João Fabrício,João Fabrício,03/08/2026
+07/07/2026,MPL Corretora de Seguros,Giovanna Fernandes,giovanna@mplseguros.com.br,João Fabrício,João Fabrício,28/07/2026
+07/07/2026,MPL Corretora de Seguros,Natalia Ramos,natalia@mplseguros.com.br,João Fabrício,João Fabrício,31/07/2026
+07/07/2026,MPL Corretora de Seguros,Carla Goda,carlagoda@mplseguros.com.br,João Fabrício,João Fabrício,04/08/2026
+07/07/2026,MPL Corretora de Seguros,Luciana Dario,lucianadario@mplseguros.com.br,João Fabrício,João Fabrício,29/07/2026
+07/07/2026,MPL Corretora de Seguros,Alcides Carminato,alcides@mplseguros.com.br,João Fabrício,João Fabrício,23/07/2026
+07/07/2026,MASTERBOARD,Alessandro Henrique,alessandro.henrique@masterboard.com.br,Mariana Vieira,Mariana Vieira,
+07/07/2026,Grupo Premier Alimentos,Bruna Lima,bruna.lima@grupopremieralimentos.com.br,João Fabrício,João Fabrício,18/06/2026
+08/07/2026,Kurier,Jully Rodrigues,jully.rodrigues@kurier.com.br,Mariana Vieira,Mariana Vieira,
+08/07/2026,Kurier,Suzana Rodrigues,suzana.rodrigues@kurier.com.br,Mariana Vieira,Mariana Vieira,
+08/07/2026,Compostos do Brasil,Maurici Oliveira,maurici.oliveira@compostos.com.br,Anne Siqueira,Anne Siqueira,07/08/2026
+09/07/2026,Win Distribuidora,Airine Santos,airine.dss@gmail.com,Mariana Vieira,Mariana Vieira,20/07/2026
+09/07/2026,Win Distribuidora,Arlindo Neto,arlindoneto011@gmail.com,Mariana Vieira,Mariana Vieira,21/07/2026
+09/07/2026,Timol,Estela Luciane Diesel,esteladieselpinto@hotmail.com,Mariana Vieira,Mariana Vieira,05/08/2026
+09/07/2026,Timol,Natalia Regina Agrizzi Zandonadi,natalia.zandonadi2@gmail.com,Mariana Vieira,Mariana Vieira,
+09/07/2026,Timol,Elisangela Silva Conde Paulino,elisangelacpaulino@yahoo.com.br,Mariana Vieira,Mariana Vieira,
+09/07/2026,Timol,Carlos Henrique Pereira da Silva,carloshpsilva@hotmail.com,Mariana Vieira,Mariana Vieira,
+09/07/2026,Timol,Leticia Megumi Kanesawa,leticiamegumi95@gmail.com,Mariana Vieira,Mariana Vieira,04/08/2026
+09/07/2026,Timol,Mikaelly Kethlyn De Moura Joachimenco,mikaellytimol@gmail.com,Mariana Vieira,Mariana Vieira,23/07/2026
+09/07/2026,Timol,Caroline Gonçalo Faria,carolgoncalo.timol@gmail.com,Mariana Vieira,Mariana Vieira,28/07/2026
+09/07/2026,Timol,Lucas Rocha Cambuy,lucascambuy@outlook.com,Mariana Vieira,Mariana Vieira,27/07/2026
+09/07/2026,Timol,Aline Diana Amaral Nogueira,alinedianatimol@gmail.com,Mariana Vieira,Mariana Vieira,
+09/07/2026,Timol,Orlando Farias Nascimento,orlandofariasnascimento@hotmail.com,Mariana Vieira,Mariana Vieira,31/07/2026
+09/07/2026,Timol,Thays Paraíso Brandão,thays@timol.com.br,Mariana Vieira,Mariana Vieira,22/07/2026
+09/07/2026,Timol,Karine Serato Pereira da Silva,karineserato@hotmail.com,Mariana Vieira,Mariana Vieira,
+09/07/2026,Timol,Gustavo Brandão,gb@timol.com.br,Mariana Vieira,Mariana Vieira,22/07/2026
+09/07/2026,Timol,Luciana Junqueira Guimarães,lucianagjunqueiralopes@gmail.com,Mariana Vieira,Mariana Vieira,16/07/2026
+09/07/2026,Timol,Icaro Ferreira Barbosa,Icarotimol@gmail.com,Mariana Vieira,Mariana Vieira,12/08/2026
+09/07/2026,Timol,José Amilcon Rodrigues,amilconrodrigues@hotmail.com,Mariana Vieira,Mariana Vieira,
+09/07/2026,Timol,Emerson Santana Cardoso,emerson_mendes19@hotmail.com,Mariana Vieira,Mariana Vieira,22/07/2026
+09/07/2026,Timol,Rannea Miranda Gonçalves,ranneammiranda@gmail.com,Mariana Vieira,Mariana Vieira,22/07/2026
+09/07/2026,Timol,Marcos Fernandes,marcosfernandesjt@hotmail.com,Mariana Vieira,Mariana Vieira,24/07/2026
+09/07/2026,Timol,Bruna Laila Oliveira,Brunalaila520@gmail.com,Mariana Vieira,Mariana Vieira,
+09/07/2026,Timol,Elaine Magdalena Lima Kruger,elainekruger658@gmail.com,Mariana Vieira,Mariana Vieira,
+09/07/2026,Timol,Grazielle Barbosa Silva,atendimentotimol10@gmail.com,Mariana Vieira,Mariana Vieira,
+09/07/2026,Timol,Josiane Ribeiro Araujo,josyjh@hotmail.com,Mariana Vieira,Mariana Vieira,
+09/07/2026,Timol,Juliana Vaz Garcia,jubiravaz@gmail.com,Mariana Vieira,Mariana Vieira,03/08/2026
+09/07/2026,Grupo Dom Bosco,Davyd Dias,davyd.saads@undb.edu.br,João Fabrício,João Fabrício,05/08/2026
+10/07/2026,Umbler,Carla Silva,carla.silva@umbler.com,Mariana Vieira,Mariana Vieira,
+10/07/2026,SoftExpert,Matheus Alexandre de Souza,malexandre@softexpert.com,João Fabrício,João Fabrício,14/07/2026
+10/07/2026,Redminds Mkt e Tech,Fernanda Sodré,fernanda.ferreira@redminds.com.br,João Fabrício,João Fabrício,17/07/2026
+10/07/2026,Redminds Mkt e Tech,Simone Melo,simone.souza@redminds.com.br,João Fabrício,João Fabrício,21/07/2026
+10/07/2026,FLEX SOLUÇÕES,JOAO CAMARGO,joao.camargo@flexsolucoes.net,Mariana Vieira,Mariana Vieira,
+10/07/2026,Checklist Fácil,Carlos Augusto Yupanqui,carlos.yupanqui@starian.com,Mariana Vieira,Mariana Vieira,13/07/2026
+10/07/2026,Checklist Fácil,Maria Eduarda Guarez,maria.guarez@starian.com,Mariana Vieira,Mariana Vieira,
+10/07/2026,Captei,Aline Finoket,Aline.finoket@captei.com.br,João Fabrício,João Fabrício,
+10/07/2026,Captei,Yeda Euzebio Pereira,yeda.pereira@captei.com.br,João Fabrício,João Fabrício,
+10/07/2026,Captei,Ilze Karen Alves Lira,ilze.lira@captei.com.br,João Fabrício,João Fabrício,21/07/2026
+10/07/2026,Captei,Tayomara Cheque Batista,tayomara.batista@captei.com.br,João Fabrício,João Fabrício,16/07/2026
+10/07/2026,Captei,Natan Felipe da Luz,natan.luz@captei.com.br,João Fabrício,João Fabrício,16/07/2026
+10/07/2026,Captei,Luan Souza,luan.souza@captei.com.br,João Fabrício,João Fabrício,17/07/2026
+10/07/2026,Captei,Gabriela Farias Eulipia,gabriela.eulipia@captei.com.br,João Fabrício,João Fabrício,23/07/2026
+10/07/2026,Captei,Ana Luiza Freitas Gonçalves,ana.goncalves@captei.com.br,João Fabrício,João Fabrício,21/07/2026
+10/07/2026,Captei,Paulo Henrique Lourenço de Souza,paulo.lourenco@captei.com.br,João Fabrício,João Fabrício,21/07/2026
+10/07/2026,Captei,Lilyan Maria de Abreu Pereira,lilyan.maria@captei.com.br,João Fabrício,João Fabrício,20/07/2026
+10/07/2026,Captei,Kayane Muller Brum,kayane.mullerbrum@captei.com.br,João Fabrício,João Fabrício,17/07/2026
+10/07/2026,Captei,ELOISE MIRANDA APOLINÁRIO,eloise.miranda@captei.com.br,João Fabrício,João Fabrício,16/07/2026
+10/07/2026,Captei,Elaine Cristina Ribeiro de Paula,elaine.ribeiro@captei.com.br,João Fabrício,João Fabrício,06/08/2026
+10/07/2026,Captei,Tamara Silva Sousa,tamara.sousa@captei.com.br,João Fabrício,João Fabrício,07/08/2026
+10/07/2026,Captei,Patrick Camara Gonçalves,patrick.goncalves@captei.com.br,João Fabrício,João Fabrício,20/07/2026
+10/07/2026,Alpha,Iago Davi Brito Junqueira,iago@alphapcm.com.br,João Fabrício,João Fabrício,29/07/2026
+10/07/2026,Alpha,Elizandra Costa,elizandra.costa@alphapcm.com.br,João Fabrício,João Fabrício,10/07/2026
+10/07/2026,AEVO,Matheus Shimada,matheus.shimada@aevo.com.br,Mariana Vieira,Mariana Vieira,14/07/2026
+10/07/2026,ACS Pro,Lilian Gozzi,lilian.gozzi@acspro.com.br,Mariana Vieira,Mariana Vieira,
+10/07/2026,ACS Pro,Davi Honorio Cavalcante Mota,davi.honorio@acspro.com.br,Mariana Vieira,Mariana Vieira,15/07/2026
+10/07/2026,ACS Pro,Adan Christopher da Silva,adan.christopher@acspro.com.br,Mariana Vieira,Mariana Vieira,
+10/07/2026,ACS Pro,Ana Vitória Pawak Martins,anavitoria.pawak@acspro.com.br,Mariana Vieira,Mariana Vieira,
+10/07/2026,ACS Pro,Maria Esmeralda de Freitas Sampaio,esmeralda@acspro.com.br,Mariana Vieira,Mariana Vieira,22/07/2026
+10/07/2026,Opus 127,Bianca Maia,biancamaia@opus127.com.br,Mariana Vieira,Mariana Vieira,17/07/2026
+10/07/2026,Opus 127,Alexandre Lobato,alexandrelobato@opus127.com.br,Mariana Vieira,Mariana Vieira,
+12/07/2026,AWA CONSTRUTORA,Luana Rodrigues,luanna_pe@hotmail.com,Natalia Espindola,João Fabrício,
+13/07/2026,Semelc,Geovanna Vieira,gigisilva200@gmail.com,Mariana Vieira,Mariana Vieira,12/08/2026
+13/07/2026,Semelc,Fernanda Castro,fernandacastrodjes@gmail.com,Mariana Vieira,Mariana Vieira,27/07/2026
+13/07/2026,MidFalconi,Vinicius Souza,viniciussouza@midfalconi.com,Mariana Vieira,Mariana Vieira,14/07/2026
+13/07/2026,MidFalconi,Bruno Crespo,brunocrespo@midfalconi.com,Mariana Vieira,Mariana Vieira,04/08/2026
+13/07/2026,MentoraFlow,Luciana Faggin,luciana@mentoraflow.com.br,Natalia Espindola,Mariana Vieira,
+13/07/2026,Imperbrás,Ana Gomes,anagomes@imperbrasce.com.br,Mariana Vieira,Mariana Vieira,
+13/07/2026,Imperbrás,Priscilane Cavalcante,Priscilane.imperbrasce@gmail.com,Mariana Vieira,Mariana Vieira,
+13/07/2026,Brasmo Industria e Comércio,KATRYNE BURATTI DA SILVA,vendas05@brasmo.com.br,João Fabrício,João Fabrício,
+13/07/2026,Brasmo Industria e Comércio,PATRICIA FERREIRA DA SILVA,suporte01@brasmo.com.br,João Fabrício,João Fabrício,
+13/07/2026,Brasmo Industria e Comércio,VANESSA DOS SANTOS,vendas10@brasmo.com.br,João Fabrício,João Fabrício,27/07/2026
+13/07/2026,Brasmo Industria e Comércio,WANDESON ROCHA RODRIGUES,vendas07@brasmo.com.br,João Fabrício,João Fabrício,23/07/2026
+13/07/2026,Brasmo Industria e Comércio,EVELY MAISA DOS SANTOS,suporte03@brasmo.com.br,João Fabrício,João Fabrício,22/07/2026
+13/07/2026,Brasmo Industria e Comércio,CAMILA CASAGRANDE,suporte04@brasmo.com.br,João Fabrício,João Fabrício,30/07/2026
+13/07/2026,Brasmo Industria e Comércio,BARBARA KATIELLY DIAS EIKOHFF,vendas06@brasmo.com.br,João Fabrício,João Fabrício,22/07/2026
+13/07/2026,Brasmo Industria e Comércio,BRENNO AUGUSTO MARTINS,comercial@brasmo.com.br,João Fabrício,João Fabrício,24/07/2026
+13/07/2026,Brasmo Industria e Comércio,DANIELA KOVALSKI,vendas01@brasmo.com.br,João Fabrício,João Fabrício,27/07/2026
+13/07/2026,Brasmo Industria e Comércio,JULIA LAURA RAPCZYNSKI BARCAROLO,suporte05@brasmo.com.br,João Fabrício,João Fabrício,24/07/2026
+13/07/2026,Brasmo Industria e Comércio,JULIA FERNANDA VAZ,vendas08@brasmo.com.br,Thaynara Santos,João Fabrício,
+13/07/2026,Brasmo Industria e Comércio,GABRIEL MENEGHETTI,export@brasmo.com.br,João Fabrício,João Fabrício,22/07/2026
+13/07/2026,Brasmo Industria e Comércio,LUCAS GARCIA FRANÇOIS,vendas02@brasmo.com.br,João Fabrício,João Fabrício,27/07/2026
+13/07/2026,Brasmo Industria e Comércio,ERIKA SOARES RIBAS,vendas09@brasmo.com.br,João Fabrício,João Fabrício,24/07/2026
+13/07/2026,Brasmo Industria e Comércio,LETICIA LIMBERGER,vendas04@brasmo.com.br,João Fabrício,João Fabrício,05/08/2026
+13/07/2026,MidFalconi,Fernanda Vaz,fernandavaz@midfalconi.com,Mariana Vieira,Mariana Vieira,15/07/2026
+14/07/2026,Tecnogera,Paloma Barros,paloma.barros@tecnogera.com.br,Mariana Vieira,Mariana Vieira,12/08/2026
+14/07/2026,SONANGOL,Claudio Silva,claudio.silva@sonangol.co.ao,João Fabrício,João Fabrício,11/08/2026
+14/07/2026,SONANGOL,Denilson Freire,denilson.freire@sonangol.co.ao,João Fabrício,João Fabrício,11/08/2026
+14/07/2026,SONANGOL,Karina Ferreira,karina.ferreira@sonangol.co.ao,João Fabrício,João Fabrício,
+14/07/2026,SONANGOL,Delcio Lomba,delcio.lomba@sonangol.co.ao,João Fabrício,João Fabrício,11/08/2026
+14/07/2026,SONANGOL,Adilson Gomes,adilson.gomes@sonangol.co.ao,João Fabrício,João Fabrício,11/08/2026
+14/07/2026,SONANGOL,Leonild Carvalho,leonild.carvalho@sonangol.co.ao,João Fabrício,João Fabrício,11/08/2026
+14/07/2026,SONANGOL,Cardoso Pereira,cardoso.pereira@sonangol.co.ao,Thabata Harumi,João Fabrício,11/08/2026
+14/07/2026,SONANGOL,Isabel Fortes,maria.fortes@sonangol.co.ao,João Fabrício,João Fabrício,11/08/2026
+14/07/2026,SONANGOL,Benvindo Muteba,benvindo.muteba@sonangol.co.ao,João Fabrício,João Fabrício,11/08/2026
+14/07/2026,SONANGOL,Clecio Santos,clecio.santos@sonangol.co.ao,João Fabrício,João Fabrício,11/08/2026
+14/07/2026,SONANGOL,Pedro Maia,pedro.maia@sonangol.co.ao,João Fabrício,João Fabrício,11/08/2026
+14/07/2026,Shalom,Lauriane Cristina Xavier dos Reis,cristinalauriane722@gmail.com,Mariana Vieira,Mariana Vieira,31/07/2026
+14/07/2026,kedu,Tom Brito,tombrito@kedu.com.br,João Fabrício,João Fabrício,21/07/2026
+14/07/2026,Itera,Jessica Pires,jessica.pires@itera.com.br,Mariana Vieira,Mariana Vieira,21/07/2026
+14/07/2026,Itera,Luiz Ricardo Batista,ricardo.batista@itera.com.br,Mariana Vieira,Mariana Vieira,16/07/2026
+15/07/2026,WebRota,Renata Santos,renata.santos@webrota.com.br,Mariana Vieira,Mariana Vieira,28/07/2026
+15/07/2026,WebRota,Rafael Mazzarioli,rafael.mazzarioli@webrota.com.br,Mariana Vieira,Mariana Vieira,27/07/2026
+15/07/2026,WebRota,Renilda Alves,renilda.alves@webrota.com.br,Mariana Vieira,Mariana Vieira,21/07/2026
+15/07/2026,WebRota,Vitor Lemes,vitor.lemes@webrota.com.br,Mariana Vieira,Mariana Vieira,
+15/07/2026,WebRota,Luiz Gustavo Xavier,luizgustavo.alves@webrota.com.br,Mariana Vieira,Mariana Vieira,30/07/2026
+15/07/2026,WebRota,Waylon Rangel,waylon.ferreira@webrota.com.br,Mariana Vieira,Mariana Vieira,
+15/07/2026,WebRota,Lauren Moura,lauren.moura@webrota.com.br,Mariana Vieira,Mariana Vieira,24/07/2026
+15/07/2026,WebRota,Ana Carolina Cunha,anacarolina.cunha@webrota.com.br,Mariana Vieira,Mariana Vieira,07/08/2026
+15/07/2026,WebRota,Douglas Caixeta,douglas.caixeta@webrota.com.br,Mariana Vieira,Mariana Vieira,29/07/2026
+15/07/2026,WebRota,Priscila Prado,priscila.prado@webrota.com.br,Mariana Vieira,Mariana Vieira,28/07/2026
+15/07/2026,WebRota,Jaqueline Mariano,jaqueline.mariano@webrota.com.br,Mariana Vieira,Mariana Vieira,29/07/2026
+15/07/2026,WebRota,Yago Souza,yago.souza@webrota.com.br,Mariana Vieira,Mariana Vieira,29/07/2026
+15/07/2026,WebRota,Andre Costa,andrelucas.costa@webrota.com.br,Mariana Vieira,Mariana Vieira,31/07/2026
+15/07/2026,WebRota,Jessica Zardini,jessica.zardini@webrota.com.br,Mariana Vieira,Mariana Vieira,30/07/2026
+15/07/2026,WebRota,Maria Gabriela,maria.gabriela@webrota.com.br,Mariana Vieira,Mariana Vieira,28/07/2026
+15/07/2026,WebRota,Franciele Mendes,franciele.oliveira@webrota.com.br,Mariana Vieira,Mariana Vieira,29/07/2026
+15/07/2026,WebRota,Jessica Priscila,jessica.correa@webrota.com.br,Mariana Vieira,Mariana Vieira,10/08/2026
+15/07/2026,WebRota,Maria Eduarda Santos,mariaeduarda.santos@webrota.com.br,Mariana Vieira,Mariana Vieira,
+15/07/2026,WebRota,Naiara Gonçalves,naiara.goncalves@webrota.com.br,Mariana Vieira,Mariana Vieira,12/08/2026
+15/07/2026,StartSe,Guilherme,guilherme.muniz@startse.com,Anne Siqueira,Anne Siqueira,17/07/2026
+15/07/2026,SONANGOL,Youri Inacio,Youri.inacio@sonangol.co.ao,Anne Siqueira,Anne Siqueira,27/07/2026
+15/07/2026,SONANGOL,Angela Cutoca,angela.cutoca@sonangol.co.ao,Anne Siqueira,Anne Siqueira,24/07/2026
+15/07/2026,Runrun.it,Marina Marcondes,marina.marcondes@starian.com,Mariana Vieira,Mariana Vieira,23/07/2026
+15/07/2026,Renato Chaves,Renato Chaves,renatochaves92@gmail.com,Anne Siqueira,Anne Siqueira,20/07/2026
+15/07/2026,Medika,Marco Aurélio dos Santos,marco.santos@medika.com.br,Mariana Vieira,Mariana Vieira,
+15/07/2026,Medika,Marina Alves da Silva Xavier Barboza,marina.barboza@medika.com.br,Mariana Vieira,Mariana Vieira,
+15/07/2026,Medika,Fernanda Paula Reis Silva,fernanda.silva@medika.com.br,Mariana Vieira,Mariana Vieira,
+15/07/2026,Medika,Sarah Gabrielly Batista Santos,sarah.santos@medika.com.br,Mariana Vieira,Mariana Vieira,
+15/07/2026,Medika,Karem Aguida Lopes,karem.lopes@medika.com.br,Mariana Vieira,Mariana Vieira,
+15/07/2026,Just Travel,Juliana Ferreira,juliana.ferreira@justtraveltour.com,João Fabrício,João Fabrício,
+15/07/2026,Just Travel,Beatriz Feitosa,beatriz.feitosa@justtraveltour.com,João Fabrício,João Fabrício,11/08/2026
+15/07/2026,HSM DO BRASIL S.A.,Larissa Serrano,larissa.serrano@hsm.com.br,Anne Siqueira,Anne Siqueira,22/07/2026
+15/07/2026,Compostos do Brasil,Kellen Oliveira,kelen.oliveira@compostos.com.br,Anne Siqueira,Anne Siqueira,16/07/2026
+15/07/2026,Caminhos de Equidade,Carlos Lins,carlos.lins@caminhosdeequidade.org,Mariana Vieira,Mariana Vieira,16/07/2026
+15/07/2026,Becomex,Raissa Meira,raissa.meira@becomex.com.br,Mariana Vieira,Mariana Vieira,
+15/07/2026,Becomex,Milene Gabriele Silva,milene.silva@becomex.com.br,Mariana Vieira,Mariana Vieira,
+16/07/2026,B2C,Guilherme Muniz,guipmuniz10@gmail.com,Anne Siqueira,Anne Siqueira,29/07/2026
+16/07/2026,Trimak,Alessandra B2C,alessandra.kaye87@gmail.com,Anne Siqueira,Anne Siqueira,30/07/2026
+16/07/2026,Tecnogera,Gabrielly Menarbini,gabrielly.menarbini@tecnogera.com.br,Mariana Vieira,Mariana Vieira,16/07/2026
+16/07/2026,RDamasco Soluções Industriaisi,Jessica Monteiro,jessica.monteiro@rdamasco.com.br,João Fabrício,João Fabrício,
+16/07/2026,RBR Extintores,Maria Eduarda Leone,comercial@rbrextintores.com.br,Mariana Vieira,Mariana Vieira,30/07/2026
+16/07/2026,RBR Extintores,Auta Saovesso,autasaovesso@gmail.com,Mariana Vieira,Mariana Vieira,30/07/2026
+16/07/2026,RBR Extintores,Bruna Sisareli,rbrextintores@outlook.com,Anne Siqueira,Anne Siqueira,
+16/07/2026,kedu,Joao Pedro Dias,joaodias@kedu.com.br,João Fabrício,João Fabrício,28/07/2026
+16/07/2026,Grupo Decio,THIARA ARANTES,thiara.arantes@grupodecio.com.br,João Fabrício,João Fabrício,07/08/2026
+16/07/2026,Grupo Decio,VITOR MATEUS,vitor.ribeiro@grupodecio.com.br,João Fabrício,João Fabrício,03/08/2026
+16/07/2026,Grupo Decio,THAIS MELO,thais.melo@grupodecio.com.br,João Fabrício,João Fabrício,12/08/2026
+16/07/2026,Grupo Decio,GABRIEL SANTOS,gabriel.santos@grupodecio.com.br,João Fabrício,João Fabrício,04/08/2026
+16/07/2026,Grupo Decio,LETICIA BONELA,leticia.bonela@grupodecio.com.br,João Fabrício,João Fabrício,31/07/2026
+16/07/2026,Grupo Decio,ELISANGELA SOUTO,elisangela.souto@grupodecio.com.br,João Fabrício,João Fabrício,03/08/2026
+16/07/2026,Grupo Decio,MARCELLA DIAS,marcella.dias@grupodecio.com.br,João Fabrício,João Fabrício,07/08/2026
+16/07/2026,Grupo Decio,ALEXANDRE JORGE,alexandre.jorge@grupodecio.com.br,João Fabrício,João Fabrício,05/08/2026
+16/07/2026,Grupo Decio,RENATO MANSUR,renato.mansur@grupodecio.com.br,João Fabrício,João Fabrício,04/08/2026
+16/07/2026,Grupo Decio,IAGO OLIVEIRA,iago.oliveira@grupodecio.com.br,João Fabrício,João Fabrício,03/08/2026
+16/07/2026,Grupo Decio,VINICIUS MOURA,vinicius.moura@grupodecio.com.br,João Fabrício,João Fabrício,
+16/07/2026,Grupo Decio,FRANKLIN SILVA,franklin.silva@grupodecio.com.br,João Fabrício,João Fabrício,28/07/2026
+16/07/2026,Grupo Decio,ISABELLE SANTOS,isabelle.santos@grupodecio.com.br,João Fabrício,João Fabrício,04/08/2026
+16/07/2026,Grupo Decio,EDUARDO VENANCIO,eduardo.venancio@grupodecio.com.br,João Fabrício,João Fabrício,03/08/2026
+16/07/2026,Grupo Decio,LEXSANDRO CAMACHO,lexsandro.camacho@grupodecio.com.br,João Fabrício,João Fabrício,
+16/07/2026,Grupo Decio,WESLEY CARREIRA,wesley.carreira@grupodecio.com.br,João Fabrício,João Fabrício,05/08/2026
+16/07/2026,Grupo Decio,WAGNER JUNIOR,wagner.salgado@grupodecio.com.br,João Fabrício,João Fabrício,03/08/2026
+16/07/2026,Grupo Decio,JOHNICA ALMEIDA,johnica.almeida@grupodecio.com.br,João Fabrício,João Fabrício,04/08/2026
+16/07/2026,Grupo Decio,GLEICI SILVA,gleici.silva@grupodecio.com.br,João Fabrício,João Fabrício,03/08/2026
+16/07/2026,BEXT,Igor Sales,igor.sales@bext.vc,Mariana Vieira,Mariana Vieira,
+16/07/2026,BEXT,Leinady Rodrigues,leinady.rodrigues@bext.vc,Mariana Vieira,Mariana Vieira,06/08/2026
+16/07/2026,BEXT,Diessyca Peres,diessyca.peres@bext.vc,Anne Siqueira,Anne Siqueira,28/07/2026
+16/07/2026,BEXT,Douglas Szameitat,douglas.szameitat@bext.vc,Mariana Vieira,Mariana Vieira,
+16/07/2026,BEXT,Estevão Martins,estevao.martins@bext.vc,Mariana Vieira,Mariana Vieira,
+16/07/2026,BEXT,Tairo Lisboa,tairo.lisboa@bext.vc,Mariana Vieira,Mariana Vieira,06/08/2026
+16/07/2026,BEXT,Arthur Schein,arthur.schein@bext.vc,Mariana Vieira,Mariana Vieira,05/08/2026
+16/07/2026,BEXT,Leonardo Cordeiro,leonardo.cordeiro@bext.vc,Mariana Vieira,Mariana Vieira,05/08/2026
+16/07/2026,BEXT,Daniele Vieira,daniele.vieira@bext.vc,Mariana Vieira,Mariana Vieira,
+16/07/2026,BEXT,Isabel Trevisan,isabel.trevisan@bext.vc,Mariana Vieira,Mariana Vieira,
+16/07/2026,BEXT,Felipe Negrao,felipe.negrao@bext.vc,Mariana Vieira,Mariana Vieira,
+16/07/2026,Aspprev,Ademilso Luiz Rangel,arangel@aspprev.com.br,Thaynara Santos,Mariana Vieira,
+16/07/2026,B2C,Julio Cesar Bailer,jcrodhermel@gmail.com,Anne Siqueira,Anne Siqueira,31/07/2026
+16/07/2026,Aspprev,Gisele Ghanem Ca,gcardoso@aspprev.com.br,Thaynara Santos,Mariana Vieira,29/07/2026
+16/07/2026,Grupo Decio,RODRIGO FERNANDES,rodrigo.fernandes@grupodecio.com.br,João Fabrício,João Fabrício,30/07/2026
+17/07/2026,WR Automação,Vanessa Teixeira,vanessa@wr-automacao.ind.br,Mariana Vieira,Mariana Vieira,
+17/07/2026,SprintHub,Lucas dos Santos Fileto,lucasfileto1@gmail.com,Thabata Harumi,Mariana Vieira,
+17/07/2026,Grupo Decio,PAULO SOUZA,paulo.souza@grupodecio.com.br,Thaynara Santos,João Fabrício,
+17/07/2026,Falavinha Next,Wagner Santos,wagner.santos@falavinha.com.br,João Fabrício,João Fabrício,06/08/2026
+17/07/2026,Falavinha Next,Andressa Souza,andressa.sousa@falavinha.com.br,João Fabrício,João Fabrício,
+17/07/2026,Falavinha Next,Vinicius Kern,vinicius.kern@falavinha.com.br,João Fabrício,João Fabrício,16/06/2026
+17/07/2026,Falavinha Next,Thaissa Dias,thaissa.dias@falavinha.com.br,João Fabrício,João Fabrício,15/06/2026
+17/07/2026,DYNAMIS IMPORTADORA,Jeferson Juswiak,jeferson.eduardo@dynamisimportadora.com.br,Mariana Vieira,Mariana Vieira,
+17/07/2026,Centric,Laura Pohlmann,laura.pohlmann@centric.com.br,Mariana Vieira,Mariana Vieira,
+17/07/2026,Centric,Ana Flávia Costa,ana.costa@centric.com.br,Mariana Vieira,Mariana Vieira,
+17/07/2026,CEM,Bia Tayla Perez,bia_tayla@hotmail.com,Mariana Vieira,Mariana Vieira,06/08/2026
+17/07/2026,CEM,Victoria Viana,viana.victoria014@gmail.com,Mariana Vieira,Mariana Vieira,21/07/2026
+20/07/2026,TOTVS Brasil Central,***LEANDRO LEVI DA SILVA INACIO,linacio@totvs.com.br,Mariana Vieira,Mariana Vieira,
+20/07/2026,TOTVS Brasil Central,PRISCILA SA BARBOSA CANDIDO DE ALMEIDA,priscila.sa@totvs.com.br,Mariana Vieira,Mariana Vieira,
+20/07/2026,TOTVS Brasil Central,ALVARO PEREIRA BRANDAO DOS SANTOS,alvaro.santos@totvs.com.br,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Beatriz Brach,beatriz.brach@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Gabriel Meneghelli,gabriel.meneghelli@thomsonreuters.com,Mariana Vieira,Mariana Vieira,10/08/2026
+20/07/2026,Thomson Reuters,Pedro Rego,pedro.rego@thomsonreuters.com,Mariana Vieira,Mariana Vieira,07/08/2026
+20/07/2026,Thomson Reuters,Patricia Rodrigues,patricia.rodrigues2@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Jazieli Silva,jazieli.silva@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Dayane Ribeiro,dayane.ribeiro@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Gabrielle Morais,gabrielle.morais@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Gilson Cantor,gilson.cantor@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Deny Martins,deny.martins@thomsonreuters.com,Mariana Vieira,Mariana Vieira,10/08/2026
+20/07/2026,Thomson Reuters,Giulyane Sabioni,giulyane.sabioni@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Beatriz Felix,beatriz.felixdasilva@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Erika Oliveira,erika.oliveira@thomsonreuters.com,Mariana Vieira,Mariana Vieira,11/08/2026
+20/07/2026,Thomson Reuters,Francisco Neto,francisco.neto@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Quelen Silva,quelen.santos@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Wagner Dias,wagnerangelo.dias@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Monica Campos,monica.decampos@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,João Paiva,joao.paiva@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Camila Veronese,camila.veronese@thomsonreuters.com,Mariana Vieira,Mariana Vieira,10/08/2026
+20/07/2026,Thomson Reuters,Josyane Costa,josyane.costa@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Erica Andrade,ericavieira.andrade@thomsonreuters.com,Mariana Vieira,Mariana Vieira,06/08/2026
+20/07/2026,Thomson Reuters,Victor Augusto,victor.augusto@thomsonreuters.com,Mariana Vieira,Mariana Vieira,07/08/2026
+20/07/2026,Thomson Reuters,Fernanda Salvadori,fernanda.c.silva@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Camila Carvalho,camila.decarvalho@thomsonreuters.com,Mariana Vieira,Mariana Vieira,10/08/2026
+20/07/2026,Thomson Reuters,Jaqueline Santos,jaqueline.santos@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,Ana Carolina Costa,anacarolina.costa@thomsonreuters.com,Mariana Vieira,Mariana Vieira,05/08/2026
+20/07/2026,Thomson Reuters,Gianlucca Costa,gianlucca.costa@thomsonreuters.com,Mariana Vieira,Mariana Vieira,
+20/07/2026,Thomson Reuters,João Bazolli,joao.bazolli@thomsonreuters.com,Mariana Vieira,Mariana Vieira,06/08/2026
+20/07/2026,Hartbau,Gabriel João,gabriel@hartbau.com.br,Mariana Vieira,Mariana Vieira,
+20/07/2026,Hartbau,Cleisson Leandro,cleisson@hartbau.com.br,Mariana Vieira,Mariana Vieira,
+20/07/2026,Hartbau,Leonardo Maurycio,liermann.leonardo@hartbau.com.br,Mariana Vieira,Mariana Vieira,
+20/07/2026,Hartbau,Bruna Pereira,bruna@hartbau.com.br,Mariana Vieira,Mariana Vieira,
+20/07/2026,Bivox,Jéssica Mendonça,jessica@bivox.digital,João Fabrício,João Fabrício,12/08/2026
+20/07/2026,Bivox,Éder Nascimento,éder@bivox.digital,João Fabrício,João Fabrício,12/08/2026
+20/07/2026,Bivox,Iago Luiz,iago@bivox.com.br,Anne Siqueira,Anne Siqueira,
+21/07/2026,Prospercapital,Monica Coin,monica@prospercapital.com.br,Thaynara Santos,Mariana Vieira,
+21/07/2026,Prospercapital,Gustavo Meneghetti,gustavo@prospercapital.com.br,Thaynara Santos,Mariana Vieira,
+21/07/2026,Prosper Capital,Gibson Klein,gibson@prospercapital.com.br,Mariana Vieira,Mariana Vieira,
+21/07/2026,Prosper Capital,Tiago Souza,tiago@prospercapital.com.br,Mariana Vieira,Mariana Vieira,06/08/2026
+21/07/2026,Prosper Capital,Pietro Corletto,pietro@prospercapital.com.br,Mariana Vieira,Mariana Vieira,03/08/2026
+21/07/2026,Prosper Capital,Leonardo Mayer,leonardo@prospercapital.com.br,Mariana Vieira,Mariana Vieira,
+21/07/2026,Prosper Capital,Estela Aranha,estela@prospercapital.com.br,Mariana Vieira,Mariana Vieira,
+21/07/2026,Prosper Capital,Maria Lisboa,marialisboa@prospercapital.com.br,Mariana Vieira,Mariana Vieira,05/08/2026
+21/07/2026,Prosper Capital,INATIVO - Sandro Schleder,sandro@prospercapital.com.br,Thaynara Santos,Mariana Vieira,
+21/07/2026,Multibelt,Marcos Schmid,marcos.schmid@multibelt.com.br,Mariana Vieira,Mariana Vieira,
+21/07/2026,Multibelt,Vanessa Vieira,vanessa.vieira@multibelt.com.br,Mariana Vieira,Mariana Vieira,19/11/2025
+21/07/2026,Multibelt,Clovis Bueno,clovis.bueno@multibelt.com.br,Mariana Vieira,Mariana Vieira,
+21/07/2026,Multibelt,Jonas Reis,jonas.reis@multibelt.com.br,Mariana Vieira,Mariana Vieira,27/07/2026
+21/07/2026,DYNAMIS IMPORTADORA,Isabela,isabela.silva@dynamisimportadora.com.br,Mariana Vieira,Mariana Vieira,
+21/07/2026,Determix Comercial,Rodrigo Carrera,rodrigo.comercial@determix.com.br,João Fabrício,João Fabrício,
+21/07/2026,Determix Comercial,Maiara Silva,vendas3.comercial@determix.com.br,João Fabrício,João Fabrício,
+21/07/2026,Determix Comercial,ikaro George,vendas4.comercial@determix.com.br,João Fabrício,João Fabrício,
+21/07/2026,Determix Comercial,Andre Luis,vendas2.comercial@determix.com.br,João Fabrício,João Fabrício,
+21/07/2026,Catho,ALVARO ALBERTO,alvaro.junior@infojobs.com.br,Anne Siqueira,Anne Siqueira,
+21/07/2026,Catho,THIAGO GAMA DE LIMA,thiago.gama@infojobs.com.br,Anne Siqueira,Anne Siqueira,
+21/07/2026,Catho,MATHEUS FERREIRA,matheus.ferreira@infojobs.com.br,Anne Siqueira,Anne Siqueira,
+21/07/2026,Catho,JESSICA DOS SANTOS COUTO,jessica.couto@infojobs.com.br,Anne Siqueira,Anne Siqueira,05/08/2026
+21/07/2026,Catho,EVILA DA SILVA ROBERTO,evila.roberto@infojobs.com.br,Anne Siqueira,Anne Siqueira,12/08/2026
+21/07/2026,Catho,CASSIA,cassia.felix@infojobs.com.br,Anne Siqueira,Anne Siqueira,28/07/2026
+21/07/2026,Catho,ANA PAULA,ana.cintra@infojobs.com.br,Anne Siqueira,Anne Siqueira,21/07/2026
+21/07/2026,Catho,FABIANA YARA FERREIRA NAKAMURA,fabiana.nakamura@infojobs.com.br,Anne Siqueira,Anne Siqueira,11/08/2026
+21/07/2026,Catho,FERNANDO DE ARAUJO SILVERIO,fernando.silverio@infojobs.com.br,Anne Siqueira,Anne Siqueira,
+21/07/2026,Catho,LUCAS RODRIGUES DOS SANTOS,lucas.santos@infojobs.com.br,Anne Siqueira,Anne Siqueira,
+21/07/2026,Catho,LUCAS SILVA DE PAULO,lucas.paulo@infojobs.com.br,Anne Siqueira,Anne Siqueira,17/07/2026
+21/07/2026,Catho,THIAGO CERBONCINI DE BARROS,thiago.barros@infojobs.com.br,Anne Siqueira,Anne Siqueira,
+21/07/2026,2P Group,Raiana Alves,raiana.alves@2pgroup.com.br,João Fabrício,João Fabrício,
+21/07/2026,2P Group,Gusthavo Novaes,ghustavo@2pgroup.com.br,João Fabrício,João Fabrício,
+21/07/2026,2P Group,Gabriel Sargiani,gabriel.sargiani@2pgroup.com.br,João Fabrício,João Fabrício,
+21/07/2026,Prosper Capital,Artur Weiss,artur@prospercapital.com.br,Thaynara Santos,Mariana Vieira,
+22/07/2026,Rvops,Thais Finatti,thais@rvops.com,João Fabrício,João Fabrício,
+22/07/2026,Rvops,Flavia Limonge,flavia@rvops.com,João Fabrício,João Fabrício,
+23/07/2026,Sólides,EWERTON SOUZA,ewerton.souza@solides.com.br,Mariana Vieira,Mariana Vieira,
+23/07/2026,Sólides,LAURA LIMA,laura.rodrigues@solides.com.br,Mariana Vieira,Mariana Vieira,24/07/2026
+23/07/2026,Sólides,DOMINGOS NETO,domingos.figueiredo@solides.com.br,Mariana Vieira,Mariana Vieira,
+23/07/2026,PRS Tecnologia,Micaela -,micaela@prstecnologia.com,João Fabrício,João Fabrício,12/08/2026
+23/07/2026,PRS Tecnologia,Rafaella,rafaella@prstecnologia.com,João Fabrício,João Fabrício,04/08/2026
+23/07/2026,Plug Componentes Eletronicos,Suelen Alexandre,vendas@plugcomponentes.com.br,João Fabrício,João Fabrício,
+23/07/2026,Nasajon,Juliana Torres,julianatorres@nasajon.com.br,Mariana Vieira,Mariana Vieira,
+24/07/2026,TD,Jaquelini Luz,jaquelini.luz@somostd.com.br,João Fabrício,João Fabrício,
+24/07/2026,TD,Luiza Rosell,luiza.rosell@somostd.com.br,João Fabrício,João Fabrício,07/08/2026
+24/07/2026,Proesc,Lucas Viana,lucasviana@proesc.com,Mariana Vieira,Mariana Vieira,07/08/2026
+24/07/2026,Proesc,Denilson Vendramini,denilson.vendramini@proesc.com,Mariana Vieira,Mariana Vieira,07/08/2026
+24/07/2026,Proesc,Luciana Karla Freitas,luciana.freitas@proesc.com,Mariana Vieira,Mariana Vieira,07/08/2026
+24/07/2026,Proesc,Murilo Moraes Sucupira,murilo@proesc.com,Mariana Vieira,Mariana Vieira,07/08/2026
+24/07/2026,Proesc,Evelin Cristine Nunes,evelin.nunes@proesc.com,Mariana Vieira,Mariana Vieira,30/07/2026
+24/07/2026,Proesc,Luiz Henrique Marcelino,luiz.marcelino@proesc.com,Mariana Vieira,Mariana Vieira,
+24/07/2026,Hyperion Gestão,Gessyca Oliveira,gessyca.freitas11@gmail.com,João Fabrício,João Fabrício,
+24/07/2026,Danka,Caroline Silva,caroline.silva@danka.com.br,Thabata Harumi,João Fabrício,
+24/07/2026,Clínica Experts,Yago Ferreira,yago.ferreira@clinicaexperts.com.br,Anne Siqueira,Anne Siqueira,
+24/07/2026,Clínica Experts,Luis Corbellini,luis.corbellini@clinicaexperts.com.br,Anne Siqueira,Anne Siqueira,06/08/2026
+24/07/2026,Clínica Experts,Micaela Graziadei,micaela.graziadei@clinicaexperts.com.br,Anne Siqueira,Anne Siqueira,
+27/07/2026,PUCPR,Simao Lucas Teixeira Stocko,simao.stocko@pucpr.br,João Fabrício,João Fabrício,
+27/07/2026,PUCPR,Leonardo Rankel Soares,leonardo.rsoares@pucpr.br,João Fabrício,João Fabrício,10/08/2026
+27/07/2026,PUCPR,Leticia Buzzo,leticia.buzzo@pucpr.br,Thaynara Santos,Anne Siqueira,
+27/07/2026,PUCPR,Paola Gilier de Franca Pedroso,paola.pedroso@pucpr.br,João Fabrício,João Fabrício,12/08/2026
+27/07/2026,PUCPR,Alessandra Paiva Fraresso,alessandra.fraresso@pucpr.br,Thaynara Santos,João Fabrício,
+27/07/2026,PUCPR,Edson Felix,edson.felix@pucpr.br,João Fabrício,João Fabrício,
+27/07/2026,PUCPR,Kauane Alves Stella,kauane.astella@pucpr.br,João Fabrício,João Fabrício,11/08/2026
+27/07/2026,PUCPR,Cleyton Pimentel Pontilis,cleyton.pontilis@pucpr.br,João Fabrício,João Fabrício,
+27/07/2026,PUCPR,Maria Beatriz Borsatto Dos Reis Gomes,maria.bgomes@pucpr.br,João Fabrício,João Fabrício,
+27/07/2026,PUCPR,Kaline Das Neves Lima,kaline.neves@pucpr.br,João Fabrício,João Fabrício,
+27/07/2026,PUCPR,Claudia Luciane Pires Komnicki,claudia.komnicki@pucpr.br,João Fabrício,João Fabrício,
+27/07/2026,PUCPR,Priscila Aparecida Queiroz Schmitz Barbosa,priscila.schmitz@pucpr.br,João Fabrício,João Fabrício,
+27/07/2026,PUCPR,Gabriela Guimarães Silva Santos,gabriela.gsantos@pucpr.br,João Fabrício,João Fabrício,
+27/07/2026,PUCPR,Emanuelle Lopes Cordeiro,emanuelle.locordeiro@pucpr.br,João Fabrício,João Fabrício,11/08/2026
+27/07/2026,PUCPR,Vinicius Eduardo Gomes Murray,vinicius.emurray@pucpr.br,João Fabrício,João Fabrício,11/08/2026
+27/07/2026,Grupo Vocical,Hellen Carla,vendas01.robraconsnp@grupovocical.com.br,Mariana Vieira,Mariana Vieira,
+27/07/2026,Grupo Vocical,JOAO FERREIRA,vendas04.robraconsnp@grupovocical.com.br,João Fabrício,João Fabrício,
+27/07/2026,Grupo Vocical,CRISTIANO PEREIRA,vendas05.robraconsnp@grupovocical.com.br,Mariana Vieira,Mariana Vieira,
+27/07/2026,Bakken Hospitalar,Amanda Polaczek,vendas3@bakkenhospitalar.com.br,João Fabrício,João Fabrício,29/07/2026
+28/07/2026,MAGIS5,Carolline Silva,caroline.silva@magis5.com.br,Anne Siqueira,Anne Siqueira,
+28/07/2026,Hostweb Data Center,Reginaldo Lima,reginaldo.lima@hostweb.cloud,Mariana Vieira,Mariana Vieira,
+28/07/2026,Grupo Premier Alimentos,Marcelo Paoli,marcelo.paoli@grupopremieralimentos.com.br,Mariana Vieira,Mariana Vieira,
+28/07/2026,Grupo Premier Alimentos,Luiz Moraes,luiz.moraes@grupopremieralimentos.com.br,Mariana Vieira,Mariana Vieira,
+28/07/2026,Checklist Fácil,Nayara Marconi,nayara.marconi@starian.com,Mariana Vieira,Mariana Vieira,
+28/07/2026,Cargo Sapiens,Eduardo Couto,eduardo.couto@cargosapiens.com.br,Mariana Vieira,Mariana Vieira,
+28/07/2026,Cargo Sapiens,Juliana Correa,juliana.correa@cargosapiens.com,Thaynara Santos,João Fabrício,
+28/07/2026,Accelera 360,Humberto Barbosa da Silva Leite,humberto.barbosa@kcggroup.com.br,João Fabrício,João Fabrício,
+28/07/2026,Accelera 360,Sabrina Monteiro,sabrina.monteiro@accelera360.com,João Fabrício,João Fabrício,10/08/2026
+28/07/2026,Accelera 360,Erick Roberto,erick.roberto@accelera360.com.br,João Fabrício,João Fabrício,04/08/2026
+28/07/2026,Accelera 360,Nathan Pereira,nathan.pereira@kcggroup.com.br,João Fabrício,João Fabrício,30/07/2026
+28/07/2026,Accelera 360,Breno Lins,breno.lins@accelera360.com.br,João Fabrício,João Fabrício,11/08/2026
+28/07/2026,Accelera 360,Lucas Silva,lucas.silva@accelera360.com.br,João Fabrício,João Fabrício,12/08/2026
+29/07/2026,Sumedical,Lucas Nascimento,lucas.nascimento@sumedical.com.br,João Fabrício,João Fabrício,12/08/2026
+29/07/2026,Persona,Isabela Reis,Isabelareis2001@icloud.com,Mariana Vieira,Mariana Vieira,
+29/07/2026,Persona,Catly Duarte,catly_duarte@hotmail.com,Mariana Vieira,Mariana Vieira,
+30/07/2026,ZEEV,Alzemir Sobrinho,alzemir.sobrinho@zeev.it,João Fabrício,João Fabrício,31/07/2026
+30/07/2026,RLX Importe,Stela Moreira,stela.queiroz@rlximporte.com.br,João Fabrício,João Fabrício,
+30/07/2026,RLX Importe,Lucas Diniz,lucas.diniz@rlximporte.com.br,João Fabrício,João Fabrício,
+30/07/2026,PUCPR,Heloisa Maria Fernandes de Oliveira,heloisa.moliveira@pucpr.br,João Fabrício,João Fabrício,
+30/07/2026,LINCE TECH,Wile Deschamps,wile.deschamps@lince.com.br,João Fabrício,João Fabrício,04/08/2026
+30/07/2026,Alvor Corretora De Seguroa LTDA,Renan Michelon,renanmichelon17@gmail.com,João Fabrício,João Fabrício,
+30/07/2026,Alvor,Josiane Machado De Oliveira,consultoriaalvor@gmail.com,Thaynara Santos,João Fabrício,
+31/07/2026,Pantanal Engenharia& Energia solar,Antonio Jorge Gomes de Castro,antoniojorge4850@gmail.com,João Fabrício,João Fabrício,
+31/07/2026,Pantanal Engenharia& Energia solar,Mário Júnior de Souza da Silva,juniorsouzadasilva501@gmail.com,João Fabrício,João Fabrício,
+31/07/2026,Carefy,Rodrigo Oliveira,rodrigo.oliveira@carefy.com.br,João Fabrício,João Fabricio,06/08/2026
+31/07/2026,Carefy,Andreia Andrade,andreia.andrade@carefy.com.br,João Fabrício,João Fabrício,
+03/08/2026,Meta Cursos e Treinamentos,Oséias Rossa,atendimento6@metacursos.com.br,Thaynara Santos,João Fabrício,
+03/08/2026,Just Travel,Julia Gusmão,julia.gusmao@justtraveltour.com,João Fabrício,João Fabrício,
+03/08/2026,Just Travel,Tainá Brasil,taina.brasil@justtraveltour.com,João Fabrício,João Fabrício,
+03/08/2026,Catho,Stefane Jesus,stefane.jesus@catho.com,Anne Siqueira,Anne Siqueira,
+03/08/2026,Catho,Jaqueline Santos,jaqueline.silva@infojobs.com.br,Anne Siqueira,Anne Siqueira,03/08/2026
+04/08/2026,WRID Importadora e Distribuidora,Leandro Heinrich Schmit,leandro.schmit@parceirodaspecas.com.br,Thaynara Santos,João Fabrício,
+04/08/2026,Pantanal Engenharia& Energia solar,Ruth Colares Jataí de Almeida,ruthcolares05@gmail.com,João Fabrício,João Fabrício,
+04/08/2026,Pantanal Engenharia& Energia solar,Manuel Lopes Barbosa,emanuellopes019.321@gmail.com,João Fabrício,João Fabrício,
+04/08/2026,Determix Comercial,Izabela Izabela,izabela.comercial@determix.com.br,Thaynara Santos,João Fabrício,
+04/08/2026,CARTROM,Andressa Elesbão,coordenadoramarketing@cartrom.com.br,Mariana Vieira,Mariana Vieira,
+04/08/2026,9energia,Antonio Hugo,hugodumontfilho@gmail.com,João Fabrício,João Fabrício,
+04/08/2026,9energia,Vanessa Andrade,vanessaandrade9energia@gmail.com,João Fabrício,João Fabrício,07/08/2026
+04/08/2026,9energia,Rafael Soares,comercial2@9energia.com.br,João Fabrício,João Fabrício,
+04/08/2026,9energia,Dalila Castro,dalilacastrocomercial@gmail.com,João Fabrício,João Fabrício,
+04/08/2026,9energia,Karine Muniz,karine.muniz@9energia.com.br,João Fabrício,João Fabrício,
+04/08/2026,9energia,Matheus Daniel,comercial@9energia.com,João Fabrício,João Fabrício,
+04/08/2026,9energia,Pedro Mesquita,pedrovms1116@gmail.com,João Fabrício,João Fabrício,
+04/08/2026,9energia,Juliana Alcântara,juliana.kerth@9energia.com.br,João Fabrício,João Fabrício,12/08/2026
+04/08/2026,9energia,Samila Sampaio,Samila.guerra@9energia.com.br,João Fabrício,João Fabrício,
+04/08/2026,9energia,Luiz Henrique,luiz.henriquelhm26@gmail.com,João Fabrício,João Fabrício,
+05/08/2026,Grupo Eletrolar,LUCIANA APARECIDA ARRUDA TARGINO DE SOUZA,luciana.arruda@grupoeletrolar.com.br,João Fabrício,João Fabrício,
+05/08/2026,Grupo Eletrolar,BEATRIZ TOMÉ DA SILVA,cadastro@grupoeletrolar.com.br,João Fabrício,João Fabrício,
+05/08/2026,Grupo Eletrolar,CARINA MARAVIGLIA,carina@grupoeletrolar.com.br,Thaynara Santos,João Fabrício,
+05/08/2026,GBF Consultoria e contabilidade,Leticia Souza,atendimento01@gbfconsultoria.com.br,João Fabrício,João Fabrício,
+05/08/2026,FAC Engenharia,Henrique Broetto,HENRIQUE.BROETTO@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,
+05/08/2026,FAC Engenharia,Matheus Carlos,MATHEUS.CARLOS@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,
+05/08/2026,FAC Engenharia,Isabele Baker,ISABELE.BAKER@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,
+05/08/2026,FAC Engenharia,Claudio Santos,CLAUDIO.SANTOS@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,
+05/08/2026,FAC Engenharia,Bianca Federici,BIANCA.FEDERICI@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,
+05/08/2026,FAC Engenharia,Gawber Alfaia,GLAWBER.ALFAIA@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,
+05/08/2026,FAC Engenharia,Allan Vitor Clemente,ALLAN.CLEMENTE@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,
+05/08/2026,FAC Engenharia,Jader Nogueira,JADER.NOGUEIRA@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,
+05/08/2026,FAC Engenharia,Enzo Almoffrey,VENDAS@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,
+05/08/2026,FAC Engenharia,Bartolomeu Pianca,BARTOLOMEU.PIANCA@FAENGENHARIA.COM.BR,João Fabrício,João Fabrício,
+05/08/2026,Grupo Eletrolar,ARIANE SILVA,ariane.silva@grupoeletrolar.com.br,Thaynara Santos,João Fabrício,
+06/08/2026,Unico Skill,Monique Hansen,monique.hansen@unico.io,João Fabrício,João Fabrício,
+06/08/2026,Unico Skill,Julio Guerra,julio.guerra@unico.io,João Fabrício,João Fabrício,
+06/08/2026,Unico Skill,Camila Paulino,camila.paulino@unico.io,João Fabrício,João Fabrício,
+06/08/2026,Unico Skill,Maria Luiza Oliveira,luiza.oliveira@unico.io,João Fabrício,João Fabrício,
+06/08/2026,Unico Skill,Guilherme Baraccat,guilherme.baraccat@unico.io,João Fabrício,João Fabrício,
+06/08/2026,Unico Skill,André Marietto,andre.marietto@unico.io,João Fabrício,João Fabrício,
+06/08/2026,Unico Skill,Daniel Moreira Gomes,daniel.moreira@unico.io,João Fabrício,João Fabrício,
+06/08/2026,Unico Skill,Rafael Papa,rafael.papa@unico.io,João Fabrício,João Fabrício,
+07/08/2026,Tecnogera,Helen Favaro,helen.favaro@tecnogera.com.br,Mariana Vieira,Mariana Vieira,
+07/08/2026,Tecnogera,Aparecido Junior,aparecido.junior@tecnogera.com.br,Mariana Vieira,Mariana Vieira,
+07/08/2026,Lalan do Brasil,Juliana Marques,comercial@lalan.com.br,João Fabrício,João Fabrício,
+07/08/2026,Lalan do Brasil,Regiane Lima,comercial5@lalan.com.br,João Fabrício,João Fabrício,
+07/08/2026,Lalan do Brasil,Isabela Hoffmann,comercial1@lalan.com.br,João Fabrício,João Fabrício,
+07/08/2026,Lalan do Brasil,Myryam Souza,comercial6@lalan.com.br,João Fabrício,João Fabrício,
+07/08/2026,Lalan do Brasil,Rafaela Weingart,comercial2@lalan.com.br,João Fabrício,João Fabrício,
+07/08/2026,BMC Hyundai,Caio Faria,caio.faria@bmchyundai.com.br,Mariana Vieira,Mariana Vieira,
+11/08/2026,Inserra imobiliaria,Valter Diniz,valter.diniz@imobiliariainserra.com.br,Mariana Vieira,Mariana Vieira,
+11/08/2026,Inserra imobiliaria,Andreza Nitão,andreza@imobiliariainserra.com.br,Mariana Vieira,Mariana Vieira,
+11/08/2026,Inserra imobiliaria,Marisa Correia,marisa@imobiliariainserra.com.br,Mariana Vieira,Mariana Vieira,
+11/08/2026,Captei,Rafael Souza,rafael.souza@captei.com.br,João Fabrício,João Fabrício,
+12/08/2026,Sauté Salgados,Gabriel Nicoleti,comercial@sautesalgados.com.br,João Fabrício,João Fabrício,
+12/08/2026,Sauté Salgados,Ana Paula Modesto,vendas@sautesalgados.com.br,João Fabrício,João Fabrício,
