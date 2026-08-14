@@ -98,16 +98,13 @@ function csTargetPct(csName) {
 }
 
 // Resolve o "responsável" (CX ou PF) de um usuário a partir do e-mail
-// institucional preenchido em "Proprietário do Onboarding".
+// institucional preenchido em "Proprietário do Onboarding". Retorna null
+// quando o e-mail não está na lista de responsáveis identificados — nesse
+// caso o usuário é desconsiderado da base de ativação de CS.
 function resolveResponsavelFromEmail(email) {
   const key = norm(email);
   if (!key) return null;
-  if (RESPONSAVEL_EMAIL_MAP[key]) return RESPONSAVEL_EMAIL_MAP[key];
-  const local = key.split("@")[0];
-  if (!local) return null;
-  return local.split(/[._-]/).filter(Boolean)
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
+  return RESPONSAVEL_EMAIL_MAP[key] || null;
 }
 
 // Unifica variações do mesmo nome (ex.: "João Fabrício" vs "João Fabricio")
@@ -249,7 +246,8 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
 
     const stats = consumoStats(emailKey);
     const responsavelEmail = pick(r, ["Proprietário do Onboarding"]);
-    const responsavel = resolveResponsavelFromEmail(responsavelEmail) || "Sem responsável";
+    const responsavel = resolveResponsavelFromEmail(responsavelEmail);
+    if (!responsavel) continue; // proprietário do onboarding não identificado -> desconsiderar usuário
 
     const usuario = {
       id: `usu_${usuIdx++}`,
