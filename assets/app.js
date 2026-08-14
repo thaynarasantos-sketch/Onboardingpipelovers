@@ -1,27 +1,31 @@
 /* =========================================================================
-   PipeLovers · Onboarding Dashboard — app.js
+   PipeLovers · Onboarding Dashboard — app.js (v2)
    Renderização das abas CS e CX: filtros (checkbox multi-seleção), KPIs
-   (gauges de meta), tabelas com drill-down (empresa -> membro -> aulas).
+   (gauges de meta), tabelas com drill-down (empresa -> usuário/membro -> aulas).
    ========================================================================= */
 
 const STATUS_META = {
-  ativado:      { label: "Ativado",       cls: "ok"   },
-  em_andamento: { label: "Em andamento",  cls: "info" },
-  desengajado:  { label: "Desengajado",   cls: "warn" },
-  alerta:       { label: "Alerta",        cls: "bad"  },
+  ativado:      { label: "Ativado",       cls: "ok"    },
+  em_andamento: { label: "Em andamento",  cls: "info"  },
+  desengajado:  { label: "Desengajado",   cls: "warn"  },
+  alerta:       { label: "Alerta",        cls: "bad"   },
+  churn:        { label: "Churn",         cls: "churn" },
 };
 const EMPRESA_STATUS_META = {
   ativada:             { label: "Ativada",             cls: "ok"    },
   aguardando_handoff:  { label: "Aguardando handoff",  cls: "warn"  },
+  em_andamento:        { label: "Em andamento",        cls: "info"  },
   em_risco:            { label: "Em risco",            cls: "bad"   },
-  churn:               { label: "Churn",                cls: "churn" },
+  churn:               { label: "Churn",               cls: "churn" },
 };
+const CS_STATUS_ORDER = ["ativada", "aguardando_handoff", "em_andamento", "em_risco", "churn"];
+const CX_STATUS_ORDER = ["ativado", "em_andamento", "desengajado", "alerta", "churn"];
 
 let MODEL = null;
 
 const state = {
   cs: {
-    f: { analistas: new Set(), meta: new Set(), fechFrom: "", fechTo: "", hoFrom: "", hoTo: "", nome: "" },
+    f: { analistas: new Set(), meta: new Set(), fechFrom: "", fechTo: "", hoFrom: "", hoTo: "", nome: "", responsavel: new Set(), status: new Set() },
     expandedEmp: new Set(),
     expandedMem: new Set(),
   },
@@ -77,10 +81,10 @@ async function loadAndRender(first) {
 
 function errorBox(msg) {
   return `<div class="err-box">Não foi possível carregar os dados (${escapeHtml(msg)}).
-  Verifique se os arquivos <code>data/empresas.csv</code>, <code>data/membros.csv</code> e
-  <code>data/consumo.csv</code> estão publicados no repositório e se esta página está sendo
-  servida via GitHub Pages (http/https) — o carregamento de CSV não funciona abrindo o
-  arquivo localmente (file://).</div>`;
+  Verifique se os arquivos <code>data/empresas.csv</code>, <code>data/membros.csv</code>,
+  <code>data/usuarios.csv</code> e <code>data/consumo.csv</code> estão publicados no repositório
+  e se esta página está sendo servida via GitHub Pages (http/https) — o carregamento de CSV não
+  funciona abrindo o arquivo localmente (file://).</div>`;
 }
 
 function setStatusPill(kind, msg) {
@@ -104,31 +108,34 @@ function initFiltersOnce() {
 
   const csAnalistas = uniqueSorted(MODEL.empresas.map((e) => e.cs));
   const cxAnalistas = uniqueSorted(MODEL.membros.map((m) => m.cx));
+  const responsaveis = uniqueSorted(MODEL.empresas.flatMap((e) => e.responsaveisList));
 
-  buildMultiSelect("cs-f-analista", "CS", csAnalistas, state.cs.f.analistas, () => { renderCS(); });
-  buildMultiSelect("cs-f-meta", "Mês da meta", MODEL.metaMonths.map((m) => m.label), state.cs.f.meta, () => { renderCS(); }, MODEL.metaMonths.map((m)=>m.key));
+  buildMultiSelect("cs-f-analista", null, state.cs.f.analistas, () => renderCS(), csAnalistas);
+  buildMultiSelect("cs-f-meta", null, state.cs.f.meta, () => renderCS(), null, MODEL.metaMonths);
+  buildMultiSelect("cs-f-responsavel", null, state.cs.f.responsavel, () => renderCS(), responsaveis);
+  buildMultiSelect("cs-f-status", null, state.cs.f.status, () => renderCS(), CS_STATUS_ORDER.map((s) => EMPRESA_STATUS_META[s].label), CS_STATUS_ORDER);
 
-  buildMultiSelect("cx-f-analista", "CX", cxAnalistas, state.cx.f.analistas, () => { renderCX(); });
-  buildMultiSelect("cx-f-meta", "Mês da meta", MODEL.metaMonths.map((m) => m.label), state.cx.f.meta, () => { renderCX(); }, MODEL.metaMonths.map((m)=>m.key));
-  buildMultiSelect("cx-f-status", "Status", ["ativado","em_andamento","desengajado","alerta"].map(s=>STATUS_META[s].label), state.cx.f.status, () => { renderCX(); }, ["ativado","em_andamento","desengajado","alerta"]);
-  buildMultiSelect("cx-f-cs", "CS", uniqueSorted(MODEL.empresas.map((e) => e.cs)), state.cx.f.cs, () => { renderCX(); });
+  buildMultiSelect("cx-f-analista", null, state.cx.f.analistas, () => renderCX(), cxAnalistas);
+  buildMultiSelect("cx-f-meta", null, state.cx.f.meta, () => renderCX(), null, MODEL.metaMonths);
+  buildMultiSelect("cx-f-status", null, state.cx.f.status, () => renderCX(), CX_STATUS_ORDER.map((s) => STATUS_META[s].label), CX_STATUS_ORDER);
+  buildMultiSelect("cx-f-cs", null, state.cx.f.cs, () => renderCX(), csAnalistas);
 
   document.getElementById("cs-f-fechfrom").addEventListener("change", (e) => { state.cs.f.fechFrom = e.target.value; renderCS(); });
   document.getElementById("cs-f-fechto").addEventListener("change", (e) => { state.cs.f.fechTo = e.target.value; renderCS(); });
   document.getElementById("cs-f-hofrom").addEventListener("change", (e) => { state.cs.f.hoFrom = e.target.value; renderCS(); });
   document.getElementById("cs-f-hoto").addEventListener("change", (e) => { state.cs.f.hoTo = e.target.value; renderCS(); });
   document.getElementById("cs-f-nome").addEventListener("input", (e) => { state.cs.f.nome = e.target.value; renderCS(); });
-  document.getElementById("cs-f-clear").addEventListener("click", () => { clearFilters("cs"); });
+  document.getElementById("cs-f-clear").addEventListener("click", () => clearFilters("cs"));
 
   document.getElementById("cx-f-empresa").addEventListener("input", (e) => { state.cx.f.empresa = e.target.value; renderCX(); });
   document.getElementById("cx-f-email").addEventListener("input", (e) => { state.cx.f.email = e.target.value; renderCX(); });
-  document.getElementById("cx-f-clear").addEventListener("click", () => { clearFilters("cx"); });
+  document.getElementById("cx-f-clear").addEventListener("click", () => clearFilters("cx"));
 }
 
 function refreshMetaMonthOptions() {
   // reconstrói opções de mês de meta caso novos meses tenham surgido em um novo CSV
-  buildMultiSelect("cs-f-meta", "Mês da meta", MODEL.metaMonths.map((m) => m.label), state.cs.f.meta, () => { renderCS(); }, MODEL.metaMonths.map((m)=>m.key));
-  buildMultiSelect("cx-f-meta", "Mês da meta", MODEL.metaMonths.map((m) => m.label), state.cx.f.meta, () => { renderCX(); }, MODEL.metaMonths.map((m)=>m.key));
+  buildMultiSelect("cs-f-meta", null, state.cs.f.meta, () => renderCS(), null, MODEL.metaMonths);
+  buildMultiSelect("cx-f-meta", null, state.cx.f.meta, () => renderCX(), null, MODEL.metaMonths);
 }
 
 function clearFilters(tab) {
@@ -143,9 +150,12 @@ function clearFilters(tab) {
   tab === "cs" ? renderCS() : renderCX();
 }
 
-/* --------------------------- multi-select widget ------------------------ */
+/* --------------------------- multi-select widget ------------------------
+   buildMultiSelect(containerId, _unused, targetSet, onChange, labels, monthObjs)
+   - labels: array of display strings whose values equal themselves, OR
+   - monthObjs: array of {key,label} (used for meta-month filters)          */
 
-function buildMultiSelect(containerId, placeholder, labels, targetSet, onChange, values) {
+function buildMultiSelect(containerId, _unused, targetSet, onChange, labels, monthObjs) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
   const wrap = document.createElement("div");
@@ -157,17 +167,18 @@ function buildMultiSelect(containerId, placeholder, labels, targetSet, onChange,
   const panel = document.createElement("div");
   panel.className = "msel-panel";
 
+  const items = monthObjs ? monthObjs.map((m) => ({ label: m.label, value: m.key })) : (labels || []).map((l) => ({ label: l, value: l }));
+
   const opts = document.createElement("div");
-  labels.forEach((label, i) => {
-    const val = values ? values[i] : label;
+  items.forEach(({ label, value }) => {
     const row = document.createElement("label");
     row.className = "msel-opt";
-    row.innerHTML = `<input type="checkbox" value="${escapeAttr(val)}"><span>${escapeHtml(label)}</span>`;
+    row.innerHTML = `<input type="checkbox" value="${escapeAttr(value)}"><span>${escapeHtml(label)}</span>`;
     const input = row.querySelector("input");
-    input.checked = targetSet.has(val);
+    input.checked = targetSet.has(value);
     input.addEventListener("change", () => {
-      if (input.checked) targetSet.add(val); else targetSet.delete(val);
-      updateMselLabel(btn, targetSet.size, labels.length);
+      if (input.checked) targetSet.add(value); else targetSet.delete(value);
+      updateMselLabel(btn, targetSet.size, items.length);
       onChange();
     });
     opts.appendChild(row);
@@ -178,15 +189,15 @@ function buildMultiSelect(containerId, placeholder, labels, targetSet, onChange,
   actions.innerHTML = `<button type="button" data-a="all">Selecionar todos</button><button type="button" data-a="none">Limpar</button>`;
   actions.querySelector('[data-a="all"]').addEventListener("click", () => {
     targetSet.clear();
-    labels.forEach((_, i) => targetSet.add(values ? values[i] : labels[i]));
+    items.forEach(({ value }) => targetSet.add(value));
     panel.querySelectorAll("input").forEach((i) => (i.checked = true));
-    updateMselLabel(btn, targetSet.size, labels.length);
+    updateMselLabel(btn, targetSet.size, items.length);
     onChange();
   });
   actions.querySelector('[data-a="none"]').addEventListener("click", () => {
     targetSet.clear();
     panel.querySelectorAll("input").forEach((i) => (i.checked = false));
-    updateMselLabel(btn, 0, labels.length);
+    updateMselLabel(btn, 0, items.length);
     onChange();
   });
 
@@ -204,18 +215,14 @@ function buildMultiSelect(containerId, placeholder, labels, targetSet, onChange,
     if (!wrap.contains(e.target)) wrap.classList.remove("open");
   });
 
-  updateMselLabel(btn, targetSet.size, labels.length);
+  updateMselLabel(btn, targetSet.size, items.length);
 }
 
 function updateMselLabel(btn, count, total) {
   const label = btn.querySelector(".msel-btn-label");
   const existingCount = btn.querySelector(".count");
   if (existingCount) existingCount.remove();
-  if (count === 0) {
-    label.textContent = "Todos";
-  } else {
-    label.textContent = `${count} selecionado${count > 1 ? "s" : ""}`;
-  }
+  label.textContent = count === 0 ? "Todos" : `${count} selecionado${count > 1 ? "s" : ""}`;
 }
 
 /* --------------------------- filtering ----------------------------------- */
@@ -235,6 +242,8 @@ function filterEmpresas() {
     if (f.nome && !norm(e.nome).includes(norm(f.nome))) return false;
     if (!inRange(e.dataFechamento, f.fechFrom, f.fechTo)) return false;
     if ((f.hoFrom || f.hoTo) && !inRange(e.dataHandoff, f.hoFrom, f.hoTo)) return false;
+    if (f.responsavel.size && !e.responsaveisList.some((r) => f.responsavel.has(r))) return false;
+    if (f.status.size && !f.status.has(e.statusEmpresa)) return false;
     return true;
   }).sort((a, b) => b.pctAtivacao - a.pctAtivacao);
 }
@@ -271,6 +280,13 @@ function pctColor(pct, target) {
   return "var(--bad)";
 }
 
+function stackBar(segments) {
+  return `<div class="stackbar">${segments.map((s) => `<span style="width:${s.pct}%;background:${s.color}"></span>`).join("")}</div>`;
+}
+function legend(items) {
+  return `<div class="legend">${items.map(([label, color]) => `<div class="li"><span class="sw" style="background:${color}"></span>${label}</div>`).join("")}</div>`;
+}
+
 /* ================================ CS TAB ================================= */
 
 function renderCS() {
@@ -280,20 +296,23 @@ function renderCS() {
   renderCSTable(list);
 }
 
+function CS_TARGET_PCT_display(list) {
+  const csSet = state.cs.f.analistas.size ? [...state.cs.f.analistas] : uniqueSorted(list.map((e) => e.cs));
+  if (!csSet.length) return CS_TARGET_PCT.default;
+  const pcts = csSet.map(csTargetPct);
+  return Math.round((sum(pcts) / pcts.length) * 10) / 10;
+}
+
 function renderCSKpis(list) {
   const box = document.getElementById("cs-kpis");
   const total = list.length;
-  const churn = list.filter((e) => e.isChurn).length;
+  const churn = list.filter((e) => e.statusEmpresa === "churn").length;
   const ativadas = list.filter((e) => e.statusEmpresa === "ativada").length;
-  const emRisco = list.filter((e) => e.statusEmpresa === "em_risco").length;
   const aguardando = list.filter((e) => e.statusEmpresa === "aguardando_handoff").length;
+  const andamento = list.filter((e) => e.statusEmpresa === "em_andamento").length;
+  const risco = list.filter((e) => e.statusEmpresa === "em_risco").length;
   const pctGeral = total ? Math.round((ativadas / total) * 1000) / 10 : 0;
-
-  // meta: se filtro de 1 CS ativo usa a meta dele, senão maior meta entre selecionados
-  let targetPct = CS_TARGET_PCT_display(list);
-
-  const pctNaoAtivo = total ? Math.round(((emRisco + aguardando) / total) * 1000) / 10 : 0;
-  const pctChurn = total ? Math.round((churn / total) * 1000) / 10 : 0;
+  const targetPct = CS_TARGET_PCT_display(list);
 
   box.innerHTML = `
     <div class="card kpi-goal">
@@ -307,13 +326,15 @@ function renderCSKpis(list) {
     <div class="card kpi-simple">
       <div class="lbl">Empresas na carteira</div>
       <div class="val">${total}</div>
-      <div class="sub"><b>${ativadas}</b> ativadas · <b>${emRisco + aguardando}</b> não ativadas · <b>${churn}</b> churn</div>
+      <div class="sub"><b>${ativadas}</b> ativadas · <b>${aguardando}</b> aguardando handoff · <b>${andamento}</b> em andamento · <b>${risco}</b> em risco · <b>${churn}</b> churn</div>
       ${stackBar([
-        { pct: total ? (ativadas/total*100) : 0, color: "var(--ok)" },
-        { pct: total ? ((emRisco+aguardando)/total*100) : 0, color: "var(--bad)" },
-        { pct: total ? (churn/total*100) : 0, color: "var(--churn)" },
+        { pct: total ? ativadas/total*100 : 0, color: "var(--ok)" },
+        { pct: total ? aguardando/total*100 : 0, color: "var(--warn)" },
+        { pct: total ? andamento/total*100 : 0, color: "var(--blue-soft)" },
+        { pct: total ? risco/total*100 : 0, color: "var(--bad)" },
+        { pct: total ? churn/total*100 : 0, color: "var(--churn)" },
       ])}
-      ${legend([["Ativadas","var(--ok)"],["Não ativadas","var(--bad)"],["Churn","var(--churn)"]])}
+      ${legend([["Ativadas","var(--ok)"],["Aguard. handoff","var(--warn)"],["Em andamento","var(--blue-soft)"],["Em risco","var(--bad)"],["Churn","var(--churn)"]])}
     </div>
     <div class="card kpi-simple">
       <div class="lbl">Aguardando handoff</div>
@@ -321,25 +342,11 @@ function renderCSKpis(list) {
       <div class="sub">Empresas que já bateram o % de ativação mas ainda não têm data de handoff registrada</div>
     </div>
     <div class="card kpi-simple">
-      <div class="lbl">Membros nas empresas filtradas</div>
+      <div class="lbl">Usuários nas empresas filtradas</div>
       <div class="val">${sum(list.map((e) => e.totalMembros))}</div>
-      <div class="sub"><b>${sum(list.map((e) => e.membrosAtivados))}</b> membros ativados (3 aulas concluídas)</div>
+      <div class="sub"><b>${sum(list.map((e) => e.membrosAtivados))}</b> usuários ativados (3 aulas concluídas)</div>
     </div>
   `;
-}
-
-function CS_TARGET_PCT_display(list) {
-  const csSet = state.cs.f.analistas.size ? [...state.cs.f.analistas] : uniqueSorted(list.map((e) => e.cs));
-  if (!csSet.length) return CS_TARGET_PCT.default;
-  const pcts = csSet.map(csTargetPct);
-  return Math.round((sum(pcts) / pcts.length) * 10) / 10;
-}
-
-function stackBar(segments) {
-  return `<div class="stackbar">${segments.map((s) => `<span style="width:${s.pct}%;background:${s.color}"></span>`).join("")}</div>`;
-}
-function legend(items) {
-  return `<div class="legend">${items.map(([label, color]) => `<div class="li"><span class="sw" style="background:${color}"></span>${label}</div>`).join("")}</div>`;
 }
 
 function renderCSTable(list) {
@@ -357,8 +364,9 @@ function renderCSTable(list) {
     return `
       <tr class="row-main${expanded ? " expanded" : ""}" data-emp="${emp.id}">
         <td><div class="cell-main">${chevSvg()}<div><div class="name-strong">${escapeHtml(emp.nome)}</div>
-          <div class="name-sub">${emp.numUsuarios} usuários · limite ${emp.thresholdPct}%</div></div></div></td>
+          <div class="name-sub">${emp.numUsuarios} usuários contratados · limite ${emp.thresholdPct}%</div></div></div></td>
         <td>${escapeHtml(emp.cs)}</td>
+        <td>${emp.responsaveisList.length ? emp.responsaveisList.map(escapeHtml).join(", ") : "—"}</td>
         <td><span class="badge ${st.cls}"><span class="dot"></span>${st.label}</span></td>
         <td>
           <div class="mini-progress"><span style="width:${Math.min(100, emp.pctAtivacao)}%"></span></div>
@@ -369,14 +377,14 @@ function renderCSTable(list) {
         <td>${metaMonthLabel(emp.metaKey)}</td>
       </tr>
       <tr class="row-detail${expanded ? " open" : ""}" data-emp-detail="${emp.id}">
-        <td colspan="7" class="detail-wrap">${renderEmpresaMembrosBlock(emp)}</td>
+        <td colspan="8" class="detail-wrap">${renderEmpresaUsuariosBlock(emp)}</td>
       </tr>`;
   }).join("");
 
   wrap.innerHTML = `
     <table>
       <thead><tr>
-        <th>Empresa</th><th>CS</th><th>Status</th><th>Ativação</th>
+        <th>Empresa</th><th>CS</th><th>CX / PF</th><th>Status</th><th>Ativação</th>
         <th>Fechamento</th><th>Handoff</th><th>Mês da meta</th>
       </tr></thead>
       <tbody>${rows}</tbody>
@@ -385,26 +393,27 @@ function renderCSTable(list) {
   wireExpandableTable(wrap, "cs");
 }
 
-function renderEmpresaMembrosBlock(emp) {
-  if (emp.isChurn) {
+function renderEmpresaUsuariosBlock(emp) {
+  if (emp.statusEmpresa === "churn") {
     return `<div class="detail-title">Empresa em churn</div>
-      <div class="no-courses">Motivo: ${escapeHtml(emp.motivoChurn)} — desconsiderada da meta de ativação, contabilizada apenas na carteira total.</div>`;
+      <div class="no-courses">Motivo: ${escapeHtml(emp.motivoChurn)} — desconsiderada da meta de ativação, contabilizada apenas na carteira total (${emp.totalMembros} usuários, ${emp.membrosAtivados} ativados).</div>`;
   }
-  if (!emp.membros.length) {
-    return `<div class="detail-title">Membros</div><div class="no-courses">Nenhum membro cadastrado para esta empresa na base de CX.</div>`;
+  if (!emp.usuarios.length) {
+    return `<div class="detail-title">Usuários</div><div class="no-courses">Nenhum usuário encontrado na base de usuários (usuarios.csv) para esta empresa.</div>`;
   }
-  const head = `<div class="member-grid-head"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Aulas</div><div>Últ. acesso</div></div>`;
-  const rows = emp.membros.map((m) => memberRow(m, "cs")).join("");
-  return `<div class="detail-title">Membros (${emp.membros.length})</div><div class="member-grid">${head}${rows}</div>`;
+  const head = `<div class="member-grid-head"><div>Usuário</div><div>E-mail</div><div>Responsável</div><div>Status</div><div>Aulas</div><div>Últ. acesso</div></div>`;
+  const rows = emp.usuarios.slice().sort((a, b) => b.qtdAulasConcluidas - a.qtdAulasConcluidas).map((u) => memberRow(u, "cs")).join("");
+  return `<div class="detail-title">Usuários (${emp.usuarios.length})</div><div class="member-grid">${head}${rows}</div>`;
 }
 
 function memberRow(m, tab) {
   const st = STATUS_META[m.status];
+  const responsavelLabel = tab === "cs" ? m.responsavel : m.cx;
   return `
     <div class="member-row" data-mem="${m.id}" data-tab="${tab}">
       <div class="mm-name">${escapeHtml(m.nome)}</div>
       <div class="mm-email">${escapeHtml(m.email)}</div>
-      <div class="mm-cs">${escapeHtml(m.cx)}</div>
+      <div class="mm-cs">${escapeHtml(responsavelLabel || "—")}</div>
       <div><span class="badge ${st.cls}"><span class="dot"></span>${st.label}</span></div>
       <div>${m.qtdAulasConcluidas} / ${AULAS_PARA_ATIVAR}</div>
       <div class="mm-last">${m.ultimoAcesso ? fmtDate(m.ultimoAcesso) : "—"}</div>
@@ -416,7 +425,7 @@ function renderCourses(m) {
   if (!m.consumo.length) return `<div class="no-courses">Nenhum registro de consumo encontrado para este e-mail.</div>`;
   return m.consumo.slice().reverse().map((c) => `
     <div class="course-item">
-      <span class="cname">${escapeHtml(c.conteudo)} ${c.progresso >= 100 ? "✓" : `(${c.progresso}%)`}</span>
+      <span class="cname">${escapeHtml(c.conteudo)} ✓</span>
       <span class="cdate">${c.data ? fmtDate(c.data) : "—"}</span>
     </div>`).join("");
 }
@@ -437,6 +446,7 @@ function renderCXKpis(list) {
   const alerta = list.filter((m) => m.status === "alerta").length;
   const deseng = list.filter((m) => m.status === "desengajado").length;
   const andamento = list.filter((m) => m.status === "em_andamento").length;
+  const churn = list.filter((m) => m.status === "churn").length;
   const pct = total ? Math.round((ativados / total) * 1000) / 10 : 0;
 
   box.innerHTML = `
@@ -451,14 +461,15 @@ function renderCXKpis(list) {
     <div class="card kpi-simple">
       <div class="lbl">Membros na carteira</div>
       <div class="val">${total}</div>
-      <div class="sub"><b>${ativados}</b> ativados · <b>${andamento}</b> em andamento</div>
+      <div class="sub"><b>${ativados}</b> ativados · <b>${andamento}</b> em andamento · <b>${churn}</b> churn</div>
       ${stackBar([
         { pct: total ? ativados/total*100 : 0, color: "var(--ok)" },
         { pct: total ? andamento/total*100 : 0, color: "var(--blue-soft)" },
         { pct: total ? deseng/total*100 : 0, color: "var(--warn)" },
         { pct: total ? alerta/total*100 : 0, color: "var(--bad)" },
+        { pct: total ? churn/total*100 : 0, color: "var(--churn)" },
       ])}
-      ${legend([["Ativados","var(--ok)"],["Em andamento","var(--blue-soft)"],["Desengajados","var(--warn)"],["Alerta","var(--bad)"]])}
+      ${legend([["Ativados","var(--ok)"],["Em andamento","var(--blue-soft)"],["Desengajados","var(--warn)"],["Alerta","var(--bad)"],["Churn","var(--churn)"]])}
     </div>
     <div class="card kpi-simple">
       <div class="lbl">Desengajados</div>
