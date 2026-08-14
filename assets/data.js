@@ -230,25 +230,35 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
   const empresaByKey = new Map(empresas.map((e) => [e.nomeKey, e]));
 
   /* ---- 3. Usuários (base de ativação de CS, via usuarios.csv) -----------
-     Deduplicados por e-mail (mantém a primeira ocorrência), vinculados à
-     empresa pelo nome e ao responsável (CX ou PF) pelo e-mail institucional. */
-  const usuariosSeen = new Set();
-  let usuIdx = 0;
+     Deduplicados por e-mail: quando o mesmo e-mail aparece em mais de uma
+     linha (comum, já que a planilha não é limpa antes do upload), prioriza
+     a linha que tem "Proprietário do Onboarding" identificado — evita
+     descartar um usuário só porque a primeira ocorrência dele veio com o
+     campo em branco e uma ocorrência seguinte tem o dado completo. */
+  const usuariosByEmail = new Map();
   for (const r of usuariosRaw) {
     const email = (pick(r, ["email do usuario e membro", "Email", "E-mail", "email"]) || "").trim();
     const emailKey = norm(email);
-    if (!emailKey || usuariosSeen.has(emailKey)) continue;
-    usuariosSeen.add(emailKey);
+    if (!emailKey) continue;
+    const responsavel = resolveResponsavelFromEmail(pick(r, ["Proprietário do Onboarding"]));
+    const existing = usuariosByEmail.get(emailKey);
+    if (!existing) {
+      usuariosByEmail.set(emailKey, { row: r, email, responsavel });
+    } else if (!existing.responsavel && responsavel) {
+      // a ocorrência atual tem responsável identificado e a anterior não -> substitui
+      usuariosByEmail.set(emailKey, { row: r, email, responsavel });
+    }
+  }
 
+  let usuIdx = 0;
+  for (const { row: r, email, emailKey: _ek, responsavel } of usuariosByEmail.values()) {
+    const emailKey = norm(email);
     const nomeEmpresa = (pick(r, ["Nome da Empresa", "Conta Nome"]) || "").trim();
     const empresaMatch = empresaByKey.get(norm(nomeEmpresa)) || null;
     if (!empresaMatch) continue; // usuário fora da carteira atual de empresas do CS
-
-    const stats = consumoStats(emailKey);
-    const responsavelEmail = pick(r, ["Proprietário do Onboarding"]);
-    const responsavel = resolveResponsavelFromEmail(responsavelEmail);
     if (!responsavel) continue; // proprietário do onboarding não identificado -> desconsiderar usuário
 
+    const stats = consumoStats(emailKey);
     const usuario = {
       id: `usu_${usuIdx++}`,
       nome: (pick(r, ["Nome Completo"]) || `${pick(r, ["Nome"])} ${pick(r, ["Sobrenome"])}`).trim() || "—",
