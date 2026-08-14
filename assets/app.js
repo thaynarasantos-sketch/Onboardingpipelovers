@@ -110,15 +110,15 @@ function initFiltersOnce() {
   const cxAnalistas = uniqueSorted(MODEL.membros.map((m) => m.cx));
   const responsaveis = uniqueSorted(MODEL.empresas.flatMap((e) => e.responsaveisList));
 
-  buildMultiSelect("cs-f-analista", null, state.cs.f.analistas, () => renderCS(), csAnalistas);
-  buildMultiSelect("cs-f-meta", null, state.cs.f.meta, () => renderCS(), null, MODEL.metaMonths);
-  buildMultiSelect("cs-f-responsavel", null, state.cs.f.responsavel, () => renderCS(), responsaveis);
-  buildMultiSelect("cs-f-status", null, state.cs.f.status, () => renderCS(), CS_STATUS_ORDER.map((s) => EMPRESA_STATUS_META[s].label), CS_STATUS_ORDER);
+  buildMultiSelect("cs-f-analista", state.cs.f.analistas, () => renderCS(), itemsFromLabels(csAnalistas));
+  buildMultiSelect("cs-f-meta", state.cs.f.meta, () => renderCS(), itemsFromMonths(MODEL.metaMonths));
+  buildMultiSelect("cs-f-responsavel", state.cs.f.responsavel, () => renderCS(), itemsFromLabels(responsaveis));
+  buildMultiSelect("cs-f-status", state.cs.f.status, () => renderCS(), itemsFromKeyed(CS_STATUS_ORDER, EMPRESA_STATUS_META));
 
-  buildMultiSelect("cx-f-analista", null, state.cx.f.analistas, () => renderCX(), cxAnalistas);
-  buildMultiSelect("cx-f-meta", null, state.cx.f.meta, () => renderCX(), null, MODEL.metaMonths);
-  buildMultiSelect("cx-f-status", null, state.cx.f.status, () => renderCX(), CX_STATUS_ORDER.map((s) => STATUS_META[s].label), CX_STATUS_ORDER);
-  buildMultiSelect("cx-f-cs", null, state.cx.f.cs, () => renderCX(), csAnalistas);
+  buildMultiSelect("cx-f-analista", state.cx.f.analistas, () => renderCX(), itemsFromLabels(cxAnalistas));
+  buildMultiSelect("cx-f-meta", state.cx.f.meta, () => renderCX(), itemsFromMonths(MODEL.metaMonths));
+  buildMultiSelect("cx-f-status", state.cx.f.status, () => renderCX(), itemsFromKeyed(CX_STATUS_ORDER, STATUS_META));
+  buildMultiSelect("cx-f-cs", state.cx.f.cs, () => renderCX(), itemsFromLabels(csAnalistas));
 
   document.getElementById("cs-f-fechfrom").addEventListener("change", (e) => { state.cs.f.fechFrom = e.target.value; renderCS(); });
   document.getElementById("cs-f-fechto").addEventListener("change", (e) => { state.cs.f.fechTo = e.target.value; renderCS(); });
@@ -134,8 +134,8 @@ function initFiltersOnce() {
 
 function refreshMetaMonthOptions() {
   // reconstrói opções de mês de meta caso novos meses tenham surgido em um novo CSV
-  buildMultiSelect("cs-f-meta", null, state.cs.f.meta, () => renderCS(), null, MODEL.metaMonths);
-  buildMultiSelect("cx-f-meta", null, state.cx.f.meta, () => renderCX(), null, MODEL.metaMonths);
+  buildMultiSelect("cs-f-meta", state.cs.f.meta, () => renderCS(), itemsFromMonths(MODEL.metaMonths));
+  buildMultiSelect("cx-f-meta", state.cx.f.meta, () => renderCX(), itemsFromMonths(MODEL.metaMonths));
 }
 
 function clearFilters(tab) {
@@ -151,11 +151,10 @@ function clearFilters(tab) {
 }
 
 /* --------------------------- multi-select widget ------------------------
-   buildMultiSelect(containerId, _unused, targetSet, onChange, labels, monthObjs)
-   - labels: array of display strings whose values equal themselves, OR
-   - monthObjs: array of {key,label} (used for meta-month filters)          */
+   buildMultiSelect(containerId, targetSet, onChange, items)
+   items: array of {label, value} — value is what gets stored in targetSet. */
 
-function buildMultiSelect(containerId, _unused, targetSet, onChange, labels, monthObjs) {
+function buildMultiSelect(containerId, targetSet, onChange, items) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
   const wrap = document.createElement("div");
@@ -166,8 +165,6 @@ function buildMultiSelect(containerId, _unused, targetSet, onChange, labels, mon
   btn.innerHTML = `<span class="msel-btn-label">Todos</span>`;
   const panel = document.createElement("div");
   panel.className = "msel-panel";
-
-  const items = monthObjs ? monthObjs.map((m) => ({ label: m.label, value: m.key })) : (labels || []).map((l) => ({ label: l, value: l }));
 
   const opts = document.createElement("div");
   items.forEach(({ label, value }) => {
@@ -216,6 +213,16 @@ function buildMultiSelect(containerId, _unused, targetSet, onChange, labels, mon
   });
 
   updateMselLabel(btn, targetSet.size, items.length);
+}
+
+function itemsFromLabels(labels) {
+  return labels.map((l) => ({ label: l, value: l }));
+}
+function itemsFromMonths(months) {
+  return months.map((m) => ({ label: m.label, value: m.key }));
+}
+function itemsFromKeyed(keys, metaMap) {
+  return keys.map((k) => ({ label: metaMap[k].label, value: k }));
 }
 
 function updateMselLabel(btn, count, total) {
@@ -326,7 +333,13 @@ function renderCSKpis(list) {
     <div class="card kpi-simple">
       <div class="lbl">Empresas na carteira</div>
       <div class="val">${total}</div>
-      <div class="sub"><b>${ativadas}</b> ativadas · <b>${aguardando}</b> aguardando handoff · <b>${andamento}</b> em andamento · <b>${risco}</b> em risco · <b>${churn}</b> churn</div>
+      <div class="breakdown-grid">
+        <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${ativadas}</span><span class="bd-label">Ativadas</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--warn)">${aguardando}</span><span class="bd-label">Aguard. handoff</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${andamento}</span><span class="bd-label">Em andamento</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--bad)">${risco}</span><span class="bd-label">Em risco</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--churn)">${churn}</span><span class="bd-label">Churn</span></div>
+      </div>
       ${stackBar([
         { pct: total ? ativadas/total*100 : 0, color: "var(--ok)" },
         { pct: total ? aguardando/total*100 : 0, color: "var(--warn)" },
@@ -334,7 +347,6 @@ function renderCSKpis(list) {
         { pct: total ? risco/total*100 : 0, color: "var(--bad)" },
         { pct: total ? churn/total*100 : 0, color: "var(--churn)" },
       ])}
-      ${legend([["Ativadas","var(--ok)"],["Aguard. handoff","var(--warn)"],["Em andamento","var(--blue-soft)"],["Em risco","var(--bad)"],["Churn","var(--churn)"]])}
     </div>
     <div class="card kpi-simple">
       <div class="lbl">Aguardando handoff</div>
@@ -461,7 +473,13 @@ function renderCXKpis(list) {
     <div class="card kpi-simple">
       <div class="lbl">Membros na carteira</div>
       <div class="val">${total}</div>
-      <div class="sub"><b>${ativados}</b> ativados · <b>${andamento}</b> em andamento · <b>${churn}</b> churn</div>
+      <div class="breakdown-grid">
+        <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${ativados}</span><span class="bd-label">Ativados</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${andamento}</span><span class="bd-label">Em andamento</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--warn)">${deseng}</span><span class="bd-label">Desengajados</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--bad)">${alerta}</span><span class="bd-label">Alerta</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--churn)">${churn}</span><span class="bd-label">Churn</span></div>
+      </div>
       ${stackBar([
         { pct: total ? ativados/total*100 : 0, color: "var(--ok)" },
         { pct: total ? andamento/total*100 : 0, color: "var(--blue-soft)" },
@@ -469,7 +487,6 @@ function renderCXKpis(list) {
         { pct: total ? alerta/total*100 : 0, color: "var(--bad)" },
         { pct: total ? churn/total*100 : 0, color: "var(--churn)" },
       ])}
-      ${legend([["Ativados","var(--ok)"],["Em andamento","var(--blue-soft)"],["Desengajados","var(--warn)"],["Alerta","var(--bad)"],["Churn","var(--churn)"]])}
     </div>
     <div class="card kpi-simple">
       <div class="lbl">Desengajados</div>
