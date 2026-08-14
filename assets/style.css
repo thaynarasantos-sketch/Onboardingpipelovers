@@ -124,7 +124,7 @@ a{color:inherit}
 .err-box{border:1px solid rgba(255,92,122,.3);background:var(--bad-bg);border-radius:var(--radius);padding:16px 20px;color:#ffcdd7;font-size:13px}
 
 /* ---------- KPI row ---------- */
-.kpi-row{display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;gap:16px;margin-bottom:20px}
+.kpi-row{display:grid;grid-template-columns:1fr 1.9fr .85fr .85fr;gap:16px;margin-bottom:20px}
 @media (max-width:1100px){.kpi-row{grid-template-columns:1fr 1fr}}
 
 .card{
@@ -150,6 +150,19 @@ a{color:inherit}
 .kpi-simple .val{font-size:26px;font-weight:600}
 .kpi-simple .sub{font-size:12px;color:var(--text-1);margin-top:6px;display:flex;align-items:center;gap:6px}
 .kpi-simple .sub b{color:var(--text-0)}
+
+.breakdown-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:8px 6px;margin-top:12px;
+}
+.bd-item{display:flex;flex-direction:column;gap:2px;min-width:0}
+.bd-num{font-size:16px;font-weight:600;color:var(--text-0);line-height:1.1}
+.bd-label{
+  font-size:9px;color:var(--text-2);text-transform:uppercase;letter-spacing:.3px;
+  line-height:1.25;white-space:normal;
+}
+@media (max-width:1400px){
+  .breakdown-grid{grid-template-columns:repeat(3,1fr)}
+}
 
 .stackbar{height:8px;border-radius:6px;overflow:hidden;display:flex;margin-top:12px;background:rgba(255,255,255,.06)}
 .stackbar span{height:100%}
