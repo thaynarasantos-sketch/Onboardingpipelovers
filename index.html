@@ -46,6 +46,8 @@
     <div class="f-group"><label>Fechamento até</label><input type="date" class="f-input" id="cs-f-fechto"></div>
     <div class="f-group"><label>Handoff de</label><input type="date" class="f-input" id="cs-f-hofrom"></div>
     <div class="f-group"><label>Handoff até</label><input type="date" class="f-input" id="cs-f-hoto"></div>
+    <div class="f-group"><label>CX / PF</label><div id="cs-f-responsavel"></div></div>
+    <div class="f-group"><label>Status</label><div id="cs-f-status"></div></div>
     <div class="f-group grow"><label>Empresa</label><input type="text" class="f-input" id="cs-f-nome" placeholder="Buscar por nome…"></div>
     <button class="btn-clear" id="cs-f-clear">Limpar filtros</button>
     <div class="result-count" id="cs-result-count"></div>
@@ -57,9 +59,12 @@
   </div>
 
   <div class="footer-note">
-    Empresa <b>ativada</b> = % de membros com 3 aulas concluídas ≥ limite da empresa (65% se &gt;20 usuários, 60% se ≤20)
-    <b>e</b> data de handoff preenchida até o fim do mês da meta. Empresas em <b>churn</b> entram na base da carteira
-    (denominador) mas não são consideradas ativáveis.
+    Base de ativação: <code>data/usuarios.csv</code> (deduplicado por e-mail). Empresa <b>ativada</b> = % de usuários
+    com 3 aulas concluídas ≥ limite da empresa (65% se &gt;20 usuários contratados, 60% se ≤20) <b>e</b> data de
+    handoff preenchida até o fim do mês da meta. <b>Aguardando handoff</b> = bateu o % mas falta a data. <b>Em risco</b>
+    = nenhum usuário ativado ainda. <b>Em andamento</b> = alguma ativação, mas abaixo da meta. Empresas em <b>churn</b>
+    entram na base da carteira (denominador) mas não são consideradas ativáveis. A coluna <b>CX / PF</b> mostra quem é
+    responsável por cada usuário dentro da empresa (PF = gestor comercial do CS, sem CX dedicado).
   </div>
 </div>
 
@@ -87,9 +92,11 @@
   </div>
 
   <div class="footer-note">
-    Membro <b>ativado</b> = 3 aulas concluídas (100%) até o fim do mês da meta. <b>Alerta</b> = nenhum registro em
-    consumo. <b>Desengajado</b> = última aula assistida há mais de 30 dias. Empresas marcadas como <b>Ongoing</b>
-    não estão na base de carteira do CS — são clientes já em fase de ongoing.
+    Base de ativação: <code>data/membros.csv</code>. Membro <b>ativado</b> = 3 aulas concluídas até o fim do mês da
+    meta. <b>Alerta</b> = nenhum registro em consumo. <b>Desengajado</b> = última aula assistida há mais de 30 dias.
+    <b>Churn</b> = Proprietário do Negócio é Thaynara Santos (perdeu acesso) — entra na carteira total mas não é
+    considerado ativável. Empresas marcadas como <b>Ongoing</b> não estão na base de carteira do CS — são clientes já
+    em fase de ongoing.
   </div>
 </div>
 
