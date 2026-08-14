@@ -1,12 +1,13 @@
 /* =========================================================================
-   PipeLovers · Onboarding Dashboard — data.js
-   Carrega os CSVs (data/empresas.csv, data/membros.csv, data/consumo.csv),
-   normaliza e aplica as regras de negócio de ativação de CS e CX.
+   PipeLovers · Onboarding Dashboard — data.js (v2)
+   Carrega os 4 CSVs (empresas, membros, usuarios, consumo), normaliza e
+   aplica as regras de negócio de ativação de CS e CX.
    ========================================================================= */
 
 const CSV_PATHS = {
   empresas: "data/empresas.csv",
   membros: "data/membros.csv",
+  usuarios: "data/usuarios.csv",
   consumo: "data/consumo.csv",
 };
 
@@ -20,8 +21,18 @@ const CS_TARGET_PCT = { // meta macro por CS (% da carteira de empresas ativada)
   },
 };
 const CX_TARGET_PCT = 80;      // meta macro de CX: 80% dos membros ativados
-const AULAS_PARA_ATIVAR = 3;   // membro ativado = 3 aulas concluídas (100%)
+const AULAS_PARA_ATIVAR = 3;   // membro/usuário ativado = 3 aulas concluídas
 const DIAS_DESENGAJAMENTO = 30;
+const CHURN_OWNER_NAME = "thaynara santos"; // proprietário do negócio = churn (CX)
+
+// e-mails institucionais -> responsável (CX) ou "PF" (gestor comercial do CS)
+const RESPONSAVEL_EMAIL_MAP = {
+  "joao.fabricio@pipelovers.net": "João Fabrício",
+  "mariana.vieira@pipelovers.net": "Mariana Vieira",
+  "anne.siqueira@pipelovers.net": "Anne Siqueira",
+  "natalia.espindola@pipelovers.net": "Natalia Espindola",
+  "thaynara.santos@pipelovers.net": "PF",
+};
 
 /* ---------------------------- helpers ---------------------------------- */
 
@@ -32,9 +43,16 @@ function norm(s) {
     .trim().toLowerCase();
 }
 
+function pick(row, keys) {
+  for (const k of keys) {
+    if (row[k] !== undefined && row[k] !== null && String(row[k]).trim() !== "") return row[k];
+  }
+  return "";
+}
+
 function parseBRDate(str) {
   if (!str) return null;
-  const s = str.trim();
+  const s = str.toString().trim();
   if (!s) return null;
   const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
   if (!m) return null;
@@ -49,8 +67,7 @@ function fmtDate(d) {
 }
 
 function addMonthsUTC(date, n) {
-  const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + n, 1));
-  return d;
+  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + n, 1));
 }
 
 function metaMonthKey(registrationDate) {
@@ -68,11 +85,6 @@ function metaMonthLabel(key) {
   return `${MONTH_NAMES_PT[m - 1]} ${y}`;
 }
 
-function metaMonthEnd(key) {
-  const [y, m] = key.split("-").map(Number);
-  return new Date(Date.UTC(y, m, 0)); // último dia do mês
-}
-
 function daysBetween(a, b) {
   return Math.round((a.getTime() - b.getTime()) / 86400000);
 }
@@ -83,6 +95,43 @@ function csTargetPct(csName) {
     if (key.includes(k)) return CS_TARGET_PCT.map[k];
   }
   return CS_TARGET_PCT.default;
+}
+
+// Resolve o "responsável" (CX ou PF) de um usuário a partir do e-mail
+// institucional preenchido em "Proprietário do Onboarding".
+function resolveResponsavelFromEmail(email) {
+  const key = norm(email);
+  if (!key) return null;
+  if (RESPONSAVEL_EMAIL_MAP[key]) return RESPONSAVEL_EMAIL_MAP[key];
+  const local = key.split("@")[0];
+  if (!local) return null;
+  return local.split(/[._-]/).filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+// Unifica variações do mesmo nome (ex.: "João Fabrício" vs "João Fabricio")
+// preferindo a grafia acentuada como forma canônica de exibição.
+function buildCanonicalNames(rawNames) {
+  const map = new Map();
+  for (const raw of rawNames) {
+    const clean = (raw || "").trim();
+    if (!clean) continue;
+    const key = norm(clean);
+    const existing = map.get(key);
+    if (!existing) {
+      map.set(key, clean);
+    } else {
+      const hasAccentExisting = /[^\x00-\x7F]/.test(existing);
+      const hasAccentNew = /[^\x00-\x7F]/.test(clean);
+      if (!hasAccentExisting && hasAccentNew) map.set(key, clean);
+    }
+  }
+  return (raw) => {
+    const clean = (raw || "").trim();
+    if (!clean) return "";
+    return map.get(norm(clean)) || clean;
+  };
 }
 
 /* ---------------------------- CSV loading ------------------------------- */
@@ -98,7 +147,7 @@ function fetchCSV(path) {
     const parsed = Papa.parse(text, {
       header: true,
       skipEmptyLines: true,
-      delimiter: "", // auto-detect (empresas/membros = ",", consumo = ";")
+      delimiter: "", // auto-detect ("," nas planilhas de empresas/membros/usuarios, ";" no consumo)
       transformHeader: (h) => h.replace(/^\uFEFF/, "").trim(),
     });
     return parsed.data;
@@ -108,149 +157,188 @@ function fetchCSV(path) {
 /* ---------------------------- Main loader ------------------------------- */
 
 async function loadAllData() {
-  const [empresasRaw, membrosRaw, consumoRaw] = await Promise.all([
+  const [empresasRaw, membrosRaw, usuariosRaw, consumoRaw] = await Promise.all([
     fetchCSV(CSV_PATHS.empresas),
     fetchCSV(CSV_PATHS.membros),
+    fetchCSV(CSV_PATHS.usuarios),
     fetchCSV(CSV_PATHS.consumo),
   ]);
-  return buildModel(empresasRaw, membrosRaw, consumoRaw);
+  return buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw);
 }
 
-function buildModel(empresasRaw, membrosRaw, consumoRaw) {
+function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
   const today = new Date(Date.UTC(
     new Date().getFullYear(), new Date().getMonth(), new Date().getDate()
   ));
 
-  /* ---- 1. Consumo agrupado por email --------------------------------- */
+  /* ---- 0. Nomes canônicos de CX (unifica "João Fabrício" / "João Fabricio") */
+  const cxRawNames = membrosRaw.map((r) => pick(r, ["Analista Onboarding"]));
+  const canonCX = buildCanonicalNames(cxRawNames);
+
+  /* ---- 1. Consumo agrupado por e-mail ---------------------------------- */
   const consumoByEmail = new Map();
   for (const row of consumoRaw) {
-    const email = norm(row["Email"]);
+    const email = norm(pick(row, ["Email", "E-mail", "email"]));
     if (!email) continue;
     if (!consumoByEmail.has(email)) consumoByEmail.set(email, []);
-    // "Data de início" é a referência oficial de consumo da aula; quando ausente
-    // (comum em cursos automáticos), usa "Data de término" como substituta.
-    const dt = parseBRDate(row["Data de início"]) || parseBRDate(row["Data de término"]);
-    const progresso = (row["Progresso"] || "").replace("%", "").trim();
-    consumoByEmail.get(email).push({
-      conteudo: (row["Conteúdo"] || "—").trim(),
-      data: dt,
-      progresso: progresso ? Number(progresso) : 0,
-    });
+    const dt = parseBRDate(pick(row, ["Data de conclusão", "Data de início", "Data de término"]));
+    const conteudo = pick(row, ["Nome da aula", "Conteúdo"]) || "—";
+    consumoByEmail.get(email).push({ conteudo: conteudo.trim(), data: dt });
+  }
+
+  function consumoStats(emailKey) {
+    const list = (consumoByEmail.get(emailKey) || []).slice()
+      .sort((a, b) => (a.data && b.data ? a.data - b.data : 0));
+    const aulasSet = new Set(list.map((c) => c.conteudo));
+    let ultimoAcesso = null;
+    for (const c of list) if (c.data && (!ultimoAcesso || c.data > ultimoAcesso)) ultimoAcesso = c.data;
+    return { consumo: list, qtdAulasConcluidas: aulasSet.size, ultimoAcesso, temConsumo: list.length > 0 };
+  }
+
+  function statusFromConsumo(stats) {
+    if (!stats.temConsumo) return "alerta";
+    if (stats.qtdAulasConcluidas >= AULAS_PARA_ATIVAR) return "ativado";
+    if (stats.ultimoAcesso && daysBetween(today, stats.ultimoAcesso) > DIAS_DESENGAJAMENTO) return "desengajado";
+    return "em_andamento";
   }
 
   /* ---- 2. Empresas ------------------------------------------------------ */
   const empresas = empresasRaw
-    .filter((r) => norm(r["Conta Nome"]))
+    .filter((r) => norm(pick(r, ["Conta Nome"])))
     .map((r, idx) => {
-      const dataFechamento = parseBRDate(r["Data de Fechamento"]);
-      const dataHandoff = parseBRDate(r["Data Handoff Onboarding"]);
-      const numUsuarios = Number((r["Número de usuários que vão usar PipeLovers"] || "").replace(/[^\d.]/g, "")) || 0;
-      const motivoChurn = (r["Motivo de churn - Onboarding"] || "").trim();
+      const dataFechamento = parseBRDate(pick(r, ["Data de Fechamento"]));
+      const dataHandoff = parseBRDate(pick(r, ["Data Handoff Onboarding"]));
+      const numUsuarios = Number((pick(r, ["Número de usuários que vão usar PipeLovers"]) || "").replace(/[^\d.]/g, "")) || 0;
+      const motivoChurn = (pick(r, ["Motivo de churn - Onboarding"]) || "").trim();
       const isChurn = !!motivoChurn;
       const metaKey = metaMonthKey(dataFechamento);
       return {
         id: `emp_${idx}`,
-        cs: (r["Analista Onboarding"] || "").trim() || "Sem CS",
-        nome: (r["Conta Nome"] || "").trim(),
-        nomeKey: norm(r["Conta Nome"]),
+        cs: (pick(r, ["Analista Onboarding"]) || "").trim() || "Sem CS",
+        nome: (pick(r, ["Conta Nome"]) || "").trim(),
+        nomeKey: norm(pick(r, ["Conta Nome"])),
         dataFechamento,
-        dataOnboarding: parseBRDate(r["Data de Onboarding"]),
+        dataOnboarding: parseBRDate(pick(r, ["Data de Onboarding"])),
         dataHandoff,
         numUsuarios,
         thresholdPct: numUsuarios > 20 ? 65 : 60,
         isChurn,
         motivoChurn,
         metaKey,
-        membros: [], // preenchido abaixo
+        usuarios: [],       // preenchido abaixo (usuarios.csv) — base da ativação de CS
+        responsaveis: new Set(), // CX / PF distintos entre os usuários da empresa
       };
     });
 
   const empresaByKey = new Map(empresas.map((e) => [e.nomeKey, e]));
 
-  /* ---- 3. Membros --------------------------------------------------------
-     Enriquecidos com consumo + vínculo à empresa (CS) ou "ongoing".        */
-  const membros = membrosRaw
-    .filter((r) => norm(r["E-mail"]))
-    .map((r, idx) => {
-      const email = (r["E-mail"] || "").trim();
-      const emailKey = norm(email);
-      const contaNome = (r["Conta Nome"] || "").trim();
-      const contaKey = norm(contaNome);
-      const dataCadastro = parseBRDate(r["Data de cadastro membro"]);
-      const empresaMatch = empresaByKey.get(contaKey) || null;
-      const isOngoing = !empresaMatch;
+  /* ---- 3. Usuários (base de ativação de CS, via usuarios.csv) -----------
+     Deduplicados por e-mail (mantém a primeira ocorrência), vinculados à
+     empresa pelo nome e ao responsável (CX ou PF) pelo e-mail institucional. */
+  const usuariosSeen = new Set();
+  let usuIdx = 0;
+  for (const r of usuariosRaw) {
+    const email = (pick(r, ["email do usuario e membro", "Email", "E-mail", "email"]) || "").trim();
+    const emailKey = norm(email);
+    if (!emailKey || usuariosSeen.has(emailKey)) continue;
+    usuariosSeen.add(emailKey);
 
-      const consumo = (consumoByEmail.get(emailKey) || []).slice()
-        .sort((a, b) => (a.data && b.data ? a.data - b.data : 0));
+    const nomeEmpresa = (pick(r, ["Nome da Empresa", "Conta Nome"]) || "").trim();
+    const empresaMatch = empresaByKey.get(norm(nomeEmpresa)) || null;
+    if (!empresaMatch) continue; // usuário fora da carteira atual de empresas do CS
 
-      const cursosConcluidosSet = new Set();
-      let ultimoAcesso = null;
-      for (const c of consumo) {
-        if (c.progresso >= 100) cursosConcluidosSet.add(c.conteudo);
-        if (c.data && (!ultimoAcesso || c.data > ultimoAcesso)) ultimoAcesso = c.data;
-      }
-      const qtdAulasConcluidas = cursosConcluidosSet.size;
-      const temConsumo = consumo.length > 0;
+    const stats = consumoStats(emailKey);
+    const responsavelEmail = pick(r, ["Proprietário do Onboarding"]);
+    const responsavel = resolveResponsavelFromEmail(responsavelEmail) || "Sem responsável";
 
-      let status;
-      if (!temConsumo) {
-        status = "alerta";
-      } else if (qtdAulasConcluidas >= AULAS_PARA_ATIVAR) {
-        status = "ativado";
-      } else if (ultimoAcesso && daysBetween(today, ultimoAcesso) > DIAS_DESENGAJAMENTO) {
-        status = "desengajado";
-      } else {
-        status = "em_andamento";
-      }
-
-      const metaKey = metaMonthKey(dataCadastro);
-
-      const membro = {
-        id: `mem_${idx}`,
-        nome: (r["Nome Negócios"] || "—").trim(),
-        email,
-        emailKey,
-        contaNome: contaNome || "—",
-        cx: (r["Analista Onboarding"] || "").trim() || "Sem CX",
-        proprietario: (r["Proprietário do Negócios"] || "").trim(),
-        dataCadastro,
-        dataOnboarding: parseBRDate(r["Data de Onboarding"]),
-        metaKey,
-        cs: empresaMatch ? empresaMatch.cs : null,
-        empresaId: empresaMatch ? empresaMatch.id : null,
-        isOngoing,
-        consumo,
-        qtdAulasConcluidas,
-        ultimoAcesso,
-        status, // alerta | em_andamento | desengajado | ativado
-        saiuDaEmpresa: r["Proprietário do Negócios"] && r["Analista Onboarding"] &&
-          norm(r["Proprietário do Negócios"]) !== norm(r["Analista Onboarding"]),
-      };
-      if (empresaMatch) empresaMatch.membros.push(membro);
-      return membro;
-    });
+    const usuario = {
+      id: `usu_${usuIdx++}`,
+      nome: (pick(r, ["Nome Completo"]) || `${pick(r, ["Nome"])} ${pick(r, ["Sobrenome"])}`).trim() || "—",
+      email,
+      emailKey,
+      responsavel, // "PF" ou nome do CX
+      isPF: responsavel === "PF",
+      consumo: stats.consumo,
+      qtdAulasConcluidas: stats.qtdAulasConcluidas,
+      ultimoAcesso: stats.ultimoAcesso,
+      status: statusFromConsumo(stats),
+    };
+    empresaMatch.usuarios.push(usuario);
+    empresaMatch.responsaveis.add(responsavel);
+  }
 
   /* ---- 4. Métricas por empresa ------------------------------------------ */
   for (const emp of empresas) {
-    const total = emp.membros.length;
-    const ativados = emp.membros.filter((m) => m.status === "ativado").length;
+    const total = emp.usuarios.length;
+    const ativados = emp.usuarios.filter((u) => u.status === "ativado").length;
     emp.totalMembros = total;
     emp.membrosAtivados = ativados;
     emp.pctAtivacao = total > 0 ? Math.round((ativados / total) * 1000) / 10 : 0;
     emp.handoffOk = !!emp.dataHandoff;
     emp.atingiuThreshold = total > 0 && emp.pctAtivacao >= emp.thresholdPct;
+    emp.responsaveisList = [...emp.responsaveis].sort((a, b) => a.localeCompare(b, "pt-BR"));
+
     if (emp.isChurn) {
       emp.statusEmpresa = "churn";
     } else if (emp.atingiuThreshold && emp.handoffOk) {
       emp.statusEmpresa = "ativada";
     } else if (emp.atingiuThreshold && !emp.handoffOk) {
       emp.statusEmpresa = "aguardando_handoff";
-    } else {
+    } else if (ativados === 0) {
       emp.statusEmpresa = "em_risco";
+    } else {
+      emp.statusEmpresa = "em_andamento";
     }
   }
 
-  /* ---- 5. Meses de meta disponíveis (para os filtros) -------------------- */
+  /* ---- 5. Membros (base de ativação de CX, via membros.csv) --------------
+     Enriquecidos com consumo + vínculo à empresa (CS) ou "ongoing", e com o
+     status de churn quando Proprietário do Negócio = Thaynara Santos.       */
+  const membros = membrosRaw
+    .filter((r) => norm(pick(r, ["E-mail"])))
+    .map((r, idx) => {
+      const email = (pick(r, ["E-mail"]) || "").trim();
+      const emailKey = norm(email);
+      const contaNome = (pick(r, ["Conta Nome"]) || "").trim();
+      const contaKey = norm(contaNome);
+      const dataCadastro = parseBRDate(pick(r, ["Data de cadastro membro"]));
+      const empresaMatch = empresaByKey.get(contaKey) || null;
+      const isOngoing = !empresaMatch;
+
+      const stats = consumoStats(emailKey);
+      const analistaRaw = (pick(r, ["Analista Onboarding"]) || "").trim();
+      const analista = canonCX(analistaRaw) || "Sem CX";
+      const proprietarioRaw = (pick(r, ["Proprietário do Negócios"]) || "").trim();
+      const proprietario = canonCX(proprietarioRaw);
+
+      const isChurnMembro = !!analistaRaw && norm(proprietario) === CHURN_OWNER_NAME;
+      const status = isChurnMembro ? "churn" : statusFromConsumo(stats);
+      const metaKey = metaMonthKey(dataCadastro);
+
+      const membro = {
+        id: `mem_${idx}`,
+        nome: (pick(r, ["Nome Negócios"]) || "—").trim(),
+        email,
+        emailKey,
+        contaNome: contaNome || "—",
+        cx: analista,
+        proprietario,
+        dataCadastro,
+        dataOnboarding: parseBRDate(pick(r, ["Data de Onboarding"])),
+        metaKey,
+        cs: empresaMatch ? empresaMatch.cs : null,
+        empresaId: empresaMatch ? empresaMatch.id : null,
+        isOngoing,
+        consumo: stats.consumo,
+        qtdAulasConcluidas: stats.qtdAulasConcluidas,
+        ultimoAcesso: stats.ultimoAcesso,
+        status, // alerta | em_andamento | desengajado | ativado | churn
+        saiuDaEmpresa: proprietarioRaw && analistaRaw && norm(proprietario) !== norm(analista),
+      };
+      return membro;
+    });
+
+  /* ---- 6. Meses de meta disponíveis (para os filtros) -------------------- */
   const metaMonthsSet = new Set();
   empresas.forEach((e) => e.metaKey && metaMonthsSet.add(e.metaKey));
   membros.forEach((m) => m.metaKey && metaMonthsSet.add(m.metaKey));
