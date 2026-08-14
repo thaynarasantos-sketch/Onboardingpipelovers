@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/31059659/README.md)
+[README.md](https://github.com/user-attachments/files/31061283/README.md)
 # PipeLovers · Painel de Onboarding CS/CX
 
 Painel estático (HTML/CSS/JS puro, sem servidor) para acompanhar a ativação
@@ -19,6 +19,17 @@ data/consumo.csv                → exportação de consumo de aulas (substituí
 ```
 
 **O que mudou nesta versão:**
+- **Correção crítica**: o cálculo de aulas concluídas dependia de uma coluna
+  "Progresso" que não existe mais no `consumo.csv` atual (agora cada linha do
+  CSV já representa uma aula concluída, identificada por "Nome da aula" +
+  "Data de conclusão"). Isso fazia todo mundo aparecer com 0/3 aulas mesmo
+  tendo consumo real. Corrigido: agora cada linha do consumo conta como uma
+  aula concluída.
+- **Usuários com "Proprietário do Onboarding" não identificado são
+  descartados** da base de ativação de CS (não aparecem mais como "Sem
+  responsável" — simplesmente não entram na conta da empresa). Só contam
+  usuários cujo e-mail responsável está na lista confirmada: João Fabrício,
+  Mariana Vieira, Anne Siqueira, Natalia Espindola ou Thaynara Santos (PF).
 - Novo arquivo `usuarios.csv`: agora a ativação da **aba CS** é calculada a
   partir dele (não mais do `membros.csv`, que segue sendo a base exclusiva
   da aba CX).
@@ -35,6 +46,16 @@ data/consumo.csv                → exportação de consumo de aulas (substituí
 - "Em risco" (empresa) agora significa especificamente **zero usuários
   ativados**; empresas com ativação parcial (abaixo da meta, mas maior que
   zero) aparecem como **Em andamento**.
+- E-mail/membro/usuário compartilham a mesma contagem de aulas entre as
+  abas CS e CX: o consumo é agrupado por e-mail em uma única base
+  (`consumo.csv`), então o mesmo e-mail tem exatamente a mesma quantidade de
+  aulas concluídas nas duas visões.
+
+> ⚠️ **Importante:** este pacote inclui `index.html`, `assets/style.css`,
+> `assets/data.js`, `assets/app.js` **e** os 4 CSVs. Suba **todos juntos**.
+> Enviar só os CSVs novos sem atualizar os arquivos `.js` (como aconteceu na
+> rodada anterior) reproduz exatamente o bug de "0/3 aulas" descrito acima,
+> porque o `data.js` antigo não sabe ler o formato novo do `consumo.csv`.
 
 ## Como publicar no GitHub Pages
 
@@ -137,15 +158,19 @@ para ver a lista de aulas assistidas com as datas.
 
 ## Observação sobre nomes de CX/responsáveis
 
-O e-mail `anne.siqueira@pipelovers.net` foi mapeado para o nome **Anne
-Siqueira** (grafia usada em `membros.csv`) — se o nome correto for "Anne
-Silveira", me avise para eu corrigir o mapeamento em `assets/data.js`
-(constante `RESPONSAVEL_EMAIL_MAP`).
+Confirmado: `anne.siqueira@pipelovers.net` = **Anne Siqueira**.
 
-Os e-mails `thabata.harumi@`, `barbara.cabrini@`, `joao.gonzalo@` e
-`nicoly.lima@pipelovers.net` (encontrados em `usuarios.csv`, mas não
-descritos na solicitação original) foram traduzidos automaticamente para
-nome próprio a partir do e-mail (ex.: `joao.gonzalo` → "Joao Gonzalo").
-Confirme se esses nomes estão corretos ou me passe a lista completa de
-e-mail → nome para eu deixar isso explícito no código, em vez de depender
-da tradução automática.
+Usuários de `usuarios.csv` cujo "Proprietário do Onboarding" **não** está
+nesta lista confirmada são descartados da base de ativação de CS (não
+aparecem no painel, nem contam no total da empresa):
+- `joao.fabricio@pipelovers.net` → João Fabrício
+- `mariana.vieira@pipelovers.net` → Mariana Vieira
+- `anne.siqueira@pipelovers.net` → Anne Siqueira
+- `natalia.espindola@pipelovers.net` → Natalia Espindola
+- `thaynara.santos@pipelovers.net` → PF
+
+Se `thabata.harumi@`, `barbara.cabrini@`, `joao.gonzalo@` ou
+`nicoly.lima@pipelovers.net` também devem contar (por exemplo, como CX ou
+CS responsáveis diretos por alguns usuários), me avise com o nome exato de
+cada um que eu adiciono na lista confirmada em `assets/data.js`
+(constante `RESPONSAVEL_EMAIL_MAP`) — por ora eles ficam de fora do cálculo.
