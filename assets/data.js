@@ -288,6 +288,12 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
   // e-mails de membros em churn (CX) — usado para também marcar como churn o
   // usuário correspondente na aba de CS (mesmo e-mail = mesma pessoa).
   const churnedMembroEmails = new Set(membros.filter((m) => m.status === "churn").map((m) => m.emailKey));
+  // e-mail -> data de onboarding (quando existir) — usado para trazer a data
+  // de onboarding registrada em membros.csv para o usuário correspondente na
+  // aba de CS (o usuarios.csv não tem essa coluna, mas a pessoa é a mesma).
+  const onboardingDateByEmail = new Map(
+    membros.filter((m) => m.dataOnboarding).map((m) => [m.emailKey, m.dataOnboarding])
+  );
 
   /* ---- 4. Usuários (base de ativação de CS, via usuarios.csv) -----------
      Deduplicados por e-mail: quando o mesmo e-mail aparece em mais de uma
@@ -322,6 +328,7 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
 
     const stats = consumoStats(emailKey);
     const isChurnUsuario = churnedMembroEmails.has(emailKey);
+    const dataOnboarding = onboardingDateByEmail.get(emailKey) || null;
     const usuario = {
       id: `usu_${usuIdx++}`,
       nome: (pick(r, ["Nome Completo"]) || `${pick(r, ["Nome"])} ${pick(r, ["Sobrenome"])}`).trim() || "—",
@@ -332,6 +339,8 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
       consumo: stats.consumo,
       qtdAulasConcluidas: stats.qtdAulasConcluidas,
       ultimoAcesso: stats.ultimoAcesso,
+      dataOnboarding,       // vem de membros.csv, cruzado por e-mail
+      temOnboarding: !!dataOnboarding,
       status: isChurnUsuario ? "churn" : statusFromConsumo(stats),
     };
     empresaMatch.usuarios.push(usuario);
@@ -346,10 +355,13 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
     const usuariosAtivaveis = emp.usuarios.filter((u) => u.status !== "churn");
     const total = usuariosAtivaveis.length;
     const ativados = usuariosAtivaveis.filter((u) => u.status === "ativado").length;
+    const comOnboarding = usuariosAtivaveis.filter((u) => u.temOnboarding).length;
     emp.totalMembros = total;
     emp.membrosAtivados = ativados;
     emp.usuariosChurnCount = emp.usuarios.length - total;
     emp.pctAtivacao = total > 0 ? Math.round((ativados / total) * 1000) / 10 : 0;
+    emp.usuariosComOnboarding = comOnboarding;
+    emp.pctCobertura = total > 0 ? Math.round((comOnboarding / total) * 1000) / 10 : 0;
     emp.handoffOk = !!emp.dataHandoff;
     emp.atingiuThreshold = total > 0 && emp.pctAtivacao >= emp.thresholdPct;
     emp.responsaveisList = [...emp.responsaveis].sort((a, b) => a.localeCompare(b, "pt-BR"));
