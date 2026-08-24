@@ -126,6 +126,8 @@ a{color:inherit}
 /* ---------- KPI row ---------- */
 .kpi-row{display:grid;grid-template-columns:1fr 1.9fr .85fr .85fr;gap:16px;margin-bottom:20px}
 @media (max-width:1100px){.kpi-row{grid-template-columns:1fr 1fr}}
+.kpi-row-onb{grid-template-columns:1.1fr 1fr 1fr 1.1fr}
+@media (max-width:1100px){.kpi-row-onb{grid-template-columns:1fr 1fr}}
 
 .card{
   background:linear-gradient(180deg, var(--panel), var(--panel-2));
@@ -272,15 +274,15 @@ tr.row-detail.open{display:table-row}
 .detail-title{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-2);margin-bottom:10px}
 .member-grid{display:flex;flex-direction:column;gap:6px}
 .member-row{
-  display:grid;grid-template-columns:1.6fr 1.4fr 1fr .9fr 1fr .6fr;gap:10px;
+  display:grid;grid-template-columns:1.5fr 1.3fr .9fr .8fr .9fr .6fr .8fr;gap:8px;
   align-items:center;padding:9px 12px;border-radius:9px;background:rgba(255,255,255,.025);
-  border:1px solid transparent;cursor:pointer;font-size:12.3px;
+  border:1px solid transparent;cursor:pointer;font-size:12.1px;
 }
 .member-row:hover{border-color:var(--border-strong);background:rgba(255,255,255,.05)}
 .member-row .mm-name{font-weight:500}
-.member-row .mm-email{color:var(--text-2);font-size:11.3px}
+.member-row .mm-email{color:var(--text-2);font-size:11.1px}
 .member-grid-head{
-  display:grid;grid-template-columns:1.6fr 1.4fr 1fr .9fr 1fr .6fr;gap:10px;
+  display:grid;grid-template-columns:1.5fr 1.3fr .9fr .8fr .9fr .6fr .8fr;gap:8px;
   padding:0 12px 6px;font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-2);
 }
 
@@ -304,5 +306,5 @@ tr.row-detail.open{display:table-row}
 
 @media (max-width:900px){
   .member-row,.member-grid-head{grid-template-columns:1.4fr 1fr .8fr}
-  .member-row .mm-cs,.member-row .mm-last{display:none}
+  .member-row .mm-cs,.member-row .mm-last,.member-row .mm-onb{display:none}
 }
