@@ -35,7 +35,9 @@ const state = {
     expandedMem: new Set(),
   },
   onboarding: {
-    f: { analistas: new Set(), cadFrom: "", cadTo: "", realizado: new Set(), empresa: "" },
+    f: { analistas: new Set(), cs: new Set(), cadFrom: "", cadTo: "", realizado: new Set(), empresa: "" },
+    expandedEmp: new Set(),
+    expandedMonth: new Set(),
     expandedMem: new Set(),
   },
 };
@@ -126,6 +128,7 @@ function initFiltersOnce() {
   buildMultiSelect("cx-f-cs", state.cx.f.cs, () => renderCX(), itemsFromLabels(csAnalistas));
 
   buildMultiSelect("onb-f-analista", state.onboarding.f.analistas, () => renderOnboarding(), itemsFromLabels(cxAnalistas));
+  buildMultiSelect("onb-f-cs", state.onboarding.f.cs, () => renderOnboarding(), itemsFromLabels(csAnalistas));
   buildMultiSelect("onb-f-realizado", state.onboarding.f.realizado, () => renderOnboarding(), [
     { label: "Com onboarding", value: "com" },
     { label: "Sem onboarding", value: "sem" },
@@ -288,6 +291,7 @@ function filterMembrosOnboarding() {
   const f = state.onboarding.f;
   return MODEL.membros.filter((m) => {
     if (f.analistas.size && !f.analistas.has(m.cx)) return false;
+    if (f.cs.size && !(m.cs && f.cs.has(m.cs))) return false;
     if (!inRange(m.dataCadastro, f.cadFrom, f.cadTo)) return false;
     if (f.realizado.size) {
       const bucket = m.temOnboarding ? "com" : "sem";
@@ -296,6 +300,10 @@ function filterMembrosOnboarding() {
     if (f.empresa && !norm(m.contaNome).includes(norm(f.empresa))) return false;
     return true;
   });
+}
+
+function monthKeyOf(date) {
+  return date ? `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}` : null;
 }
 
 /* --------------------------- gauge / kpis -------------------------------- */
@@ -387,6 +395,7 @@ function renderCSKpis(list) {
       <div class="lbl">Usuários nas empresas filtradas</div>
       <div class="val">${sum(list.map((e) => e.totalMembros))}</div>
       <div class="sub"><b>${sum(list.map((e) => e.membrosAtivados))}</b> usuários ativados (3 aulas concluídas)</div>
+      <div class="sub"><b>${sum(list.map((e) => e.usuariosComOnboarding))}</b> com onboarding realizado (cobertura)</div>
     </div>
   `;
 }
@@ -414,19 +423,23 @@ function renderCSTable(list) {
           <div class="mini-progress"><span style="width:${Math.min(100, emp.pctAtivacao)}%"></span></div>
           <div class="pct-txt">${fmtPct(emp.pctAtivacao)} · ${emp.membrosAtivados}/${emp.totalMembros}</div>
         </td>
+        <td>
+          <div class="mini-progress"><span style="width:${Math.min(100, emp.pctCobertura)}%;background:linear-gradient(90deg,var(--blue-soft),var(--ice))"></span></div>
+          <div class="pct-txt">${fmtPct(emp.pctCobertura)} · ${emp.usuariosComOnboarding}/${emp.totalMembros}</div>
+        </td>
         <td>${fmtDate(emp.dataFechamento)}</td>
         <td>${emp.dataHandoff ? fmtDate(emp.dataHandoff) : "—"}</td>
         <td>${metaMonthLabel(emp.metaKey)}</td>
       </tr>
       <tr class="row-detail${expanded ? " open" : ""}" data-emp-detail="${emp.id}">
-        <td colspan="8" class="detail-wrap">${renderEmpresaUsuariosBlock(emp)}</td>
+        <td colspan="9" class="detail-wrap">${renderEmpresaUsuariosBlock(emp)}</td>
       </tr>`;
   }).join("");
 
   wrap.innerHTML = `
     <table>
       <thead><tr>
-        <th>Empresa</th><th>CS</th><th>CX / PF</th><th>Status</th><th>Ativação</th>
+        <th>Empresa</th><th>CS</th><th>CX / PF</th><th>Status</th><th>Ativação</th><th>Cobertura onboarding</th>
         <th>Fechamento</th><th>Handoff</th><th>Mês da meta</th>
       </tr></thead>
       <tbody>${rows}</tbody>
@@ -451,11 +464,9 @@ function renderEmpresaUsuariosBlock(emp) {
 function memberRow(m, tab) {
   const st = STATUS_META[m.status];
   const responsavelLabel = tab === "cs" ? m.responsavel : m.cx;
-  const onbCell = tab === "cx"
-    ? (m.temOnboarding
-        ? `<span class="badge ok"><span class="dot"></span>${fmtDate(m.dataOnboarding)}</span>`
-        : `<span class="badge bad"><span class="dot"></span>Não realizado</span>`)
-    : `<span class="name-sub">—</span>`;
+  const onbCell = m.temOnboarding
+    ? `<span class="badge ok"><span class="dot"></span>${fmtDate(m.dataOnboarding)}</span>`
+    : `<span class="badge bad"><span class="dot"></span>Não realizado</span>`;
   return `
     <div class="member-row" data-mem="${m.id}" data-tab="${tab}">
       <div class="mm-name">${escapeHtml(m.nome)}</div>
@@ -600,7 +611,8 @@ function renderOnboarding() {
   if (!MODEL) return;
   const list = filterMembrosOnboarding();
   renderOnbKpis(list);
-  renderOnbMonthBreakdown(list);
+  renderOnbEmpresaBreakdown(list);
+  renderOnbCadastroBreakdown(list);
   renderOnbTable(list);
 }
 
@@ -649,40 +661,137 @@ function renderOnbKpis(list) {
   `;
 }
 
-function renderOnbMonthBreakdown(list) {
-  const wrap = document.getElementById("onb-month-wrap");
-  const comOnb = list.filter((m) => m.temOnboarding);
-  if (!comOnb.length) {
-    wrap.innerHTML = emptyState("Nenhum membro com onboarding realizado nos filtros atuais.");
+function renderOnbEmpresaBreakdown(list) {
+  const wrap = document.getElementById("onb-empresa-wrap");
+  if (!list.length) {
+    wrap.innerHTML = emptyState("Nenhum membro encontrado com os filtros atuais.");
     return;
   }
-  const byMonth = new Map();
-  for (const m of comOnb) {
-    const d = m.dataOnboarding;
-    const key = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
-    if (!byMonth.has(key)) byMonth.set(key, []);
-    byMonth.get(key).push(m);
+  // agrupar por empresa (chave normalizada) — cobertura de onboarding + ativação por CS
+  const groups = new Map();
+  for (const m of list) {
+    const key = norm(m.contaNome) || "—";
+    if (!groups.has(key)) groups.set(key, { label: m.contaNome || "—", members: [] });
+    groups.get(key).members.push(m);
   }
-  const rows = [...byMonth.entries()].sort((a, b) => a[0].localeCompare(b[0])).map(([key, members]) => {
-    const pct = Math.round((members.length / comOnb.length) * 1000) / 10;
+  const groupArr = [...groups.values()].sort((a, b) => {
+    const pctA = a.members.filter((m) => m.temOnboarding).length / a.members.length;
+    const pctB = b.members.filter((m) => m.temOnboarding).length / b.members.length;
+    return pctA - pctB; // pior cobertura primeiro (oportunidade de atuação)
+  });
+
+  const rows = groupArr.map(({ label: empresaNome, members }) => {
+    const id = `onbemp_${slug(empresaNome)}`;
+    const comOnb = members.filter((m) => m.temOnboarding).length;
+    const pctCobertura = Math.round((comOnb / members.length) * 1000) / 10;
     const ativados = members.filter((m) => m.status === "ativado").length;
+    const pctAtivacao = Math.round((ativados / members.length) * 1000) / 10;
+    const isOngoing = members[0].isOngoing;
+    const cs = members[0].cs;
+    const expanded = state.onboarding.expandedEmp.has(id);
     return `
-      <tr class="row-main" style="cursor:default">
-        <td><div class="name-strong">${metaMonthLabel(key)}</div></td>
-        <td>${members.length} onboardings</td>
+      <tr class="row-main${expanded ? " expanded" : ""}" data-emp="${id}">
+        <td><div class="cell-main">${chevSvg()}<div><div class="name-strong">${escapeHtml(empresaNome)}</div>
+          <div class="name-sub">${members.length} membro${members.length !== 1 ? "s" : ""}</div></div></div></td>
+        <td>${isOngoing ? `<span class="badge info"><span class="dot"></span>Ongoing</span>` : escapeHtml(cs || "—")}</td>
         <td>
-          <div class="mini-progress"><span style="width:${Math.min(100, pct)}%"></span></div>
-          <div class="pct-txt">${fmtPct(pct)} do total realizado</div>
+          <div class="mini-progress"><span style="width:${Math.min(100, pctCobertura)}%;background:linear-gradient(90deg,var(--blue-soft),var(--ice))"></span></div>
+          <div class="pct-txt">${fmtPct(pctCobertura)} · ${comOnb}/${members.length}</div>
         </td>
-        <td>${ativados} / ${members.length} ativados (${fmtPct(members.length ? ativados/members.length*100 : 0)})</td>
+        <td>
+          <div class="mini-progress"><span style="width:${Math.min(100, pctAtivacao)}%"></span></div>
+          <div class="pct-txt">${fmtPct(pctAtivacao)} · ${ativados}/${members.length}</div>
+        </td>
+      </tr>
+      <tr class="row-detail${expanded ? " open" : ""}" data-emp-detail="${id}">
+        <td colspan="4" class="detail-wrap">
+          <div class="detail-title">Membros (${members.length})</div>
+          <div class="member-grid">
+            <div class="member-grid-head"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Onboarding</div><div>Aulas</div><div>Últ. acesso</div></div>
+            ${members.map((m) => memberRow(m, "onboarding")).join("")}
+          </div>
+        </td>
       </tr>`;
   }).join("");
 
   wrap.innerHTML = `
     <table>
-      <thead><tr><th>Mês do onboarding</th><th>Qtd. realizados</th><th>% do total</th><th>Ativação neste grupo</th></tr></thead>
+      <thead><tr><th>Empresa</th><th>CS / Origem</th><th>Cobertura onboarding</th><th>Ativação</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>`;
+
+  wireExpandableTable(wrap, "onboarding");
+}
+
+function renderOnbCadastroBreakdown(list) {
+  const wrap = document.getElementById("onb-month-wrap");
+  if (!list.length) {
+    wrap.innerHTML = emptyState("Nenhum membro encontrado com os filtros atuais.");
+    return;
+  }
+  const groups = new Map();
+  for (const m of list) {
+    const key = monthKeyOf(m.dataCadastro) || "sem-data";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(m);
+  }
+  const rows = [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0])).map(([key, members]) => {
+    const id = `onbcad_${key}`;
+    const total = members.length;
+    const comOnb = members.filter((m) => m.temOnboarding);
+    const pctCobertura = Math.round((comOnb.length / total) * 1000) / 10;
+    const ativados = members.filter((m) => m.status === "ativado");
+    const pctAtivacao = Math.round((ativados.length / total) * 1000) / 10;
+    const ativadosComOnb = ativados.filter((m) => m.temOnboarding).length;
+    const ativadosSemOnb = ativados.length - ativadosComOnb;
+    const pctAtivadosCom = ativados.length ? Math.round((ativadosComOnb / ativados.length) * 1000) / 10 : 0;
+    const pctAtivadosSem = ativados.length ? Math.round((ativadosSemOnb / ativados.length) * 1000) / 10 : 0;
+
+    // distribuição do mês em que o onboarding aconteceu, dentro desta leva de cadastro
+    const byOnbMonth = new Map();
+    for (const m of comOnb) {
+      const k = monthKeyOf(m.dataOnboarding);
+      byOnbMonth.set(k, (byOnbMonth.get(k) || 0) + 1);
+    }
+    const onbMonthList = [...byOnbMonth.entries()].sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([k, count]) => `<div class="li"><span class="sw" style="background:var(--blue-soft)"></span>${metaMonthLabel(k)}: <b style="color:var(--text-0);margin-left:3px">${count}</b> (${fmtPct(count / comOnb.length * 100)})</div>`)
+      .join("");
+
+    const expanded = state.onboarding.expandedMonth.has(id);
+    const label = key === "sem-data" ? "Sem data de cadastro" : metaMonthLabel(key);
+    return `
+      <tr class="row-main${expanded ? " expanded" : ""}" data-emp="${id}">
+        <td><div class="cell-main">${chevSvg()}<div><div class="name-strong">${label}</div>
+          <div class="name-sub">${total} membro${total !== 1 ? "s" : ""} cadastrados</div></div></div></td>
+        <td>
+          <div class="mini-progress"><span style="width:${Math.min(100, pctCobertura)}%;background:linear-gradient(90deg,var(--blue-soft),var(--ice))"></span></div>
+          <div class="pct-txt">${fmtPct(pctCobertura)} onboarding · ${comOnb.length}/${total}</div>
+        </td>
+        <td>
+          <div class="mini-progress"><span style="width:${Math.min(100, pctAtivacao)}%"></span></div>
+          <div class="pct-txt">${fmtPct(pctAtivacao)} ativação · ${ativados.length}/${total}</div>
+        </td>
+        <td>${fmtPct(pctAtivadosCom)} com onboarding · ${fmtPct(pctAtivadosSem)} sem</td>
+      </tr>
+      <tr class="row-detail${expanded ? " open" : ""}" data-emp-detail="${id}">
+        <td colspan="4" class="detail-wrap">
+          ${onbMonthList ? `<div class="detail-title">Onboardings desta leva, por mês em que aconteceram</div><div class="legend" style="flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:16px">${onbMonthList}</div>` : ""}
+          <div class="detail-title">Membros (${total})</div>
+          <div class="member-grid">
+            <div class="member-grid-head"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Onboarding</div><div>Aulas</div><div>Últ. acesso</div></div>
+            ${members.map((m) => memberRow(m, "onboarding-cad")).join("")}
+          </div>
+        </td>
+      </tr>`;
+  }).join("");
+
+  wrap.innerHTML = `
+    <table>
+      <thead><tr><th>Mês de cadastro</th><th>Cobertura onboarding</th><th>Ativação</th><th>Entre os ativados</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+
+  wireExpandableTable(wrap, "onboarding-cad");
 }
 
 function renderOnbTable(list) {
@@ -728,12 +837,20 @@ function renderOnbTable(list) {
 
 /* --------------------------- shared expand wiring ------------------------ */
 
+function expandSetFor(tab, kind) {
+  if (tab === "cs") return kind === "emp" ? state.cs.expandedEmp : state.cs.expandedMem;
+  if (tab === "cx") return kind === "emp" ? state.cx.expandedEmp : state.cx.expandedMem;
+  if (tab === "onboarding") return kind === "emp" ? state.onboarding.expandedEmp : state.onboarding.expandedMem;
+  if (tab === "onboarding-cad") return kind === "emp" ? state.onboarding.expandedMonth : state.onboarding.expandedMem;
+  return new Set();
+}
+
 function wireExpandableTable(wrap, tab) {
   wrap.querySelectorAll(".row-main").forEach((tr) => {
     tr.addEventListener("click", () => {
       const id = tr.dataset.emp;
       const detail = wrap.querySelector(`[data-emp-detail="${cssEscape(id)}"]`);
-      const setRef = tab === "cs" ? state.cs.expandedEmp : state.cx.expandedEmp;
+      const setRef = expandSetFor(tab, "emp");
       const willOpen = !tr.classList.contains("expanded");
       tr.classList.toggle("expanded", willOpen);
       detail.classList.toggle("open", willOpen);
@@ -746,7 +863,7 @@ function wireExpandableTable(wrap, tab) {
       const id = row.dataset.mem;
       const t = row.dataset.tab;
       const panel = document.getElementById(`courses-${t}-${id}`);
-      const setRef = t === "cs" ? state.cs.expandedMem : state.cx.expandedMem;
+      const setRef = expandSetFor(t, "mem");
       const willOpen = panel.style.display === "none";
       panel.style.display = willOpen ? "block" : "none";
       if (willOpen) setRef.add(id); else setRef.delete(id);
