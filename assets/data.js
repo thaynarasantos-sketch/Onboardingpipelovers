@@ -180,13 +180,18 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
     if (!consumoByEmail.has(email)) consumoByEmail.set(email, []);
     const dt = parseBRDate(pick(row, ["Data de conclusão", "Data de início", "Data de término"]));
     const conteudo = pick(row, ["Nome da aula", "Conteúdo"]) || "—";
-    consumoByEmail.get(email).push({ conteudo: conteudo.trim(), data: dt });
+    // "Matrícula" (quando existir) identifica a aula de forma mais estável que o
+    // nome em texto — evita contar duas vezes a mesma aula se o nome mudar de
+    // grafia entre exportações. Quando ausente, cai no nome normalizado.
+    const matricula = (pick(row, ["Matrícula", "Matricula"]) || "").toString().trim();
+    const dedupKey = matricula || norm(conteudo);
+    consumoByEmail.get(email).push({ conteudo: conteudo.trim(), data: dt, dedupKey });
   }
 
   function consumoStats(emailKey) {
     const list = (consumoByEmail.get(emailKey) || []).slice()
       .sort((a, b) => (a.data && b.data ? a.data - b.data : 0));
-    const aulasSet = new Set(list.map((c) => c.conteudo));
+    const aulasSet = new Set(list.map((c) => c.dedupKey));
     let ultimoAcesso = null;
     for (const c of list) if (c.data && (!ultimoAcesso || c.data > ultimoAcesso)) ultimoAcesso = c.data;
     return { consumo: list, qtdAulasConcluidas: aulasSet.size, ultimoAcesso, temConsumo: list.length > 0 };
@@ -229,79 +234,11 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
 
   const empresaByKey = new Map(empresas.map((e) => [e.nomeKey, e]));
 
-  /* ---- 3. Usuários (base de ativação de CS, via usuarios.csv) -----------
-     Deduplicados por e-mail: quando o mesmo e-mail aparece em mais de uma
-     linha (comum, já que a planilha não é limpa antes do upload), prioriza
-     a linha que tem "Proprietário do Onboarding" identificado — evita
-     descartar um usuário só porque a primeira ocorrência dele veio com o
-     campo em branco e uma ocorrência seguinte tem o dado completo. */
-  const usuariosByEmail = new Map();
-  for (const r of usuariosRaw) {
-    const email = (pick(r, ["email do usuario e membro", "Email", "E-mail", "email"]) || "").trim();
-    const emailKey = norm(email);
-    if (!emailKey) continue;
-    const responsavel = resolveResponsavelFromEmail(pick(r, ["Proprietário do Onboarding"]));
-    const existing = usuariosByEmail.get(emailKey);
-    if (!existing) {
-      usuariosByEmail.set(emailKey, { row: r, email, responsavel });
-    } else if (!existing.responsavel && responsavel) {
-      // a ocorrência atual tem responsável identificado e a anterior não -> substitui
-      usuariosByEmail.set(emailKey, { row: r, email, responsavel });
-    }
-  }
-
-  let usuIdx = 0;
-  for (const { row: r, email, emailKey: _ek, responsavel } of usuariosByEmail.values()) {
-    const emailKey = norm(email);
-    const nomeEmpresa = (pick(r, ["Nome da Empresa", "Conta Nome"]) || "").trim();
-    const empresaMatch = empresaByKey.get(norm(nomeEmpresa)) || null;
-    if (!empresaMatch) continue; // usuário fora da carteira atual de empresas do CS
-    if (!responsavel) continue; // proprietário do onboarding não identificado -> desconsiderar usuário
-
-    const stats = consumoStats(emailKey);
-    const usuario = {
-      id: `usu_${usuIdx++}`,
-      nome: (pick(r, ["Nome Completo"]) || `${pick(r, ["Nome"])} ${pick(r, ["Sobrenome"])}`).trim() || "—",
-      email,
-      emailKey,
-      responsavel, // "PF" ou nome do CX
-      isPF: responsavel === "PF",
-      consumo: stats.consumo,
-      qtdAulasConcluidas: stats.qtdAulasConcluidas,
-      ultimoAcesso: stats.ultimoAcesso,
-      status: statusFromConsumo(stats),
-    };
-    empresaMatch.usuarios.push(usuario);
-    empresaMatch.responsaveis.add(responsavel);
-  }
-
-  /* ---- 4. Métricas por empresa ------------------------------------------ */
-  for (const emp of empresas) {
-    const total = emp.usuarios.length;
-    const ativados = emp.usuarios.filter((u) => u.status === "ativado").length;
-    emp.totalMembros = total;
-    emp.membrosAtivados = ativados;
-    emp.pctAtivacao = total > 0 ? Math.round((ativados / total) * 1000) / 10 : 0;
-    emp.handoffOk = !!emp.dataHandoff;
-    emp.atingiuThreshold = total > 0 && emp.pctAtivacao >= emp.thresholdPct;
-    emp.responsaveisList = [...emp.responsaveis].sort((a, b) => a.localeCompare(b, "pt-BR"));
-
-    if (emp.isChurn) {
-      emp.statusEmpresa = "churn";
-    } else if (emp.atingiuThreshold && emp.handoffOk) {
-      emp.statusEmpresa = "ativada";
-    } else if (emp.atingiuThreshold && !emp.handoffOk) {
-      emp.statusEmpresa = "aguardando_handoff";
-    } else if (ativados === 0) {
-      emp.statusEmpresa = "em_risco";
-    } else {
-      emp.statusEmpresa = "em_andamento";
-    }
-  }
-
-  /* ---- 5. Membros (base de ativação de CX, via membros.csv) --------------
+  /* ---- 3. Membros (base de ativação de CX, via membros.csv) --------------
      Enriquecidos com consumo + vínculo à empresa (CS) ou "ongoing", e com o
-     status de churn quando Proprietário do Negócio = Thaynara Santos.       */
+     status de churn quando Proprietário do Negócio = Thaynara Santos. Este
+     bloco roda antes dos usuários porque o status de churn calculado aqui
+     também precisa ser aplicado ao usuário de mesmo e-mail na aba de CS.    */
   const membros = membrosRaw
     .filter((r) => norm(pick(r, ["E-mail"])))
     .map((r, idx) => {
@@ -322,6 +259,7 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
       const isChurnMembro = !!analistaRaw && norm(proprietario) === CHURN_OWNER_NAME;
       const status = isChurnMembro ? "churn" : statusFromConsumo(stats);
       const metaKey = metaMonthKey(dataCadastro);
+      const dataOnboarding = parseBRDate(pick(r, ["Data de Onboarding"]));
 
       const membro = {
         id: `mem_${idx}`,
@@ -332,7 +270,8 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
         cx: analista,
         proprietario,
         dataCadastro,
-        dataOnboarding: parseBRDate(pick(r, ["Data de Onboarding"])),
+        dataOnboarding,
+        temOnboarding: !!dataOnboarding,
         metaKey,
         cs: empresaMatch ? empresaMatch.cs : null,
         empresaId: empresaMatch ? empresaMatch.id : null,
@@ -345,6 +284,88 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
       };
       return membro;
     });
+
+  // e-mails de membros em churn (CX) — usado para também marcar como churn o
+  // usuário correspondente na aba de CS (mesmo e-mail = mesma pessoa).
+  const churnedMembroEmails = new Set(membros.filter((m) => m.status === "churn").map((m) => m.emailKey));
+
+  /* ---- 4. Usuários (base de ativação de CS, via usuarios.csv) -----------
+     Deduplicados por e-mail: quando o mesmo e-mail aparece em mais de uma
+     linha (comum, já que a planilha não é limpa antes do upload), prioriza
+     a linha que tem "Proprietário do Onboarding" identificado — evita
+     descartar um usuário só porque a primeira ocorrência dele veio com o
+     campo em branco e uma ocorrência seguinte tem o dado completo. Usuários
+     cujo e-mail bate com um membro em churn (CX) também viram churn aqui e
+     ficam fora do cálculo de % de ativação da empresa. */
+  const usuariosByEmail = new Map();
+  for (const r of usuariosRaw) {
+    const email = (pick(r, ["email do usuario e membro", "Email", "E-mail", "email"]) || "").trim();
+    const emailKey = norm(email);
+    if (!emailKey) continue;
+    const responsavel = resolveResponsavelFromEmail(pick(r, ["Proprietário do Onboarding"]));
+    const existing = usuariosByEmail.get(emailKey);
+    if (!existing) {
+      usuariosByEmail.set(emailKey, { row: r, email, responsavel });
+    } else if (!existing.responsavel && responsavel) {
+      // a ocorrência atual tem responsável identificado e a anterior não -> substitui
+      usuariosByEmail.set(emailKey, { row: r, email, responsavel });
+    }
+  }
+
+  let usuIdx = 0;
+  for (const { row: r, email, responsavel } of usuariosByEmail.values()) {
+    const emailKey = norm(email);
+    const nomeEmpresa = (pick(r, ["Nome da Empresa", "Conta Nome"]) || "").trim();
+    const empresaMatch = empresaByKey.get(norm(nomeEmpresa)) || null;
+    if (!empresaMatch) continue; // usuário fora da carteira atual de empresas do CS
+    if (!responsavel) continue; // proprietário do onboarding não identificado -> desconsiderar usuário
+
+    const stats = consumoStats(emailKey);
+    const isChurnUsuario = churnedMembroEmails.has(emailKey);
+    const usuario = {
+      id: `usu_${usuIdx++}`,
+      nome: (pick(r, ["Nome Completo"]) || `${pick(r, ["Nome"])} ${pick(r, ["Sobrenome"])}`).trim() || "—",
+      email,
+      emailKey,
+      responsavel, // "PF" ou nome do CX
+      isPF: responsavel === "PF",
+      consumo: stats.consumo,
+      qtdAulasConcluidas: stats.qtdAulasConcluidas,
+      ultimoAcesso: stats.ultimoAcesso,
+      status: isChurnUsuario ? "churn" : statusFromConsumo(stats),
+    };
+    empresaMatch.usuarios.push(usuario);
+    empresaMatch.responsaveis.add(responsavel);
+  }
+
+  /* ---- 5. Métricas por empresa ------------------------------------------
+     Usuários em churn (mesmo e-mail de um membro em churn no CX) entram na
+     lista da empresa para visibilidade, mas ficam fora do numerador E do
+     denominador do % de ativação — não contam contra nem a favor da meta.  */
+  for (const emp of empresas) {
+    const usuariosAtivaveis = emp.usuarios.filter((u) => u.status !== "churn");
+    const total = usuariosAtivaveis.length;
+    const ativados = usuariosAtivaveis.filter((u) => u.status === "ativado").length;
+    emp.totalMembros = total;
+    emp.membrosAtivados = ativados;
+    emp.usuariosChurnCount = emp.usuarios.length - total;
+    emp.pctAtivacao = total > 0 ? Math.round((ativados / total) * 1000) / 10 : 0;
+    emp.handoffOk = !!emp.dataHandoff;
+    emp.atingiuThreshold = total > 0 && emp.pctAtivacao >= emp.thresholdPct;
+    emp.responsaveisList = [...emp.responsaveis].sort((a, b) => a.localeCompare(b, "pt-BR"));
+
+    if (emp.isChurn) {
+      emp.statusEmpresa = "churn";
+    } else if (emp.atingiuThreshold && emp.handoffOk) {
+      emp.statusEmpresa = "ativada";
+    } else if (emp.atingiuThreshold && !emp.handoffOk) {
+      emp.statusEmpresa = "aguardando_handoff";
+    } else if (ativados === 0) {
+      emp.statusEmpresa = "em_risco";
+    } else {
+      emp.statusEmpresa = "em_andamento";
+    }
+  }
 
   /* ---- 6. Meses de meta disponíveis (para os filtros) -------------------- */
   const metaMonthsSet = new Set();
