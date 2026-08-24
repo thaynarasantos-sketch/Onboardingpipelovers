@@ -1,45 +1,50 @@
-[README.md](https://github.com/user-attachments/files/31381173/README.md)
+[README.md](https://github.com/user-attachments/files/31384328/README.md)
 # PipeLovers · Painel de Onboarding CS/CX
 
 Painel estático (HTML/CSS/JS puro, sem servidor) para acompanhar a ativação
-mensal das carteiras de **CS** (empresas) e **CX** (membros) durante o
-onboarding, com base no consumo de aulas.
+mensal das carteiras de **CS** (empresas), **CX** (membros) e a **cobertura
+de onboarding** durante o processo de onboarding, com base no consumo de
+aulas.
 
 ## Estrutura de arquivos
 
 ```
-index.html            → o painel
+index.html            → o painel (3 abas: CS, CX, Onboarding)
 assets/style.css       → estilo (dark/azul PipeLovers)
 assets/data.js          → carrega os 4 CSVs e aplica as regras de negócio
 assets/app.js             → filtros, KPIs, tabelas e drill-down
 data/empresas.csv          → carteira de empresas por CS (cumulativo)
-data/membros.csv            → membros cadastrados por CX (cumulativo) — base da meta de CX
+data/membros.csv            → membros cadastrados por CX (cumulativo) — base da meta de CX e de onboarding
 data/usuarios.csv             → usuários das empresas do CS (cumulativo, com duplicados) — base da meta de CS
 data/consumo.csv                → exportação de consumo de aulas (substituída a cada carga)
 ```
 
 **O que mudou nesta versão:**
-- **Nova aba "Onboarding"**: mostra a cobertura de onboarding (% de membros com
-  a reunião de onboarding realizada), a conversão em ativação para quem teve
-  onboarding vs quem não teve, a distribuição de onboardings realizados por
-  mês, e um bloco "entre os ativados" separando quem ativou com e sem
-  onboarding. Filtros: Analista de Onboarding (CX), data de cadastro do
-  membro (intervalo), com/sem onboarding, nome da empresa.
-- **Coluna "Onboarding" adicionada** nas listas de membros da aba CX (data da
-  reunião de onboarding, ou "Não realizado").
-- **Novo cruzamento de churn CS↔CX**: um usuário de `usuarios.csv` cujo
-  e-mail é o mesmo de um membro marcado como churn em `membros.csv` (CX)
-  também vira churn na aba CS — fica visível na lista da empresa, mas não
-  conta no numerador nem no denominador do % de ativação da empresa.
-- Consumo agora também aceita a coluna **"Matrícula"** (quando presente) como
-  identificador de aula mais estável que o nome em texto, para deduplicar
-  aulas concluídas com mais precisão. Continua funcionando normalmente sem
-  essa coluna, usando o nome da aula como antes.
-- Correção crítica anterior mantida: cálculo de aulas concluídas não depende
-  mais de coluna "Progresso" (removida do `consumo.csv` atual).
-- Usuários com "Proprietário do Onboarding" não identificado continuam
-  descartados da base de ativação de CS, agora com deduplicação por e-mail
-  mais robusta (prioriza a linha com responsável preenchido).
+- **Cobertura de onboarding agora aparece na aba CS**: nova coluna
+  "Cobertura onboarding" na tabela de empresas (% de usuários da empresa que
+  tiveram a reunião de onboarding realizada) e data de onboarding visível na
+  lista de usuários de cada empresa — cruzado com `membros.csv` pelo e-mail
+  (o `usuarios.csv` não tem essa coluna, mas a pessoa é a mesma).
+- **Aba Onboarding reestruturada** com dois blocos novos:
+  - **Cobertura de onboarding por empresa**: tabela agrupada por empresa
+    (com o CS indicado), % de cobertura e % de ativação lado a lado,
+    ordenada pela pior cobertura primeiro. Expanda para ver os membros.
+  - **Segmentação por mês de cadastro**: uma linha por mês de cadastro dos
+    membros, com % de cobertura de onboarding, % de ativação, e o split de
+    quantos dos ativados tiveram onboarding vs. ativaram sem ele. Ao
+    expandir, mostra em qual mês o onboarding de fato aconteceu (para ver
+    atraso entre cadastro e onboarding) e a lista completa de membros
+    daquele mês de cadastro.
+  - Novo filtro **CS** na aba Onboarding (além de CX, empresa, data de
+    cadastro e com/sem onboarding).
+  - Mantidos: KPIs gerais de cobertura/conversão, bloco "entre os
+    ativados", e lista completa de membros filtrados.
+- Coluna "Onboarding" nas listas de membros da aba CX (mantida).
+- Cruzamento de churn CS↔CX (mantido): usuário com mesmo e-mail de um membro
+  em churn no CX também vira churn na aba CS, fora do cálculo de ativação da
+  empresa.
+- Suporte a coluna "Matrícula" em `consumo.csv` como identificador de aula
+  mais estável (mantido, opcional — funciona igual sem ela).
 
 ## Como publicar no GitHub Pages
 
@@ -47,7 +52,6 @@ data/consumo.csv                → exportação de consumo de aulas (substituí
 > `assets/data.js`, `assets/app.js` **e** os 4 CSVs. Suba **todos juntos** e
 > dê um Ctrl+Shift+R depois — subir só os CSVs sem atualizar os `.js` (ou
 > vice-versa) já causou bugs de dados incorretos em rodadas anteriores.
-
 
 1. Suba **todos** estes arquivos, mantendo a mesma estrutura de pastas, no
    repositório `thaynarasantos-sketch/Onboardingpipelovers` (branch `main`).
@@ -86,11 +90,12 @@ navegador sempre busque a versão mais recente do arquivo.
   novas empresas ao final do mesmo arquivo (não crie um arquivo novo por
   mês).
 - **`data/membros.csv`** — **cumulativo**: a cada novo mês, acrescente os
-  novos membros cadastrados (base da meta de CX).
+  novos membros cadastrados (base da meta de CX e da cobertura de
+  onboarding).
 - **`data/usuarios.csv`** — **cumulativo**, mas pode conter e-mails
-  duplicados sem problema: o painel mantém apenas o primeiro registro de
-  cada e-mail automaticamente. Atualize sempre que houver troca de usuários
-  nas empresas do CS.
+  duplicados sem problema: o painel mantém apenas um registro por e-mail
+  automaticamente (priorizando a linha com "Proprietário do Onboarding"
+  preenchido). Atualize sempre que houver troca de usuários nas empresas.
 - O painel calcula automaticamente o "mês da meta" de cada empresa/membro a
   partir da data de fechamento/cadastro (mês + 2 — ex.: fechamento em junho
   → meta de agosto), então o filtro de mês se atualiza sozinho conforme os
@@ -135,6 +140,8 @@ navegador sempre busque a versão mais recente do arquivo.
 - Usuário cujo e-mail é o mesmo de um membro em churn (CX) também vira
   **Churn** aqui — visível na lista da empresa, mas fora do numerador e do
   denominador do % de ativação.
+- *Cobertura de onboarding*: % de usuários da empresa (excluindo churn) que
+  têm data de onboarding — vinda de `membros.csv`, cruzada pelo e-mail.
 
 **Cobertura de onboarding (aba Onboarding) — base: `membros.csv`**
 - *Cobertura* = % dos membros filtrados que têm "Data de Onboarding"
@@ -142,8 +149,13 @@ navegador sempre busque a versão mais recente do arquivo.
 - *Conversão com/sem onboarding* = % de ativação (3 aulas) dentro de cada um
   dos dois grupos (com e sem onboarding realizado) — mede o impacto da
   reunião na ativação.
-- Distribuição mensal: quantos onboardings foram realizados em cada mês
-  (agrupado pela "Data de Onboarding"), e a ativação dentro de cada grupo.
+- *Cobertura por empresa*: agrupa os membros pela empresa (mesma lógica de
+  "Conta Nome" usada na aba CX) e mostra cobertura + ativação lado a lado,
+  com o CS responsável.
+- *Segmentação por mês de cadastro*: agrupa os membros pelo mês em que
+  foram cadastrados; para cada leva, mostra % de cobertura, % de ativação,
+  o split de ativados com/sem onboarding, e a distribuição de em qual mês o
+  onboarding de fato aconteceu.
 - Bloco "Entre os ativados": dos membros que já bateram a meta (3 aulas),
   quantos tiveram onboarding e quantos ativaram sem passar por ele.
 
@@ -155,12 +167,12 @@ navegador sempre busque a versão mais recente do arquivo.
 - **Aba CX**: CX responsável, mês da meta, status (ativado / em andamento /
   desengajado / alerta / churn), CS da empresa, nome da empresa, e-mail do
   membro.
-- **Aba Onboarding**: Analista de Onboarding (CX), data de cadastro do
+- **Aba Onboarding**: Analista de Onboarding (CX), CS, data de cadastro do
   membro (intervalo), com/sem onboarding realizado, nome da empresa.
 
-Clique em qualquer empresa para ver os usuários/membros vinculados
-(responsável, aulas concluídas, último acesso); clique em um usuário/membro
-para ver a lista de aulas assistidas com as datas.
+Clique em qualquer empresa/mês para ver os usuários/membros vinculados
+(responsável, aulas concluídas, data de onboarding, último acesso); clique
+em um usuário/membro para ver a lista de aulas assistidas com as datas.
 
 ## Observação sobre nomes de CX/responsáveis
 
@@ -183,12 +195,11 @@ cada um que eu adiciono na lista confirmada em `assets/data.js`
 
 ## Ponto em aberto: formato de "Matrícula"
 
-Na sua lista de próximas mudanças você mencionou "planilha pro formato de
-matrícula para ser ajustado", mas sem detalhar o novo formato. Por
-segurança, já deixei o painel pronto para usar uma coluna **"Matrícula"** em
-`consumo.csv` (quando existir) como identificador único de cada aula — mais
-confiável do que o nome em texto para evitar contar a mesma aula duas vezes
-se o nome mudar entre exportações. Enquanto essa coluna não vier, tudo
-continua funcionando exatamente como hoje (dedup pelo nome da aula). Me
-manda um exemplo de linha do novo formato de matrícula quando tiver, para eu
-confirmar se a lógica que já deixei pronta bate com o que você precisa.
+Você mencionou em rodadas anteriores um ajuste no "formato de matrícula",
+sem detalhar o novo formato. Por segurança, o painel já está pronto para
+usar uma coluna **"Matrícula"** em `consumo.csv` (quando existir) como
+identificador único de cada aula — mais confiável que o nome em texto para
+evitar contar a mesma aula duas vezes se o nome mudar entre exportações.
+Enquanto essa coluna não vier, tudo funciona exatamente como hoje (dedup
+pelo nome da aula). Me manda um exemplo de linha do novo formato quando
+tiver, para eu confirmar se a lógica já implementada atende.
