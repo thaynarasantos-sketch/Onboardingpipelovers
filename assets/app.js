@@ -34,6 +34,10 @@ const state = {
     expandedEmp: new Set(),
     expandedMem: new Set(),
   },
+  onboarding: {
+    f: { analistas: new Set(), cadFrom: "", cadTo: "", realizado: new Set(), empresa: "" },
+    expandedMem: new Set(),
+  },
 };
 
 /* --------------------------- boot --------------------------------------- */
@@ -68,6 +72,7 @@ async function loadAndRender(first) {
     initFiltersOnce();
     renderCS();
     renderCX();
+    renderOnboarding();
     setStatusPill("ok");
   } catch (err) {
     console.error(err);
@@ -120,6 +125,12 @@ function initFiltersOnce() {
   buildMultiSelect("cx-f-status", state.cx.f.status, () => renderCX(), itemsFromKeyed(CX_STATUS_ORDER, STATUS_META));
   buildMultiSelect("cx-f-cs", state.cx.f.cs, () => renderCX(), itemsFromLabels(csAnalistas));
 
+  buildMultiSelect("onb-f-analista", state.onboarding.f.analistas, () => renderOnboarding(), itemsFromLabels(cxAnalistas));
+  buildMultiSelect("onb-f-realizado", state.onboarding.f.realizado, () => renderOnboarding(), [
+    { label: "Com onboarding", value: "com" },
+    { label: "Sem onboarding", value: "sem" },
+  ]);
+
   document.getElementById("cs-f-fechfrom").addEventListener("change", (e) => { state.cs.f.fechFrom = e.target.value; renderCS(); });
   document.getElementById("cs-f-fechto").addEventListener("change", (e) => { state.cs.f.fechTo = e.target.value; renderCS(); });
   document.getElementById("cs-f-hofrom").addEventListener("change", (e) => { state.cs.f.hoFrom = e.target.value; renderCS(); });
@@ -130,6 +141,11 @@ function initFiltersOnce() {
   document.getElementById("cx-f-empresa").addEventListener("input", (e) => { state.cx.f.empresa = e.target.value; renderCX(); });
   document.getElementById("cx-f-email").addEventListener("input", (e) => { state.cx.f.email = e.target.value; renderCX(); });
   document.getElementById("cx-f-clear").addEventListener("click", () => clearFilters("cx"));
+
+  document.getElementById("onb-f-cadfrom").addEventListener("change", (e) => { state.onboarding.f.cadFrom = e.target.value; renderOnboarding(); });
+  document.getElementById("onb-f-cadto").addEventListener("change", (e) => { state.onboarding.f.cadTo = e.target.value; renderOnboarding(); });
+  document.getElementById("onb-f-empresa").addEventListener("input", (e) => { state.onboarding.f.empresa = e.target.value; renderOnboarding(); });
+  document.getElementById("onb-f-clear").addEventListener("click", () => clearFilters("onboarding"));
 }
 
 function refreshMetaMonthOptions() {
@@ -264,6 +280,20 @@ function filterMembrosCX() {
     if (f.cs.size && !(m.cs && f.cs.has(m.cs))) return false;
     if (f.empresa && !norm(m.contaNome).includes(norm(f.empresa))) return false;
     if (f.email && !norm(m.email).includes(norm(f.email))) return false;
+    return true;
+  });
+}
+
+function filterMembrosOnboarding() {
+  const f = state.onboarding.f;
+  return MODEL.membros.filter((m) => {
+    if (f.analistas.size && !f.analistas.has(m.cx)) return false;
+    if (!inRange(m.dataCadastro, f.cadFrom, f.cadTo)) return false;
+    if (f.realizado.size) {
+      const bucket = m.temOnboarding ? "com" : "sem";
+      if (!f.realizado.has(bucket)) return false;
+    }
+    if (f.empresa && !norm(m.contaNome).includes(norm(f.empresa))) return false;
     return true;
   });
 }
@@ -413,7 +443,7 @@ function renderEmpresaUsuariosBlock(emp) {
   if (!emp.usuarios.length) {
     return `<div class="detail-title">Usuários</div><div class="no-courses">Nenhum usuário encontrado na base de usuários (usuarios.csv) para esta empresa.</div>`;
   }
-  const head = `<div class="member-grid-head"><div>Usuário</div><div>E-mail</div><div>Responsável</div><div>Status</div><div>Aulas</div><div>Últ. acesso</div></div>`;
+  const head = `<div class="member-grid-head"><div>Usuário</div><div>E-mail</div><div>Responsável</div><div>Status</div><div>Onboarding</div><div>Aulas</div><div>Últ. acesso</div></div>`;
   const rows = emp.usuarios.slice().sort((a, b) => b.qtdAulasConcluidas - a.qtdAulasConcluidas).map((u) => memberRow(u, "cs")).join("");
   return `<div class="detail-title">Usuários (${emp.usuarios.length})</div><div class="member-grid">${head}${rows}</div>`;
 }
@@ -421,12 +451,18 @@ function renderEmpresaUsuariosBlock(emp) {
 function memberRow(m, tab) {
   const st = STATUS_META[m.status];
   const responsavelLabel = tab === "cs" ? m.responsavel : m.cx;
+  const onbCell = tab === "cx"
+    ? (m.temOnboarding
+        ? `<span class="badge ok"><span class="dot"></span>${fmtDate(m.dataOnboarding)}</span>`
+        : `<span class="badge bad"><span class="dot"></span>Não realizado</span>`)
+    : `<span class="name-sub">—</span>`;
   return `
     <div class="member-row" data-mem="${m.id}" data-tab="${tab}">
       <div class="mm-name">${escapeHtml(m.nome)}</div>
       <div class="mm-email">${escapeHtml(m.email)}</div>
       <div class="mm-cs">${escapeHtml(responsavelLabel || "—")}</div>
       <div><span class="badge ${st.cls}"><span class="dot"></span>${st.label}</span></div>
+      <div class="mm-onb">${onbCell}</div>
       <div>${m.qtdAulasConcluidas} / ${AULAS_PARA_ATIVAR}</div>
       <div class="mm-last">${m.ultimoAcesso ? fmtDate(m.ultimoAcesso) : "—"}</div>
     </div>
@@ -542,7 +578,7 @@ function renderCXTable(list) {
         <td colspan="5" class="detail-wrap">
           <div class="detail-title">Membros (${members.length})</div>
           <div class="member-grid">
-            <div class="member-grid-head"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Aulas</div><div>Últ. acesso</div></div>
+            <div class="member-grid-head"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Onboarding</div><div>Aulas</div><div>Últ. acesso</div></div>
             ${members.map((m) => memberRow(m, "cx")).join("")}
           </div>
         </td>
@@ -556,6 +592,138 @@ function renderCXTable(list) {
     </table>`;
 
   wireExpandableTable(wrap, "cx");
+}
+
+/* ============================ ONBOARDING TAB ============================= */
+
+function renderOnboarding() {
+  if (!MODEL) return;
+  const list = filterMembrosOnboarding();
+  renderOnbKpis(list);
+  renderOnbMonthBreakdown(list);
+  renderOnbTable(list);
+}
+
+function renderOnbKpis(list) {
+  const box = document.getElementById("onb-kpis");
+  const total = list.length;
+  const comOnb = list.filter((m) => m.temOnboarding);
+  const semOnb = list.filter((m) => !m.temOnboarding);
+  const pctCobertura = total ? Math.round((comOnb.length / total) * 1000) / 10 : 0;
+
+  const comOnbAtivados = comOnb.filter((m) => m.status === "ativado").length;
+  const semOnbAtivados = semOnb.filter((m) => m.status === "ativado").length;
+  const pctConvCom = comOnb.length ? Math.round((comOnbAtivados / comOnb.length) * 1000) / 10 : 0;
+  const pctConvSem = semOnb.length ? Math.round((semOnbAtivados / semOnb.length) * 1000) / 10 : 0;
+
+  const totalAtivados = comOnbAtivados + semOnbAtivados;
+  const pctAtivadosComOnb = totalAtivados ? Math.round((comOnbAtivados / totalAtivados) * 1000) / 10 : 0;
+  const pctAtivadosSemOnb = totalAtivados ? Math.round((semOnbAtivados / totalAtivados) * 1000) / 10 : 0;
+
+  box.innerHTML = `
+    <div class="card kpi-goal">
+      ${gaugeSVG(pctCobertura, pctColor(pctCobertura, 80))}
+      <div class="kpi-goal-text">
+        <div class="lbl">Cobertura de onboarding</div>
+        <div class="val">${fmtPct(pctCobertura)}</div>
+        <div class="sub"><b>${comOnb.length}</b> de <b>${total}</b> membros tiveram a reunião de onboarding realizada</div>
+      </div>
+    </div>
+    <div class="card kpi-simple">
+      <div class="lbl">Conversão com onboarding</div>
+      <div class="val" style="color:var(--ok)">${fmtPct(pctConvCom)}</div>
+      <div class="sub"><b>${comOnbAtivados}</b> de <b>${comOnb.length}</b> membros com onboarding ativaram (3 aulas)</div>
+    </div>
+    <div class="card kpi-simple">
+      <div class="lbl">Conversão sem onboarding</div>
+      <div class="val" style="color:var(--warn)">${fmtPct(pctConvSem)}</div>
+      <div class="sub"><b>${semOnbAtivados}</b> de <b>${semOnb.length}</b> membros sem onboarding ativaram (3 aulas)</div>
+    </div>
+    <div class="card kpi-simple">
+      <div class="lbl">Entre os ativados (${totalAtivados})</div>
+      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr">
+        <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${fmtPct(pctAtivadosComOnb)}</span><span class="bd-label">Tiveram onboarding (${comOnbAtivados})</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--warn)">${fmtPct(pctAtivadosSemOnb)}</span><span class="bd-label">Ativaram sem onboarding (${semOnbAtivados})</span></div>
+      </div>
+    </div>
+  `;
+}
+
+function renderOnbMonthBreakdown(list) {
+  const wrap = document.getElementById("onb-month-wrap");
+  const comOnb = list.filter((m) => m.temOnboarding);
+  if (!comOnb.length) {
+    wrap.innerHTML = emptyState("Nenhum membro com onboarding realizado nos filtros atuais.");
+    return;
+  }
+  const byMonth = new Map();
+  for (const m of comOnb) {
+    const d = m.dataOnboarding;
+    const key = `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+    if (!byMonth.has(key)) byMonth.set(key, []);
+    byMonth.get(key).push(m);
+  }
+  const rows = [...byMonth.entries()].sort((a, b) => a[0].localeCompare(b[0])).map(([key, members]) => {
+    const pct = Math.round((members.length / comOnb.length) * 1000) / 10;
+    const ativados = members.filter((m) => m.status === "ativado").length;
+    return `
+      <tr class="row-main" style="cursor:default">
+        <td><div class="name-strong">${metaMonthLabel(key)}</div></td>
+        <td>${members.length} onboardings</td>
+        <td>
+          <div class="mini-progress"><span style="width:${Math.min(100, pct)}%"></span></div>
+          <div class="pct-txt">${fmtPct(pct)} do total realizado</div>
+        </td>
+        <td>${ativados} / ${members.length} ativados (${fmtPct(members.length ? ativados/members.length*100 : 0)})</td>
+      </tr>`;
+  }).join("");
+
+  wrap.innerHTML = `
+    <table>
+      <thead><tr><th>Mês do onboarding</th><th>Qtd. realizados</th><th>% do total</th><th>Ativação neste grupo</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+function renderOnbTable(list) {
+  const wrap = document.getElementById("onb-table-wrap");
+  document.getElementById("onb-result-count").textContent = `${list.length} membro${list.length !== 1 ? "s" : ""}`;
+
+  if (!list.length) {
+    wrap.innerHTML = emptyState("Nenhum membro encontrado com os filtros atuais.");
+    return;
+  }
+
+  const sorted = list.slice().sort((a, b) => {
+    const ad = a.dataCadastro ? a.dataCadastro.getTime() : 0;
+    const bd = b.dataCadastro ? b.dataCadastro.getTime() : 0;
+    return bd - ad;
+  });
+
+  const rows = sorted.map((m) => {
+    const st = STATUS_META[m.status];
+    return `
+      <tr class="row-main" style="cursor:default">
+        <td><div class="name-strong">${escapeHtml(m.nome)}</div><div class="name-sub">${escapeHtml(m.email)}</div></td>
+        <td>${escapeHtml(m.contaNome)}</td>
+        <td>${escapeHtml(m.cx)}</td>
+        <td>${m.dataCadastro ? fmtDate(m.dataCadastro) : "—"}</td>
+        <td>${m.temOnboarding
+          ? `<span class="badge ok"><span class="dot"></span>${fmtDate(m.dataOnboarding)}</span>`
+          : `<span class="badge bad"><span class="dot"></span>Não realizado</span>`}</td>
+        <td><span class="badge ${st.cls}"><span class="dot"></span>${st.label}</span></td>
+        <td>${m.qtdAulasConcluidas} / ${AULAS_PARA_ATIVAR}</td>
+        <td>${m.ultimoAcesso ? fmtDate(m.ultimoAcesso) : "—"}</td>
+      </tr>`;
+  }).join("");
+
+  wrap.innerHTML = `
+    <table>
+      <thead><tr>
+        <th>Membro</th><th>Empresa</th><th>CX</th><th>Cadastro</th><th>Onboarding</th><th>Status</th><th>Aulas</th><th>Últ. acesso</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
 }
 
 /* --------------------------- shared expand wiring ------------------------ */
