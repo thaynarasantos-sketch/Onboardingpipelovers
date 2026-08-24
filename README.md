@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/31061283/README.md)
+[README.md](https://github.com/user-attachments/files/31381173/README.md)
 # PipeLovers · Painel de Onboarding CS/CX
 
 Painel estático (HTML/CSS/JS puro, sem servidor) para acompanhar a ativação
@@ -19,45 +19,35 @@ data/consumo.csv                → exportação de consumo de aulas (substituí
 ```
 
 **O que mudou nesta versão:**
-- **Correção crítica**: o cálculo de aulas concluídas dependia de uma coluna
-  "Progresso" que não existe mais no `consumo.csv` atual (agora cada linha do
-  CSV já representa uma aula concluída, identificada por "Nome da aula" +
-  "Data de conclusão"). Isso fazia todo mundo aparecer com 0/3 aulas mesmo
-  tendo consumo real. Corrigido: agora cada linha do consumo conta como uma
-  aula concluída.
-- **Usuários com "Proprietário do Onboarding" não identificado são
-  descartados** da base de ativação de CS (não aparecem mais como "Sem
-  responsável" — simplesmente não entram na conta da empresa). Só contam
-  usuários cujo e-mail responsável está na lista confirmada: João Fabrício,
-  Mariana Vieira, Anne Siqueira, Natalia Espindola ou Thaynara Santos (PF).
-- Novo arquivo `usuarios.csv`: agora a ativação da **aba CS** é calculada a
-  partir dele (não mais do `membros.csv`, que segue sendo a base exclusiva
-  da aba CX).
-- Novo filtro **CX / PF** na aba CS: mostra quem é responsável por cada
-  usuário dentro da empresa. "PF" = usuários cujo "Proprietário do
-  Onboarding" é `thaynara.santos@pipelovers.net` (gestora comercial de
-  responsabilidade direta do CS, sem CX dedicado).
-- Novo filtro **Status** na aba CS (Ativada / Aguardando handoff / Em
-  andamento / Em risco / Churn).
-- Novo status **Churn** na aba CX: membro cujo "Proprietário do Negócio" é
-  Thaynara Santos (e que tem um CX válido em "Analista Onboarding") entra
-  como Churn — contabilizado na carteira total, mas não é considerado
-  ativável.
-- "Em risco" (empresa) agora significa especificamente **zero usuários
-  ativados**; empresas com ativação parcial (abaixo da meta, mas maior que
-  zero) aparecem como **Em andamento**.
-- E-mail/membro/usuário compartilham a mesma contagem de aulas entre as
-  abas CS e CX: o consumo é agrupado por e-mail em uma única base
-  (`consumo.csv`), então o mesmo e-mail tem exatamente a mesma quantidade de
-  aulas concluídas nas duas visões.
-
-> ⚠️ **Importante:** este pacote inclui `index.html`, `assets/style.css`,
-> `assets/data.js`, `assets/app.js` **e** os 4 CSVs. Suba **todos juntos**.
-> Enviar só os CSVs novos sem atualizar os arquivos `.js` (como aconteceu na
-> rodada anterior) reproduz exatamente o bug de "0/3 aulas" descrito acima,
-> porque o `data.js` antigo não sabe ler o formato novo do `consumo.csv`.
+- **Nova aba "Onboarding"**: mostra a cobertura de onboarding (% de membros com
+  a reunião de onboarding realizada), a conversão em ativação para quem teve
+  onboarding vs quem não teve, a distribuição de onboardings realizados por
+  mês, e um bloco "entre os ativados" separando quem ativou com e sem
+  onboarding. Filtros: Analista de Onboarding (CX), data de cadastro do
+  membro (intervalo), com/sem onboarding, nome da empresa.
+- **Coluna "Onboarding" adicionada** nas listas de membros da aba CX (data da
+  reunião de onboarding, ou "Não realizado").
+- **Novo cruzamento de churn CS↔CX**: um usuário de `usuarios.csv` cujo
+  e-mail é o mesmo de um membro marcado como churn em `membros.csv` (CX)
+  também vira churn na aba CS — fica visível na lista da empresa, mas não
+  conta no numerador nem no denominador do % de ativação da empresa.
+- Consumo agora também aceita a coluna **"Matrícula"** (quando presente) como
+  identificador de aula mais estável que o nome em texto, para deduplicar
+  aulas concluídas com mais precisão. Continua funcionando normalmente sem
+  essa coluna, usando o nome da aula como antes.
+- Correção crítica anterior mantida: cálculo de aulas concluídas não depende
+  mais de coluna "Progresso" (removida do `consumo.csv` atual).
+- Usuários com "Proprietário do Onboarding" não identificado continuam
+  descartados da base de ativação de CS, agora com deduplicação por e-mail
+  mais robusta (prioriza a linha com responsável preenchido).
 
 ## Como publicar no GitHub Pages
+
+> ⚠️ **Importante:** este pacote inclui `index.html`, `assets/style.css`,
+> `assets/data.js`, `assets/app.js` **e** os 4 CSVs. Suba **todos juntos** e
+> dê um Ctrl+Shift+R depois — subir só os CSVs sem atualizar os `.js` (ou
+> vice-versa) já causou bugs de dados incorretos em rodadas anteriores.
+
 
 1. Suba **todos** estes arquivos, mantendo a mesma estrutura de pastas, no
    repositório `thaynarasantos-sketch/Onboardingpipelovers` (branch `main`).
@@ -142,6 +132,20 @@ navegador sempre busque a versão mais recente do arquivo.
   "Proprietário do Onboarding" de `usuarios.csv`) ou **PF** (quando o e-mail
   é `thaynara.santos@pipelovers.net` — gestora comercial de
   responsabilidade direta do CS, sem CX dedicado).
+- Usuário cujo e-mail é o mesmo de um membro em churn (CX) também vira
+  **Churn** aqui — visível na lista da empresa, mas fora do numerador e do
+  denominador do % de ativação.
+
+**Cobertura de onboarding (aba Onboarding) — base: `membros.csv`**
+- *Cobertura* = % dos membros filtrados que têm "Data de Onboarding"
+  preenchida (a reunião de onboarding foi realizada pelo CX).
+- *Conversão com/sem onboarding* = % de ativação (3 aulas) dentro de cada um
+  dos dois grupos (com e sem onboarding realizado) — mede o impacto da
+  reunião na ativação.
+- Distribuição mensal: quantos onboardings foram realizados em cada mês
+  (agrupado pela "Data de Onboarding"), e a ativação dentro de cada grupo.
+- Bloco "Entre os ativados": dos membros que já bateram a meta (3 aulas),
+  quantos tiveram onboarding e quantos ativaram sem passar por ele.
 
 ## Filtros disponíveis
 
@@ -151,6 +155,8 @@ navegador sempre busque a versão mais recente do arquivo.
 - **Aba CX**: CX responsável, mês da meta, status (ativado / em andamento /
   desengajado / alerta / churn), CS da empresa, nome da empresa, e-mail do
   membro.
+- **Aba Onboarding**: Analista de Onboarding (CX), data de cadastro do
+  membro (intervalo), com/sem onboarding realizado, nome da empresa.
 
 Clique em qualquer empresa para ver os usuários/membros vinculados
 (responsável, aulas concluídas, último acesso); clique em um usuário/membro
@@ -174,3 +180,15 @@ Se `thabata.harumi@`, `barbara.cabrini@`, `joao.gonzalo@` ou
 CS responsáveis diretos por alguns usuários), me avise com o nome exato de
 cada um que eu adiciono na lista confirmada em `assets/data.js`
 (constante `RESPONSAVEL_EMAIL_MAP`) — por ora eles ficam de fora do cálculo.
+
+## Ponto em aberto: formato de "Matrícula"
+
+Na sua lista de próximas mudanças você mencionou "planilha pro formato de
+matrícula para ser ajustado", mas sem detalhar o novo formato. Por
+segurança, já deixei o painel pronto para usar uma coluna **"Matrícula"** em
+`consumo.csv` (quando existir) como identificador único de cada aula — mais
+confiável do que o nome em texto para evitar contar a mesma aula duas vezes
+se o nome mudar entre exportações. Enquanto essa coluna não vier, tudo
+continua funcionando exatamente como hoje (dedup pelo nome da aula). Me
+manda um exemplo de linha do novo formato de matrícula quando tiver, para eu
+confirmar se a lógica que já deixei pronta bate com o que você precisa.
