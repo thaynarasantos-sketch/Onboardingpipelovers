@@ -65,7 +65,9 @@
     handoff preenchida até o fim do mês da meta. <b>Aguardando handoff</b> = bateu o % mas falta a data. <b>Em risco</b>
     = nenhum usuário ativado ainda. <b>Em andamento</b> = alguma ativação, mas abaixo da meta. Empresas em <b>churn</b>
     entram na base da carteira (denominador) mas não são consideradas ativáveis. A coluna <b>CX / PF</b> mostra quem é
-    responsável por cada usuário dentro da empresa (PF = gestor comercial do CS, sem CX dedicado).
+    responsável por cada usuário dentro da empresa (PF = gestor comercial do CS, sem CX dedicado). A coluna
+    <b>Cobertura onboarding</b> mostra a % de usuários da empresa que tiveram a reunião de onboarding realizada
+    (data cruzada com <code>membros.csv</code> pelo e-mail).
   </div>
 </div>
 
@@ -110,6 +112,7 @@
 
   <div class="filters">
     <div class="f-group"><label>Analista de Onboarding (CX)</label><div id="onb-f-analista"></div></div>
+    <div class="f-group"><label>CS</label><div id="onb-f-cs"></div></div>
     <div class="f-group"><label>Cadastro de</label><input type="date" class="f-input" id="onb-f-cadfrom"></div>
     <div class="f-group"><label>Cadastro até</label><input type="date" class="f-input" id="onb-f-cadto"></div>
     <div class="f-group"><label>Onboarding</label><div id="onb-f-realizado"></div></div>
@@ -118,22 +121,28 @@
     <div class="result-count" id="onb-result-count"></div>
   </div>
 
-  <div class="section-title"><h2>Onboardings realizados por mês</h2></div>
+  <div class="section-title"><h2>Cobertura de onboarding por empresa</h2></div>
+  <div class="table-wrap" id="onb-empresa-wrap">
+    <div class="state-box"><div class="spinner"></div><div class="big">Carregando…</div></div>
+  </div>
+
+  <div class="section-title"><h2>Segmentação por mês de cadastro</h2></div>
   <div class="table-wrap" id="onb-month-wrap">
     <div class="state-box"><div class="spinner"></div><div class="big">Carregando…</div></div>
   </div>
 
-  <div class="section-title"><h2>Membros (cobertura de onboarding)</h2></div>
+  <div class="section-title"><h2>Todos os membros filtrados</h2></div>
   <div class="table-wrap" id="onb-table-wrap">
     <div class="state-box"><div class="spinner"></div><div class="big">Carregando membros…</div></div>
   </div>
 
   <div class="footer-note">
-    <b>Cobertura de onboarding</b> = % dos membros filtrados (por data de cadastro) que têm "Data de Onboarding"
-    preenchida em <code>membros.csv</code> — ou seja, tiveram a reunião de onboarding realizada pelo CX. <b>Conversão
-    com onboarding</b> / <b>sem onboarding</b> = % de ativação (3 aulas concluídas) dentro de cada um desses dois
-    grupos, para medir o impacto da reunião de onboarding na ativação. O bloco "Entre os ativados" mostra, dos
-    membros que já bateram a meta, quantos tiveram onboarding e quantos ativaram sem ele.
+    <b>Cobertura de onboarding</b> = % dos membros/usuários que têm "Data de Onboarding" preenchida em
+    <code>membros.csv</code> — ou seja, tiveram a reunião de onboarding realizada pelo CX. A tabela por <b>empresa</b>
+    agrupa a cobertura e a ativação pela carteira de cada CS. A segmentação por <b>mês de cadastro</b> mostra, para
+    cada leva de membros cadastrados, quantos tiveram onboarding (e em qual mês esse onboarding aconteceu), a %
+    de ativação do grupo, e quantos dos ativados tiveram onboarding vs. ativaram sem passar por ele. Clique em
+    qualquer linha para ver a lista de membros por trás do número.
   </div>
 </div>
 
