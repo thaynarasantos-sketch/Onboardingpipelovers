@@ -328,7 +328,13 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
 
     const stats = consumoStats(emailKey);
     const isChurnUsuario = churnedMembroEmails.has(emailKey);
-    const dataOnboarding = onboardingDateByEmail.get(emailKey) || null;
+    // Usuário PF (gestão direta do CS, sem CX) não tem reunião de onboarding
+    // própria registrada em membros.csv — para ele, a data de onboarding é a
+    // da própria empresa (empresas.csv, coluna "Data de Onboarding"). Para
+    // usuários com CX, a data vem do membro de mesmo e-mail em membros.csv.
+    const dataOnboarding = responsavel === "PF"
+      ? (empresaMatch.dataOnboarding || null)
+      : (onboardingDateByEmail.get(emailKey) || null);
     const usuario = {
       id: `usu_${usuIdx++}`,
       nome: (pick(r, ["Nome Completo"]) || `${pick(r, ["Nome"])} ${pick(r, ["Sobrenome"])}`).trim() || "—",
