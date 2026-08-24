@@ -30,6 +30,7 @@
 <div class="tabs">
   <button class="tab-btn active" data-tab="cs">CS <span class="tag">Empresas</span></button>
   <button class="tab-btn" data-tab="cx">CX <span class="tag">Membros</span></button>
+  <button class="tab-btn" data-tab="onboarding">Onboarding <span class="tag">Cobertura</span></button>
 </div>
 
 <!-- ============================= ABA CS ============================= -->
@@ -97,6 +98,42 @@
     <b>Churn</b> = Proprietário do Negócio é Thaynara Santos (perdeu acesso) — entra na carteira total mas não é
     considerado ativável. Empresas marcadas como <b>Ongoing</b> não estão na base de carteira do CS — são clientes já
     em fase de ongoing.
+  </div>
+</div>
+
+<!-- ========================= ABA ONBOARDING ========================== -->
+<div class="view" id="view-onboarding">
+
+  <div class="kpi-row kpi-row-onb" id="onb-kpis">
+    <div class="state-box"><div class="spinner"></div><div class="big">Calculando cobertura…</div></div>
+  </div>
+
+  <div class="filters">
+    <div class="f-group"><label>Analista de Onboarding (CX)</label><div id="onb-f-analista"></div></div>
+    <div class="f-group"><label>Cadastro de</label><input type="date" class="f-input" id="onb-f-cadfrom"></div>
+    <div class="f-group"><label>Cadastro até</label><input type="date" class="f-input" id="onb-f-cadto"></div>
+    <div class="f-group"><label>Onboarding</label><div id="onb-f-realizado"></div></div>
+    <div class="f-group grow"><label>Empresa</label><input type="text" class="f-input" id="onb-f-empresa" placeholder="Buscar por empresa…"></div>
+    <button class="btn-clear" id="onb-f-clear">Limpar filtros</button>
+    <div class="result-count" id="onb-result-count"></div>
+  </div>
+
+  <div class="section-title"><h2>Onboardings realizados por mês</h2></div>
+  <div class="table-wrap" id="onb-month-wrap">
+    <div class="state-box"><div class="spinner"></div><div class="big">Carregando…</div></div>
+  </div>
+
+  <div class="section-title"><h2>Membros (cobertura de onboarding)</h2></div>
+  <div class="table-wrap" id="onb-table-wrap">
+    <div class="state-box"><div class="spinner"></div><div class="big">Carregando membros…</div></div>
+  </div>
+
+  <div class="footer-note">
+    <b>Cobertura de onboarding</b> = % dos membros filtrados (por data de cadastro) que têm "Data de Onboarding"
+    preenchida em <code>membros.csv</code> — ou seja, tiveram a reunião de onboarding realizada pelo CX. <b>Conversão
+    com onboarding</b> / <b>sem onboarding</b> = % de ativação (3 aulas concluídas) dentro de cada um desses dois
+    grupos, para medir o impacto da reunião de onboarding na ativação. O bloco "Entre os ativados" mostra, dos
+    membros que já bateram a meta, quantos tiveram onboarding e quantos ativaram sem ele.
   </div>
 </div>
 
