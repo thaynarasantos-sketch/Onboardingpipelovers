@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/31384328/README.md)
+[README.md](https://github.com/user-attachments/files/31417417/README.md)
 # PipeLovers · Painel de Onboarding CS/CX
 
 Painel estático (HTML/CSS/JS puro, sem servidor) para acompanhar a ativação
@@ -25,7 +25,11 @@ data/consumo.csv                → exportação de consumo de aulas (substituí
   tiveram a reunião de onboarding realizada) e data de onboarding visível na
   lista de usuários de cada empresa — cruzado com `membros.csv` pelo e-mail
   (o `usuarios.csv` não tem essa coluna, mas a pessoa é a mesma).
-- **Aba Onboarding reestruturada** com dois blocos novos:
+- **Aba Onboarding reestruturada** com três blocos novos:
+  - **Empresas em onboarding vs. Ongoing**: compara a quantidade de
+    onboardings realizados e a % de cobertura entre membros de empresas que
+    ainda estão na carteira ativa do CS ("em onboarding") e membros de
+    empresas **Ongoing** (fora da carteira atual, já em fase pós-onboarding).
   - **Cobertura de onboarding por empresa**: tabela agrupada por empresa
     (com o CS indicado), % de cobertura e % de ativação lado a lado,
     ordenada pela pior cobertura primeiro. Expanda para ver os membros.
@@ -141,7 +145,11 @@ navegador sempre busque a versão mais recente do arquivo.
   **Churn** aqui — visível na lista da empresa, mas fora do numerador e do
   denominador do % de ativação.
 - *Cobertura de onboarding*: % de usuários da empresa (excluindo churn) que
-  têm data de onboarding — vinda de `membros.csv`, cruzada pelo e-mail.
+  têm data de onboarding. Para usuários com CX, essa data vem de
+  `membros.csv` (membro de mesmo e-mail), cruzada pelo e-mail. Para usuários
+  **PF** (sem CX, gestão direta do CS), a data de onboarding é a da própria
+  empresa (`empresas.csv`, coluna "Data de Onboarding"), já que o PF não
+  tem uma reunião individual registrada em `membros.csv`.
 
 **Cobertura de onboarding (aba Onboarding) — base: `membros.csv`**
 - *Cobertura* = % dos membros filtrados que têm "Data de Onboarding"
