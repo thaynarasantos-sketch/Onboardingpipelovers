@@ -611,6 +611,7 @@ function renderOnboarding() {
   if (!MODEL) return;
   const list = filterMembrosOnboarding();
   renderOnbKpis(list);
+  renderOnbGroupComparison(list);
   renderOnbEmpresaBreakdown(list);
   renderOnbCadastroBreakdown(list);
   renderOnbTable(list);
@@ -659,6 +660,38 @@ function renderOnbKpis(list) {
       </div>
     </div>
   `;
+}
+
+function renderOnbGroupComparison(list) {
+  const wrap = document.getElementById("onb-group-wrap");
+  if (!list.length) {
+    wrap.innerHTML = emptyState("Nenhum membro encontrado com os filtros atuais.");
+    return;
+  }
+  const groups = [
+    { key: "onboarding", label: "Empresas em onboarding", sub: "carteira ativa do CS (empresas.csv)", color: "var(--blue-soft)", members: list.filter((m) => !m.isOngoing) },
+    { key: "ongoing", label: "Ongoing", sub: "empresa não está na carteira atual do CS", color: "var(--ice)", members: list.filter((m) => m.isOngoing) },
+  ];
+
+  const cards = groups.map((g) => {
+    const total = g.members.length;
+    const comOnb = g.members.filter((m) => m.temOnboarding).length;
+    const pctCobertura = total ? Math.round((comOnb / total) * 1000) / 10 : 0;
+    const ativados = g.members.filter((m) => m.status === "ativado").length;
+    const pctAtivacao = total ? Math.round((ativados / total) * 1000) / 10 : 0;
+    return `
+      <div class="card kpi-goal">
+        ${gaugeSVG(pctCobertura, g.color)}
+        <div class="kpi-goal-text">
+          <div class="lbl">${g.label}</div>
+          <div class="val">${fmtPct(pctCobertura)}</div>
+          <div class="sub"><b>${comOnb}</b> onboardings realizados de <b>${total}</b> membros (${g.sub})</div>
+          <div class="sub" style="margin-top:4px"><b>${ativados}</b> ativados (${fmtPct(pctAtivacao)})</div>
+        </div>
+      </div>`;
+  }).join("");
+
+  wrap.innerHTML = `<div class="kpi-row" style="grid-template-columns:1fr 1fr;margin-bottom:0">${cards}</div>`;
 }
 
 function renderOnbEmpresaBreakdown(list) {
