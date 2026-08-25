@@ -121,6 +121,11 @@
     <div class="result-count" id="onb-result-count"></div>
   </div>
 
+  <div class="section-title"><h2>Empresas em onboarding vs. Ongoing</h2></div>
+  <div id="onb-group-wrap" style="margin-bottom:26px">
+    <div class="state-box"><div class="spinner"></div><div class="big">Carregando…</div></div>
+  </div>
+
   <div class="section-title"><h2>Cobertura de onboarding por empresa</h2></div>
   <div class="table-wrap" id="onb-empresa-wrap">
     <div class="state-box"><div class="spinner"></div><div class="big">Carregando…</div></div>
@@ -138,11 +143,15 @@
 
   <div class="footer-note">
     <b>Cobertura de onboarding</b> = % dos membros/usuários que têm "Data de Onboarding" preenchida em
-    <code>membros.csv</code> — ou seja, tiveram a reunião de onboarding realizada pelo CX. A tabela por <b>empresa</b>
-    agrupa a cobertura e a ativação pela carteira de cada CS. A segmentação por <b>mês de cadastro</b> mostra, para
-    cada leva de membros cadastrados, quantos tiveram onboarding (e em qual mês esse onboarding aconteceu), a %
-    de ativação do grupo, e quantos dos ativados tiveram onboarding vs. ativaram sem passar por ele. Clique em
-    qualquer linha para ver a lista de membros por trás do número.
+    <code>membros.csv</code> — ou seja, tiveram a reunião de onboarding realizada pelo CX (ou, para usuários PF,
+    a data de onboarding da própria empresa). O bloco <b>"Empresas em onboarding vs. Ongoing"</b> separa os
+    membros cujas empresas ainda estão na carteira ativa de onboarding do CS (<code>empresas.csv</code>) dos
+    membros de empresas <b>Ongoing</b> (clientes que já passaram para a fase pós-onboarding, fora da carteira
+    atual do CS) — mostrando a quantidade de onboardings realizados e a % de cobertura em cada grupo separadamente.
+    A tabela por <b>empresa</b> agrupa a cobertura e a ativação pela carteira de cada CS. A segmentação por
+    <b>mês de cadastro</b> mostra, para cada leva de membros cadastrados, quantos tiveram onboarding (e em qual mês
+    esse onboarding aconteceu), a % de ativação do grupo, e quantos dos ativados tiveram onboarding vs. ativaram
+    sem passar por ele. Clique em qualquer linha para ver a lista de membros por trás do número.
   </div>
 </div>
 
