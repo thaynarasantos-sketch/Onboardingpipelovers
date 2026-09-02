@@ -9,6 +9,7 @@ const CSV_PATHS = {
   membros: "data/membros.csv",
   usuarios: "data/usuarios.csv",
   consumo: "data/consumo.csv",
+  cxongoing: "data/cxongoing.csv",
 };
 
 const CS_TARGET_PCT = { // meta macro por CS (% da carteira de empresas ativada)
@@ -22,8 +23,11 @@ const CS_TARGET_PCT = { // meta macro por CS (% da carteira de empresas ativada)
 };
 const CX_TARGET_PCT = 80;      // meta macro de CX: 80% dos membros ativados
 const AULAS_PARA_ATIVAR = 3;   // membro/usuário ativado = 3 aulas concluídas
+const AULAS_PARA_ATIVAR_ONGOING = 1; // membro ongoing ativado = 1 aula (após a data de cadastro ongoing)
+const CX_ONGOING_META_TARGET = 100;  // meta fixa: 100 membros ativados no mês da data de cadastro ongoing
 const DIAS_DESENGAJAMENTO = 30;
 const CHURN_OWNER_NAME = "thaynara santos"; // proprietário do negócio = churn (CX)
+const CHURN_ONGOING_ANALISTA = "thabata harumi"; // analista ongoing associado ao churn de CX Ongoing
 
 // e-mails institucionais -> responsável (CX) ou "PF" (gestor comercial do CS)
 const RESPONSAVEL_EMAIL_MAP = {
@@ -75,6 +79,13 @@ function metaMonthKey(registrationDate) {
   if (!registrationDate) return null;
   const d = addMonthsUTC(registrationDate, 2);
   return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+}
+
+function rawMonthKey(date) {
+  // mês da própria data, sem deslocamento — usado no CX Ongoing (meta = mês
+  // da própria "Data cadastro Ongoing", não mês+2 como em CS/CX).
+  if (!date) return null;
+  return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}`;
 }
 
 const MONTH_NAMES_PT = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
@@ -154,22 +165,24 @@ function fetchCSV(path) {
 /* ---------------------------- Main loader ------------------------------- */
 
 async function loadAllData() {
-  const [empresasRaw, membrosRaw, usuariosRaw, consumoRaw] = await Promise.all([
+  const [empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingRaw] = await Promise.all([
     fetchCSV(CSV_PATHS.empresas),
     fetchCSV(CSV_PATHS.membros),
     fetchCSV(CSV_PATHS.usuarios),
     fetchCSV(CSV_PATHS.consumo),
+    fetchCSV(CSV_PATHS.cxongoing),
   ]);
-  return buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw);
+  return buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingRaw);
 }
 
-function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
+function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingRaw) {
   const today = new Date(Date.UTC(
     new Date().getFullYear(), new Date().getMonth(), new Date().getDate()
   ));
 
   /* ---- 0. Nomes canônicos de CX (unifica "João Fabrício" / "João Fabricio") */
-  const cxRawNames = membrosRaw.map((r) => pick(r, ["Analista Onboarding"]));
+  const cxRawNames = membrosRaw.map((r) => pick(r, ["Analista Onboarding"]))
+    .concat(cxongoingRaw.map((r) => pick(r, ["Analista Ongoing"])));
   const canonCX = buildCanonicalNames(cxRawNames);
 
   /* ---- 1. Consumo agrupado por e-mail ---------------------------------- */
@@ -197,9 +210,30 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
     return { consumo: list, qtdAulasConcluidas: aulasSet.size, ultimoAcesso, temConsumo: list.length > 0 };
   }
 
+  // Igual a consumoStats, mas só considera aulas com data de consumo igual ou
+  // posterior a `sinceDate` — usado no CX Ongoing, onde só conta o consumo
+  // ocorrido após a "Data cadastro Ongoing" do membro. Registros sem data
+  // conhecida são descartados aqui (não dá para confirmar que vieram depois).
+  function consumoStatsSince(emailKey, sinceDate) {
+    const full = (consumoByEmail.get(emailKey) || []);
+    const list = full.filter((c) => c.data && (!sinceDate || c.data >= sinceDate))
+      .slice().sort((a, b) => a.data - b.data);
+    const aulasSet = new Set(list.map((c) => c.dedupKey));
+    let ultimoAcesso = null;
+    for (const c of list) if (!ultimoAcesso || c.data > ultimoAcesso) ultimoAcesso = c.data;
+    return { consumo: list, qtdAulasConcluidas: aulasSet.size, ultimoAcesso, temConsumo: list.length > 0 };
+  }
+
   function statusFromConsumo(stats) {
     if (!stats.temConsumo) return "alerta";
     if (stats.qtdAulasConcluidas >= AULAS_PARA_ATIVAR) return "ativado";
+    if (stats.ultimoAcesso && daysBetween(today, stats.ultimoAcesso) > DIAS_DESENGAJAMENTO) return "desengajado";
+    return "em_andamento";
+  }
+
+  function statusFromConsumoOngoing(stats) {
+    if (!stats.temConsumo) return "alerta";
+    if (stats.qtdAulasConcluidas >= AULAS_PARA_ATIVAR_ONGOING) return "ativado";
     if (stats.ultimoAcesso && daysBetween(today, stats.ultimoAcesso) > DIAS_DESENGAJAMENTO) return "desengajado";
     return "em_andamento";
   }
@@ -391,5 +425,54 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw) {
   membros.forEach((m) => m.metaKey && metaMonthsSet.add(m.metaKey));
   const metaMonths = [...metaMonthsSet].sort().map((key) => ({ key, label: metaMonthLabel(key) }));
 
-  return { empresas, membros, metaMonths, today };
+  /* ---- 7. CX Ongoing (base: cxongoing.csv) ------------------------------
+     Aba independente das demais: agrupamento é sempre pela própria empresa
+     do cxongoing.csv (não é cruzado com empresas.csv). Ativação = 1 aula
+     (não 3), contando só consumo ocorrido a partir da Data cadastro Ongoing.
+     Churn = Proprietário do Negócio = Thaynara Santos E Analista Ongoing =
+     Thabata Harumi. "Onboarding" aqui, reaproveitando os mesmos nomes de
+     campo do resto do painel, representa a reunião de reengajamento. */
+  const membrosOngoing = cxongoingRaw
+    .filter((r) => norm(pick(r, ["E-mail"])))
+    .map((r, idx) => {
+      const email = (pick(r, ["E-mail"]) || "").trim();
+      const emailKey = norm(email);
+      const contaNome = (pick(r, ["Conta Nome"]) || "").trim();
+      const dataCadastroOngoing = parseBRDate(pick(r, ["Data cadastro Ongoing"]));
+      const analistaRaw = (pick(r, ["Analista Ongoing"]) || "").trim();
+      const analista = canonCX(analistaRaw) || "Sem CX";
+      const proprietarioRaw = (pick(r, ["Proprietário do Negócios"]) || "").trim();
+      const proprietario = canonCX(proprietarioRaw);
+
+      const isChurnOngoing = norm(proprietario) === CHURN_OWNER_NAME && norm(analista) === CHURN_ONGOING_ANALISTA;
+      const stats = consumoStatsSince(emailKey, dataCadastroOngoing);
+      const status = isChurnOngoing ? "churn" : statusFromConsumoOngoing(stats);
+      const dataReengajamento = parseBRDate(pick(r, ["Data da reunião de reengajamento Ongoing"]));
+      const metaKey = rawMonthKey(dataCadastroOngoing);
+
+      return {
+        id: `ongm_${idx}`,
+        nome: (pick(r, ["Nome Negócios"]) || "—").trim(),
+        email,
+        emailKey,
+        contaNome: contaNome || "—",
+        cx: analista,
+        proprietario,
+        dataCadastro: dataCadastroOngoing,
+        metaKey,
+        isOngoing: true, // por definição, todo mundo nesta base já está em ongoing
+        consumo: stats.consumo,
+        qtdAulasConcluidas: stats.qtdAulasConcluidas,
+        ultimoAcesso: stats.ultimoAcesso,
+        dataOnboarding: dataReengajamento,   // reaproveita o campo -> é a reunião de reengajamento aqui
+        temOnboarding: !!dataReengajamento,  // idem
+        status, // alerta | em_andamento | desengajado | ativado | churn
+      };
+    });
+
+  const ongoingMetaMonthsSet = new Set();
+  membrosOngoing.forEach((m) => m.metaKey && ongoingMetaMonthsSet.add(m.metaKey));
+  const ongoingMetaMonths = [...ongoingMetaMonthsSet].sort().map((key) => ({ key, label: metaMonthLabel(key) }));
+
+  return { empresas, membros, metaMonths, membrosOngoing, ongoingMetaMonths, today };
 }
