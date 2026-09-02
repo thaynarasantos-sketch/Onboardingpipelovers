@@ -228,8 +228,8 @@ Data de cadastro do membro,email do usuario e membro ,Telefone WhatsApp,Nome,Sob
 ,lubeagenciacampos@gmail.com,55 22 98112-0757,Gisella,Rodrigues,Rc Dental Med,B2B,,,Gisella Rodrigues
 ,nicolygadelhas@gmail.com,22 99744-3732,Nicoly,Gardelhas,Rc Dental Med,B2B,,,Nicoly  Gardelhas
 ,tiago.silva@dynamisimportadora.com.br,(47)992376859,Tiago,Silva,DYNAMIS IMPORTADORA,B2B,,,Tiago Silva
-,jeferson.eduardo@dynamisimportadora.com.br,(47)99277-8265,Jeferson,Juswiak,DYNAMIS IMPORTADORA,B2B,,,Jeferson Juswiak
-,bruna.santos@dynamisimportadora.com.br,(47)99128-6489,Bruna,Jorgia,DYNAMIS IMPORTADORA,B2B,,,Bruna Jorgia
+,jeferson.eduardo@dynamisimportadora.com.br,(47)99277-8265,Jeferson,Juswiak,DYNAMIS IMPORTADORA,B2B,,thabata.harumi@pipelovers.net,Jeferson Juswiak
+,bruna.santos@dynamisimportadora.com.br,(47)99128-6489,Bruna,Jorgia,DYNAMIS IMPORTADORA,B2B,,thabata.harumi@pipelovers.net,Bruna Jorgia
 ,flavio.silva@franquias.zenvia.com,98 98705-4444,FLAVIO,SILVA,F5 CONNECTA,B2B,,,FLAVIO SILVA
 ,luciana.santos@franquias.zenvia.com,98 99903-3333,LUCIANA,SANTOS,F5 CONNECTA,B2B,,,LUCIANA SANTOS
 ,thiago.santos@franquias.zenvia.com,98 9105-4682,THIAGO,NASCIMENTO,F5 CONNECTA,B2B,,,THIAGO NASCIMENTO
@@ -623,7 +623,7 @@ Data de cadastro do membro,email do usuario e membro ,Telefone WhatsApp,Nome,Sob
 ,douglas@personaltruckrio.com.br,21964083351,Douglas,Bastos,KX3,B2B,,,Douglas Bastos
 ,eugeniasrep@gmail.com,71984125050,Eugênia,Simão,KX3,B2B,,,Eugênia Simão
 ,jmtrabalho_mt@hotmail.com,65981592995,Jesus,Venancio,KX3,B2B,,,Jesus Venancio
-,paula@paularepresentacoes.com.br,67992074567,Paula,Cristaldo,KX3,B2B,,mariana.vieira@pipelovers.net,Paula Cristaldo
+,paula@paularepresentacoes.com.br,67992074567,Paula,Cristaldo,KX3,B2B,,thabata.harumi@pipelovers.net,Paula Cristaldo
 ,njvrep@gmail.com,62992489970,Nilton,Vaz,KX3,B2B,,,Nilton Vaz
 ,radorp13@terra.com.br,11981818459,Ramiro,Loureiro,KX3,B2B,,,Ramiro Loureiro
 ,tiagobonotto83@gmail.com,51998663142,Tiago,Bonotto,KX3,B2B,,,Tiago Bonotto
@@ -867,10 +867,10 @@ Data de cadastro do membro,email do usuario e membro ,Telefone WhatsApp,Nome,Sob
 ,lais@alphapiscinas.com,34 9673-4005,Lais,Garcia,Alpha Piscinas,B2B,,,Lais Garcia
 27/05/2026,Aryan.magalhaes@alphapiscinas.com,34 9662-0779,Aryan,Magalhães,Alpha Piscinas,B2B,,,Aryan Magalhães
 27/05/2026,pedroaugusto@alphapiscinas.com,55 34 9818-2243,Pedro,Augusto,Alpha Piscinas,B2B,,,Pedro Augusto
-27/05/2026,alvaro.santos@totvs.com.br,34 99119-9516,ALVARO,PEREIRA BRANDAO DOS SANTOS,TOTVS Brasil Central,B2B,,,ALVARO PEREIRA BRANDAO DOS SANTOS
+27/05/2026,alvaro.santos@totvs.com.br,34 99119-9516,ALVARO,PEREIRA BRANDAO DOS SANTOS,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,ALVARO PEREIRA BRANDAO DOS SANTOS
 ,ingrid.andrade@totvs.com.br,62 99247-8237,Ingrid,Andrade,TOTVS Brasil Central,B2B,,,Ingrid Andrade
-,priscila.sa@totvs.com.br,61 99528-3632,PRISCILA,SA BARBOSA CANDIDO DE ALMEIDA,TOTVS Brasil Central,B2B,,,PRISCILA SA BARBOSA CANDIDO DE ALMEIDA
-,linacio@totvs.com.br,61 99607-7614,LEANDRO LEVI,DA SILVA INACIO,TOTVS Brasil Central,B2B,,,LEANDRO LEVI DA SILVA INACIO
+,priscila.sa@totvs.com.br,61 99528-3632,PRISCILA,SA BARBOSA CANDIDO DE ALMEIDA,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,PRISCILA SA BARBOSA CANDIDO DE ALMEIDA
+,linacio@totvs.com.br,61 99607-7614,LEANDRO LEVI,DA SILVA INACIO,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,LEANDRO LEVI DA SILVA INACIO
 05/05/2026,jeniferdanyelle6@gmail.com,49 8825-8925,olivar antonio,mozer,Shalom,B2C,,mariana.vieira@pipelovers.net,olivar antonio mozer
 29/05/2026,paulo@bluefieldsdev.com,11 97540-8712,Paulo,Humaitá,Bluefields,B2B,,,Paulo Humaitá
 02/06/2026,roberto@bluefieldsdev.com,11 99931-0530,Roberto,Tsukino,Bluefields,B2B,,anne.siqueira@pipelovers.net,Roberto Tsukino
@@ -1179,11 +1179,11 @@ Data de cadastro do membro,email do usuario e membro ,Telefone WhatsApp,Nome,Sob
 19/06/2026,eduardo.fonseca@omniassessoria.com.br,16 99295-8770,Eduardo,Fonseca,Omni Ribeirão Preto,B2B,,,Eduardo Fonseca
 18/06/2026,comercial.rp@omniassessoria.com.br,,Pablo,,Omni Ribeirão Preto,B2B,,mariana.vieira@pipelovers.net,Pablo
 19/06/2026,julia.victoria@omniassessoria.com.br,16 99165-8929,Julia,Victoria,Omni Ribeirão Preto,B2B,,mariana.vieira@pipelovers.net,Julia Victoria
-19/06/2026,fabio.vasconcelos@tecnogera.com.br,81983614260,Fabio,Vasconcelos,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Fabio Vasconcelos
+19/06/2026,fabio.vasconcelos@tecnogera.com.br,81983614260,Fabio,Vasconcelos,Tecnogera,B2B,,thabata.harumi@pipelovers.net,Fabio Vasconcelos
 18/06/2026,nilton.silva@tecnogera.com.br,81995889827,Nilton,Silva,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Nilton Silva
 19/06/2026,jessica.silva@tecnogera.com.br,85981236408,Jessica,Silva,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Jessica Silva
 19/06/2026,bruno.calazans@tecnogera.com.br,81985716533,Bruno,Calazans,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Bruno Calazans
-18/06/2026,jaqueline.molina@tecnogera.com.br,81982738607,Jaqueline,Molina,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Jaqueline Molina
+18/06/2026,jaqueline.molina@tecnogera.com.br,81982738607,Jaqueline,Molina,Tecnogera,B2B,,thabata.harumi@pipelovers.net,Jaqueline Molina
 18/06/2026,julia.munhoz@saleshunter.ai,48 998616892,Júlia,Vidigal Munhoz,SalesHunter,B2B,,mariana.vieira@pipelovers.net,Júlia Vidigal Munhoz
 19/06/2026,maria.eduarda@saleshunter.ai,48 98842-7857,Maria Eduarda,Linhares,SalesHunter,B2B,,mariana.vieira@pipelovers.net,Maria Eduarda Linhares
 18/06/2026,pedro.henrique@saleshunter.ai,12 99249-8392,Pedro,Henrique,SalesHunter,B2B,,mariana.vieira@pipelovers.net,Pedro Henrique
@@ -1533,11 +1533,11 @@ Data de cadastro do membro,email do usuario e membro ,Telefone WhatsApp,Nome,Sob
 19/06/2026,eduardo.fonseca@omniassessoria.com.br,16 99295-8770,Eduardo,Fonseca,Omni Ribeirão Preto,B2B,,,Eduardo Fonseca
 18/06/2026,comercial.rp@omniassessoria.com.br,,Pablo,,Omni Ribeirão Preto,B2B,,mariana.vieira@pipelovers.net,Pablo
 19/06/2026,julia.victoria@omniassessoria.com.br,16 99165-8929,Julia,Victoria,Omni Ribeirão Preto,B2B,,mariana.vieira@pipelovers.net,Julia Victoria
-19/06/2026,fabio.vasconcelos@tecnogera.com.br,81983614260,Fabio,Vasconcelos,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Fabio Vasconcelos
+19/06/2026,fabio.vasconcelos@tecnogera.com.br,81983614260,Fabio,Vasconcelos,Tecnogera,B2B,,thabata.harumi@pipelovers.net,Fabio Vasconcelos
 18/06/2026,nilton.silva@tecnogera.com.br,81995889827,Nilton,Silva,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Nilton Silva
 19/06/2026,jessica.silva@tecnogera.com.br,85981236408,Jessica,Silva,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Jessica Silva
 19/06/2026,bruno.calazans@tecnogera.com.br,81985716533,Bruno,Calazans,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Bruno Calazans
-18/06/2026,jaqueline.molina@tecnogera.com.br,81982738607,Jaqueline,Molina,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Jaqueline Molina
+18/06/2026,jaqueline.molina@tecnogera.com.br,81982738607,Jaqueline,Molina,Tecnogera,B2B,,thabata.harumi@pipelovers.net,Jaqueline Molina
 18/06/2026,julia.munhoz@saleshunter.ai,48 998616892,Júlia,Vidigal Munhoz,SalesHunter,B2B,,mariana.vieira@pipelovers.net,Júlia Vidigal Munhoz
 19/06/2026,maria.eduarda@saleshunter.ai,48 98842-7857,Maria Eduarda,Linhares,SalesHunter,B2B,,mariana.vieira@pipelovers.net,Maria Eduarda Linhares
 18/06/2026,pedro.henrique@saleshunter.ai,12 99249-8392,Pedro,Henrique,SalesHunter,B2B,,mariana.vieira@pipelovers.net,Pedro Henrique
@@ -1637,7 +1637,7 @@ Data de cadastro do membro,email do usuario e membro ,Telefone WhatsApp,Nome,Sob
 01/07/2026,alexandrelobato@opus127.com.br,37998391836,Alexandre,Lobato,Opus127,B2B,,,Alexandre Lobato
 01/07/2026,biancamaia@opus127.com.br,37936180461,Bianca,Maia,Opus127,B2B,,,Bianca Maia
 01/07/2026,karem.lopes@medika.com.br,-,Karem,Aguida Lopes,Medika,B2B,,mariana.vieira@pipelovers.net,Karem Aguida Lopes
-01/07/2026,sarah.santos@medika.com.br,-,Sarah,Gabrielly Batista Santos,Medika,B2B,,mariana.vieira@pipelovers.net,Sarah Gabrielly Batista Santos
+01/07/2026,sarah.santos@medika.com.br,-,Sarah,Gabrielly Batista Santos,Medika,B2B,,thabata.harumi@pipelovers.net,Sarah Gabrielly Batista Santos
 05/05/2026,newsoftsdr@gmail.com,(15) 99626-5253,Gabriela Frutuoso,de Oliveira,NewSoft,B2B,,mariana.vieira@pipelovers.net,Gabriela Frutuoso de Oliveira
 02/07/2026,fernando.damasco@outlook.com,(11) 98897-3366,FERNANDO,DAMASCO,Studio Kore,B2B,,thaynara.santos@pipelovers.net,FERNANDO DAMASCO
 02/07/2026,gerencia-jundiai@studiokore.com.br,(11) 97327-8808,NAYARA,BARRETA,Studio Kore,B2B,,thaynara.santos@pipelovers.net,NAYARA BARRETA
@@ -1681,7 +1681,7 @@ Data de cadastro do membro,email do usuario e membro ,Telefone WhatsApp,Nome,Sob
 07/07/2026,paulo@prstecnologia.com,31997749882,Paulo,santos,PRS Tecnologia,B2B,,thaynara.santos@pipelovers.net,Paulo santos
 07/07/2026,micaela@prstecnologia.com,0,Micaela,-,PRS Tecnologia,B2B,,joao.fabricio@pipelovers.net,Micaela -
 07/07/2026,rafaella@pstecnologia.com,0,Rafaella,-,PRS Tecnologia,B2B,,joao.fabricio@pipelovers.net,Rafaella -
-07/07/2026,ligia.leite@questores.com.br,-,Ligia,Leite,Questor,B2B,,mariana.vieira@pipelovers.net,Ligia Leite
+07/07/2026,ligia.leite@questores.com.br,-,Ligia,Leite,Questor,B2B,,thabata.harumi@pipelovers.net,Ligia Leite
 07/07/2026,yago.rocha@somostd.com.br,11 96210-9487,Yago,Rocha,Transformação Digital,B2B,,joao.fabricio@pipelovers.net,Yago Rocha
 07/07/2026,gabriel.tulio@somostd.com.br,11 96722-3062,Gabriel,Túlio,Transformação Digital,B2B,,joao.fabricio@pipelovers.net,Gabriel  Túlio
 07/07/2026,isadora.campos@somostd.com.br,11 93621-4856,Isadora,Campos,Transformação Digital,B2B,,joao.fabricio@pipelovers.net,Isadora Campos
@@ -1770,7 +1770,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 10/07/2026,malexandre@softexpert.com,47 9787-8047,Matheus,Alexandre de Souza,SoftExpert,B2B,,joao.fabricio@pipelovers.net,Matheus  Alexandre de Souza
 10/07/2026,joao.camargo@flexsolucoes.net,5515998260144,JOAO,CAMARGO,FLEX SOLUÇÕES,B2B,,mariana.vieira@pipelovers.net,JOAO CAMARGO
 10/07/2026,carlos.yupanqui@starian.com,47996121236,Carlos Augusto,Yupanqui,Checklist Fácil,B2B,,mariana.vieira@pipelovers.net,Carlos Augusto Yupanqui
-10/07/2026,maria.guarez@starian.com,11911001946,Maria Eduarda,Guarez,Checklist Fácil,B2B,,mariana.vieira@pipelovers.net,Maria Eduarda Guarez
+10/07/2026,maria.guarez@starian.com,11911001946,Maria Eduarda,Guarez,Checklist Fácil,B2B,,thabata.harumi@pipelovers.net,Maria Eduarda Guarez
 10/07/2026,leonardo.gomez@captei.com.br,48998461131,Leonardo,Fabra Gomez,Captei,B2B,,thaynara.santos@pipelovers.net,Leonardo Fabra Gomez
 10/07/2026,luiz.souza@captei.com.br,11932012392,Luiz,Norberto Rodrigues de Souza,Captei,B2B,,thaynara.santos@pipelovers.net,Luiz Norberto Rodrigues de Souza
 10/07/2026,paulo.lourenco@captei.com.br,49999234554,Paulo Henrique,Lourenço de Souza,Captei,B2B,,joao.fabricio@pipelovers.net,Paulo Henrique Lourenço de Souza
@@ -1817,7 +1817,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 10/07/2026,fernanda.ferreira@redminds.com.br,21996921799,Fernanda,Sodré,RedMinds,B2B,,joao.fabricio@pipelovers.net,Fernanda Sodré
 10/07/2026,pablo.botari@redminds.com.br,19 98919-9758,Pablo,Botari,RedMinds,B2B,,thaynara.santos@pipelovers.net,Pablo Botari
 10/07/2026,francois.machado@mantomac.com.br,41 9 9615 8177,Francois,Lara,Mantomac,B2B,,mariana.vieira@pipelovers.net,Francois Lara
-10/07/2026,carla.silva@umbler.com,51 99246-6012,Carla,Silva,Umbler,B2B,,mariana.vieira@pipelovers.net,Carla Silva
+10/07/2026,carla.silva@umbler.com,51 99246-6012,Carla,Silva,Umbler,B2B,,thabata.harumi@pipelovers.net,Carla Silva
 10/07/2026,gessyca.freitas11@gmail.com,28 99922-0692,Gessyca,Oliveira,Hyperion Corretora,B2B,,joao.fabricio@pipelovers.net,Gessyca Oliveira
 10/07/2026,matheus.shimada@aevo.com.br,,Matheus,Shimada,AEVO,B2B,,mariana.vieira@pipelovers.net,Matheus Shimada
 07/07/2026,heloisa.melo@starian.com,-,Heloísa,Melo,Checklist Fácil,B2B,,joao.fabricio@pipelovers.net,Heloísa  Melo
@@ -1847,7 +1847,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 08/07/2026,fernandavaz@midfalconi.com,62983254176,Fernanda,Vaz,MidFalconi,B2B,,mariana.vieira@pipelovers.net,Fernanda Vaz
 08/07/2026,brunocrespo@midfalconi.com,21982863162,Bruno,Crespo,MidFalconi,B2B,,mariana.vieira@pipelovers.net,Bruno Crespo
 08/07/2026,viniciussouza@midfalconi.com,69999615344,Vinicius,Souza,MidFalconi,B2B,,mariana.vieira@pipelovers.net,Vinicius Souza
-07/07/2026,ligia.leite@questores.com.br,-,Ligia,Leite,Questor,B2B,,mariana.vieira@pipelovers.net,Ligia Leite
+07/07/2026,ligia.leite@questores.com.br,-,Ligia,Leite,Questor,B2B,,thabata.harumi@pipelovers.net,Ligia Leite
 13/07/2026,fernanda.silva@medika.com.br,,Fernanda,Paula Reis Silva,Medika,B2B,,mariana.vieira@pipelovers.net,Fernanda Paula Reis Silva
 13/07/2026,marco.santos@medika.com.br,,Marco Aurélio,dos Santos,Medika,B2B,,mariana.vieira@pipelovers.net,Marco Aurélio dos Santos
 13/07/2026,caroline.souza@medika.com.br,,Caroline,de Paula Souza,Medika,B2B,,mariana.vieira@pipelovers.net,Caroline de Paula Souza
@@ -1884,7 +1884,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 14/07/2026,bia_tayla@hotmail.com,1196389-0882,Bia Tayla,Perez,CEM,B2B,,mariana.vieira@pipelovers.net,Bia Tayla Perez
 14/07/2026,viana.victoria014@gmail.com,11 96672 2044,Victoria,Viana,CEM,B2B,,mariana.vieira@pipelovers.net,Victoria Viana
 14/07/2026,suzana.rodrigues@kurier.com.br,8198862-1549,Suzana,Rodrigues,Kurier,B2B,,mariana.vieira@pipelovers.net,Suzana Rodrigues
-14/07/2026,jully.rodrigues@kurier.com.br,(81) 99636-6442,Jully,Rodrigues,Kurier,B2B,,mariana.vieira@pipelovers.net,Jully Rodrigues
+14/07/2026,jully.rodrigues@kurier.com.br,(81) 99636-6442,Jully,Rodrigues,Kurier,B2B,,thabata.harumi@pipelovers.net,Jully Rodrigues
 14/07/2026,maurici.oliveira@compostos.com.br,(47) 99972-1062,Maurici,Oliveira,Compostos do Brasil,B2B,,anne.siqueira@pipelovers.net,Maurici Oliveira
 14/07/2026,kelen.oliveira@compostos.com.br,(54) 99216-8315,Kellen,Oliveira,Compostos do Brasil,B2B,,anne.siqueira@pipelovers.net,Kellen Oliveira
 14/07/2026,luiz.correa@compostos.com.br,(51) 99208-6001,Luiz Antônio,Correa,Compostos do Brasil,B2B,,anne.siqueira@pipelovers.net,Luiz Antônio Correa
@@ -2051,11 +2051,11 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 16/07/2026,alvaro.junior@infojobs.com.br,-,ALVARO,ALBERTO DOS SANTOS ALVES JUNIOR,Catho,B2B,,anne.siqueira@pipelovers.net,ALVARO  ALBERTO DOS SANTOS ALVES JUNIOR
 16/07/2026,estevao.martins@bext.vc,47 9711-0801,Estevão,Martins,BEXT,B2B,,mariana.vieira@pipelovers.net,Estevão Martins
 16/07/2026,diessyca.peres@bext.vc,,Diessyca,Peres,BEXT,B2B,,mariana.vieira@pipelovers.net,Diessyca Peres
-16/07/2026,douglas.szameitat@bext.vc,47 99971-6907,Douglas,Szameitat,BEXT,B2C,,mariana.vieira@pipelovers.net,Douglas Szameitat
-16/07/2026,felipe.negrao@bext.vc,47991651762,Felipe,Negrao,BEXT,B2C,,mariana.vieira@pipelovers.net,Felipe Negrao
-16/07/2026,isabel.trevisan@bext.vc,479999-0385,Isabel,Trevisan,BEXT,B2C,,mariana.vieira@pipelovers.net,Isabel Trevisan
-16/07/2026,daniele.vieira@bext.vc,47 99711-0801,Daniele,Vieira,BEXT,B2C,,mariana.vieira@pipelovers.net,Daniele Vieira
-16/07/2026,igor.sales@bext.vc,47 99933-0289,Igor,Sales,BEXT,B2C,,mariana.vieira@pipelovers.net,Igor Sales
+16/07/2026,douglas.szameitat@bext.vc,47 99971-6907,Douglas,Szameitat,BEXT,B2C,,thabata.harumi@pipelovers.net,Douglas Szameitat
+16/07/2026,felipe.negrao@bext.vc,47991651762,Felipe,Negrao,BEXT,B2C,,thabata.harumi@pipelovers.net,Felipe Negrao
+16/07/2026,isabel.trevisan@bext.vc,479999-0385,Isabel,Trevisan,BEXT,B2C,,thabata.harumi@pipelovers.net,Isabel Trevisan
+16/07/2026,daniele.vieira@bext.vc,47 99711-0801,Daniele,Vieira,BEXT,B2C,,thabata.harumi@pipelovers.net,Daniele Vieira
+16/07/2026,igor.sales@bext.vc,47 99933-0289,Igor,Sales,BEXT,B2C,,thabata.harumi@pipelovers.net,Igor Sales
 16/07/2026,arthur.schein@bext.vc,47 99951-1132,Arthur,Schein,BEXT,B2C,,mariana.vieira@pipelovers.net,Arthur Schein
 16/07/2026,tairo.lisboa@bext.vc,47 99706-0149,Tairo,Lisboa,BEXT,B2C,,mariana.vieira@pipelovers.net,Tairo Lisboa
 16/07/2026,leinady.rodrigues@bext.vc,47 99951-0018,Leinady,Rodrigues,BEXT,B2C,,mariana.vieira@pipelovers.net,Leinady Rodrigues
@@ -2063,12 +2063,12 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 16/07/2026,rbrextintores@outlook.com,19996765200,Bruna,Sisareli,RBR Extintores,B2B,,thaynara.santos@pipelovers.net,Bruna Sisareli
 16/07/2026,autasaovesso@gmail.com,19981201582,Auta,Saovesso,RBR Extintores,B2B,,mariana.vieira@pipelovers.net,Auta Saovesso
 16/07/2026,comercial@rbrextintores.com.br,1932164422,Maria Eduarda,Leone,RBR Extintores,B2B,,mariana.vieira@pipelovers.net,Maria Eduarda Leone
-17/07/2026,jeferson.eduardo@dynamisimportadora.com.br,(47)99277-8265,Jeferson,Juswiak,DYNAMIS IMPORTADORA,B2B,,mariana.vieira@pipelovers.net,Jeferson Juswiak
-17/07/2026,bruna.santos@dynamisimportadora.com.br,(47)99128-6489,Bruna,Jorgia,DYNAMIS IMPORTADORA,B2B,,mariana.vieira@pipelovers.net,Bruna Jorgia
+17/07/2026,jeferson.eduardo@dynamisimportadora.com.br,(47)99277-8265,Jeferson,Juswiak,DYNAMIS IMPORTADORA,B2B,,thabata.harumi@pipelovers.net,Jeferson Juswiak
+17/07/2026,bruna.santos@dynamisimportadora.com.br,(47)99128-6489,Bruna,Jorgia,DYNAMIS IMPORTADORA,B2B,,thabata.harumi@pipelovers.net,Bruna Jorgia
 17/07/2026,isabela.silva@dynamisimportadora.com.br,47984295928,Isabela,Silva,DYNAMIS IMPORTADORA,B2B,,mariana.vieira@pipelovers.net,Isabela Silva
 17/07/2026,giovane.boeira@dynamisimportadora.com.br,47992746124,Giovane,Boeira,DYNAMIS IMPORTADORA,B2B,,mariana.vieira@pipelovers.net,Giovane Boeira
 17/07/2026,marcelo.marotta@dynamisimportadora.com.br,(31) 97227-1802,Marcelo,Coelho Arantes Marotta,DYNAMIS IMPORTADORA,B2B,,mariana.vieira@pipelovers.net,Marcelo Coelho Arantes Marotta
-17/07/2026,gabriellucas@kedu.com.br,85998012082,Gabirel,Lima,kedu,B2B,,mariana.vieira@pipelovers.net,Gabirel Lima
+17/07/2026,gabriellucas@kedu.com.br,85998012082,Gabirel,Lima,kedu,B2B,,thabata.harumi@pipelovers.net,Gabirel Lima
 17/07/2026,josesilva@kedu.com.br,88992057997,Albesson,Damasceno,kedu,B2B,,mariana.vieira@pipelovers.net,Albesson Damasceno
 17/07/2026,pedromota@kedu.com.br,85 98922 0974,Pedro,Mota,kedu,B2B,,joao.fabricio@pipelovers.net,Pedro Mota
 17/07/2026,vitor.ribeiro@grupodecio.com.br,34 99912 1996,VITOR,MATEUS,Grupo Decio,B2B,,joao.fabricio@pipelovers.net,VITOR MATEUS
@@ -2080,9 +2080,9 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 17/07/2026,andressa.sousa@falavinha.com.br,4199631725,Andressa,Souza,Falavinha Next,B2B,,joao.fabricio@pipelovers.net,Andressa Souza
 17/07/2026,wagner.santos@falavinha.com.br,41996766986,Wagner,Santos,Falavinha Next,B2B,,joao.fabricio@pipelovers.net,Wagner Santos
 17/07/2026,isabela.silva@dynamisimportadora.com.br,47984295928,Isabela,Silva,DYNAMIS IMPORTADORA,B2B,,mariana.vieira@pipelovers.net,Isabela Silva
-16/07/2026,douglas.szameitat@bext.vc,47 99971-6907,Douglas,Szameitat,BEXT,B2C,,mariana.vieira@pipelovers.net,Douglas Szameitat
-16/07/2026,felipe.negrao@bext.vc,47991651762,Felipe,Negrao,BEXT,B2C,,mariana.vieira@pipelovers.net,Felipe Negrao
-16/07/2026,isabel.trevisan@bext.vc,479999-0385,Isabel,Trevisan,BEXT,B2C,,mariana.vieira@pipelovers.net,Isabel Trevisan
+16/07/2026,douglas.szameitat@bext.vc,47 99971-6907,Douglas,Szameitat,BEXT,B2C,,thabata.harumi@pipelovers.net,Douglas Szameitat
+16/07/2026,felipe.negrao@bext.vc,47991651762,Felipe,Negrao,BEXT,B2C,,thabata.harumi@pipelovers.net,Felipe Negrao
+16/07/2026,isabel.trevisan@bext.vc,479999-0385,Isabel,Trevisan,BEXT,B2C,,thabata.harumi@pipelovers.net,Isabel Trevisan
 20/07/2026,bruna@hartbau.com.br,47 3043-3827,Bruna,Pereira,Hartbau,B2B,,mariana.vieira@pipelovers.net,Bruna Pereira
 20/07/2026,cleisson@hartbau.com.br,47 9229-9105,Cleisson,Leandro,Hartbau,B2B,,mariana.vieira@pipelovers.net,Cleisson Leandro
 20/07/2026,gabriel@hartbau.com.br,47 9154-8141,Gabriel,João,Hartbau,B2B,,mariana.vieira@pipelovers.net,Gabriel  João
@@ -2126,13 +2126,13 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 20/07/2026,pedro.rego@thomsonreuters.com,-,Pedro,Rego,Thomson Reuters,B2B,,mariana.vieira@pipelovers.net,Pedro Rego
 20/07/2026,patricia.rodrigues2@thomsonreuters.com,-,Patricia,Rodrigues,Thomson Reuters,B2B,,mariana.vieira@pipelovers.net,Patricia Rodrigues
 20/07/2026,jazieli.silva@thomsonreuters.com,-,Jazieli,Silva,Thomson Reuters,B2B,,mariana.vieira@pipelovers.net,Jazieli Silva
-20/07/2026,alvaro.santos@totvs.com.br,34 99119-9516,ALVARO,PEREIRA BRANDAO DOS SANTOS,TOTVS Brasil Central,B2B,,mariana.vieira@pipelovers.net,ALVARO PEREIRA BRANDAO DOS SANTOS
-20/07/2026,priscila.sa@totvs.com.br,61 99528-3632,PRISCILA,SA BARBOSA CANDIDO DE ALMEIDA,TOTVS Brasil Central,B2B,,mariana.vieira@pipelovers.net,PRISCILA SA BARBOSA CANDIDO DE ALMEIDA
-20/07/2026,linacio@totvs.com.br,61 99607-7614,LEANDRO LEVI,DA SILVA INACIO,TOTVS Brasil Central,B2B,,mariana.vieira@pipelovers.net,LEANDRO LEVI DA SILVA INACIO
+20/07/2026,alvaro.santos@totvs.com.br,34 99119-9516,ALVARO,PEREIRA BRANDAO DOS SANTOS,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,ALVARO PEREIRA BRANDAO DOS SANTOS
+20/07/2026,priscila.sa@totvs.com.br,61 99528-3632,PRISCILA,SA BARBOSA CANDIDO DE ALMEIDA,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,PRISCILA SA BARBOSA CANDIDO DE ALMEIDA
+20/07/2026,linacio@totvs.com.br,61 99607-7614,LEANDRO LEVI,DA SILVA INACIO,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,LEANDRO LEVI DA SILVA INACIO
 21/07/2026,clovis.bueno@multibelt.com.br,43 9 9196 9092,Clovis,Bueno,Multibelt,B2B,,mariana.vieira@pipelovers.net,Clovis Bueno
 21/07/2026,jonas.reis@multibelt.com.br,(43) 99113-4710,Jonas,Reis,Multibelt,B2B,,mariana.vieira@pipelovers.net,Jonas Reis
 21/07/2026,marcos.schmid@multibelt.com.br,(43) 9911-4710,Marcos,Schmid,Multibelt,B2B,,mariana.vieira@pipelovers.net,Marcos Schmid
-21/07/2026,vanessa.vieira@multibelt.com.br,(65) 9941-2775,Vanessa,Vieira,Multibelt,B2B,,mariana.vieira@pipelovers.net,Vanessa Vieira
+21/07/2026,vanessa.vieira@multibelt.com.br,(65) 9941-2775,Vanessa,Vieira,Multibelt,B2B,,thabata.harumi@pipelovers.net,Vanessa Vieira
 21/07/2026,raiana.alves@2pgroup.com.br,11 91240-4717,Raiana,Alves,2P Group,B2B,,joao.fabricio@pipelovers.net,Raiana Alves
 21/07/2026,ghustavo@2pgroup.com.br,11 91101-7860,Gusthavo,Novaes,2P Group,B2B,,joao.fabricio@pipelovers.net,Gusthavo Novaes
 21/07/2026,gabriel.sargiani@2pgroup.com.br,11 943670740,Gabriel,Sargiani,2P Group,B2B,,joao.fabricio@pipelovers.net,Gabriel Sargiani
@@ -2184,7 +2184,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 23/07/2026,gabriel.marcos@solides.com.br,,GABRIEL,ALVES,Sólides,B2B,,thaynara.santos@pipelovers.net,GABRIEL ALVES
 23/07/2026,jessica.freitas@solides.com.br,,JESSICA,FREITAS,Sólides,B2B,,thaynara.santos@pipelovers.net,JESSICA FREITAS
 23/07/2026,jade.quintao@solides.com.br,,JADE,QUINTAO,Sólides,B2B,,thaynara.santos@pipelovers.net,JADE QUINTAO
-23/07/2026,domingos.figueiredo@solides.com.br,,DOMINGOS,NETO,Sólides,B2B,,thaynara.santos@pipelovers.net,DOMINGOS NETO
+23/07/2026,domingos.figueiredo@solides.com.br,,DOMINGOS,NETO,Sólides,B2B,,thabata.harumi@pipelovers.net,DOMINGOS NETO
 23/07/2026,natalia.reis@solides.com.br,,NATÁLIA,REIS,Sólides,B2B,,thaynara.santos@pipelovers.net,NATÁLIA REIS
 23/07/2026,roberta.menezes@solides.com.br,,ROBERTA,MENEZES,Sólides,B2B,,thaynara.santos@pipelovers.net,ROBERTA MENEZES
 23/07/2026,gabriel.perin@solides.com.br,,GABRIEL,MANGUALDE,Sólides,B2B,,thaynara.santos@pipelovers.net,GABRIEL MANGUALDE
@@ -2210,12 +2210,12 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 23/07/2026,daniel.moura@solides.com.br,,DANIEL,MOURA,Sólides,B2B,,thaynara.santos@pipelovers.net,DANIEL MOURA
 23/07/2026,ewerton.souza@solides.com.br,,EWERTON,SOUZA,Sólides,B2B,,thaynara.santos@pipelovers.net,EWERTON SOUZA
 23/07/2026,reimisson.nascimento@solides.com.br,,REIMISSON,NASCIMENTO,Sólides,B2B,,thaynara.santos@pipelovers.net,REIMISSON NASCIMENTO
-23/07/2026,julianatorres@nasajon.com.br,,Juliana,Torres,Nasajon,B2B,,mariana.vieira@pipelovers.net,Juliana Torres
+23/07/2026,julianatorres@nasajon.com.br,,Juliana,Torres,Nasajon,B2B,,thabata.harumi@pipelovers.net,Juliana Torres
 23/07/2026,paulo@prstecnologia.com,31997749882,Paulo,santos,PRS Tecnologia,B2B,,thaynara.santos@pipelovers.net,Paulo santos
 23/07/2026,micaela@prstecnologia.com,0,Micaela,-,PRS Tecnologia,B2B,,joao.fabricio@pipelovers.net,Micaela -
 23/07/2026,rafaella@prstecnologia.com,0,Rafaella,-,PRS Tecnologia,B2B,,joao.fabricio@pipelovers.net,Rafaella -
 24/07/2026,murilo@proesc.com,(96) 98114-1931,Murilo,Moraes Sucupira,Proesc,B2B,,mariana.vieira@pipelovers.net,Murilo Moraes Sucupira
-24/07/2026,luiz.marcelino@proesc.com,(41) 98471-7235,Luiz Henrique,Marcelino,Proesc,B2B,,mariana.vieira@pipelovers.net,Luiz Henrique Marcelino
+24/07/2026,luiz.marcelino@proesc.com,(41) 98471-7235,Luiz Henrique,Marcelino,Proesc,B2B,,thabata.harumi@pipelovers.net,Luiz Henrique Marcelino
 24/07/2026,evelin.nunes@proesc.com,(96) 99154-2434,Evelin Cristine,Nunes,Proesc,B2B,,mariana.vieira@pipelovers.net,Evelin Cristine Nunes
 24/07/2026,denilson.vendramini@proesc.com,(11) 96064-8425,Denilson,Vendramini,Proesc,B2B,,mariana.vieira@pipelovers.net,Denilson Vendramini
 24/07/2026,luciana.freitas@proesc.com,(84) 98846-2909,Luciana Karla,Freitas,Proesc,B2B,,mariana.vieira@pipelovers.net,Luciana Karla Freitas
@@ -2232,7 +2232,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 24/06/2026,lilian.gozzi@acspro.com.br,21 99910-9245,Lilian,Gozzi,ACS Pro,B2B,,mariana.vieira@pipelovers.net,Lilian Gozzi
 24/06/2026,bruna.pires@tecnogera.com.br,0,Bruna,Pires,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Bruna Pires
 27/07/2026,vendas01.robraconsnp@grupovocical.com.br,66 9939-8490,Hellen,Carla,Grupo Vocical,B2B,,mariana.vieira@pipelovers.net,Hellen Carla
-27/07/2026,vendas05.robraconsnp@grupovocical.com.br,66 9943-1611,CRISTIANO,PEREIRA,Grupo Vocical,B2B,,mariana.vieira@pipelovers.net,CRISTIANO PEREIRA
+27/07/2026,vendas05.robraconsnp@grupovocical.com.br,66 9943-1611,CRISTIANO,PEREIRA,Grupo Vocical,B2B,,thabata.harumi@pipelovers.net,CRISTIANO PEREIRA
 27/07/2026,vendas01.robraconsnp@grupovocical.com.br,66 9939-8490,Hellen,Carla,Grupo Vocical,B2B,,mariana.vieira@pipelovers.net,Hellen Carla
 30/06/2026,ricardostar02052018@gmail.com,55 (13) 996673113,Ricardo,Novaes,Star Diesel,B2B,,thaynara.santos@pipelovers.net,Ricardo Novaes
 30/06/2026,fabiomarcon@stardieselservicos.com.br,55 13 99646-9861,Fabio,Marlon,Star Diesel,B2B,,thaynara.santos@pipelovers.net,Fabio Marlon
@@ -2257,7 +2257,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 27/07/2026,leticia.buzzo@pucpr.br,19 98900-4075,Leticia,Buzzo,PUCPR,B2B,,thaynara.santos@pipelovers.net,Leticia Buzzo
 27/07/2026,claudia.komnicki@pucpr.br,41 99512-6441,Claudia Luciane,Pires Komnicki,PUCPR,B2B,,thaynara.santos@pipelovers.net,Claudia Luciane Pires Komnicki
 27/07/2026,loyci.mendes@pucpr.br,0000000-0000,Loyci,Mendes,PUCPR,B2B,,thaynara.santos@pipelovers.net,Loyci Mendes
-28/07/2026,eduardo.couto@cargosapiens.com.br,,Eduardo,Couto,Cargo Sapiens,B2B,,mariana.vieira@pipelovers.net,Eduardo Couto
+28/07/2026,eduardo.couto@cargosapiens.com.br,,Eduardo,Couto,Cargo Sapiens,B2B,,thabata.harumi@pipelovers.net,Eduardo Couto
 28/07/2026,juliana.correa@cargosapiens.com,,Juliana,Correa,Cargo Sapiens,B2B,,mariana.vieira@pipelovers.net,Juliana Correa
 28/07/2026,caroline.silva@magis5.com.br,11 97105-7423,Carolline,Silva,MAGIS5,B2B,,mariana.vieira@pipelovers.net,Carolline Silva
 28/07/2026,kelvin.cleto@accelera360.com.br,11 98817-6241,Eric,Marques,Accelera 360,B2B,,thaynara.santos@pipelovers.net,Eric Marques
@@ -2268,7 +2268,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 28/07/2026,nathan.pereira@kcggroup.com.br,61 9240-6006,Nathan,Pereira,Accelera 360,B2B,,joao.fabricio@pipelovers.net,Nathan Pereira
 28/07/2026,humberto.barbosa@kcggroup.com.br,61 8409-6675,Humberto,Barbosa da Silva Leite,Accelera 360,B2B,,joao.fabricio@pipelovers.net,Humberto Barbosa da Silva Leite
 28/07/2026,reginaldo.lima@hostweb.cloud,61981783787,Reginaldo,Lima,Hostweb Data Center,B2B,,mariana.vieira@pipelovers.net,Reginaldo Lima
-28/07/2026,nayara.marconi@starian.com,11984345749,Nayara,Marconi,Checklist Fácil,B2B,,mariana.vieira@pipelovers.net,Nayara Marconi
+28/07/2026,nayara.marconi@starian.com,11984345749,Nayara,Marconi,Checklist Fácil,B2B,,thabata.harumi@pipelovers.net,Nayara Marconi
 28/07/2026,marcelo.paoli@grupopremieralimentos.com.br,(11) 97692-5955,Marcelo,Paoli,Grupo Premier Alimentos,B2B,,mariana.vieira@pipelovers.net,Marcelo Paoli
 ,soares.janaiana@totvs.com.br,11 934244172,Janaina,Soares,TOTVS,,,,Janaina Soares
 29/07/2026,tuliopiotto@gmail.com,11966008814,Túlio,Piotto,Revfy,B2B,,thaynara.santos@pipelovers.net,Túlio Piotto
@@ -2325,7 +2325,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 03/08/2026,guilherme.loureiro@saleshunter.ai,11 97118-8008,Guilherme,Teixeira,SalesHunter,B2B,,natalia.espindola@pipelovers.net,Guilherme Teixeira
 03/08/2026,gustavo.barros@saleshunter.ai,11 99759-4167,Gustavo,Barros,SalesHunter,B2B,,natalia.espindola@pipelovers.net,Gustavo Barros
 04/08/2026,cristiane@hellner.com.br,11 99525-9557,Cristiane,Nadjaranian,Hellner,B2B,,mariana.vieira@pipelovers.net,Cristiane Nadjaranian
-04/08/2026,sergio.santos@bmchyundai.com.br,87 98815‑7837,Sergio,Santos,BMC Hyundai,B2B,,mariana.vieira@pipelovers.net,Sergio Santos
+04/08/2026,sergio.santos@bmchyundai.com.br,87 98815‑7837,Sergio,Santos,BMC Hyundai,B2B,,thabata.harumi@pipelovers.net,Sergio Santos
 04/08/2026,luiz.henriquelhm26@gmail.com,85 985489290,Luiz,Henrique,9energia,B2B,,thaynara.santos@pipelovers.net,Luiz Henrique
 04/08/2026,comercial2@9energia.com.br,85 98174085,Rafael,Soares,9energia,B2B,,thaynara.santos@pipelovers.net,Rafael Soares
 04/08/2026,juliana.kerth@9energia.com.br,85 988742262,Juliana,Alcântara,9energia,B2B,,joao.fabricio@pipelovers.net,Juliana Alcântara
@@ -2352,7 +2352,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 05/08/2026,gbfsc@gbfconsultoria.com.br,11993826145,Marcia,Alcaraz,GBF Consultoria e contabilidade,B2B,,thaynara.santos@pipelovers.net,Marcia Alcaraz
 05/08/2026,rh@gbfconsultoria.com.br,1150110458,Raissa,Marina,GBF Consultoria e contabilidade,B2B,,thaynara.santos@pipelovers.net,Raissa Marina
 05/08/2026,atendimento01@gbfconsultoria.com.br,1150110458,Leticia,Souza,GBF Consultoria e contabilidade,B2B,,joao.fabricio@pipelovers.net,Leticia Souza
-04/08/2026,sergio.santos@bmchyundai.com.br,87 98815‑7837,Sergio,Santos,BMC Hyundai,B2B,,mariana.vieira@pipelovers.net,Sergio Santos
+04/08/2026,sergio.santos@bmchyundai.com.br,87 98815‑7837,Sergio,Santos,BMC Hyundai,B2B,,thabata.harumi@pipelovers.net,Sergio Santos
 05/08/2026,julia.gusmao@justtraveltour.com,31999027979,Julia,Gusmão,Just Travel,B2B,,joao.fabricio@pipelovers.net,Julia  Gusmão
 05/08/2026,luciana.arruda@grupoeletrolar.com.br,11 93763-3926,LUCIANA,APARECIDA ARRUDA TARGINO DE SOUZA,Grupo Eletrolar,B2B,,joao.fabricio@pipelovers.net,LUCIANA  APARECIDA ARRUDA TARGINO DE SOUZA
 05/08/2026,cadastro@grupoeletrolar.com.br,11 91829-8358,BEATRIZ,TOMÉ DA SILVA,Grupo Eletrolar,B2B,,joao.fabricio@pipelovers.net,BEATRIZ  TOMÉ DA SILVA
@@ -2376,7 +2376,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 05/08/2026,nivia.rodrigues@itau-unibanco.com.br,000000-0001,Nivia,Rodrigues,IGA,B2B,,natalia.espindola@pipelovers.net,Nivia Rodrigues
 05/08/2026,lucas.melo-araujo@itau-unibanco.com.br,000000-0002,Lucas,Melo,IGA,B2B,,natalia.espindola@pipelovers.net,Lucas Melo
 05/08/2026,mauricio.bragato@itau-unibanco.com.br,000000-0003,Maurício,Bragato,IGA,B2B,,natalia.espindola@pipelovers.net,Maurício Bragato
-05/08/2026,silvia.barcik@itau-unibanco.com.br,000000-0004,Silvia,Bercik,IGA,B2B,,natalia.espindola@pipelovers.net,Silvia Bercik
+05/08/2026,silbarcik@gmail.com,000000-0004,Silvia,Bercik,IGA,B2B,,natalia.espindola@pipelovers.net,Silvia Bercik
 05/08/2026,vera.pavan@itau-unibanco.com.br,000000-0005,Vera,Pavan,IGA,B2B,,natalia.espindola@pipelovers.net,Vera Pavan
 05/08/2026,lucas.turco@itau-unibanco.com.br,000000-0006,Lucas,Turco,IGA,B2B,,natalia.espindola@pipelovers.net,Lucas Turco
 05/08/2026,lucas.manzatto@itau-unibanco.com.br,,,,,,,,
@@ -2401,8 +2401,8 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 07/08/2026,comercial5@lalan.com.br,41987125706,Regiane,Lima,Lalan do Brasil,B2B,,joao.fabricio@pipelovers.net,Regiane Lima
 07/08/2026,comercial@lalan.com.br,51994944083,Juliana,Marques,Lalan do Brasil,B2B,,joao.fabricio@pipelovers.net,Juliana  Marques
 07/08/2026,comercial1@lalan.com.br,51994944083,Isabela,Hoffmann,Lalan do Brasil,B2B,,joao.fabricio@pipelovers.net,Isabela Hoffmann
-07/08/2026,aparecido.junior@tecnogera.com.br,65 9623-3282,Aparecido,Junior,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Aparecido Junior
-07/08/2026,helen.favaro@tecnogera.com.br,67 9651-9849,Helen,Favaro,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Helen Favaro
+07/08/2026,aparecido.junior@tecnogera.com.br,65 9623-3282,Aparecido,Junior,Tecnogera,B2B,,thabata.harumi@pipelovers.net,Aparecido Junior
+07/08/2026,helen.favaro@tecnogera.com.br,67 9651-9849,Helen,Favaro,Tecnogera,B2B,,thabata.harumi@pipelovers.net,Helen Favaro
 10/08/2026,rodrigo.dantas@luzagroup.com,000000-0000,Rodrigo,Dantas,Luza Group,B2B,,natalia.espindola@pipelovers.net,Rodrigo Dantas
 10/08/2026,fausto.neves@luzagroup.com,11 91420-6435,Fausto,Neves,Luza Group,B2B,,natalia.espindola@pipelovers.net,Fausto Neves
 06/08/2026,vinicius@pipemnd.com.br,21997970771,Vinicius Chaves,Roza de Faria,Pipe MND,B2B,,thaynara.santos@pipelovers.net,Vinicius Chaves  Roza de Faria
@@ -2418,7 +2418,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 08/08/2026,tarciana@taccess.com.br,8198420146,Tarciana,Katter,t-access,B2B,,joao.gonzalo@pipelovers.net,Tarciana Katter
 09/08/2026,virginia@taccess.com.br,819965-5315,Virgínia,Chalegre,t-access,B2B,,joao.gonzalo@pipelovers.net,Virgínia Chalegre
 10/08/2026,rafael.souza@captei.com.br,(48) 9 8412-0997,Rafael,Souza,Captei,B2B,,joao.fabricio@pipelovers.net,Rafael  Souza
-11/08/2026,pedro.loureiro@bmchyundai.com.br,3196932639,Pedro,Loureiro,BMC Hyundai,B2B,,,Pedro Loureiro
+11/08/2026,pedro.loureiro@bmchyundai.com.br,3196932639,Pedro,Loureiro,BMC Hyundai,B2B,,thabata.harumi@pipelovers.net,Pedro Loureiro
 11/08/2026,andreza@imobiliariainserra.com.br,11 98267-2270,Andreza,Nitão,Inserra imobiliaria,B2B,,mariana.vieira@pipelovers.net,Andreza Nitão
 11/08/2026,valter.diniz@imobiliariainserra.com.br,11 96455-5099,Valter,Diniz,Inserra imobiliaria,B2B,,mariana.vieira@pipelovers.net,Valter Diniz
 11/08/2026,marisa@imobiliariainserra.com.br,11 98355-5937,Marisa,Correia,Inserra imobiliaria,B2B,,mariana.vieira@pipelovers.net,Marisa Correia
@@ -2427,10 +2427,10 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 11/08/2026,isabela.torres@mexx.com.br,81 97120-9472,Isabela,Torres,MEXX,B2B,,mariana.vieira@pipelovers.net,Isabela Torres
 11/08/2026,matheus.moura@mexx.com.br,81 99172-1840,Matheus,Moura,MEXX,B2B,,mariana.vieira@pipelovers.net,Matheus Moura
 11/08/2026,eduarda.silva@mexx.com.br,81 99372-8124,Eduarda,Silva,MEXX,B2B,,mariana.vieira@pipelovers.net,Eduarda Silva
-04/08/2026,sergio.santos@bmchyundai.com.br,87 98815‑7837,Sergio,Santos,BMC Hyundai,B2B,,mariana.vieira@pipelovers.net,Sergio Santos
+04/08/2026,sergio.santos@bmchyundai.com.br,87 98815‑7837,Sergio,Santos,BMC Hyundai,B2B,,thabata.harumi@pipelovers.net,Sergio Santos
 01/06/2026,henrique.dias@justtraveltour.com,(71) 99314-2971,Henrique,Dias,Just Travel,B2B,,mariana.vieira@pipelovers.net,Henrique Dias
-04/08/2026,sergio.santos@bmchyundai.com.br,87 98815‑7837,Sergio,Santos,BMC Hyundai,B2B,,mariana.vieira@pipelovers.net,Sergio Santos
-05/08/2026,sergio.santos@bmchyundai.com.br,87 98815‑7838,Sergio,Santos,BMC Hyundai,B2B,,mariana.vieira@pipelovers.net,Sergio Santos
+04/08/2026,sergio.santos@bmchyundai.com.br,87 98815‑7837,Sergio,Santos,BMC Hyundai,B2B,,thabata.harumi@pipelovers.net,Sergio Santos
+05/08/2026,sergio.santos@bmchyundai.com.br,87 98815‑7838,Sergio,Santos,BMC Hyundai,B2B,,thabata.harumi@pipelovers.net,Sergio Santos
 12/08/2026,jimmy@alphapiscinas.com,34 9221-0283,Jimmy,Erick,Alpha Piscinas,B2B,,natalia.espindola@pipelovers.net,Jimmy Erick
 12/08/2026,vendas@sautesalgados.com.br,17991416584,Ana Paula,Modesto,Sauté Salgados,B2B,,joao.fabricio@pipelovers.net,Ana Paula Modesto
 12/08/2026,comercial@sautesalgados.com.br,17997198208,Gabriel,Nicoleti,Sauté Salgados,B2B,,joao.fabricio@pipelovers.net,Gabriel Nicoleti
@@ -2763,34 +2763,34 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 18/08/2026,felmaceno@hotmail.com,43984838014,Felipe,Maceno,Focaltax,B2B,,thaynara.santos@pipelovers.net,Felipe Maceno
 18/08/2026,rogdourado@hotmail.com,41999718486,Rogério,Dourado,Focaltax,B2B,,thaynara.santos@pipelovers.net,Rogério  Dourado
 18/08/2026,fabricio.lissi@gmail.com,43991908868,Fabricio,Lissi,Focaltax,B2B,,thaynara.santos@pipelovers.net,Fabricio Lissi
-18/08/2027,wilgner@implantebrasil.com.br,(11)955509376,Wilgner,Nascimento Balieiro,IMPLANTEC,B2B,,mariana.vieira@pipelovers.net,Wilgner Nascimento Balieiro
+18/08/2027,wilgner@implantebrasil.com.br,(11)955509376,Wilgner,Nascimento Balieiro,IMPLANTEC,B2B,,thabata.harumi@pipelovers.net,Wilgner Nascimento Balieiro
 18/08/2028,luciana.gomes@implantecbrasil.com.br,(31) 97159-8215,Luciana,Fioratto Silva Gomes,IMPLANTEC,B2B,,mariana.vieira@pipelovers.net,Luciana Fioratto Silva Gomes
 18/08/2029,camila.reis@implantecbrasil.com.br,(31)971415653,Camila,Ferreira dos Reis Correia,IMPLANTEC,B2B,,mariana.vieira@pipelovers.net,Camila Ferreira dos Reis Correia
-18/08/2030,iago.pereira@implantecbrasil.com,(31) 99911-4098,Iago,Santos Pereira,IMPLANTEC,B2B,,mariana.vieira@pipelovers.net,Iago Santos Pereira
-18/08/2031,francini@implantecbrasil.com.br,(44) 999995649,Francini,Porsch,IMPLANTEC,B2B,,mariana.vieira@pipelovers.net,Francini Porsch
+18/08/2030,iago.pereira@implantecbrasil.com,(31) 99911-4098,Iago,Santos Pereira,IMPLANTEC,B2B,,thabata.harumi@pipelovers.net,Iago Santos Pereira
+18/08/2031,francini@implantecbrasil.com.br,(44) 999995649,Francini,Porsch,IMPLANTEC,B2B,,thabata.harumi@pipelovers.net,Francini Porsch
 18/08/2026,Campolinafernanda99@gmail.com,31 7523-5515,Fernanda,Campolina,GOO,B2B,,natalia.espindola@pipelovers.net,Fernanda  Campolina
-06/01/2026,pedro.loureiro@bmchyundai.com.br,3196932639,Pedro,Loureiro,BMC Hyundai,B2B,,mariana.vieira@pipelovers.net,Pedro Loureiro
-06/01/2026,ney@teruya.com.br,11 97770-4224,Valdemir,Ferreira,Teruya Ferramentas,B2B,,mariana.vieira@pipelovers.net,Valdemir Ferreira
-06/01/2026,marcelo.berlatto@teruya.com.br,11 99702-0677,Marcelo,Berlatto,Teruya Ferramentas,B2B,,mariana.vieira@pipelovers.net,Marcelo Berlatto
+06/01/2026,pedro.loureiro@bmchyundai.com.br,3196932639,Pedro,Loureiro,BMC Hyundai,B2B,,thabata.harumi@pipelovers.net,Pedro Loureiro
+06/01/2026,ney@teruya.com.br,11 97770-4224,Valdemir,Ferreira,Teruya Ferramentas,B2B,,thabata.harumi@pipelovers.net,Valdemir Ferreira
+06/01/2026,marcelo.berlatto@teruya.com.br,11 99702-0677,Marcelo,Berlatto,Teruya Ferramentas,B2B,,thabata.harumi@pipelovers.net,Marcelo Berlatto
 06/01/2026,lucas.araujo@teruya.com.br,11 98426-6003,Lucas,Araujo,Teruya Ferramentas,B2B,,mariana.vieira@pipelovers.net,Lucas Araujo
 06/01/2026,marina.andrade@tecnogera.com.br,21 98919-0493,Marina,Andrade,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Marina Andrade
-06/01/2026,susanne.iseri@tecnogera.com.br,11 99771-1297,Susanne,Iseri,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Susanne Iseri
+06/01/2026,susanne.iseri@tecnogera.com.br,11 99771-1297,Susanne,Iseri,Tecnogera,B2B,,thabata.harumi@pipelovers.net,Susanne Iseri
 06/01/2026,amanda.brasil@tecnogera.com.br,11 91112-4832,Amanda,Brasil,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Amanda Brasil
 06/01/2026,daiane.dutra@tecnogera.com.br,11 91265-8762,Daiane,Dutra,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Daiane Dutra
-06/01/2026,yasmin.vieira@tecnogera.com.br,11 93706-4539,Yasmin,Vieira,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Yasmin Vieira
+06/01/2026,yasmin.vieira@tecnogera.com.br,11 93706-4539,Yasmin,Vieira,Tecnogera,B2B,,thabata.harumi@pipelovers.net,Yasmin Vieira
 06/01/2026,amanda.targino@tecnogera.com.br,21 97104-8017,Amanda,Targino,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Amanda Targino
 06/01/2026,greici.araujo@tecnogera.com.br,21 975311338,Greici,Ane,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Greici Ane
-06/01/2026,valdenia.oliveira@tecnogera.com.br,85 981726346,Valdenia,Oliveira,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Valdenia Oliveira
+06/01/2026,valdenia.oliveira@tecnogera.com.br,85 981726346,Valdenia,Oliveira,Tecnogera,B2B,,thabata.harumi@pipelovers.net,Valdenia Oliveira
 06/01/2026,antonio.ferreira@tecnogera.com.br,85 98518 8340,Cilas,Ferreira,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Cilas Ferreira
 06/01/2026,andressa.rios@tecnogera.com.br,8589368163,Andressa,Rios,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Andressa Rios
 06/01/2026,janaina.silva@tecnogera.com.br,41 992556115,JANAINA,SILVA,Tecnogera,B2B,,mariana.vieira@pipelovers.net,JANAINA SILVA
 06/01/2026,nilton.silva@tecnogera.com.br,81995889827,Nilton,Silva,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Nilton Silva
 06/01/2026,jessica.silva@tecnogera.com.br,85981236408,Jessica,Silva,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Jessica Silva
 06/01/2026,bruno.calazans@tecnogera.com.br,81985716533,Bruno,Calazans,Tecnogera,B2B,,mariana.vieira@pipelovers.net,Bruno Calazans
-07/01/2026,paula@paularepresentacoes.com.br,67992074567,Paula,Cristaldo,KX3,B2B,,mariana.vieira@pipelovers.net,Paula Cristaldo
+07/01/2026,paula@paularepresentacoes.com.br,67992074567,Paula,Cristaldo,KX3,B2B,,thabata.harumi@pipelovers.net,Paula Cristaldo
 07/01/2026,caroline.souza@medika.com.br,0,Caroline,de Paula Souza,Medika,B2B,,mariana.vieira@pipelovers.net,Caroline de Paula Souza
-08/01/2026,sergio.santos@bmchyundai.com.br,87 98815‑7837,Sergio,Santos,BMC Hyundai,B2B,,mariana.vieira@pipelovers.net,Sergio Santos
-18/08/2026,sergio.santos@bmchyundai.com.br,87988157837,Sergio,Santos,BMC Hyundai,B2B,,mariana.vieira@pipelovers.net,Sergio Santos
+08/01/2026,sergio.santos@bmchyundai.com.br,87 98815‑7837,Sergio,Santos,BMC Hyundai,B2B,,thabata.harumi@pipelovers.net,Sergio Santos
+18/08/2026,sergio.santos@bmchyundai.com.br,87988157837,Sergio,Santos,BMC Hyundai,B2B,,thabata.harumi@pipelovers.net,Sergio Santos
 19/08/2026,melqui@bluefieldsdev.com,(61) 8209-7681,Melquizede,Macêdo,BlueFields,B2B,,natalia.espindola@pipelovers.net,Melquizede Macêdo
 19/08/2026,moacireventos@yahoo.com.br,(19) 978048082,Moacir,Oliveira dos Santos,BlueFields,B2B,,natalia.espindola@pipelovers.net,Moacir Oliveira dos Santos
 19/08/2026,rafaela@bluefieldsdev.com,(11) 97895-1539,Rafaela,Francisca Milani da Silva,BlueFields,B2B,,natalia.espindola@pipelovers.net,Rafaela  Francisca Milani da Silva
@@ -2933,7 +2933,7 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 20/08/2031,caroline.campos@fleetcor.com.br,,CAROLINE,KISCHEL ALVES,Grupo Sem Parar,B2B,,anne.siqueira@pipelovers.net,CAROLINE KISCHEL ALVES
 20/08/2031,lavinia.lima@img.com.br,,Lavínia,Lima,Imagem Geosistemas,B2B,,mariana.vieira@pipelovers.net,Lavínia Lima
 20/08/2031,julienda.kuhn@img.com.br,,Julienda,Kuhn,Imagem Geosistemas,B2B,,mariana.vieira@pipelovers.net,Julienda Kuhn
-20/08/2031,viviane.almeida@bmchyundai.com.br,,Viviane,Almeida,BMC Hyundai,B2B,,mariana.vieira@pipelovers.net,Viviane Almeida
+20/08/2031,viviane.almeida@bmchyundai.com.br,,Viviane,Almeida,BMC Hyundai,B2B,,thabata.harumi@pipelovers.net,Viviane Almeida
 21/08/2026,nicoly.passos@kamino.com.br,(11) 99189-7266,Nicoly,Passos,Kamino,B2B,,anne.siqueira@pipelovers.net,Nicoly Passos
 21/08/2026,thaianne.nascimento@kamino.com.br,11 93624-1957,Thaianne,Nascimento,Kamino,B2B,,anne.siqueira@pipelovers.net,Thaianne Nascimento
 21/08/2026,sheyla.santos@kamino.com.br,(11) 93535-4741,Sheyla,Santos,Kamino,B2B,,anne.siqueira@pipelovers.net,Sheyla Santos
@@ -3020,19 +3020,19 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 25/08/2026,luana.torres@radadvogados.com.br,11964753504,Luana,Torres Guerra,Rad Advogados,B2B,,natalia.espindola@pipelovers.net,Luana Torres Guerra
 25/08/2026,julia.giansante@radadvogados.com.br,11997449040,Júlia,Marconatto Giansante,Rad Advogados,B2B,,natalia.espindola@pipelovers.net,Júlia Marconatto Giansante
 25/08/2026,jorge.junior@radadvogados.com.br,5511988442327,Jorge,Francisco Júnior,Rad Advogados,B2B,,natalia.espindola@pipelovers.net,Jorge Francisco Júnior
-25/08/2026,bianca.sa@grupopremieralimentos.com.br,(11) 94937-1525,Bianca,Sá,Grupo Premier Alimentos,B2B,,mariana.vieira@pipelovers.net,Bianca Sá
-25/08/2026,gabriela.silva@grupopremieralimentos.com.br,(11) 94192-6054,Gabriela,Silva,Grupo Premier Alimentos,B2B,,mariana.vieira@pipelovers.net,Gabriela Silva
-25/08/2026,mariana.loiola@grupopremieralimentos.com.br,(11) 94747-3986,Mariana,Loiola,Grupo Premier Alimentos,B2B,,mariana.vieira@pipelovers.net,Mariana Loiola
+25/08/2026,bianca.sa@grupopremieralimentos.com.br,(11) 94937-1525,Bianca,Sá,Grupo Premier Alimentos,B2B,,thabata.harumi@pipelovers.net,Bianca Sá
+25/08/2026,gabriela.silva@grupopremieralimentos.com.br,(11) 94192-6054,Gabriela,Silva,Grupo Premier Alimentos,B2B,,thabata.harumi@pipelovers.net,Gabriela Silva
+25/08/2026,mariana.loiola@grupopremieralimentos.com.br,(11) 94747-3986,Mariana,Loiola,Grupo Premier Alimentos,B2B,,thabata.harumi@pipelovers.net,Mariana Loiola
 25/08/2026,renata.silva@grupopremieralimentos.com.br,(11) 94986-9711,Renata,Silva,Grupo Premier Alimentos,B2B,,mariana.vieira@pipelovers.net,Renata Silva
-26/08/2026,raimundo.jsouza@totvs.com.br,61 99239-7688,RAIMUNDO JALES,F DE SOUZA,TOTVS Brasil Central,B2B,,mariana.vieira@pipelovers.net,RAIMUNDO JALES F DE SOUZA
+26/08/2026,raimundo.jsouza@totvs.com.br,61 99239-7688,RAIMUNDO JALES,F DE SOUZA,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,RAIMUNDO JALES F DE SOUZA
 26/08/2026,Mac@climoo.com.br,41 8408-4787,Mac,Barbosa,Climoo,B2B,,mariana.vieira@pipelovers.net,Mac Barbosa
 26/08/2026,Marcelly@climoo.com.br,45 9132-4465,Marcelly,,Climoo,B2B,,mariana.vieira@pipelovers.net,Marcelly
 26/08/2026,joaopedro.nog@hotmail.com,(71)9 9955-4343,João Pedro,Nogueira,Ziviz Brasil,B2B,,thaynara.santos@pipelovers.net,João Pedro Nogueira
 26/08/2026,fontechbrasil@gmail.com,(87)9 8123-4343,Caio,Fonseca,Ziviz Brasil,B2B,,joao.fabricio@pipelovers.net,Caio Fonseca
 26/08/2026,raquel@rntour.com.br,(87)9 8806-8287,Raquel,Nogueira,Ziviz Brasil,B2B,,joao.fabricio@pipelovers.net,Raquel Nogueira
-26/08/2026,julianna.silva@totvs.com.br,62 9925-17647,JULIANNA CRISTINA,COSTA SILVA,TOTVS Brasil Central,B2B,,,JULIANNA CRISTINA COSTA SILVA
-26/08/2026,kelly.cardoso@totvs.com.br,62 99131-3634,KELLY,VAZ CARDOSO,TOTVS Brasil Central,B2B,,,KELLY VAZ CARDOSO
-26/08/2026,raimundo.jsouza@totvs.com.br,61 99239-7688,RAIMUNDO JALES,F DE SOUZA,TOTVS Brasil Central,B2B,,,RAIMUNDO JALES F DE SOUZA
+26/08/2026,julianna.silva@totvs.com.br,62 9925-17647,JULIANNA CRISTINA,COSTA SILVA,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,JULIANNA CRISTINA COSTA SILVA
+26/08/2026,kelly.cardoso@totvs.com.br,62 99131-3634,KELLY,VAZ CARDOSO,TOTVS Brasil Central,B2B,,mariana.vieira@pipelovers.net,KELLY VAZ CARDOSO
+26/08/2026,raimundo.jsouza@totvs.com.br,61 99239-7688,RAIMUNDO JALES,F DE SOUZA,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,RAIMUNDO JALES F DE SOUZA
 13/08/2026,EVELIN.SEIXAS@CORPAY.COM.BR,1191258-3534,EVELIN,POLI BANDEIRA SEIXAS,Grupo Sem Parar,B2B,,anne.siqueira@pipelovers.net,EVELIN POLI BANDEIRA SEIXAS
 13/08/2026,GLEYCE.ALVES@CORPAY.COM.BR,21991336324,GLEYCE,ALVES SILVESTRE,Grupo Sem Parar,B2B,,anne.siqueira@pipelovers.net,GLEYCE ALVES SILVESTRE
 18/08/2026,jackeline.camargo@corpay.com.br,500000000,JACKELINE,MICHELLE CONCEICAO DE CAMARGO,Grupo Sem Parar,B2B,,anne.siqueira@pipelovers.net,JACKELINE MICHELLE CONCEICAO DE CAMARGO
@@ -3049,9 +3049,9 @@ adan.christopher@acspro.com.br",,Adan,Christopher da Silva,ACS Pro,B2B,,mariana.
 27/08/2026,vendas6@simplebrindes.com.br,,Victor,Pretti,Simple Brindes,B2B,,thaynara.santos@pipelovers.net,
 27/08/2026,vendas7@simplebrindes.com.br,,Ellen,Moreira,Simple Brindes,B2B,,thaynara.santos@pipelovers.net,
 13/08/2026,ROSELAINE.ROSA@CORPAY.COM.BR,11965177780,ROSELAINE,APARECIDA DOS REIS ROSA,Grupo Sem Parar,B2B,,anne.siqueira@pipelovers.net,ROSELAINE APARECIDA DOS REIS ROSA
-26/08/2026,julianna.silva@totvs.com.br,62 9925-17647,JULIANNA CRISTINA,COSTA SILVA,TOTVS Brasil Central,B2B,,mariana.vieira@pipelovers.net,JULIANNA CRISTINA COSTA SILVA
+26/08/2026,julianna.silva@totvs.com.br,62 9925-17647,JULIANNA CRISTINA,COSTA SILVA,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,JULIANNA CRISTINA COSTA SILVA
 26/08/2026,kelly.cardoso@totvs.com.br,62 99131-3634,KELLY,VAZ CARDOSO,TOTVS Brasil Central,B2B,,mariana.vieira@pipelovers.net,KELLY VAZ CARDOSO
-26/08/2026,raimundo.jsouza@totvs.com.br,61 99239-7688,RAIMUNDO JALES,F DE SOUZA,TOTVS Brasil Central,B2B,,mariana.vieira@pipelovers.net,RAIMUNDO JALES F DE SOUZA
+26/08/2026,raimundo.jsouza@totvs.com.br,61 99239-7688,RAIMUNDO JALES,F DE SOUZA,TOTVS Brasil Central,B2B,,thabata.harumi@pipelovers.net,RAIMUNDO JALES F DE SOUZA
 28/08/2026,julio@onvox.com.br,11912544457,Julio,Julio,Omni Assessoria,B2B,,natalia.espindola@pipelovers.net,
 28/08/2026,Marcia.fibratelecom@gmail.com,15991238498,Marcia,Marcia,Omni Assessoria,B2B,,natalia.espindola@pipelovers.net,
 31/08/2026,adrielly.nogueira@e-inscricao.com,,Adrielly,Nogueira,E-inscrição,B2B,,anne.siqueira@pipelovers.net,Adrielly
