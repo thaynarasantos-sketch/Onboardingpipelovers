@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/31756758/README.md)
+[README.md](https://github.com/user-attachments/files/31757750/README.md)
 # PipeLovers · Painel de Onboarding CS/CX
 
 Painel estático (HTML/CSS/JS puro, sem servidor) para acompanhar a ativação
@@ -21,6 +21,15 @@ data/cxongoing.csv                → membros em fase ongoing (cumulativo) — b
 ```
 
 **O que mudou nesta versão:**
+- **CX Ongoing agora distingue Reunião de PDI Assíncrono**: `cxongoing.csv`
+  ganhou a coluna "Data PDI assíncrono". Cada membro mostra as duas datas em
+  colunas separadas (Reunião / PDI assíncrono); qualquer uma preenchida já
+  conta para a cobertura de engajamento. Novo analítico: quantidade total de
+  reuniões realizadas vs. PDIs assíncronos realizados, e — entre os
+  ativados — % e quantidade com reunião vs. com PDI assíncrono.
+- Corrigido o desalinhamento visual do card "Cobertura de engajamento" (o
+  texto corrido com números embutidos foi trocado por um layout em grade,
+  igual ao usado nos outros cards do painel).
 - **Nova aba "CX Ongoing"** (4ª aba, novo arquivo `data/cxongoing.csv`):
   mesmo layout da aba CX, mas para membros já em fase ongoing (não é
   cruzada com `empresas.csv` — o agrupamento por empresa é sempre o nome
@@ -181,9 +190,16 @@ navegador sempre busque a versão mais recente do arquivo.
 - Meta: **100 membros ativados** no mês da "Data cadastro Ongoing" (meta
   fixa em quantidade, não em percentual como nas outras abas). O "mês da
   meta" aqui é o próprio mês de "Data cadastro Ongoing", sem deslocamento.
-- *Cobertura de reunião de reengajamento*: % de membros com "Data da
-  reunião de reengajamento Ongoing" preenchida, com conversão em ativação
-  com/sem essa reunião, geral e por empresa (expansível).
+- *Cobertura de engajamento*: % de membros com **reunião de reengajamento**
+  E/OU **PDI assíncrono** realizado (`cxongoing.csv`, colunas "Data da
+  reunião de reengajamento Ongoing" e "Data PDI assíncrono" — qualquer uma
+  das duas preenchida já conta como coberto). Cada membro mostra as duas
+  datas em colunas separadas (Reunião / PDI assíncrono) na lista — as duas
+  contam para a mesma cobertura, mas são ações distintas. O painel também
+  mostra a quantidade total de reuniões realizadas e de PDIs assíncronos
+  realizados separadamente, e — entre os membros ativados — quantos e qual
+  % tiveram reunião vs. quantos e qual % tiveram PDI assíncrono. Cobertura
+  por empresa também disponível (expansível).
 
 ## Filtros disponíveis
 
