@@ -1,66 +1,60 @@
-[README.md](https://github.com/user-attachments/files/31417417/README.md)
+[README.md](https://github.com/user-attachments/files/31756758/README.md)
 # PipeLovers · Painel de Onboarding CS/CX
 
 Painel estático (HTML/CSS/JS puro, sem servidor) para acompanhar a ativação
-mensal das carteiras de **CS** (empresas), **CX** (membros) e a **cobertura
-de onboarding** durante o processo de onboarding, com base no consumo de
+mensal das carteiras de **CS** (empresas), **CX** (membros), a **cobertura
+de onboarding** e o **reengajamento em ongoing**, com base no consumo de
 aulas.
 
 ## Estrutura de arquivos
 
 ```
-index.html            → o painel (3 abas: CS, CX, Onboarding)
+index.html            → o painel (4 abas: CS, CX, Onboarding, CX Ongoing)
 assets/style.css       → estilo (dark/azul PipeLovers)
-assets/data.js          → carrega os 4 CSVs e aplica as regras de negócio
+assets/data.js          → carrega os 5 CSVs e aplica as regras de negócio
 assets/app.js             → filtros, KPIs, tabelas e drill-down
 data/empresas.csv          → carteira de empresas por CS (cumulativo)
 data/membros.csv            → membros cadastrados por CX (cumulativo) — base da meta de CX e de onboarding
 data/usuarios.csv             → usuários das empresas do CS (cumulativo, com duplicados) — base da meta de CS
 data/consumo.csv                → exportação de consumo de aulas (substituída a cada carga)
+data/cxongoing.csv                → membros em fase ongoing (cumulativo) — base da nova aba CX Ongoing
 ```
 
 **O que mudou nesta versão:**
-- **Cobertura de onboarding agora aparece na aba CS**: nova coluna
-  "Cobertura onboarding" na tabela de empresas (% de usuários da empresa que
-  tiveram a reunião de onboarding realizada) e data de onboarding visível na
-  lista de usuários de cada empresa — cruzado com `membros.csv` pelo e-mail
-  (o `usuarios.csv` não tem essa coluna, mas a pessoa é a mesma).
-- **Aba Onboarding reestruturada** com três blocos novos:
-  - **Empresas em onboarding vs. Ongoing**: compara a quantidade de
-    onboardings realizados e a % de cobertura entre membros de empresas que
-    ainda estão na carteira ativa do CS ("em onboarding") e membros de
-    empresas **Ongoing** (fora da carteira atual, já em fase pós-onboarding).
-  - **Cobertura de onboarding por empresa**: tabela agrupada por empresa
-    (com o CS indicado), % de cobertura e % de ativação lado a lado,
-    ordenada pela pior cobertura primeiro. Expanda para ver os membros.
-  - **Segmentação por mês de cadastro**: uma linha por mês de cadastro dos
-    membros, com % de cobertura de onboarding, % de ativação, e o split de
-    quantos dos ativados tiveram onboarding vs. ativaram sem ele. Ao
-    expandir, mostra em qual mês o onboarding de fato aconteceu (para ver
-    atraso entre cadastro e onboarding) e a lista completa de membros
-    daquele mês de cadastro.
-  - Novo filtro **CS** na aba Onboarding (além de CX, empresa, data de
-    cadastro e com/sem onboarding).
-  - Mantidos: KPIs gerais de cobertura/conversão, bloco "entre os
-    ativados", e lista completa de membros filtrados.
-- Coluna "Onboarding" nas listas de membros da aba CX (mantida).
-- Cruzamento de churn CS↔CX (mantido): usuário com mesmo e-mail de um membro
-  em churn no CX também vira churn na aba CS, fora do cálculo de ativação da
-  empresa.
+- **Nova aba "CX Ongoing"** (4ª aba, novo arquivo `data/cxongoing.csv`):
+  mesmo layout da aba CX, mas para membros já em fase ongoing (não é
+  cruzada com `empresas.csv` — o agrupamento por empresa é sempre o nome
+  como está em `cxongoing.csv`). Detalhes na seção de regras abaixo.
+- **Cobertura de onboarding na aba CS**: coluna "Cobertura onboarding" na
+  tabela de empresas e data de onboarding visível na lista de usuários de
+  cada empresa — cruzado com `membros.csv` pelo e-mail. Para usuários **PF**
+  (sem CX), a data de onboarding é a da própria empresa (`empresas.csv`).
+- **Aba Onboarding** com: comparação "Empresas em onboarding vs. Ongoing"
+  (quantidade de onboardings realizados e % de cobertura em cada grupo),
+  cobertura de onboarding por empresa (expansível), segmentação por mês de
+  cadastro (com distribuição de em qual mês o onboarding aconteceu e split
+  de ativados com/sem onboarding), e filtro por CS.
+- Coluna "Onboarding" nas listas de membros da aba CX.
+- Cruzamento de churn CS↔CX: usuário com mesmo e-mail de um membro em churn
+  no CX também vira churn na aba CS, fora do cálculo de ativação da empresa.
 - Suporte a coluna "Matrícula" em `consumo.csv` como identificador de aula
-  mais estável (mantido, opcional — funciona igual sem ela).
+  mais estável (opcional — funciona igual sem ela).
 
 ## Como publicar no GitHub Pages
 
 > ⚠️ **Importante:** este pacote inclui `index.html`, `assets/style.css`,
-> `assets/data.js`, `assets/app.js` **e** os 4 CSVs. Suba **todos juntos** e
-> dê um Ctrl+Shift+R depois — subir só os CSVs sem atualizar os `.js` (ou
-> vice-versa) já causou bugs de dados incorretos em rodadas anteriores.
+> `assets/data.js`, `assets/app.js` **e** os 5 CSVs (o novo é
+> `data/cxongoing.csv`). Suba **todos juntos** e dê um Ctrl+Shift+R depois —
+> subir só os CSVs sem atualizar os `.js` (ou vice-versa) já causou bugs de
+> dados incorretos em rodadas anteriores.
 
 1. Suba **todos** estes arquivos, mantendo a mesma estrutura de pastas, no
    repositório `thaynarasantos-sketch/Onboardingpipelovers` (branch `main`).
+   O arquivo `data/cxongoing.csv` é novo — crie-o na pasta `data/` se ainda
+   não existir lá.
 2. No repositório, vá em **Settings → Pages** → em "Source" selecione a
-   branch `main` e a pasta `/ (root)` → **Save**.
+   branch `main` e a pasta `/ (root)` → **Save** (pule este passo se o Pages
+   já estiver configurado de uma rodada anterior).
 3. Em alguns minutos o GitHub mostra o link público, algo como:
    `https://thaynarasantos-sketch.github.io/Onboardingpipelovers/`
 4. Abra o link — os dados são lidos automaticamente a partir dos CSVs na
@@ -100,10 +94,13 @@ navegador sempre busque a versão mais recente do arquivo.
   duplicados sem problema: o painel mantém apenas um registro por e-mail
   automaticamente (priorizando a linha com "Proprietário do Onboarding"
   preenchido). Atualize sempre que houver troca de usuários nas empresas.
+- **`data/cxongoing.csv`** — **cumulativo**: acrescente novos membros que
+  entraram em fase ongoing ao final do mesmo arquivo.
 - O painel calcula automaticamente o "mês da meta" de cada empresa/membro a
   partir da data de fechamento/cadastro (mês + 2 — ex.: fechamento em junho
   → meta de agosto), então o filtro de mês se atualiza sozinho conforme os
-  dados crescem.
+  dados crescem. **Exceção**: na aba CX Ongoing, o mês da meta é o próprio
+  mês da "Data cadastro Ongoing" (sem deslocamento).
 - Linhas de `consumo.csv` cujo e-mail não corresponde a nenhum membro/usuário
   cadastrado são ignoradas automaticamente, como pedido.
 - Se algum campo do CSV tiver vírgula no texto (ex. nome de empresa com
@@ -157,6 +154,9 @@ navegador sempre busque a versão mais recente do arquivo.
 - *Conversão com/sem onboarding* = % de ativação (3 aulas) dentro de cada um
   dos dois grupos (com e sem onboarding realizado) — mede o impacto da
   reunião na ativação.
+- *Empresas em onboarding vs. Ongoing*: compara a quantidade de onboardings
+  realizados e a % de cobertura entre membros de empresas ainda na carteira
+  ativa do CS e membros de empresas Ongoing.
 - *Cobertura por empresa*: agrupa os membros pela empresa (mesma lógica de
   "Conta Nome" usada na aba CX) e mostra cobertura + ativação lado a lado,
   com o CS responsável.
@@ -166,6 +166,24 @@ navegador sempre busque a versão mais recente do arquivo.
   onboarding de fato aconteceu.
 - Bloco "Entre os ativados": dos membros que já bateram a meta (3 aulas),
   quantos tiveram onboarding e quantos ativaram sem passar por ele.
+
+**CX Ongoing (nova aba) — base: `cxongoing.csv` + `consumo.csv`**
+- Aba independente das demais: o agrupamento por empresa usa sempre o nome
+  exatamente como está em `cxongoing.csv` (**não** é cruzado com
+  `empresas.csv`).
+- *Ativado*: **1 aula concluída** (diferente das outras abas, que exigem
+  3) — e só conta consumo ocorrido **a partir da "Data cadastro Ongoing"**
+  do membro (aulas anteriores a essa data são ignoradas no cálculo).
+- *Alerta / Desengajado / Em andamento*: mesmas regras das outras abas
+  (sem registro = alerta; sem acesso há mais de 30 dias = desengajado).
+- *Churn*: "Proprietário do Negócio" = Thaynara Santos **e** "Analista
+  Ongoing" = Thabata Harumi.
+- Meta: **100 membros ativados** no mês da "Data cadastro Ongoing" (meta
+  fixa em quantidade, não em percentual como nas outras abas). O "mês da
+  meta" aqui é o próprio mês de "Data cadastro Ongoing", sem deslocamento.
+- *Cobertura de reunião de reengajamento*: % de membros com "Data da
+  reunião de reengajamento Ongoing" preenchida, com conversão em ativação
+  com/sem essa reunião, geral e por empresa (expansível).
 
 ## Filtros disponíveis
 
@@ -177,10 +195,13 @@ navegador sempre busque a versão mais recente do arquivo.
   membro.
 - **Aba Onboarding**: Analista de Onboarding (CX), CS, data de cadastro do
   membro (intervalo), com/sem onboarding realizado, nome da empresa.
+- **Aba CX Ongoing**: CX (Analista Ongoing), mês da meta, status, data de
+  cadastro ongoing (intervalo), nome da empresa, e-mail do membro.
 
 Clique em qualquer empresa/mês para ver os usuários/membros vinculados
-(responsável, aulas concluídas, data de onboarding, último acesso); clique
-em um usuário/membro para ver a lista de aulas assistidas com as datas.
+(responsável, aulas concluídas, data de onboarding/reengajamento, último
+acesso); clique em um usuário/membro para ver a lista de aulas assistidas
+com as datas.
 
 ## Observação sobre nomes de CX/responsáveis
 
@@ -200,6 +221,8 @@ Se `thabata.harumi@`, `barbara.cabrini@`, `joao.gonzalo@` ou
 CS responsáveis diretos por alguns usuários), me avise com o nome exato de
 cada um que eu adiciono na lista confirmada em `assets/data.js`
 (constante `RESPONSAVEL_EMAIL_MAP`) — por ora eles ficam de fora do cálculo.
+Note que "Thabata Harumi" já aparece corretamente como analista na nova aba
+CX Ongoing (vinda diretamente do nome em `cxongoing.csv`, não do e-mail).
 
 ## Ponto em aberto: formato de "Matrícula"
 
