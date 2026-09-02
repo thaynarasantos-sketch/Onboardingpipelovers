@@ -31,6 +31,7 @@
   <button class="tab-btn active" data-tab="cs">CS <span class="tag">Empresas</span></button>
   <button class="tab-btn" data-tab="cx">CX <span class="tag">Membros</span></button>
   <button class="tab-btn" data-tab="onboarding">Onboarding <span class="tag">Cobertura</span></button>
+  <button class="tab-btn" data-tab="cxongoing">CX Ongoing <span class="tag">Reengajamento</span></button>
 </div>
 
 <!-- ============================= ABA CS ============================= -->
@@ -152,6 +153,46 @@
     <b>mês de cadastro</b> mostra, para cada leva de membros cadastrados, quantos tiveram onboarding (e em qual mês
     esse onboarding aconteceu), a % de ativação do grupo, e quantos dos ativados tiveram onboarding vs. ativaram
     sem passar por ele. Clique em qualquer linha para ver a lista de membros por trás do número.
+  </div>
+</div>
+
+<!-- ========================= ABA CX ONGOING ========================== -->
+<div class="view" id="view-cxongoing">
+
+  <div class="kpi-row" id="cxo-kpis">
+    <div class="state-box"><div class="spinner"></div><div class="big">Calculando indicadores…</div></div>
+  </div>
+
+  <div class="filters">
+    <div class="f-group"><label>CX (Analista Ongoing)</label><div id="cxo-f-analista"></div></div>
+    <div class="f-group"><label>Mês da meta</label><div id="cxo-f-meta"></div></div>
+    <div class="f-group"><label>Status</label><div id="cxo-f-status"></div></div>
+    <div class="f-group"><label>Cadastro Ongoing de</label><input type="date" class="f-input" id="cxo-f-cadfrom"></div>
+    <div class="f-group"><label>Cadastro Ongoing até</label><input type="date" class="f-input" id="cxo-f-cadto"></div>
+    <div class="f-group grow"><label>Empresa</label><input type="text" class="f-input" id="cxo-f-empresa" placeholder="Buscar por empresa…"></div>
+    <div class="f-group grow"><label>E-mail do membro</label><input type="text" class="f-input" id="cxo-f-email" placeholder="Buscar por e-mail…"></div>
+    <button class="btn-clear" id="cxo-f-clear">Limpar filtros</button>
+    <div class="result-count" id="cxo-result-count"></div>
+  </div>
+
+  <div class="section-title"><h2>Membros agrupados por empresa (Ongoing)</h2></div>
+  <div class="table-wrap" id="cxo-table-wrap">
+    <div class="state-box"><div class="spinner"></div><div class="big">Carregando membros…</div></div>
+  </div>
+
+  <div class="section-title"><h2>Cobertura de reunião de reengajamento por empresa</h2></div>
+  <div class="table-wrap" id="cxo-empresa-wrap">
+    <div class="state-box"><div class="spinner"></div><div class="big">Carregando…</div></div>
+  </div>
+
+  <div class="footer-note">
+    Base: <code>data/cxongoing.csv</code> + <code>data/consumo.csv</code> (agrupado por e-mail, contando só as aulas
+    consumidas a partir da "Data cadastro Ongoing" de cada membro). Membro <b>ativado</b> aqui = 1 aula concluída
+    (diferente das outras abas, que exigem 3). <b>Meta</b> = 100 membros ativados no mês da "Data cadastro Ongoing".
+    <b>Churn</b> = Proprietário do Negócio é Thaynara Santos e Analista Ongoing é Thabata Harumi. <b>Cobertura de
+    reengajamento</b> = % de membros com "Data da reunião de reengajamento Ongoing" preenchida. Esta aba não é
+    cruzada com <code>empresas.csv</code>: o agrupamento por empresa é sempre o nome exatamente como está em
+    <code>cxongoing.csv</code>.
   </div>
 </div>
 
