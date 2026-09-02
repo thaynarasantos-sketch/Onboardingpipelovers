@@ -951,8 +951,10 @@ function renderCxoKpis(list) {
   const ativadosList = list.filter((m) => m.status === "ativado");
   const ativadosComReuniao = ativadosList.filter((m) => m.temReuniao).length;
   const ativadosComPdi = ativadosList.filter((m) => m.temPdi).length;
+  const ativadosSemNenhum = ativadosList.filter((m) => !m.temReuniao && !m.temPdi).length;
   const pctAtivadosComReuniao = ativados ? Math.round((ativadosComReuniao / ativados) * 1000) / 10 : 0;
   const pctAtivadosComPdi = ativados ? Math.round((ativadosComPdi / ativados) * 1000) / 10 : 0;
+  const pctAtivadosSemNenhum = ativados ? Math.round((ativadosSemNenhum / ativados) * 1000) / 10 : 0;
 
   box.innerHTML = `
     <div class="card kpi-goal">
@@ -992,9 +994,10 @@ function renderCxoKpis(list) {
     </div>
     <div class="card kpi-simple">
       <div class="lbl">Entre os ativados (${ativados})</div>
-      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr">
+      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr 1fr">
         <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${fmtPct(pctAtivadosComReuniao)}</span><span class="bd-label">Com reunião (${ativadosComReuniao})</span></div>
         <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${fmtPct(pctAtivadosComPdi)}</span><span class="bd-label">Com PDI assíncrono (${ativadosComPdi})</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--warn)">${fmtPct(pctAtivadosSemNenhum)}</span><span class="bd-label">Sem reunião e sem PDI (${ativadosSemNenhum})</span></div>
       </div>
     </div>
   `;
