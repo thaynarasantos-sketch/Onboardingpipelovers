@@ -511,6 +511,30 @@ function memberRow(m, tab) {
     <div class="courses-panel" id="courses-${tab}-${m.id}" style="display:none">${renderCourses(m)}</div>`;
 }
 
+// Linha de membro específica para CX Ongoing: mostra "Reunião" e "PDI Assíncrono"
+// como duas colunas separadas (em vez de uma única coluna "Onboarding").
+function memberRowOngoing(m, tab) {
+  const st = STATUS_META[m.status];
+  const reuniaoCell = m.temReuniao
+    ? `<span class="badge ok"><span class="dot"></span>${fmtDate(m.dataReuniao)}</span>`
+    : `<span class="badge bad"><span class="dot"></span>Não realizada</span>`;
+  const pdiCell = m.temPdi
+    ? `<span class="badge ok"><span class="dot"></span>${fmtDate(m.dataPdi)}</span>`
+    : `<span class="badge bad"><span class="dot"></span>Não realizado</span>`;
+  return `
+    <div class="member-row member-row-ongoing" data-mem="${m.id}" data-tab="${tab}">
+      <div class="mm-name">${escapeHtml(m.nome)}</div>
+      <div class="mm-email">${escapeHtml(m.email)}</div>
+      <div class="mm-cs">${escapeHtml(m.cx || "—")}</div>
+      <div><span class="badge ${st.cls}"><span class="dot"></span>${st.label}</span></div>
+      <div class="mm-onb">${reuniaoCell}</div>
+      <div class="mm-onb">${pdiCell}</div>
+      <div>${m.qtdAulasConcluidas} / ${AULAS_PARA_ATIVAR_ONGOING}</div>
+      <div class="mm-last">${m.ultimoAcesso ? fmtDate(m.ultimoAcesso) : "—"}</div>
+    </div>
+    <div class="courses-panel" id="courses-${tab}-${m.id}" style="display:none">${renderCourses(m)}</div>`;
+}
+
 function renderCourses(m) {
   if (!m.consumo.length) return `<div class="no-courses">Nenhum registro de consumo encontrado para este e-mail.</div>`;
   return m.consumo.slice().reverse().map((c) => `
@@ -919,13 +943,16 @@ function renderCxoKpis(list) {
   const churn = list.filter((m) => m.status === "churn").length;
   const pctMeta = Math.min(100, Math.round((ativados / CX_ONGOING_META_TARGET) * 1000) / 10);
 
-  const comReeng = list.filter((m) => m.temOnboarding);
-  const semReeng = list.filter((m) => !m.temOnboarding);
-  const pctCobertura = total ? Math.round((comReeng.length / total) * 1000) / 10 : 0;
-  const comReengAtivados = comReeng.filter((m) => m.status === "ativado").length;
-  const semReengAtivados = semReeng.filter((m) => m.status === "ativado").length;
-  const pctAtivadosCom = ativados ? Math.round((comReengAtivados / ativados) * 1000) / 10 : 0;
-  const pctAtivadosSem = ativados ? Math.round((semReengAtivados / ativados) * 1000) / 10 : 0;
+  const comEngajamento = list.filter((m) => m.temEngajamento);
+  const pctCobertura = total ? Math.round((comEngajamento.length / total) * 1000) / 10 : 0;
+  const qtdReunioes = list.filter((m) => m.temReuniao).length;
+  const qtdPdi = list.filter((m) => m.temPdi).length;
+
+  const ativadosList = list.filter((m) => m.status === "ativado");
+  const ativadosComReuniao = ativadosList.filter((m) => m.temReuniao).length;
+  const ativadosComPdi = ativadosList.filter((m) => m.temPdi).length;
+  const pctAtivadosComReuniao = ativados ? Math.round((ativadosComReuniao / ativados) * 1000) / 10 : 0;
+  const pctAtivadosComPdi = ativados ? Math.round((ativadosComPdi / ativados) * 1000) / 10 : 0;
 
   box.innerHTML = `
     <div class="card kpi-goal">
@@ -955,16 +982,19 @@ function renderCxoKpis(list) {
       ])}
     </div>
     <div class="card kpi-simple">
-      <div class="lbl">Cobertura de reunião de reengajamento</div>
+      <div class="lbl">Cobertura de engajamento (reunião ou PDI)</div>
       <div class="val" style="color:var(--blue-soft)">${fmtPct(pctCobertura)}</div>
-      <div class="sub"><b>${comReeng.length}</b> de <b>${total}</b> membros tiveram a reunião de reengajamento realizada</div>
-      <div class="sub" style="margin-top:6px"><b>${fmtPct(comReeng.length ? comReengAtivados/comReeng.length*100 : 0)}</b> conversão com reengajamento · <b>${fmtPct(semReeng.length ? semReengAtivados/semReeng.length*100 : 0)}</b> sem reengajamento</div>
+      <div class="sub">${comEngajamento.length} de ${total} membros tiveram reunião ou PDI assíncrono</div>
+      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr">
+        <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${qtdReunioes}</span><span class="bd-label">Reuniões realizadas</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${qtdPdi}</span><span class="bd-label">PDI assíncrono realizados</span></div>
+      </div>
     </div>
     <div class="card kpi-simple">
       <div class="lbl">Entre os ativados (${ativados})</div>
       <div class="breakdown-grid" style="grid-template-columns:1fr 1fr">
-        <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${fmtPct(pctAtivadosCom)}</span><span class="bd-label">Com reengajamento (${comReengAtivados})</span></div>
-        <div class="bd-item"><span class="bd-num" style="color:var(--warn)">${fmtPct(pctAtivadosSem)}</span><span class="bd-label">Sem reengajamento (${semReengAtivados})</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${fmtPct(pctAtivadosComReuniao)}</span><span class="bd-label">Com reunião (${ativadosComReuniao})</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${fmtPct(pctAtivadosComPdi)}</span><span class="bd-label">Com PDI assíncrono (${ativadosComPdi})</span></div>
       </div>
     </div>
   `;
@@ -1006,9 +1036,9 @@ function renderCxoTable(list) {
       <tr class="row-detail${expanded ? " open" : ""}" data-emp-detail="${id}">
         <td colspan="4" class="detail-wrap">
           <div class="detail-title">Membros (${members.length})</div>
-          <div class="member-grid">
-            <div class="member-grid-head"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Reengajamento</div><div>Aulas</div><div>Últ. acesso</div></div>
-            ${members.map((m) => memberRow(m, "cxongoing")).join("")}
+          <div class="member-grid member-grid-ongoing">
+            <div class="member-grid-head member-grid-head-ongoing"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Reunião</div><div>PDI assíncrono</div><div>Aulas</div><div>Últ. acesso</div></div>
+            ${members.map((m) => memberRowOngoing(m, "cxongoing")).join("")}
           </div>
         </td>
       </tr>`;
@@ -1036,15 +1066,15 @@ function renderCxoEmpresaCoverage(list) {
     groups.get(key).members.push(m);
   }
   const groupArr = [...groups.values()].sort((a, b) => {
-    const pctA = a.members.filter((m) => m.temOnboarding).length / a.members.length;
-    const pctB = b.members.filter((m) => m.temOnboarding).length / b.members.length;
+    const pctA = a.members.filter((m) => m.temEngajamento).length / a.members.length;
+    const pctB = b.members.filter((m) => m.temEngajamento).length / b.members.length;
     return pctA - pctB; // pior cobertura primeiro
   });
 
   const rows = groupArr.map(({ label: empresaNome, members }) => {
     const id = `cxocov_${slug(empresaNome)}`;
-    const comReeng = members.filter((m) => m.temOnboarding).length;
-    const pctCobertura = Math.round((comReeng / members.length) * 1000) / 10;
+    const comEng = members.filter((m) => m.temEngajamento).length;
+    const pctCobertura = Math.round((comEng / members.length) * 1000) / 10;
     const ativados = members.filter((m) => m.status === "ativado").length;
     const pctAtivacao = Math.round((ativados / members.length) * 1000) / 10;
     const expanded = state.cxongoing.expandedEmp.has(id);
@@ -1055,7 +1085,7 @@ function renderCxoEmpresaCoverage(list) {
         <td>${escapeHtml(uniqueSorted(members.map((m) => m.cx)).join(", ") || "—")}</td>
         <td>
           <div class="mini-progress"><span style="width:${Math.min(100, pctCobertura)}%;background:linear-gradient(90deg,var(--blue-soft),var(--ice))"></span></div>
-          <div class="pct-txt">${fmtPct(pctCobertura)} · ${comReeng}/${members.length}</div>
+          <div class="pct-txt">${fmtPct(pctCobertura)} · ${comEng}/${members.length}</div>
         </td>
         <td>
           <div class="mini-progress"><span style="width:${Math.min(100, pctAtivacao)}%"></span></div>
@@ -1065,9 +1095,9 @@ function renderCxoEmpresaCoverage(list) {
       <tr class="row-detail${expanded ? " open" : ""}" data-emp-detail="${id}">
         <td colspan="4" class="detail-wrap">
           <div class="detail-title">Membros (${members.length})</div>
-          <div class="member-grid">
-            <div class="member-grid-head"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Reengajamento</div><div>Aulas</div><div>Últ. acesso</div></div>
-            ${members.map((m) => memberRow(m, "cxongoing-cov")).join("")}
+          <div class="member-grid member-grid-ongoing">
+            <div class="member-grid-head member-grid-head-ongoing"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Reunião</div><div>PDI assíncrono</div><div>Aulas</div><div>Últ. acesso</div></div>
+            ${members.map((m) => memberRowOngoing(m, "cxongoing-cov")).join("")}
           </div>
         </td>
       </tr>`;
@@ -1075,12 +1105,13 @@ function renderCxoEmpresaCoverage(list) {
 
   wrap.innerHTML = `
     <table>
-      <thead><tr><th>Empresa</th><th>CX</th><th>Cobertura reengajamento</th><th>Ativação</th></tr></thead>
+      <thead><tr><th>Empresa</th><th>CX</th><th>Cobertura engajamento</th><th>Ativação</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>`;
 
   wireExpandableTable(wrap, "cxongoing-cov");
 }
+
 
 /* --------------------------- shared expand wiring ------------------------ */
 
