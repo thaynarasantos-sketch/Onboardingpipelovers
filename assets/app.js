@@ -40,6 +40,11 @@ const state = {
     expandedMonth: new Set(),
     expandedMem: new Set(),
   },
+  cxongoing: {
+    f: { analistas: new Set(), meta: new Set(), status: new Set(), cadFrom: "", cadTo: "", empresa: "", email: "" },
+    expandedEmp: new Set(),
+    expandedMem: new Set(),
+  },
 };
 
 /* --------------------------- boot --------------------------------------- */
@@ -75,6 +80,7 @@ async function loadAndRender(first) {
     renderCS();
     renderCX();
     renderOnboarding();
+    renderCXOngoing();
     setStatusPill("ok");
   } catch (err) {
     console.error(err);
@@ -116,6 +122,7 @@ function initFiltersOnce() {
   const csAnalistas = uniqueSorted(MODEL.empresas.map((e) => e.cs));
   const cxAnalistas = uniqueSorted(MODEL.membros.map((m) => m.cx));
   const responsaveis = uniqueSorted(MODEL.empresas.flatMap((e) => e.responsaveisList));
+  const cxoAnalistas = uniqueSorted(MODEL.membrosOngoing.map((m) => m.cx));
 
   buildMultiSelect("cs-f-analista", state.cs.f.analistas, () => renderCS(), itemsFromLabels(csAnalistas));
   buildMultiSelect("cs-f-meta", state.cs.f.meta, () => renderCS(), itemsFromMonths(MODEL.metaMonths));
@@ -134,6 +141,10 @@ function initFiltersOnce() {
     { label: "Sem onboarding", value: "sem" },
   ]);
 
+  buildMultiSelect("cxo-f-analista", state.cxongoing.f.analistas, () => renderCXOngoing(), itemsFromLabels(cxoAnalistas));
+  buildMultiSelect("cxo-f-meta", state.cxongoing.f.meta, () => renderCXOngoing(), itemsFromMonths(MODEL.ongoingMetaMonths));
+  buildMultiSelect("cxo-f-status", state.cxongoing.f.status, () => renderCXOngoing(), itemsFromKeyed(CX_STATUS_ORDER, STATUS_META));
+
   document.getElementById("cs-f-fechfrom").addEventListener("change", (e) => { state.cs.f.fechFrom = e.target.value; renderCS(); });
   document.getElementById("cs-f-fechto").addEventListener("change", (e) => { state.cs.f.fechTo = e.target.value; renderCS(); });
   document.getElementById("cs-f-hofrom").addEventListener("change", (e) => { state.cs.f.hoFrom = e.target.value; renderCS(); });
@@ -149,12 +160,19 @@ function initFiltersOnce() {
   document.getElementById("onb-f-cadto").addEventListener("change", (e) => { state.onboarding.f.cadTo = e.target.value; renderOnboarding(); });
   document.getElementById("onb-f-empresa").addEventListener("input", (e) => { state.onboarding.f.empresa = e.target.value; renderOnboarding(); });
   document.getElementById("onb-f-clear").addEventListener("click", () => clearFilters("onboarding"));
+
+  document.getElementById("cxo-f-cadfrom").addEventListener("change", (e) => { state.cxongoing.f.cadFrom = e.target.value; renderCXOngoing(); });
+  document.getElementById("cxo-f-cadto").addEventListener("change", (e) => { state.cxongoing.f.cadTo = e.target.value; renderCXOngoing(); });
+  document.getElementById("cxo-f-empresa").addEventListener("input", (e) => { state.cxongoing.f.empresa = e.target.value; renderCXOngoing(); });
+  document.getElementById("cxo-f-email").addEventListener("input", (e) => { state.cxongoing.f.email = e.target.value; renderCXOngoing(); });
+  document.getElementById("cxo-f-clear").addEventListener("click", () => clearFilters("cxongoing"));
 }
 
 function refreshMetaMonthOptions() {
   // reconstrói opções de mês de meta caso novos meses tenham surgido em um novo CSV
   buildMultiSelect("cs-f-meta", state.cs.f.meta, () => renderCS(), itemsFromMonths(MODEL.metaMonths));
   buildMultiSelect("cx-f-meta", state.cx.f.meta, () => renderCX(), itemsFromMonths(MODEL.metaMonths));
+  buildMultiSelect("cxo-f-meta", state.cxongoing.f.meta, () => renderCXOngoing(), itemsFromMonths(MODEL.ongoingMetaMonths));
 }
 
 function clearFilters(tab) {
@@ -304,6 +322,19 @@ function filterMembrosOnboarding() {
 
 function monthKeyOf(date) {
   return date ? `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}` : null;
+}
+
+function filterMembrosCXOngoing() {
+  const f = state.cxongoing.f;
+  return MODEL.membrosOngoing.filter((m) => {
+    if (f.analistas.size && !f.analistas.has(m.cx)) return false;
+    if (f.meta.size && !f.meta.has(m.metaKey)) return false;
+    if (f.status.size && !f.status.has(m.status)) return false;
+    if (!inRange(m.dataCadastro, f.cadFrom, f.cadTo)) return false;
+    if (f.empresa && !norm(m.contaNome).includes(norm(f.empresa))) return false;
+    if (f.email && !norm(m.email).includes(norm(f.email))) return false;
+    return true;
+  });
 }
 
 /* --------------------------- gauge / kpis -------------------------------- */
@@ -868,6 +899,189 @@ function renderOnbTable(list) {
     </table>`;
 }
 
+/* ============================ CX ONGOING TAB ============================= */
+
+function renderCXOngoing() {
+  if (!MODEL) return;
+  const list = filterMembrosCXOngoing();
+  renderCxoKpis(list);
+  renderCxoTable(list);
+  renderCxoEmpresaCoverage(list);
+}
+
+function renderCxoKpis(list) {
+  const box = document.getElementById("cxo-kpis");
+  const total = list.length;
+  const ativados = list.filter((m) => m.status === "ativado").length;
+  const alerta = list.filter((m) => m.status === "alerta").length;
+  const deseng = list.filter((m) => m.status === "desengajado").length;
+  const andamento = list.filter((m) => m.status === "em_andamento").length;
+  const churn = list.filter((m) => m.status === "churn").length;
+  const pctMeta = Math.min(100, Math.round((ativados / CX_ONGOING_META_TARGET) * 1000) / 10);
+
+  const comReeng = list.filter((m) => m.temOnboarding);
+  const semReeng = list.filter((m) => !m.temOnboarding);
+  const pctCobertura = total ? Math.round((comReeng.length / total) * 1000) / 10 : 0;
+  const comReengAtivados = comReeng.filter((m) => m.status === "ativado").length;
+  const semReengAtivados = semReeng.filter((m) => m.status === "ativado").length;
+  const pctAtivadosCom = ativados ? Math.round((comReengAtivados / ativados) * 1000) / 10 : 0;
+  const pctAtivadosSem = ativados ? Math.round((semReengAtivados / ativados) * 1000) / 10 : 0;
+
+  box.innerHTML = `
+    <div class="card kpi-goal">
+      ${gaugeSVG(pctMeta, pctColor(pctMeta, 100))}
+      <div class="kpi-goal-text">
+        <div class="lbl">Atingimento da meta</div>
+        <div class="val">${ativados} / ${CX_ONGOING_META_TARGET}</div>
+        <div class="sub">Meta: <b>${CX_ONGOING_META_TARGET}</b> membros ativados (1 aula) no mês da data de cadastro ongoing</div>
+      </div>
+    </div>
+    <div class="card kpi-simple">
+      <div class="lbl">Membros na carteira</div>
+      <div class="val">${total}</div>
+      <div class="breakdown-grid">
+        <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${ativados}</span><span class="bd-label">Ativados</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${andamento}</span><span class="bd-label">Em andamento</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--warn)">${deseng}</span><span class="bd-label">Desengajados</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--bad)">${alerta}</span><span class="bd-label">Alerta</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--churn)">${churn}</span><span class="bd-label">Churn</span></div>
+      </div>
+      ${stackBar([
+        { pct: total ? ativados/total*100 : 0, color: "var(--ok)" },
+        { pct: total ? andamento/total*100 : 0, color: "var(--blue-soft)" },
+        { pct: total ? deseng/total*100 : 0, color: "var(--warn)" },
+        { pct: total ? alerta/total*100 : 0, color: "var(--bad)" },
+        { pct: total ? churn/total*100 : 0, color: "var(--churn)" },
+      ])}
+    </div>
+    <div class="card kpi-simple">
+      <div class="lbl">Cobertura de reunião de reengajamento</div>
+      <div class="val" style="color:var(--blue-soft)">${fmtPct(pctCobertura)}</div>
+      <div class="sub"><b>${comReeng.length}</b> de <b>${total}</b> membros tiveram a reunião de reengajamento realizada</div>
+      <div class="sub" style="margin-top:6px"><b>${fmtPct(comReeng.length ? comReengAtivados/comReeng.length*100 : 0)}</b> conversão com reengajamento · <b>${fmtPct(semReeng.length ? semReengAtivados/semReeng.length*100 : 0)}</b> sem reengajamento</div>
+    </div>
+    <div class="card kpi-simple">
+      <div class="lbl">Entre os ativados (${ativados})</div>
+      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr">
+        <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${fmtPct(pctAtivadosCom)}</span><span class="bd-label">Com reengajamento (${comReengAtivados})</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--warn)">${fmtPct(pctAtivadosSem)}</span><span class="bd-label">Sem reengajamento (${semReengAtivados})</span></div>
+      </div>
+    </div>
+  `;
+}
+
+function renderCxoTable(list) {
+  const wrap = document.getElementById("cxo-table-wrap");
+  document.getElementById("cxo-result-count").textContent = `${list.length} membro${list.length !== 1 ? "s" : ""}`;
+
+  if (!list.length) {
+    wrap.innerHTML = emptyState("Nenhum membro encontrado com os filtros atuais.");
+    return;
+  }
+
+  const groups = new Map();
+  for (const m of list) {
+    const key = norm(m.contaNome) || "—";
+    if (!groups.has(key)) groups.set(key, { label: m.contaNome || "—", members: [] });
+    groups.get(key).members.push(m);
+  }
+  const groupArr = [...groups.values()].sort((a, b) => b.members.length - a.members.length);
+
+  const rows = groupArr.map(({ label: empresaNome, members }) => {
+    const id = `cxoemp_${slug(empresaNome)}`;
+    const ativados = members.filter((m) => m.status === "ativado").length;
+    const pct = Math.round((ativados / members.length) * 1000) / 10;
+    const expanded = state.cxongoing.expandedEmp.has(id);
+    return `
+      <tr class="row-main${expanded ? " expanded" : ""}" data-emp="${id}">
+        <td><div class="cell-main">${chevSvg()}<div><div class="name-strong">${escapeHtml(empresaNome)}</div>
+          <div class="name-sub">${members.length} membro${members.length !== 1 ? "s" : ""}</div></div></div></td>
+        <td>${escapeHtml(uniqueSorted(members.map((m) => m.cx)).join(", ") || "—")}</td>
+        <td>
+          <div class="mini-progress"><span style="width:${Math.min(100, pct)}%"></span></div>
+          <div class="pct-txt">${fmtPct(pct)} · ${ativados}/${members.length}</div>
+        </td>
+        <td>${uniqueSorted(members.map((m) => metaMonthLabel(m.metaKey))).join(", ")}</td>
+      </tr>
+      <tr class="row-detail${expanded ? " open" : ""}" data-emp-detail="${id}">
+        <td colspan="4" class="detail-wrap">
+          <div class="detail-title">Membros (${members.length})</div>
+          <div class="member-grid">
+            <div class="member-grid-head"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Reengajamento</div><div>Aulas</div><div>Últ. acesso</div></div>
+            ${members.map((m) => memberRow(m, "cxongoing")).join("")}
+          </div>
+        </td>
+      </tr>`;
+  }).join("");
+
+  wrap.innerHTML = `
+    <table>
+      <thead><tr><th>Empresa</th><th>CX</th><th>Ativação</th><th>Mês da meta</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+
+  wireExpandableTable(wrap, "cxongoing");
+}
+
+function renderCxoEmpresaCoverage(list) {
+  const wrap = document.getElementById("cxo-empresa-wrap");
+  if (!list.length) {
+    wrap.innerHTML = emptyState("Nenhum membro encontrado com os filtros atuais.");
+    return;
+  }
+  const groups = new Map();
+  for (const m of list) {
+    const key = norm(m.contaNome) || "—";
+    if (!groups.has(key)) groups.set(key, { label: m.contaNome || "—", members: [] });
+    groups.get(key).members.push(m);
+  }
+  const groupArr = [...groups.values()].sort((a, b) => {
+    const pctA = a.members.filter((m) => m.temOnboarding).length / a.members.length;
+    const pctB = b.members.filter((m) => m.temOnboarding).length / b.members.length;
+    return pctA - pctB; // pior cobertura primeiro
+  });
+
+  const rows = groupArr.map(({ label: empresaNome, members }) => {
+    const id = `cxocov_${slug(empresaNome)}`;
+    const comReeng = members.filter((m) => m.temOnboarding).length;
+    const pctCobertura = Math.round((comReeng / members.length) * 1000) / 10;
+    const ativados = members.filter((m) => m.status === "ativado").length;
+    const pctAtivacao = Math.round((ativados / members.length) * 1000) / 10;
+    const expanded = state.cxongoing.expandedEmp.has(id);
+    return `
+      <tr class="row-main${expanded ? " expanded" : ""}" data-emp="${id}">
+        <td><div class="cell-main">${chevSvg()}<div><div class="name-strong">${escapeHtml(empresaNome)}</div>
+          <div class="name-sub">${members.length} membro${members.length !== 1 ? "s" : ""}</div></div></div></td>
+        <td>${escapeHtml(uniqueSorted(members.map((m) => m.cx)).join(", ") || "—")}</td>
+        <td>
+          <div class="mini-progress"><span style="width:${Math.min(100, pctCobertura)}%;background:linear-gradient(90deg,var(--blue-soft),var(--ice))"></span></div>
+          <div class="pct-txt">${fmtPct(pctCobertura)} · ${comReeng}/${members.length}</div>
+        </td>
+        <td>
+          <div class="mini-progress"><span style="width:${Math.min(100, pctAtivacao)}%"></span></div>
+          <div class="pct-txt">${fmtPct(pctAtivacao)} · ${ativados}/${members.length}</div>
+        </td>
+      </tr>
+      <tr class="row-detail${expanded ? " open" : ""}" data-emp-detail="${id}">
+        <td colspan="4" class="detail-wrap">
+          <div class="detail-title">Membros (${members.length})</div>
+          <div class="member-grid">
+            <div class="member-grid-head"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Reengajamento</div><div>Aulas</div><div>Últ. acesso</div></div>
+            ${members.map((m) => memberRow(m, "cxongoing-cov")).join("")}
+          </div>
+        </td>
+      </tr>`;
+  }).join("");
+
+  wrap.innerHTML = `
+    <table>
+      <thead><tr><th>Empresa</th><th>CX</th><th>Cobertura reengajamento</th><th>Ativação</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+
+  wireExpandableTable(wrap, "cxongoing-cov");
+}
+
 /* --------------------------- shared expand wiring ------------------------ */
 
 function expandSetFor(tab, kind) {
@@ -875,6 +1089,8 @@ function expandSetFor(tab, kind) {
   if (tab === "cx") return kind === "emp" ? state.cx.expandedEmp : state.cx.expandedMem;
   if (tab === "onboarding") return kind === "emp" ? state.onboarding.expandedEmp : state.onboarding.expandedMem;
   if (tab === "onboarding-cad") return kind === "emp" ? state.onboarding.expandedMonth : state.onboarding.expandedMem;
+  if (tab === "cxongoing") return kind === "emp" ? state.cxongoing.expandedEmp : state.cxongoing.expandedMem;
+  if (tab === "cxongoing-cov") return kind === "emp" ? state.cxongoing.expandedEmp : state.cxongoing.expandedMem;
   return new Set();
 }
 
