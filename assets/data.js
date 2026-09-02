@@ -447,7 +447,8 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
       const isChurnOngoing = norm(proprietario) === CHURN_OWNER_NAME && norm(analista) === CHURN_ONGOING_ANALISTA;
       const stats = consumoStatsSince(emailKey, dataCadastroOngoing);
       const status = isChurnOngoing ? "churn" : statusFromConsumoOngoing(stats);
-      const dataReengajamento = parseBRDate(pick(r, ["Data da reunião de reengajamento Ongoing"]));
+      const dataReuniao = parseBRDate(pick(r, ["Data da reunião de reengajamento Ongoing"]));
+      const dataPdi = parseBRDate(pick(r, ["Data PDI assíncrono", "Data PDI Assíncrono", "PDI Assíncrono"]));
       const metaKey = rawMonthKey(dataCadastroOngoing);
 
       return {
@@ -464,8 +465,11 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
         consumo: stats.consumo,
         qtdAulasConcluidas: stats.qtdAulasConcluidas,
         ultimoAcesso: stats.ultimoAcesso,
-        dataOnboarding: dataReengajamento,   // reaproveita o campo -> é a reunião de reengajamento aqui
-        temOnboarding: !!dataReengajamento,  // idem
+        dataReuniao,                 // data da reunião de reengajamento (coluna própria)
+        temReuniao: !!dataReuniao,
+        dataPdi,                     // data do PDI assíncrono (coluna própria)
+        temPdi: !!dataPdi,
+        temEngajamento: !!dataReuniao || !!dataPdi, // cobertura = teve reunião OU PDI assíncrono
         status, // alerta | em_andamento | desengajado | ativado | churn
       };
     });
