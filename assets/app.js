@@ -17,8 +17,9 @@ const EMPRESA_STATUS_META = {
   em_andamento:        { label: "Em andamento",        cls: "info"  },
   em_risco:            { label: "Em risco",            cls: "bad"   },
   churn:               { label: "Churn",               cls: "churn" },
+  venda_cancelada:     { label: "Venda cancelada",     cls: "churn" },
 };
-const CS_STATUS_ORDER = ["ativada", "aguardando_handoff", "em_andamento", "em_risco", "churn"];
+const CS_STATUS_ORDER = ["ativada", "aguardando_handoff", "em_andamento", "em_risco", "churn", "venda_cancelada"];
 const CX_STATUS_ORDER = ["ativado", "em_andamento", "desengajado", "alerta", "churn"];
 
 let MODEL = null;
@@ -381,7 +382,9 @@ function CS_TARGET_PCT_display(list) {
 
 function renderCSKpis(list) {
   const box = document.getElementById("cs-kpis");
-  const total = list.length;
+  const totalFull = list.length;
+  const vendaCancelada = list.filter((e) => e.statusEmpresa === "venda_cancelada").length;
+  const total = totalFull - vendaCancelada; // base da meta: venda cancelada não entra no total
   const churn = list.filter((e) => e.statusEmpresa === "churn").length;
   const ativadas = list.filter((e) => e.statusEmpresa === "ativada").length;
   const aguardando = list.filter((e) => e.statusEmpresa === "aguardando_handoff").length;
@@ -416,6 +419,7 @@ function renderCSKpis(list) {
         { pct: total ? risco/total*100 : 0, color: "var(--bad)" },
         { pct: total ? churn/total*100 : 0, color: "var(--churn)" },
       ])}
+      ${vendaCancelada ? `<div class="sub" style="margin-top:10px">+ <b>${vendaCancelada}</b> venda${vendaCancelada > 1 ? "s" : ""} cancelada${vendaCancelada > 1 ? "s" : ""} <span style="color:var(--text-2)">(fora do total e da meta)</span></div>` : ""}
     </div>
     <div class="card kpi-simple">
       <div class="lbl">Aguardando handoff</div>
@@ -480,6 +484,10 @@ function renderCSTable(list) {
 }
 
 function renderEmpresaUsuariosBlock(emp) {
+  if (emp.statusEmpresa === "venda_cancelada") {
+    return `<div class="detail-title">Venda cancelada</div>
+      <div class="no-courses">Motivo: ${escapeHtml(emp.motivoChurn)} — desconsiderada do total da carteira e da meta de CS (não entra no denominador do %).</div>`;
+  }
   if (emp.statusEmpresa === "churn") {
     return `<div class="detail-title">Empresa em churn</div>
       <div class="no-courses">Motivo: ${escapeHtml(emp.motivoChurn)} — desconsiderada da meta de ativação, contabilizada apenas na carteira total (${emp.totalMembros} usuários, ${emp.membrosAtivados} ativados).</div>`;
