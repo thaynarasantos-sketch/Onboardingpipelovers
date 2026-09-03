@@ -246,7 +246,12 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
       const dataHandoff = parseBRDate(pick(r, ["Data Handoff Onboarding"]));
       const numUsuarios = Number((pick(r, ["Número de usuários que vão usar PipeLovers"]) || "").replace(/[^\d.]/g, "")) || 0;
       const motivoChurn = (pick(r, ["Motivo de churn - Onboarding"]) || "").trim();
-      const isChurn = !!motivoChurn;
+      // "Venda cancelada" é um motivo específico: a empresa sai do cálculo da
+      // meta por completo (não conta nem no denominador). Qualquer outro
+      // motivo preenchido é churn "normal" (conta no denominador, mas nunca
+      // é ativável).
+      const isVendaCancelada = !!motivoChurn && norm(motivoChurn) === "venda cancelada";
+      const isChurn = !!motivoChurn && !isVendaCancelada;
       const metaKey = metaMonthKey(dataFechamento);
       return {
         id: `emp_${idx}`,
@@ -259,6 +264,7 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
         numUsuarios,
         thresholdPct: numUsuarios > 20 ? 65 : 60,
         isChurn,
+        isVendaCancelada,
         motivoChurn,
         metaKey,
         usuarios: [],       // preenchido abaixo (usuarios.csv) — base da ativação de CS
@@ -406,7 +412,9 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
     emp.atingiuThreshold = total > 0 && emp.pctAtivacao >= emp.thresholdPct;
     emp.responsaveisList = [...emp.responsaveis].sort((a, b) => a.localeCompare(b, "pt-BR"));
 
-    if (emp.isChurn) {
+    if (emp.isVendaCancelada) {
+      emp.statusEmpresa = "venda_cancelada";
+    } else if (emp.isChurn) {
       emp.statusEmpresa = "churn";
     } else if (emp.atingiuThreshold && emp.handoffOk) {
       emp.statusEmpresa = "ativada";
