@@ -64,8 +64,11 @@
     Base de ativação: <code>data/usuarios.csv</code> (deduplicado por e-mail). Empresa <b>ativada</b> = % de usuários
     com 3 aulas concluídas ≥ limite da empresa (65% se &gt;20 usuários contratados, 60% se ≤20) <b>e</b> data de
     handoff preenchida até o fim do mês da meta. <b>Aguardando handoff</b> = bateu o % mas falta a data. <b>Em risco</b>
-    = nenhum usuário ativado ainda. <b>Em andamento</b> = alguma ativação, mas abaixo da meta. Empresas em <b>churn</b>
-    entram na base da carteira (denominador) mas não são consideradas ativáveis. A coluna <b>CX / PF</b> mostra quem é
+    = nenhum usuário ativado ainda. <b>Em andamento</b> = alguma ativação, mas abaixo da meta. <b>Churn</b> = coluna
+    "Motivo de churn - Onboarding" preenchida com qualquer motivo que não seja "Venda cancelada" — entra na base da
+    carteira (denominador) mas não é considerada ativável. <b>Venda cancelada</b> = motivo é exatamente "Venda
+    cancelada" — essa empresa é totalmente excluída do total da carteira e do cálculo da meta (não entra nem no
+    denominador), aparecendo só como contagem à parte. A coluna <b>CX / PF</b> mostra quem é
     responsável por cada usuário dentro da empresa (PF = gestor comercial do CS, sem CX dedicado). A coluna
     <b>Cobertura onboarding</b> mostra a % de usuários da empresa que tiveram a reunião de onboarding realizada
     (data cruzada com <code>membros.csv</code> pelo e-mail).
@@ -159,7 +162,7 @@
 <!-- ========================= ABA CX ONGOING ========================== -->
 <div class="view" id="view-cxongoing">
 
-  <div class="kpi-row" id="cxo-kpis">
+  <div class="kpi-row kpi-row-cxo" id="cxo-kpis">
     <div class="state-box"><div class="spinner"></div><div class="big">Calculando indicadores…</div></div>
   </div>
 
