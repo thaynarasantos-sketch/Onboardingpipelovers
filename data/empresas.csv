@@ -34,11 +34,11 @@ Priscila Banzato,Voip do Brasil,08/06/2026,11/06/2026,10,,21/08/2026
 Gonzalo Cami ,Agência DM Pixels,10/06/2026,22/06/2026,2,churn,
 Gonzalo Cami ,SalesHunter,17/06/2026,23/06/2026,4,,28/08/2026
 Nicoly Lima,Masterboard,18/06/2026,07/07/2026,2,churn,
-Nicoly Lima,Carioli Engenharia,19/06/2026,30/06/2026,5,,
+Nicoly Lima,Carioli Engenharia,19/06/2026,30/06/2026,5,,04/09/2026
 Gonzalo Cami ,IDVLabs,19/06/2026,30/06/2026,1,,31/08/2026
 Priscila Banzato,PTA Rental,19/06/2026,26/06/2026,22,,10/08/2026
 Nicoly Lima,Studio Kore,19/06/2026,02/07/2026,6,,01/09/2026
-Nicoly Lima,RvOps,22/06/2026,25/06/2026,5,,
+Nicoly Lima,RvOps,22/06/2026,25/06/2026,5,,11/09/2026
 Gonzalo Cami ,Aspprev,26/06/2026,01/07/2026,3,churn,
 Nicoly Lima,Determix Comercial,26/06/2026,21/07/2026,6,,
 Nicoly Lima,MPL Seguros,26/06/2026,07/07/2026,8,,04/09/2026
@@ -76,7 +76,7 @@ Gonzalo Cami,Pipe MND,15/07/2026,06/08/2026,1,,
 Nicoly Lima,Pantanal Engenharia& Energia solar,16/07/2026,23/07/2026,5,VENDA CANCELADA,
 Gonzalo Cami,RLX Importe,17/07/2026,27/07/2026,3,,
 Gonzalo Cami,Alvor,21/07/2026,30/07/2026,2,,
-Maria Alice Schmitz,Costa e Sampaio,21/07/2026,28/07/2026,24,,
+Maria Alice Schmitz,Costa e Sampaio,21/07/2026,28/07/2026,30,,
 Gonzalo Cami,Inserra imobiliaria,21/07/2026,04/08/2026,4,,
 Nicoly Lima,Lille Consulting,22/07/2026,24/07/2026,6,,
 Nicoly Lima,Unico Skill,22/07/2026,06/08/2026,9,,
@@ -90,9 +90,9 @@ Gonzalo Cami,Revfy,24/07/2026,28/07/2026,1,churn,
 Gonzalo Cami,Sumedical,24/07/2026,27/07/2026,2,,
 Nicoly Lima,VMK Holding,24/07/2026,28/07/2026,10,,
 Nicoly Lima,FAC Engenharia,27/07/2026,05/08/2026,12,,
-Gonzalo Cami,WRID Importadora e Distribuidora,27/07/2026,29/07/2026,3,,
+Gonzalo Cami,WRID Importadora e Distribuidora,27/07/2026,29/07/2026,3,,09/09/2026
 Gonzalo Cami,Mexx,28/07/2026,04/08/2026,4,,
-Nicoly Lima,Magno Barth Advogados,29/07/2026,03/08/2026,5,,
+Nicoly Lima,Magno Barth Advogados,29/07/2026,03/08/2026,5,,08/09/2026
 Nicoly Lima,Expo D. Pedro,30/07/2026,06/08/2026,7,,
 Nicoly Lima,Grupo Eletrolar,30/07/2026,05/08/2026,4,,
 Nicoly Lima,MentoraFlow,30/07/2026,12/08/2026,2,,
@@ -123,5 +123,7 @@ Gonzalo Cami,CRM PipeRun,31/08/2026,,3,,
 Gonzalo Cami,Up2you People,31/08/2026,,2,,
 Gonzalo Cami,Sales Rocket,31/08/2026,,3,,
 Gonzalo Cami,Transmóbil,31/08/2026,03/09/2026,3,,
-Gonzalo Cami,Fluke,04/09/2026,,,,
-Nicoly Lima,iFractal,04/09/2026,,,,
+Gonzalo Cami,Fluke,04/09/2026,,3,,
+Nicoly Lima,iFractal,04/09/2026,,5,,
+Nicoly Lima,Melbourne Engenharia,20/05/2026,10/06/2026,5,churn,03/08/2026
+Nicoly Lima,Databem,16/06/2026,19/06/2026,2,churn,03/08/2026
