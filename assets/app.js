@@ -42,7 +42,7 @@ const state = {
     expandedMem: new Set(),
   },
   cxongoing: {
-    f: { analistas: new Set(), meta: new Set(), status: new Set(), cadFrom: "", cadTo: "", empresa: "", email: "" },
+    f: { analistas: new Set(), meta: new Set(), status: new Set(), origem: new Set(), cadFrom: "", cadTo: "", empresa: "", email: "" },
     expandedEmp: new Set(),
     expandedMem: new Set(),
   },
@@ -145,6 +145,7 @@ function initFiltersOnce() {
   buildMultiSelect("cxo-f-analista", state.cxongoing.f.analistas, () => renderCXOngoing(), itemsFromLabels(cxoAnalistas));
   buildMultiSelect("cxo-f-meta", state.cxongoing.f.meta, () => renderCXOngoing(), itemsFromMonths(MODEL.ongoingMetaMonths));
   buildMultiSelect("cxo-f-status", state.cxongoing.f.status, () => renderCXOngoing(), itemsFromKeyed(CX_STATUS_ORDER, STATUS_META));
+  buildMultiSelect("cxo-f-origem", state.cxongoing.f.origem, () => renderCXOngoing(), itemsFromLabels(["Novo membro", "Reengajamento"]));
 
   document.getElementById("cs-f-fechfrom").addEventListener("change", (e) => { state.cs.f.fechFrom = e.target.value; renderCS(); });
   document.getElementById("cs-f-fechto").addEventListener("change", (e) => { state.cs.f.fechTo = e.target.value; renderCS(); });
@@ -331,6 +332,7 @@ function filterMembrosCXOngoing() {
     if (f.analistas.size && !f.analistas.has(m.cx)) return false;
     if (f.meta.size && !f.meta.has(m.metaKey)) return false;
     if (f.status.size && !f.status.has(m.status)) return false;
+    if (f.origem.size && !f.origem.has(m.origem)) return false;
     if (!inRange(m.dataCadastro, f.cadFrom, f.cadTo)) return false;
     if (f.empresa && !norm(m.contaNome).includes(norm(f.empresa))) return false;
     if (f.email && !norm(m.email).includes(norm(f.email))) return false;
@@ -529,12 +531,14 @@ function memberRowOngoing(m, tab) {
   const pdiCell = m.temPdi
     ? `<span class="badge ok"><span class="dot"></span>${fmtDate(m.dataPdi)}</span>`
     : `<span class="badge bad"><span class="dot"></span>Não realizado</span>`;
+  const origemCell = `<span class="badge ${m.origem === "Reengajamento" ? "info" : "ok"}"><span class="dot"></span>${escapeHtml(m.origem)}</span>`;
   return `
     <div class="member-row member-row-ongoing" data-mem="${m.id}" data-tab="${tab}">
       <div class="mm-name">${escapeHtml(m.nome)}</div>
       <div class="mm-email">${escapeHtml(m.email)}</div>
       <div class="mm-cs">${escapeHtml(m.cx || "—")}</div>
       <div><span class="badge ${st.cls}"><span class="dot"></span>${st.label}</span></div>
+      <div class="mm-onb">${origemCell}</div>
       <div class="mm-onb">${reuniaoCell}</div>
       <div class="mm-onb">${pdiCell}</div>
       <div>${m.qtdAulasConcluidas} / ${AULAS_PARA_ATIVAR_ONGOING}</div>
@@ -964,6 +968,17 @@ function renderCxoKpis(list) {
   const pctAtivadosComPdi = ativados ? Math.round((ativadosComPdi / ativados) * 1000) / 10 : 0;
   const pctAtivadosSemNenhum = ativados ? Math.round((ativadosSemNenhum / ativados) * 1000) / 10 : 0;
 
+  // análises por origem (Funil CX: Novo membro x Reengajamento)
+  const comEngNovo = comEngajamento.filter((m) => m.origem === "Novo membro").length;
+  const comEngReeng = comEngajamento.filter((m) => m.origem === "Reengajamento").length;
+  const pctCoberturaNovo = comEngajamento.length ? Math.round((comEngNovo / comEngajamento.length) * 1000) / 10 : 0;
+  const pctCoberturaReeng = comEngajamento.length ? Math.round((comEngReeng / comEngajamento.length) * 1000) / 10 : 0;
+
+  const ativadosNovo = ativadosList.filter((m) => m.origem === "Novo membro").length;
+  const ativadosReeng = ativadosList.filter((m) => m.origem === "Reengajamento").length;
+  const pctAtivadosNovo = ativados ? Math.round((ativadosNovo / ativados) * 1000) / 10 : 0;
+  const pctAtivadosReeng = ativados ? Math.round((ativadosReeng / ativados) * 1000) / 10 : 0;
+
   box.innerHTML = `
     <div class="card kpi-goal">
       ${gaugeSVG(pctMeta, pctColor(pctMeta, 100))}
@@ -1009,6 +1024,42 @@ function renderCxoKpis(list) {
       </div>
     </div>
   `;
+
+  let originBox = document.getElementById("cxo-kpis-origem");
+  if (!originBox) {
+    originBox = document.createElement("div");
+    originBox.id = "cxo-kpis-origem";
+    originBox.className = "kpi-row";
+    originBox.style.gridTemplateColumns = "1fr 1fr";
+    originBox.style.marginTop = "16px";
+    box.insertAdjacentElement("afterend", originBox);
+  }
+  originBox.innerHTML = `
+    <div class="card kpi-simple">
+      <div class="lbl">Cobertura de engajamento por origem (${comEngajamento.length})</div>
+      <div class="sub">Dos membros com reunião ou PDI assíncrono realizado, quanto vem de cada origem (coluna "Funil CX")</div>
+      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr">
+        <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${fmtPct(pctCoberturaNovo)}</span><span class="bd-label">Novo membro (${comEngNovo})</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${fmtPct(pctCoberturaReeng)}</span><span class="bd-label">Reengajamento (${comEngReeng})</span></div>
+      </div>
+      ${stackBar([
+        { pct: comEngajamento.length ? comEngNovo/comEngajamento.length*100 : 0, color: "var(--ok)" },
+        { pct: comEngajamento.length ? comEngReeng/comEngajamento.length*100 : 0, color: "var(--blue-soft)" },
+      ])}
+    </div>
+    <div class="card kpi-simple">
+      <div class="lbl">Ativados por origem (${ativados})</div>
+      <div class="sub">Dos membros ativados (1 aula), quanto vem de cada origem (coluna "Funil CX")</div>
+      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr">
+        <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${fmtPct(pctAtivadosNovo)}</span><span class="bd-label">Novo membro (${ativadosNovo})</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${fmtPct(pctAtivadosReeng)}</span><span class="bd-label">Reengajamento (${ativadosReeng})</span></div>
+      </div>
+      ${stackBar([
+        { pct: ativados ? ativadosNovo/ativados*100 : 0, color: "var(--ok)" },
+        { pct: ativados ? ativadosReeng/ativados*100 : 0, color: "var(--blue-soft)" },
+      ])}
+    </div>
+  `;
 }
 
 function renderCxoTable(list) {
@@ -1048,7 +1099,7 @@ function renderCxoTable(list) {
         <td colspan="4" class="detail-wrap">
           <div class="detail-title">Membros (${members.length})</div>
           <div class="member-grid member-grid-ongoing">
-            <div class="member-grid-head member-grid-head-ongoing"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Reunião</div><div>PDI assíncrono</div><div>Aulas</div><div>Últ. acesso</div></div>
+            <div class="member-grid-head member-grid-head-ongoing"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Origem</div><div>Reunião</div><div>PDI assíncrono</div><div>Aulas</div><div>Últ. acesso</div></div>
             ${members.map((m) => memberRowOngoing(m, "cxongoing")).join("")}
           </div>
         </td>
@@ -1107,7 +1158,7 @@ function renderCxoEmpresaCoverage(list) {
         <td colspan="4" class="detail-wrap">
           <div class="detail-title">Membros (${members.length})</div>
           <div class="member-grid member-grid-ongoing">
-            <div class="member-grid-head member-grid-head-ongoing"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Reunião</div><div>PDI assíncrono</div><div>Aulas</div><div>Últ. acesso</div></div>
+            <div class="member-grid-head member-grid-head-ongoing"><div>Membro</div><div>E-mail</div><div>CX</div><div>Status</div><div>Origem</div><div>Reunião</div><div>PDI assíncrono</div><div>Aulas</div><div>Últ. acesso</div></div>
             ${members.map((m) => memberRowOngoing(m, "cxongoing-cov")).join("")}
           </div>
         </td>
