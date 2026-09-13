@@ -170,6 +170,7 @@
     <div class="f-group"><label>CX (Analista Ongoing)</label><div id="cxo-f-analista"></div></div>
     <div class="f-group"><label>Mês da meta</label><div id="cxo-f-meta"></div></div>
     <div class="f-group"><label>Status</label><div id="cxo-f-status"></div></div>
+    <div class="f-group"><label>Origem</label><div id="cxo-f-origem"></div></div>
     <div class="f-group"><label>Cadastro Ongoing de</label><input type="date" class="f-input" id="cxo-f-cadfrom"></div>
     <div class="f-group"><label>Cadastro Ongoing até</label><input type="date" class="f-input" id="cxo-f-cadto"></div>
     <div class="f-group grow"><label>Empresa</label><input type="text" class="f-input" id="cxo-f-empresa" placeholder="Buscar por empresa…"></div>
@@ -193,9 +194,11 @@
     consumidas a partir da "Data cadastro Ongoing" de cada membro). Membro <b>ativado</b> aqui = 1 aula concluída
     (diferente das outras abas, que exigem 3). <b>Meta</b> = 100 membros ativados no mês da "Data cadastro Ongoing".
     <b>Churn</b> = Proprietário do Negócio é Thaynara Santos e Analista Ongoing é Thabata Harumi. <b>Cobertura de
-    reengajamento</b> = % de membros com "Data da reunião de reengajamento Ongoing" preenchida. Esta aba não é
-    cruzada com <code>empresas.csv</code>: o agrupamento por empresa é sempre o nome exatamente como está em
-    <code>cxongoing.csv</code>.
+    engajamento</b> = % de membros com reunião de reengajamento OU PDI assíncrono realizado. <b>Origem</b> (coluna
+    "Funil CX") = <b>Reengajamento</b> quando o valor é exatamente "Reengajamento", ou <b>Novo membro</b> para
+    qualquer outro valor (inclusive vazio) — mostrada por membro na listagem, e usada para segmentar a cobertura de
+    engajamento e os ativados por origem. Esta aba não é cruzada com <code>empresas.csv</code>: o agrupamento por
+    empresa é sempre o nome exatamente como está em <code>cxongoing.csv</code>.
   </div>
 </div>
 
