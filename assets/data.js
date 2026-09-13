@@ -458,6 +458,10 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
       const dataReuniao = parseBRDate(pick(r, ["Data da reunião de reengajamento Ongoing"]));
       const dataPdi = parseBRDate(pick(r, ["Data PDI assíncrono", "Data PDI Assíncrono", "PDI Assíncrono"]));
       const metaKey = rawMonthKey(dataCadastroOngoing);
+      // Funil CX: "Reengajamento" = membro veio de reengajamento; qualquer
+      // outro valor (inclusive vazio) = Novo membro.
+      const funilCX = (pick(r, ["Funil CX"]) || "").trim();
+      const origem = norm(funilCX) === "reengajamento" ? "Reengajamento" : "Novo membro";
 
       return {
         id: `ongm_${idx}`,
@@ -469,6 +473,7 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
         proprietario,
         dataCadastro: dataCadastroOngoing,
         metaKey,
+        origem, // "Novo membro" | "Reengajamento" (coluna Funil CX)
         isOngoing: true, // por definição, todo mundo nesta base já está em ongoing
         consumo: stats.consumo,
         qtdAulasConcluidas: stats.qtdAulasConcluidas,
