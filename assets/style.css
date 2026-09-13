@@ -128,6 +128,8 @@ a{color:inherit}
 @media (max-width:1100px){.kpi-row{grid-template-columns:1fr 1fr}}
 .kpi-row-onb{grid-template-columns:1.1fr 1fr 1fr 1.1fr}
 @media (max-width:1100px){.kpi-row-onb{grid-template-columns:1fr 1fr}}
+.kpi-row-cxo{grid-template-columns:1fr 1.2fr 1.3fr 1.4fr}
+@media (max-width:1100px){.kpi-row-cxo{grid-template-columns:1fr 1fr}}
 
 .card{
   background:linear-gradient(180deg, var(--panel), var(--panel-2));
@@ -284,6 +286,11 @@ tr.row-detail.open{display:table-row}
 .member-grid-head{
   display:grid;grid-template-columns:1.5fr 1.3fr .9fr .8fr .9fr .6fr .8fr;gap:8px;
   padding:0 12px 6px;font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-2);
+}
+
+/* CX Ongoing: Origem + Reunião + PDI assíncrono em vez de uma só "Onboarding" */
+.member-row-ongoing,.member-grid-head-ongoing{
+  grid-template-columns:1.2fr 1.1fr .7fr .7fr .85fr .75fr .75fr .5fr .7fr !important;
 }
 
 .courses-panel{margin-top:8px;padding:12px 14px;border-radius:9px;background:rgba(38,110,242,.06);border:1px dashed var(--border-strong)}
