@@ -1,14 +1,16 @@
 /* =========================================================================
-   PipeLovers · Onboarding Dashboard — data.js (v2)
-   Carrega os 4 CSVs (empresas, membros, usuarios, consumo), normaliza e
-   aplica as regras de negócio de ativação de CS e CX.
+   PipeLovers · Onboarding Dashboard — data.js (v3)
+   Carrega os CSVs (empresas, membros, usuarios, consumo manual + consumo do
+   Supabase, cxongoing), normaliza e aplica as regras de negócio de ativação
+   de CS e CX.
    ========================================================================= */
 
 const CSV_PATHS = {
   empresas: "data/empresas.csv",
   membros: "data/membros.csv",
   usuarios: "data/usuarios.csv",
-  consumo: "data/consumo.csv",
+  consumo: "data/consumo.csv",                  // histórico manual — nunca é sobrescrito pelo script automático
+  consumoSupabase: "data/consumo_supabase.csv",  // gerado automaticamente pelo workflow do Supabase
   cxongoing: "data/cxongoing.csv",
 };
 
@@ -43,7 +45,7 @@ const RESPONSAVEL_EMAIL_MAP = {
 function norm(s) {
   return (s || "")
     .toString()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
     .trim().toLowerCase();
 }
 
@@ -156,7 +158,7 @@ function fetchCSV(path) {
       header: true,
       skipEmptyLines: true,
       delimiter: "", // auto-detect ("," nas planilhas de empresas/membros/usuarios, ";" no consumo)
-      transformHeader: (h) => h.replace(/^\uFEFF/, "").trim(),
+      transformHeader: (h) => h.replace(/^﻿/, "").trim(),
     });
     return parsed.data;
   });
@@ -165,13 +167,22 @@ function fetchCSV(path) {
 /* ---------------------------- Main loader ------------------------------- */
 
 async function loadAllData() {
-  const [empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingRaw] = await Promise.all([
+  const [empresasRaw, membrosRaw, usuariosRaw, consumoManualRaw, consumoSupabaseRaw, cxongoingRaw] = await Promise.all([
     fetchCSV(CSV_PATHS.empresas),
     fetchCSV(CSV_PATHS.membros),
     fetchCSV(CSV_PATHS.usuarios),
     fetchCSV(CSV_PATHS.consumo),
+    // consumo_supabase.csv só passa a existir depois da 1ª execução do
+    // workflow automático — se ainda não existir no repositório (ou der
+    // qualquer erro de rede), o painel simplesmente ignora e segue só com
+    // o consumo.csv manual, sem quebrar a página.
+    fetchCSV(CSV_PATHS.consumoSupabase).catch(() => []),
     fetchCSV(CSV_PATHS.cxongoing),
   ]);
+  // Soma o consumo manual (histórico congelado) com o consumo novo vindo do
+  // Supabase (buracos do histórico + tudo de hoje em diante) antes de montar
+  // o modelo — o restante do pipeline não muda em nada.
+  const consumoRaw = consumoManualRaw.concat(consumoSupabaseRaw);
   return buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingRaw);
 }
 
