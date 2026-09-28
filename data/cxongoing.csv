@@ -40,8 +40,11 @@ Data cadastro Ongoing,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócio
 08/09/2026,Sólides,FELIPE GRAVINO,felipe.gregorio@solides.com.br,Thabata Harumi,Thabata Harumi,28/07/2026,,
 08/09/2026,Sólides,KAYO COSTA,kayo.fraga@solides.com.br,Thabata Harumi,Thabata Harumi,24/07/2026,,
 14/09/2026,HSM DO BRASIL S.A.,Eugenio Mattedi Junior,eugenio.junior@hsm.com.br,Thabata Harumi,Thabata Harumi,10/07/2026,,
+28/09/2026,Veezor,Italo Fonseca,italo.fonseca@veezor.com,Thabata Harumi,Thabata Harumi,08/07/2026,,Reengajamento
 08/09/2026,Baldussi,Mariana Virgilio,mariana.virgilio@baldussi.com.br,Thabata Harumi,Thabata Harumi,06/07/2026,,Reengajamento
+28/09/2026,L5 NETWORKS,José Vinicius,jose.vinicius@l5.com.br,Thabata Harumi,Thabata Harumi,23/06/2026,,Reengajamento
 17/09/2026,Engeform Energia,Luan Gladson,luan.ribeiro@engeformenergia.com.br,Thabata Harumi,Thabata Harumi,23/06/2026,,Reengajamento
+28/09/2026,L5 NETWORKS,Bernardo Porcaro,bernardo.porcaro@fonata.com.br,Thabata Harumi,Thabata Harumi,19/06/2026,,Reengajamento
 17/09/2026,Sólides,Ricardo Couto,ricardo.couto@solides.com.br,Thabata Harumi,Thabata Harumi,15/06/2026,,Reengajamento
 17/09/2026,Sólides,Tatiane Araújo,tatiane.figueiredo@solides.com.br,Thabata Harumi,Thabata Harumi,12/06/2026,,Reengajamento
 17/09/2026,Sólides,Luisa Carvalho,luisa.carvalho@solides.com.br,Thabata Harumi,Thabata Harumi,02/06/2026,,Reengajamento
@@ -51,6 +54,10 @@ Data cadastro Ongoing,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócio
 08/09/2026,BMC Hyundai,Pabblo Carvalho,pabblo.carvalho@bmchyundai.com.br,Thabata Harumi,Thabata Harumi,14/04/2026,,Reengajamento
 08/09/2026,BMC Hyundai,Thiago Silva,thiago.silva@bmchyundai.com.br,Thabata Harumi,Thabata Harumi,10/04/2026,,Reengajamento
 08/09/2026,BMC Hyundai,Mateus Amorim,mateus.amorim@bmchyundai.com.br,Thabata Harumi,Thabata Harumi,08/04/2026,,Reengajamento
+28/09/2026,Cerâmica City,Anelena Frollini,aninhafrollini@gmail.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Larissa dos Anjos Bugmann,larissa.bugmann@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,VendPago,Murilo Lima,murilo.lima@vendpago.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+25/09/2026,Omni Assessoria,Ryan Martinelli,ryan.martinelli@omniassessoria.com.br,Thabata Harumi,Thabata Harumi,,,
 24/09/2026,PUCPR,Ana Paula Routh Peixoto,ana.peixoto@pucpr.br,Thabata Harumi,Thabata Harumi,,,
 23/09/2026,BS Seguros,Mariana Onairam,marianaonairam5@gmail.com,Thabata Harumi,Thabata Harumi,,,
 23/09/2026,CEM,Elys Magalhães,elysmagalhaes@hotmail.com,Thabata Harumi,Thabata Harumi,,,
@@ -317,6 +324,8 @@ Data cadastro Ongoing,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócio
 02/09/2026,DYNAMIS IMPORTADORA,Bruna Jorgia,bruna.santos@dynamisimportadora.com.br,Thabata Harumi,Thabata Harumi,,,
 02/09/2026,Grupo Vocical,CRISTIANO PEREIRA,vendas05.robraconsnp@grupovocical.com.br,Thabata Harumi,Thabata Harumi,,,
 02/09/2026,DYNAMIS IMPORTADORA,Jeferson Juswiak,jeferson.eduardo@dynamisimportadora.com.br,Thabata Harumi,Thabata Harumi,,,
+28/09/2026,Veezor,Karen Cordeiro,karen.fagiani@veezor.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Veezor,Natalia Lacerda,Natalia.lacerda@veezor.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Agromed Patent Brazil,Hysla Cardoso,hysla.cardoso@apnutrition.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,VerticalParts,Rafael Nunes,rafael.nunes@verticalparts.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,VerticalParts,Vagner Vagner,vagner@verticalparts.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
@@ -336,16 +345,24 @@ Data cadastro Ongoing,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócio
 17/09/2026,Sólides,Brendon Nascimento,brendon.nascimento@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Londrilimp,Matheus Bueno,vendas@londrilimp.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Lucas Oliveira da Silva,lucasoliveira.silva@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Cerâmica City,Hamilton Michelon,hamilton@ceramicacity.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Cerâmica City,Nathan da Costa,nathan@ceramicacity.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Stephanie Couto,stephanie.couto@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Ana Vazzoler,ana.vazzoler@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Gustavo Pinheiro,gustavo.pinheiro@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Pedro Teles,pedro.teles@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Lorena Silva,lorenasilva@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Cerâmica City,Reginalice Pequeño,regina@ceramicacity.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Assis e Siqueira Advogados,Mariana Assis,mariana@assisesiqueira.adv.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Cerâmica City,Paulo Roberto,paulo@ceramicacity.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Luisa Stenner,luisa.stenner@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Iasmine Mayara,iasmine.nogueira@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Cerâmica City,Luiz Otávio,luiz@ceramicacity.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,WLE,Gregory Jonker de Macedo,jonkermacedo@gmail.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 15/09/2026,BMC Hyundai,Welton Douglas Nunes Joaquim,welton.joaquim@bmchyundai.com.br,Thabata Harumi,Thabata Harumi,,15/09/2026,
 08/09/2026,PADO,Desiree dos Santos,vendas1@pado.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 10/09/2026,PADO,Aparecida da Silva,vendas1@pado.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Assis e Siqueira Advogados,Jose Victor da Costa,josevictoorcosta@gmail.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Briskcom,Eduardo Procópio,eduardo.procopio@briskcom.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Imagem Geosistemas,Deivison Roriz de Araujo,deivison.araujo@img.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Imagem Geosistemas,Vinicius De Godoi Décia,vdecia@img.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
@@ -380,19 +397,40 @@ Data cadastro Ongoing,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócio
 08/09/2026,Baldussi,Hildis Zany,hildis@baldussi.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,BMC Hyundai,Lucas Luan de Faria,lucas.faria@bmchyundai.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,TOTVS Brasil Central,RHAYLENE LAIRES S NOGUEIRA,rhaylene.nogueira@totvs.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Jonathan Henrique Kloth Roncalio,jonathan.kloth@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Eduarda Regina Michels,eduarda.michles@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sponte,Pietra Boeno,pietra.boeno@linx.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Ivan Carlos Makoovski,ivan.makoovski@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Rosilene Assenção Monteiro,rosilene.monteiro@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Leidiane de Oliveira dos Santos,leidiane.santos@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sponte,Debora Rodrigues,debora.drodrigues@linx.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Jaqueline Quinott da Silva Lucrécio,jaqueline.lucrecio@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Diane Micaele Assunção Santos,diane.santos@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Eduarda Marques Alves,eduarda.alves@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sponte,Bruna Medeiros,bruna.medeiros@linx.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Laura Daniela Yaguare Cova,laura.cova@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Camila Ribeiro Motta,camila.motta@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sponte,Suelen Jakubouski,suelen.jakubouski@linx.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Texneo,Leticia da Silva Pereira,leticia.pereira@texneo.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sponte,Diana Coutinho,diana.coutinho@linx.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sponte,Camila Barcki,camila.barcki@linx.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 02/09/2026,Teruya Ferramentas,Valdemir Ferreira,ney@teruya.com.br,Thabata Harumi,Thabata Harumi,,,
 02/09/2026,Teruya Ferramentas,Marcelo Berlatto,marcelo.berlatto@teruya.com.br,Thabata Harumi,Thabata Harumi,,,
 08/09/2026,Lalan do Brasil,Jaqueline Silva,comercial6@lalan.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Lalan do Brasil,Myryam Souza,comercial6@lalan.com.br,Thabata Harumi,Thabata Harumi,,16/09/2026,Reengajamento
+28/09/2026,Ubeton,David Lucas,david.lucas@ubeton.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Ana Clara Barcelos,anaclarabarcelos@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,VendPago,Alice de Oliveira,alicedeoliveira0204@gmail.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,VendPago,Ana Julia,prevenda2@vendpago.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,VendPago,Joane Silva,joane.silva@vendpago.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,VendPago,Diogo Galina,diogo.galina@vendpago.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,João Freitas,joao.freitas@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Isabella Camargos,isabellacamargos@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,VendPago,Débora Carvalho,debora.carvalho@vendpago.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,VendPago,Juan Pablo,juanpablo.santos@vendpago.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,VendPago,Melissa Souza,melissa.souza@vendpago.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,VendPago,Alex Braga,alex.braga@vendpago.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,VendPago,Alexandre Pompermayer,alexandre.pompermayer@vendpago.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Flavia Coelho,flavia.coelho@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Beatriz Januário,beatriz.januario@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Larissa Castro,larissacastro@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
@@ -424,6 +462,7 @@ Data cadastro Ongoing,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócio
 17/09/2026,Sólides,Isabela Menezes e Silva,isabela.menezes@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Livia Jesus,livia.jesus@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Ana Novaes,ana.novaes@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,WLE,Vinicius Wachholz,vinicius.wahholz@gmail.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Marcus Sales,marcus.sales@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Cristiany Carvalho,cristiany.carvalho@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides,Pierry Antero,pierry.antero@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
@@ -478,8 +517,11 @@ Data cadastro Ongoing,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócio
 08/09/2026,PREDIALIZE,Anderson Barbosa,anderson.barbosa@predialize.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,PREDIALIZE,Maria Helena,maria.helena@predialize.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Flex Solucoes,GABRIEL RODRIGUES DOS SANTOS,gabriel.rodrigues@flexsolucoes.net,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,L5 NETWORKS,Vicente Neto,vicente.neto@l5.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,LONDRILIMP,Camille Vitoria,vendas6@londrilimp.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 09/09/2026,Medika,Caroline de Paula Souza,caroline.souza@medika.com.br,Thabata Harumi,Thabata Harumi,,,
+28/09/2026,L5 NETWORKS,Carolina Santos,carolina.santos@l5.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,L5 NETWORKS,Roberto Santos,roberto.santos@l5.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,FLEX SOLUÇÕES,GABRIEL HERNANDES MARTIN,gabriel.hernandes@flexsolucoes.net,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,FLEX SOLUÇÕES,HILLARY FRANCINE DOS SANTOS PRADO,hillary.francine@flexsolucoes.net,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,FLEX SOLUÇÕES,WILLIAM OHAMA MOLINA,william.molina@flexsolucoes.net,Thabata Harumi,Thabata Harumi,,,Reengajamento
@@ -488,6 +530,8 @@ Data cadastro Ongoing,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócio
 08/09/2026,FLEX SOLUÇÕES,JOAO CAMARGO,joao.camargo@flexsolucoes.net,Thabata Harumi,Thabata Harumi,,,
 17/09/2026,FLEX SOLUÇÕES,JESSICA OLIVEIRA RODRIGUES,jessica.oliveira@flexsolucoes.net,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,TOTVS Brasil Central,Franciane França,franciane.nascimento@totvs.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Gaia Consulting,Gleice Santos,gleice.santos@gaiaconsulting.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Gaia Consulting,Andreza Dias,andreza.dias@gaiaconsulting.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,BMC Hyundai,Fabio Ricardo Lolli,fabio.lolli@bmchyundai.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Sidrasul Sistemas Hidráulicos Ltda,Caroline Julia Candido,caroline.candido@sidrasul.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Sidrasul Sistemas Hidráulicos Ltda,Izabel Cristina Ferreira da Silva,izabel.silva@sidrasul.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
@@ -495,6 +539,7 @@ Data cadastro Ongoing,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócio
 08/09/2026,LONDRILIMP,Glesia,vendas2@londrilimp.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Sidrasul,Ronaldo Miguel de Oliveira,ronaldo.oliveira@sidrasul.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Sidrasul Sistemas Hidráulicos Ltda,Thiago Rodrigues Santos,thiago.rodrigues@sidrasul.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Ubeton,Thaissa .,thaissa@ubeton.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Sidrasul,Fagner Palmeiras Gomes,fagner.gomes@sidrasul.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Sidrasul,Emerson Castro Santos,emerson.santos@sidrasul.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 15/09/2026,Sidrasul Sistemas Hidráulicos Ltda,Fermiano Manoel Ignacio Neto,fermiano.neto@sidrasul.com.br,Thabata Harumi,Thabata Harumi,,15/09/2026,Reengajamento
@@ -573,17 +618,26 @@ Data cadastro Ongoing,Conta Nome,Nome Negócios,E-mail,Proprietário do Negócio
 08/09/2026,Sidrasul Sistemas Hidráulicos Ltda,Beatriz Castro,beatriz.castro@sidrasul.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Sidrasul Sistemas Hidráulicos Ltda,NERI RODRIGUES JUNIOR,neri.junior@sidrasul.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Sidrasul,fabio l a bruno,fabio.bruno@sidrasul.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Cerâmica City,Ketellin Beatriz da Silva,beatriz@ceramicacity.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 15/09/2026,TOTVS Brasil Central,Matheus Albuquerque,albuquerque.matheus@totvs.com.br,Thabata Harumi,Thabata Harumi,,,
 08/09/2026,TOTVS Brasil Central,MARYANE BEATRIZ FERNANDES GONCALVES,maryane.goncalves@totvs.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Cerâmica City,Lilian Pinheiro de Camargo,lilian@ceramicacity.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Oneglobal,Eduarda Ribeiro de Melo,emelo@ogbroking.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,TOTVS Brasil Central,Daynayara da Silva Morgado Azevedo,daynayara.azevedo@totvs.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,BMC Hyundai,Yuri Fernandes Santos,yuri.santos@bmchyundai.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,BMC Hyundai,Caio Vinícius Loureiro Mascarenhas Rocha,caio.rocha@bmchyundai.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Higra Mining,Denilson Reis,denilson.reis@higramining.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,BMC Hyundai,João Paulo Sousa Silva,joao.silva@bmchyundai.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Tríade Engenharia,Marcos Fagundes,comercialsp@triadeengenharia.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Hartbau,Paulo Rogério Machado Júnior,paulo@hartbau.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Sólides Tecnologia,Roberto Vagner Clara,roberto.vagner@solides.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,Clínica Experts,Tiago Mário Mário,tiago@clinicaexperts.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Tríade Engenharia,Anderson Piaia dos Santos,anderson@triadeengenharia.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,GoTo,Fernando Ferreira,fernando.ferreira@goto.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,LONDRILIMP,Murilo Pita,murilo@casadalimpeza.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,COMUNITIVE,Felipe Thomé,felipe@comunitive.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,HiperCesta,Roberto Simões,roberto.simoes@hotmail.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
 17/09/2026,Cloudster,Ricardo Zucolotto,ricardo@cloudster.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
 08/09/2026,COMUNITIVE,Christian Oliveira,christian.oliveira@comunitive.com,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Ubeton,Maria Eduarda Souza Miranda,maria@ubeton.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
+28/09/2026,Ubeton,Leandro P. Orbelli,leandro@ubeton.com.br,Thabata Harumi,Thabata Harumi,,,Reengajamento
