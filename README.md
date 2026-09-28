@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/31757750/README.md)
+[README.md](https://github.com/user-attachments/files/32778759/README.md)
 # PipeLovers · Painel de Onboarding CS/CX
 
 Painel estático (HTML/CSS/JS puro, sem servidor) para acompanhar a ativação
@@ -11,16 +11,37 @@ aulas.
 ```
 index.html            → o painel (4 abas: CS, CX, Onboarding, CX Ongoing)
 assets/style.css       → estilo (dark/azul PipeLovers)
-assets/data.js          → carrega os 5 CSVs e aplica as regras de negócio
+assets/data.js          → carrega os CSVs e aplica as regras de negócio
 assets/app.js             → filtros, KPIs, tabelas e drill-down
 data/empresas.csv          → carteira de empresas por CS (cumulativo)
 data/membros.csv            → membros cadastrados por CX (cumulativo) — base da meta de CX e de onboarding
 data/usuarios.csv             → usuários das empresas do CS (cumulativo, com duplicados) — base da meta de CS
-data/consumo.csv                → exportação de consumo de aulas (substituída a cada carga)
-data/cxongoing.csv                → membros em fase ongoing (cumulativo) — base da nova aba CX Ongoing
+data/consumo.csv                → histórico manual de consumo de aulas — nunca é sobrescrito automaticamente
+data/consumo_supabase.csv        → gerado 1x/dia pelo GitHub Actions (Supabase) — não editar manualmente
+data/cxongoing.csv                → membros em fase ongoing (cumulativo) — base da aba CX Ongoing
+data/empresasongoing.csv           → relação Empresa → CSM (cumulativo) — alimenta o filtro de CSM da aba CX Ongoing
+.github/workflows/atualizar-consumo-onboarding.yml → workflow que gera data/consumo_supabase.csv todo dia
+gerar_consumo_onboarding.py                          → script Python usado pelo workflow acima
 ```
 
 **O que mudou nesta versão:**
+- **Novo filtro "CSM" na aba CX Ongoing**: cada CSM agora pode filtrar a
+  tabela para ver só as empresas sob sua responsabilidade. A relação
+  Empresa → CSM vem do novo arquivo `data/empresasongoing.csv` (colunas
+  "Empresaongoing" e "CSM"), cruzado pelo nome da empresa (coluna "Conta
+  Nome" em `cxongoing.csv`). Grafias diferentes do mesmo nome de CSM (ex.
+  "Patrícia Zancan" / "Patricia Zancan") são unificadas automaticamente,
+  preferindo a forma acentuada. Empresa sem correspondência no CSV aparece
+  agrupada em "Sem CSM" no filtro.
+- **Consumo agora também é alimentado automaticamente todo dia via
+  Supabase**: além do `data/consumo.csv` manual (histórico congelado, que
+  ninguém mais precisa editar), o workflow do GitHub Actions
+  `atualizar-consumo-onboarding.yml` roda 1x por dia (06:00 em Brasília) e
+  também pode ser disparado manualmente em **Actions**, gerando/atualizando
+  `data/consumo_supabase.csv` a partir do Supabase. O painel soma os dois
+  arquivos automaticamente antes de calcular ativação/status — nenhuma ação
+  manual é necessária para isso, e nada quebra se `consumo_supabase.csv`
+  ainda não existir na primeira execução.
 - **CX Ongoing agora distingue Reunião de PDI Assíncrono**: `cxongoing.csv`
   ganhou a coluna "Data PDI assíncrono". Cada membro mostra as duas datas em
   colunas separadas (Reunião / PDI assíncrono); qualquer uma preenchida já
@@ -52,15 +73,17 @@ data/cxongoing.csv                → membros em fase ongoing (cumulativo) — b
 ## Como publicar no GitHub Pages
 
 > ⚠️ **Importante:** este pacote inclui `index.html`, `assets/style.css`,
-> `assets/data.js`, `assets/app.js` **e** os 5 CSVs (o novo é
-> `data/cxongoing.csv`). Suba **todos juntos** e dê um Ctrl+Shift+R depois —
-> subir só os CSVs sem atualizar os `.js` (ou vice-versa) já causou bugs de
-> dados incorretos em rodadas anteriores.
+> `assets/data.js`, `assets/app.js` **e** o novo `data/empresasongoing.csv`.
+> Suba **todos juntos** e dê um Ctrl+Shift+R depois — subir só os CSVs sem
+> atualizar os `.js`/`index.html` (ou vice-versa) já causou bugs de dados
+> incorretos em rodadas anteriores. **Não** é preciso mexer em
+> `data/consumo_supabase.csv` nem no workflow do GitHub Actions — esses já
+> estão publicados e continuam rodando sozinhos.
 
 1. Suba **todos** estes arquivos, mantendo a mesma estrutura de pastas, no
    repositório `thaynarasantos-sketch/Onboardingpipelovers` (branch `main`).
-   O arquivo `data/cxongoing.csv` é novo — crie-o na pasta `data/` se ainda
-   não existir lá.
+   O arquivo `data/empresasongoing.csv` é novo — crie-o na pasta `data/` se
+   ainda não existir lá.
 2. No repositório, vá em **Settings → Pages** → em "Source" selecione a
    branch `main` e a pasta `/ (root)` → **Save** (pule este passo se o Pages
    já estiver configurado de uma rodada anterior).
@@ -105,6 +128,17 @@ navegador sempre busque a versão mais recente do arquivo.
   preenchido). Atualize sempre que houver troca de usuários nas empresas.
 - **`data/cxongoing.csv`** — **cumulativo**: acrescente novos membros que
   entraram em fase ongoing ao final do mesmo arquivo.
+- **`data/empresasongoing.csv`** — mantenha a relação Empresa → CSM
+  atualizada (colunas "Empresaongoing" e "CSM"): adicione uma linha para
+  cada nova empresa ongoing, ou edite a linha existente se o CSM
+  responsável mudar. Empresa que aparece em `cxongoing.csv` mas não está
+  aqui cai automaticamente em "Sem CSM" no filtro.
+- **`data/consumo_supabase.csv`** — **não edite manualmente**: é
+  sobrescrito automaticamente todo dia às 06:00 (horário de Brasília) pelo
+  workflow do GitHub Actions (`atualizar-consumo-onboarding.yml`), que lê
+  direto do Supabase. Se precisar forçar uma atualização fora do horário,
+  vá em **Actions → Atualizar consumo via Supabase → Run workflow** no
+  repositório.
 - O painel calcula automaticamente o "mês da meta" de cada empresa/membro a
   partir da data de fechamento/cadastro (mês + 2 — ex.: fechamento em junho
   → meta de agosto), então o filtro de mês se atualiza sozinho conforme os
@@ -211,8 +245,10 @@ navegador sempre busque a versão mais recente do arquivo.
   membro.
 - **Aba Onboarding**: Analista de Onboarding (CX), CS, data de cadastro do
   membro (intervalo), com/sem onboarding realizado, nome da empresa.
-- **Aba CX Ongoing**: CX (Analista Ongoing), mês da meta, status, data de
-  cadastro ongoing (intervalo), nome da empresa, e-mail do membro.
+- **Aba CX Ongoing**: CX (Analista Ongoing), mês da meta, status, origem
+  (novo membro / reengajamento), **CSM** (via `data/empresasongoing.csv` —
+  cada CSM filtra só suas próprias empresas), data de cadastro ongoing
+  (intervalo), nome da empresa, e-mail do membro.
 
 Clique em qualquer empresa/mês para ver os usuários/membros vinculados
 (responsável, aulas concluídas, data de onboarding/reengajamento, último
