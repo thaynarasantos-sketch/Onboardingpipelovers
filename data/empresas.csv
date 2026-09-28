@@ -9,11 +9,11 @@ Priscila Banzato,Esquadrias Brasil,29/04/2026,11/05/2026,5,,
 Priscila Banzato,Nema,29/4/2026,6/5/2026,8,,10/08/2026
 Priscila Banzato,Cartosul Embalagens,30/04/2026,05/05/2026,19,,10/08/2026
 Nicoly Lima,Elephan,30/04/2026,15/05/2026,6,,25/08/2026
-Priscila Banzato,My Fit Mood,30/04/2026,06/05/2026,10,,14/08/2026
+Priscila Banzato,My Fit Mood,30/04/2026,06/05/2026,10,churn,14/08/2026
 Nicoly Lima,NewSoft,30/04/2026,13/5/2026,4,,13/08/2026
 Priscila Banzato,HarmonizaPro,07/05/2026,13/05/2026,1,churn,
 Priscila Banzato,Metlife,14/05/2026,27/05/2026,5,churn,
-Nicoly Lima,Caminhos de Equidade,15/05/2026,19/05/2026,3,,11/08/2026
+Nicoly Lima,Caminhos de Equidade,15/05/2026,19/05/2026,3,churn,11/08/2026
 Nicoly Lima,Boa Digital,19/05/2026,03/06/2026,3,,11/08/2026
 Priscila Banzato,Gleebem,20/05/2026,28/05/2026,11,,10/08/2026
 Priscila Banzato,CEM,22/05/2026,02/06/2026,11,,25/08/2026
@@ -37,7 +37,7 @@ Nicoly Lima,Masterboard,18/06/2026,07/07/2026,2,churn,
 Nicoly Lima,Carioli Engenharia,19/06/2026,30/06/2026,5,,04/09/2026
 Gonzalo Cami ,IDVLabs,19/06/2026,30/06/2026,1,,31/08/2026
 Priscila Banzato,PTA Rental,19/06/2026,26/06/2026,22,,10/08/2026
-Nicoly Lima,Studio Kore,19/06/2026,02/07/2026,6,,01/09/2026
+Nicoly Lima,Studio Kore,19/06/2026,02/07/2026,6,,
 Nicoly Lima,RvOps,22/06/2026,25/06/2026,5,,11/09/2026
 Gonzalo Cami ,Aspprev,26/06/2026,01/07/2026,3,churn,
 Nicoly Lima,Determix Comercial,26/06/2026,21/07/2026,6,,
@@ -101,7 +101,7 @@ Gonzalo Cami,Sauté salgados,04/08/2026,12/08/2026,3,,
 Gonzalo Cami,Focaltax,06/08/2026,13/08/2026,3,,
 Maria Alice Schmitz,Superlogica,07/08/2026,,100,,
 Nicoly Lima,Facenter,12/08/2026,28/08/2026,5,,
-Nicoly Lima,4life nutrition,13/08/2026,,5,Venda cancelada,
+Nicoly Lima,4life nutrition,13/08/2026,,5,VENDA CANCELADA,
 Maria Alice Schmitz,Bodipasa,18/08/2026,20/08/2026,30,,
 Nicoly Lima,RAD Advogados,18/08/2026,19/08/2026,15,,
 Gonzalo Cami,Ziviz Brasil,18/08/2026,26/08/2026,3,,
@@ -115,11 +115,11 @@ Nicoly Lima,Companhia de Estágios,26/08/2026,,5,,
 Nicoly Lima,Polen,27/08/2026,01/09/2026,5,,
 Maria Alice Schmitz,VCGI,27/08/2026,02/09/2026,20,,
 Gonzalo Cami,INOVAMOTION,27/08/2026,02/09/2026,3,,
-Nicoly Lima,Hidra,31/08/2026,15/09/2026,15,,
-Nicoly Lima,Assertiva Soluções,31/08/2026,,15,Venda cancelada,
+Nicoly Lima,Higra,31/08/2026,15/09/2026,15,,
+Nicoly Lima,Assertiva Soluções,31/08/2026,,15,VENDA CANCELADA,
 Nicoly Lima,JC Ferramentas,31/08/2026,02/09/2026,15,,
 Gonzalo Cami,CRM PipeRun,31/08/2026,10/09/2026,3,,
-Gonzalo Cami,Up2you People,31/08/2026,,2,Venda cancela ,
+Gonzalo Cami,Up2you People,31/08/2026,,2,VENDA CANCELADA,
 Gonzalo Cami,Sales Rocket,31/08/2026,,3,,
 Gonzalo Cami,Transmóbil,31/08/2026,03/09/2026,3,,
 Gonzalo Cami,Fluke,04/09/2026,,3,,
@@ -129,15 +129,16 @@ Nicoly Lima,Databem,16/06/2026,19/06/2026,2,churn,03/08/2026
 Gonzalo Cami,"Somos Propriedade Intelectual
 ",28/08/2026,01/09/2026,3,,
 Gonzalo Cami,Iridium Company,21/08/2026,25/08/2026,1,,
-Gonzalo Cami,Growmate,20/08/2026,25/08/2026,3,,
+Gonzalo Cami,Growmate,20/08/2026,25/08/2026,3,Churn,
 Nicoly Lima,Eleva Brasil,11/09/2026,21/09/2026,12,,
-Maria Alice Schmitz,Megatron fios e cabos [AT CG],11/09/2026,17/09/2026,38,,
-Nicoly Lima,Peopleware tecnologia,11/09/2026,,12,,
-Nicoly Lima,STM embalagens [AT CG],10/09/2026,16/09/2026,6,,
-Gonzalo Cami,Let´s Work,10/09/2026,16/09/2026,3,,
+Maria Alice Schmitz,Megatron fios e cabos,11/09/2026,17/09/2026,38,,
+Nicoly Lima,Peopleware tecnologia,11/09/2026,24/09/2026,12,,
+Nicoly Lima,STM embalagens,10/09/2026,16/09/2026,6,,
+Gonzalo Cami,Lets Work,10/09/2026,16/09/2026,3,,
 Nicoly Lima,L4S,14/09/2026,18/09/2026,9,,
 Nicoly Lima,EREA,15/09/2026,,10,,
 Nicoly Lima,Modertech Group,15/09/2026,,5,,
-Gonzalo Cami,Isinc,18/09/2026,22/09/2026,4,,
+Gonzalo Cami,I-sinc,18/09/2026,22/09/2026,4,,
 Gonzalo Cami,GelarSP,21/09/2026,23/09/2026,3,,
-Nicoly Lima,HCO,23/09/2026,24/09/2026,,,
+Nicoly Lima,HCO,23/09/2026,24/09/2026,10,,
+Nicoly Lima,RodoPeças,,,20,,
