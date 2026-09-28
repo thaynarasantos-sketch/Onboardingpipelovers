@@ -42,7 +42,7 @@ const state = {
     expandedMem: new Set(),
   },
   cxongoing: {
-    f: { analistas: new Set(), meta: new Set(), status: new Set(), origem: new Set(), cadFrom: "", cadTo: "", empresa: "", email: "" },
+    f: { analistas: new Set(), meta: new Set(), status: new Set(), origem: new Set(), csm: new Set(), cadFrom: "", cadTo: "", empresa: "", email: "" },
     expandedEmp: new Set(),
     expandedMem: new Set(),
   },
@@ -96,7 +96,8 @@ async function loadAndRender(first) {
 function errorBox(msg) {
   return `<div class="err-box">Não foi possível carregar os dados (${escapeHtml(msg)}).
   Verifique se os arquivos <code>data/empresas.csv</code>, <code>data/membros.csv</code>,
-  <code>data/usuarios.csv</code> e <code>data/consumo.csv</code> estão publicados no repositório
+  <code>data/usuarios.csv</code>, <code>data/consumo.csv</code>, <code>data/cxongoing.csv</code> e
+  <code>data/empresasongoing.csv</code> estão publicados no repositório
   e se esta página está sendo servida via GitHub Pages (http/https) — o carregamento de CSV não
   funciona abrindo o arquivo localmente (file://).</div>`;
 }
@@ -146,6 +147,7 @@ function initFiltersOnce() {
   buildMultiSelect("cxo-f-meta", state.cxongoing.f.meta, () => renderCXOngoing(), itemsFromMonths(MODEL.ongoingMetaMonths));
   buildMultiSelect("cxo-f-status", state.cxongoing.f.status, () => renderCXOngoing(), itemsFromKeyed(CX_STATUS_ORDER, STATUS_META));
   buildMultiSelect("cxo-f-origem", state.cxongoing.f.origem, () => renderCXOngoing(), itemsFromLabels(["Novo membro", "Reengajamento"]));
+  buildMultiSelect("cxo-f-csm", state.cxongoing.f.csm, () => renderCXOngoing(), itemsFromLabels(MODEL.csmList || []));
 
   document.getElementById("cs-f-fechfrom").addEventListener("change", (e) => { state.cs.f.fechFrom = e.target.value; renderCS(); });
   document.getElementById("cs-f-fechto").addEventListener("change", (e) => { state.cs.f.fechTo = e.target.value; renderCS(); });
@@ -175,6 +177,7 @@ function refreshMetaMonthOptions() {
   buildMultiSelect("cs-f-meta", state.cs.f.meta, () => renderCS(), itemsFromMonths(MODEL.metaMonths));
   buildMultiSelect("cx-f-meta", state.cx.f.meta, () => renderCX(), itemsFromMonths(MODEL.metaMonths));
   buildMultiSelect("cxo-f-meta", state.cxongoing.f.meta, () => renderCXOngoing(), itemsFromMonths(MODEL.ongoingMetaMonths));
+  buildMultiSelect("cxo-f-csm", state.cxongoing.f.csm, () => renderCXOngoing(), itemsFromLabels(MODEL.csmList || []));
 }
 
 function clearFilters(tab) {
@@ -333,6 +336,7 @@ function filterMembrosCXOngoing() {
     if (f.meta.size && !f.meta.has(m.metaKey)) return false;
     if (f.status.size && !f.status.has(m.status)) return false;
     if (f.origem.size && !f.origem.has(m.origem)) return false;
+    if (f.csm.size && !f.csm.has(m.csm)) return false;
     if (!inRange(m.dataCadastro, f.cadFrom, f.cadTo)) return false;
     if (f.empresa && !norm(m.contaNome).includes(norm(f.empresa))) return false;
     if (f.email && !norm(m.email).includes(norm(f.email))) return false;
