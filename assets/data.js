@@ -12,6 +12,7 @@ const CSV_PATHS = {
   consumo: "data/consumo.csv",                  // histórico manual — nunca é sobrescrito pelo script automático
   consumoSupabase: "data/consumo_supabase.csv",  // gerado automaticamente pelo workflow do Supabase
   cxongoing: "data/cxongoing.csv",
+  empresasongoing: "data/empresasongoing.csv",
 };
 
 const CS_TARGET_PCT = { // meta macro por CS (% da carteira de empresas ativada)
@@ -167,7 +168,7 @@ function fetchCSV(path) {
 /* ---------------------------- Main loader ------------------------------- */
 
 async function loadAllData() {
-  const [empresasRaw, membrosRaw, usuariosRaw, consumoManualRaw, consumoSupabaseRaw, cxongoingRaw] = await Promise.all([
+  const [empresasRaw, membrosRaw, usuariosRaw, consumoManualRaw, consumoSupabaseRaw, cxongoingRaw, empresasongoingRaw] = await Promise.all([
     fetchCSV(CSV_PATHS.empresas),
     fetchCSV(CSV_PATHS.membros),
     fetchCSV(CSV_PATHS.usuarios),
@@ -178,15 +179,16 @@ async function loadAllData() {
     // o consumo.csv manual, sem quebrar a página.
     fetchCSV(CSV_PATHS.consumoSupabase).catch(() => []),
     fetchCSV(CSV_PATHS.cxongoing),
+    fetchCSV(CSV_PATHS.empresasongoing),
   ]);
   // Soma o consumo manual (histórico congelado) com o consumo novo vindo do
   // Supabase (buracos do histórico + tudo de hoje em diante) antes de montar
   // o modelo — o restante do pipeline não muda em nada.
   const consumoRaw = consumoManualRaw.concat(consumoSupabaseRaw);
-  return buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingRaw);
+  return buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingRaw, empresasongoingRaw);
 }
 
-function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingRaw) {
+function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingRaw, empresasongoingRaw = []) {
   const today = new Date(Date.UTC(
     new Date().getFullYear(), new Date().getMonth(), new Date().getDate()
   ));
@@ -451,12 +453,25 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
      Churn = Proprietário do Negócio = Thaynara Santos E Analista Ongoing =
      Thabata Harumi. "Onboarding" aqui, reaproveitando os mesmos nomes de
      campo do resto do painel, representa a reunião de reengajamento. */
+  // Relação de CSM por empresa (data/empresasongoing.csv, colunas
+  // "Empresaongoing" e "CSM"). Nomes de CSM são canonicalizados para unificar
+  // grafias variantes (ex.: "Patrícia Zancan" / "Patricia Zancan").
+  const canonCSM = buildCanonicalNames(empresasongoingRaw.map((r) => pick(r, ["CSM"])));
+  const csmByEmpresaKey = new Map();
+  for (const r of empresasongoingRaw) {
+    const empresaNome = (pick(r, ["Empresaongoing"]) || "").trim();
+    const csmRaw = (pick(r, ["CSM"]) || "").trim();
+    if (!empresaNome || !csmRaw) continue;
+    csmByEmpresaKey.set(norm(empresaNome), canonCSM(csmRaw));
+  }
+
   const membrosOngoing = cxongoingRaw
     .filter((r) => norm(pick(r, ["E-mail"])))
     .map((r, idx) => {
       const email = (pick(r, ["E-mail"]) || "").trim();
       const emailKey = norm(email);
       const contaNome = (pick(r, ["Conta Nome"]) || "").trim();
+      const csm = csmByEmpresaKey.get(norm(contaNome)) || "Sem CSM";
       const dataCadastroOngoing = parseBRDate(pick(r, ["Data cadastro Ongoing"]));
       const analistaRaw = (pick(r, ["Analista Ongoing"]) || "").trim();
       const analista = canonCX(analistaRaw) || "Sem CX";
@@ -481,6 +496,7 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
         emailKey,
         contaNome: contaNome || "—",
         cx: analista,
+        csm,
         proprietario,
         dataCadastro: dataCadastroOngoing,
         metaKey,
@@ -502,5 +518,9 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
   membrosOngoing.forEach((m) => m.metaKey && ongoingMetaMonthsSet.add(m.metaKey));
   const ongoingMetaMonths = [...ongoingMetaMonthsSet].sort().map((key) => ({ key, label: metaMonthLabel(key) }));
 
-  return { empresas, membros, metaMonths, membrosOngoing, ongoingMetaMonths, today };
+  const csmSet = new Set();
+  membrosOngoing.forEach((m) => m.csm && csmSet.add(m.csm));
+  const csmList = [...csmSet].sort((a, b) => a.localeCompare(b, "pt-BR"));
+
+  return { empresas, membros, metaMonths, membrosOngoing, ongoingMetaMonths, csmList, today };
 }
