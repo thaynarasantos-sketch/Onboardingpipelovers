@@ -37,7 +37,7 @@ Nicoly Lima,Masterboard,18/06/2026,07/07/2026,2,churn,
 Nicoly Lima,Carioli Engenharia,19/06/2026,30/06/2026,5,,04/09/2026
 Gonzalo Cami ,IDVLabs,19/06/2026,30/06/2026,1,,31/08/2026
 Priscila Banzato,PTA Rental,19/06/2026,26/06/2026,22,,10/08/2026
-Nicoly Lima,Studio Kore,19/06/2026,02/07/2026,6,,
+Nicoly Lima,Studio Kore,19/06/2026,02/07/2026,6,churn,
 Nicoly Lima,RvOps,22/06/2026,25/06/2026,5,,11/09/2026
 Gonzalo Cami ,Aspprev,26/06/2026,01/07/2026,3,churn,
 Nicoly Lima,Determix Comercial,26/06/2026,21/07/2026,6,,
@@ -57,7 +57,7 @@ Maria Alice Schmitz,Luza Group,30/06/2026,23/07/2026,50,,
 Maria Alice Schmitz,Mantomac,30/06/2026,02/07/2026,20,,
 Gonzalo Cami ,Prs Tecnologia,30/06/2026,07/07/2026,3,churn,
 Gonzalo Cami ,t-access,30/06/2026,08/07/2026,2,churn,
-Nicoly Lima,Timol,30/06/2026,08/07/2026,26,,
+Nicoly Lima,Timol,30/06/2026,08/07/2026,26,churn,
 Priscila Banzato,WebRota,30/06/2026,10/07/2026,23,,25/08/2026
 Gonzalo Cami ,WR Automação,30/06/2026,16/07/2026,3,churn,
 Gonzalo Cami,RBR Extintores,01/07/2026,15/07/2026,3,,
@@ -66,10 +66,10 @@ Nicoly Lima,Transformação Digital,01/07/2026,07/07/2026,14,,03/09/2026
 Gonzalo Cami,MidFalconi,03/07/2026,08/07/2026,3,,23/09/2026
 Gonzalo Cami,Redminds mkt & tech,06/07/2026,10/07/2026,3,churn,
 Nicoly Lima,Prospercapital,08/07/2026,15/07/2026,9,,25/09/2026
-Gonzalo Cami,MRS Advogados,10/07/2026,14/07/2026,1,,
+Gonzalo Cami,MRS Advogados,10/07/2026,14/07/2026,1,,29/09/2026
 Priscila Banzato,PUCPR,10/07/2026,15/07/2026,20,,25/08/2026
-Gonzalo Cami,Selmec,10/07/2026,14/07/2026,3,churn,
-Gonzalo Cami,Smart NX,10/07/2026,14/07/2026,3,,
+Gonzalo Cami,Semelc,10/07/2026,14/07/2026,3,churn,
+Gonzalo Cami,Smart NX,10/07/2026,14/07/2026,3,,30/09/2026
 Nicoly Lima,AWA,15/07/2026,29/07/2026,10,,21/09/2026
 Gonzalo Cami,ITS Tecnologia,15/07/2026,16/07/2026,1,,
 Gonzalo Cami,Pipe MND,15/07/2026,06/08/2026,1,,
@@ -86,7 +86,7 @@ Gonzalo Cami,Carefy,24/07/2026,29/07/2026,3,,09/09/2026
 Gonzalo Cami,GBF Consultoria e contabilidade,24/07/2026,30/07/2026,4,,
 Nicoly Lima,IGA,24/07/2026,30/07/2026,10,,25/09/2026
 Gonzalo Cami,Revfy,24/07/2026,28/07/2026,1,churn,
-Gonzalo Cami,Sumedical,24/07/2026,27/07/2026,2,,
+Gonzalo Cami,Sumedical,24/07/2026,27/07/2026,2,,01/10/2026
 Nicoly Lima,VMK Holding,24/07/2026,28/07/2026,10,,
 Nicoly Lima,FAC Engenharia,27/07/2026,05/08/2026,12,,
 Gonzalo Cami,WRID Importadora e Distribuidora,27/07/2026,29/07/2026,3,,09/09/2026
@@ -141,4 +141,7 @@ Nicoly Lima,Modertech Group,15/09/2026,,5,,
 Gonzalo Cami,I-sinc,18/09/2026,22/09/2026,4,,
 Gonzalo Cami,GelarSP,21/09/2026,23/09/2026,3,,
 Nicoly Lima,HCO,23/09/2026,24/09/2026,10,,
-Nicoly Lima,RodoPeças,,,20,,
+Nicoly Lima,RodoPeças,28/09/2026,29/09/2026,20,,
+Gonzalo Cami,Vaporo,30/09/2026,,3,,
+Nicoly Lima,CYA RUBBER DISTRIBUIDORA,30/09/2026,,10,,
+Gonzalo Cami,Zaya.it,30/09/2026,,3,,
