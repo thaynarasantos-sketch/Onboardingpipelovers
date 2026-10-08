@@ -329,11 +329,12 @@ function monthKeyOf(date) {
   return date ? `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}` : null;
 }
 
-function filterMembrosCXOngoing() {
+function filterMembrosCXOngoing(opts) {
+  const skipMeta = !!(opts && opts.skipMeta);
   const f = state.cxongoing.f;
   return MODEL.membrosOngoing.filter((m) => {
     if (f.analistas.size && !f.analistas.has(m.cx)) return false;
-    if (f.meta.size && !f.meta.has(m.metaKey)) return false;
+    if (!skipMeta && f.meta.size && !f.meta.has(m.metaKey)) return false;
     if (f.status.size && !f.status.has(m.status)) return false;
     if (f.origem.size && !f.origem.has(m.origem)) return false;
     if (f.csm.size && !f.csm.has(m.csm)) return false;
@@ -952,14 +953,19 @@ function renderOnbTable(list) {
 function renderCXOngoing() {
   if (!MODEL) return;
   const list = filterMembrosCXOngoing();
-  renderCxoKpis(list);
+  // Lista sem o filtro de mês da meta: o total de "Membros na carteira" não
+  // deve mudar quando um mês é selecionado — só a composição por status
+  // (ativados/andamento/desengajados/alerta/churn) muda.
+  const listFull = filterMembrosCXOngoing({ skipMeta: true });
+  renderCxoKpis(list, listFull);
   renderCxoTable(list);
   renderCxoEmpresaCoverage(list);
 }
 
-function renderCxoKpis(list) {
+function renderCxoKpis(list, listFull) {
   const box = document.getElementById("cxo-kpis");
   const total = list.length;
+  const totalCarteira = (listFull || list).length;
   const ativados = list.filter((m) => m.status === "ativado").length;
   const alerta = list.filter((m) => m.status === "alerta").length;
   const deseng = list.filter((m) => m.status === "desengajado").length;
@@ -1015,7 +1021,8 @@ function renderCxoKpis(list) {
     </div>
     <div class="card kpi-simple">
       <div class="lbl">Membros na carteira</div>
-      <div class="val">${total}</div>
+      <div class="val">${totalCarteira}</div>
+      <div class="sub">Total não muda com o filtro de mês da meta — só a composição por status abaixo</div>
       <div class="breakdown-grid">
         <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${ativados}</span><span class="bd-label">Ativados</span></div>
         <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${andamento}</span><span class="bd-label">Em andamento</span></div>
@@ -1024,11 +1031,11 @@ function renderCxoKpis(list) {
         <div class="bd-item"><span class="bd-num" style="color:var(--churn)">${churn}</span><span class="bd-label">Churn</span></div>
       </div>
       ${stackBar([
-        { pct: total ? ativados/total*100 : 0, color: "var(--ok)" },
-        { pct: total ? andamento/total*100 : 0, color: "var(--blue-soft)" },
-        { pct: total ? deseng/total*100 : 0, color: "var(--warn)" },
-        { pct: total ? alerta/total*100 : 0, color: "var(--bad)" },
-        { pct: total ? churn/total*100 : 0, color: "var(--churn)" },
+        { pct: totalCarteira ? ativados/totalCarteira*100 : 0, color: "var(--ok)" },
+        { pct: totalCarteira ? andamento/totalCarteira*100 : 0, color: "var(--blue-soft)" },
+        { pct: totalCarteira ? deseng/totalCarteira*100 : 0, color: "var(--warn)" },
+        { pct: totalCarteira ? alerta/totalCarteira*100 : 0, color: "var(--bad)" },
+        { pct: totalCarteira ? churn/totalCarteira*100 : 0, color: "var(--churn)" },
       ])}
     </div>
     <div class="card kpi-simple">
