@@ -146,7 +146,7 @@ function initFiltersOnce() {
   buildMultiSelect("cxo-f-analista", state.cxongoing.f.analistas, () => renderCXOngoing(), itemsFromLabels(cxoAnalistas));
   buildMultiSelect("cxo-f-meta", state.cxongoing.f.meta, () => renderCXOngoing(), itemsFromMonths(MODEL.ongoingMetaMonths));
   buildMultiSelect("cxo-f-status", state.cxongoing.f.status, () => renderCXOngoing(), itemsFromKeyed(CX_STATUS_ORDER, STATUS_META));
-  buildMultiSelect("cxo-f-origem", state.cxongoing.f.origem, () => renderCXOngoing(), itemsFromLabels(["Novo membro", "Reengajamento"]));
+  buildMultiSelect("cxo-f-origem", state.cxongoing.f.origem, () => renderCXOngoing(), itemsFromLabels(["Novo membro", "Reengajamento", "Waid"]));
   buildMultiSelect("cxo-f-csm", state.cxongoing.f.csm, () => renderCXOngoing(), itemsFromLabels(MODEL.csmList || []));
 
   document.getElementById("cs-f-fechfrom").addEventListener("change", (e) => { state.cs.f.fechFrom = e.target.value; renderCS(); });
@@ -525,6 +525,14 @@ function memberRow(m, tab) {
     <div class="courses-panel" id="courses-${tab}-${m.id}" style="display:none">${renderCourses(m)}</div>`;
 }
 
+// Classe visual do badge de origem (coluna "Funil CX"): Novo membro = verde,
+// Reengajamento = azul, Waid = laranja.
+function origemBadgeClass(origem) {
+  if (origem === "Reengajamento") return "info";
+  if (origem === "Waid") return "warn";
+  return "ok";
+}
+
 // Linha de membro específica para CX Ongoing: mostra "Reunião" e "PDI Assíncrono"
 // como duas colunas separadas (em vez de uma única coluna "Onboarding").
 function memberRowOngoing(m, tab) {
@@ -535,7 +543,7 @@ function memberRowOngoing(m, tab) {
   const pdiCell = m.temPdi
     ? `<span class="badge ok"><span class="dot"></span>${fmtDate(m.dataPdi)}</span>`
     : `<span class="badge bad"><span class="dot"></span>Não realizado</span>`;
-  const origemCell = `<span class="badge ${m.origem === "Reengajamento" ? "info" : "ok"}"><span class="dot"></span>${escapeHtml(m.origem)}</span>`;
+  const origemCell = `<span class="badge ${origemBadgeClass(m.origem)}"><span class="dot"></span>${escapeHtml(m.origem)}</span>`;
   return `
     <div class="member-row member-row-ongoing" data-mem="${m.id}" data-tab="${tab}">
       <div class="mm-name">${escapeHtml(m.nome)}</div>
@@ -957,7 +965,16 @@ function renderCxoKpis(list) {
   const deseng = list.filter((m) => m.status === "desengajado").length;
   const andamento = list.filter((m) => m.status === "em_andamento").length;
   const churn = list.filter((m) => m.status === "churn").length;
-  const pctMeta = Math.min(100, Math.round((ativados / CX_ONGOING_META_TARGET) * 1000) / 10);
+
+  // Meta de ativados: soma a meta de cada mês de consumo (mês da aula que
+  // ativou o membro) presente na lista filtrada atual — quando um único mês
+  // está selecionado no filtro, isso já equivale à meta daquele mês.
+  const metaKeysPresentes = [...new Set(list.map((m) => m.metaKey).filter(Boolean))].sort();
+  const metaTarget = metaKeysPresentes.reduce((sum, k) => sum + cxOngoingMetaTarget(k), 0);
+  const metaLabelMeses = metaKeysPresentes.length
+    ? metaKeysPresentes.map(metaMonthLabel).join(" + ")
+    : "—";
+  const pctMeta = metaTarget > 0 ? Math.min(100, Math.round((ativados / metaTarget) * 1000) / 10) : 0;
 
   const comEngajamento = list.filter((m) => m.temEngajamento);
   const pctCobertura = total ? Math.round((comEngajamento.length / total) * 1000) / 10 : 0;
@@ -972,24 +989,28 @@ function renderCxoKpis(list) {
   const pctAtivadosComPdi = ativados ? Math.round((ativadosComPdi / ativados) * 1000) / 10 : 0;
   const pctAtivadosSemNenhum = ativados ? Math.round((ativadosSemNenhum / ativados) * 1000) / 10 : 0;
 
-  // análises por origem (Funil CX: Novo membro x Reengajamento)
+  // análises por origem (Funil CX: Novo membro x Reengajamento x Waid)
   const comEngNovo = comEngajamento.filter((m) => m.origem === "Novo membro").length;
   const comEngReeng = comEngajamento.filter((m) => m.origem === "Reengajamento").length;
+  const comEngWaid = comEngajamento.filter((m) => m.origem === "Waid").length;
   const pctCoberturaNovo = comEngajamento.length ? Math.round((comEngNovo / comEngajamento.length) * 1000) / 10 : 0;
   const pctCoberturaReeng = comEngajamento.length ? Math.round((comEngReeng / comEngajamento.length) * 1000) / 10 : 0;
+  const pctCoberturaWaid = comEngajamento.length ? Math.round((comEngWaid / comEngajamento.length) * 1000) / 10 : 0;
 
   const ativadosNovo = ativadosList.filter((m) => m.origem === "Novo membro").length;
   const ativadosReeng = ativadosList.filter((m) => m.origem === "Reengajamento").length;
+  const ativadosWaid = ativadosList.filter((m) => m.origem === "Waid").length;
   const pctAtivadosNovo = ativados ? Math.round((ativadosNovo / ativados) * 1000) / 10 : 0;
   const pctAtivadosReeng = ativados ? Math.round((ativadosReeng / ativados) * 1000) / 10 : 0;
+  const pctAtivadosWaid = ativados ? Math.round((ativadosWaid / ativados) * 1000) / 10 : 0;
 
   box.innerHTML = `
     <div class="card kpi-goal">
       ${gaugeSVG(pctMeta, pctColor(pctMeta, 100))}
       <div class="kpi-goal-text">
         <div class="lbl">Atingimento da meta</div>
-        <div class="val">${ativados} / ${CX_ONGOING_META_TARGET}</div>
-        <div class="sub">Meta: <b>${CX_ONGOING_META_TARGET}</b> membros ativados (1 aula) no mês da data de cadastro ongoing</div>
+        <div class="val">${ativados} / ${metaTarget}</div>
+        <div class="sub">Meta: <b>${metaTarget}</b> membros ativados (1 aula) em <b>${escapeHtml(metaLabelMeses)}</b> <span style="opacity:.7">(mês do consumo da aula que ativou o membro)</span></div>
       </div>
     </div>
     <div class="card kpi-simple">
@@ -1042,25 +1063,29 @@ function renderCxoKpis(list) {
     <div class="card kpi-simple">
       <div class="lbl">Cobertura de engajamento por origem (${comEngajamento.length})</div>
       <div class="sub">Dos membros com reunião ou PDI assíncrono realizado, quanto vem de cada origem (coluna "Funil CX")</div>
-      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr">
+      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr 1fr">
         <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${fmtPct(pctCoberturaNovo)}</span><span class="bd-label">Novo membro (${comEngNovo})</span></div>
         <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${fmtPct(pctCoberturaReeng)}</span><span class="bd-label">Reengajamento (${comEngReeng})</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--warn)">${fmtPct(pctCoberturaWaid)}</span><span class="bd-label">Waid (${comEngWaid})</span></div>
       </div>
       ${stackBar([
         { pct: comEngajamento.length ? comEngNovo/comEngajamento.length*100 : 0, color: "var(--ok)" },
         { pct: comEngajamento.length ? comEngReeng/comEngajamento.length*100 : 0, color: "var(--blue-soft)" },
+        { pct: comEngajamento.length ? comEngWaid/comEngajamento.length*100 : 0, color: "var(--warn)" },
       ])}
     </div>
     <div class="card kpi-simple">
       <div class="lbl">Ativados por origem (${ativados})</div>
       <div class="sub">Dos membros ativados (1 aula), quanto vem de cada origem (coluna "Funil CX")</div>
-      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr">
+      <div class="breakdown-grid" style="grid-template-columns:1fr 1fr 1fr">
         <div class="bd-item"><span class="bd-num" style="color:var(--ok)">${fmtPct(pctAtivadosNovo)}</span><span class="bd-label">Novo membro (${ativadosNovo})</span></div>
         <div class="bd-item"><span class="bd-num" style="color:var(--blue-soft)">${fmtPct(pctAtivadosReeng)}</span><span class="bd-label">Reengajamento (${ativadosReeng})</span></div>
+        <div class="bd-item"><span class="bd-num" style="color:var(--warn)">${fmtPct(pctAtivadosWaid)}</span><span class="bd-label">Waid (${ativadosWaid})</span></div>
       </div>
       ${stackBar([
         { pct: ativados ? ativadosNovo/ativados*100 : 0, color: "var(--ok)" },
         { pct: ativados ? ativadosReeng/ativados*100 : 0, color: "var(--blue-soft)" },
+        { pct: ativados ? ativadosWaid/ativados*100 : 0, color: "var(--warn)" },
       ])}
     </div>
   `;
