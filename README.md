@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/32778759/README.md)
+[README.md](https://github.com/user-attachments/files/33182333/README.md)
 # PipeLovers · Painel de Onboarding CS/CX
 
 Painel estático (HTML/CSS/JS puro, sem servidor) para acompanhar a ativação
@@ -25,6 +25,24 @@ gerar_consumo_onboarding.py                          → script Python usado pel
 ```
 
 **O que mudou nesta versão:**
+- **Nova origem "Waid" na aba CX Ongoing**: a coluna "Funil CX" de
+  `cxongoing.csv` agora também pode vir com o valor "Waid" (além de
+  "Reengajamento" e vazio = "Novo membro"). Os cards "Cobertura de
+  engajamento por origem" e "Ativados por origem" agora mostram as 3
+  origens lado a lado. O filtro "Origem" também ganhou a opção "Waid".
+- **"Mês da meta" da aba CX Ongoing agora é o mês do CONSUMO, não mais o
+  mês da "Data cadastro Ongoing"**: o mês usado no filtro "Mês da meta" e
+  no indicador "Atingimento da meta" passou a ser o mês da aula que ativou
+  o membro (vinda de `consumo.csv` + `consumo_supabase.csv`, cruzada pelo
+  e-mail), já que é isso que a meta mensal realmente mede. Membro ainda
+  não ativado não tem mês da meta e só aparece na visão "Todos" do filtro.
+  Junto com isso, a meta deixou de ser um número fixo (100) e agora varia
+  por mês — hoje: **100 em setembro/2026** e **120 em outubro/2026**
+  (configurável em `assets/data.js`, constante
+  `CX_ONGOING_META_TARGET_POR_MES`; meses não listados usam 100 como
+  padrão). Ao selecionar um mês específico no filtro, o card mostra a meta
+  daquele mês; sem filtro, soma a meta de todos os meses com membros
+  ativados na base.
 - **Novo filtro "CSM" na aba CX Ongoing**: cada CSM agora pode filtrar a
   tabela para ver só as empresas sob sua responsabilidade. A relação
   Empresa → CSM vem do novo arquivo `data/empresasongoing.csv` (colunas
@@ -142,8 +160,9 @@ navegador sempre busque a versão mais recente do arquivo.
 - O painel calcula automaticamente o "mês da meta" de cada empresa/membro a
   partir da data de fechamento/cadastro (mês + 2 — ex.: fechamento em junho
   → meta de agosto), então o filtro de mês se atualiza sozinho conforme os
-  dados crescem. **Exceção**: na aba CX Ongoing, o mês da meta é o próprio
-  mês da "Data cadastro Ongoing" (sem deslocamento).
+  dados crescem. **Exceção**: na aba CX Ongoing, o mês da meta é o mês do
+  **consumo** (a aula que ativou o membro), não o mês de cadastro/fechamento
+  — veja a seção de regras de negócio abaixo.
 - Linhas de `consumo.csv` cujo e-mail não corresponde a nenhum membro/usuário
   cadastrado são ignoradas automaticamente, como pedido.
 - Se algum campo do CSV tiver vírgula no texto (ex. nome de empresa com
@@ -221,9 +240,19 @@ navegador sempre busque a versão mais recente do arquivo.
   (sem registro = alerta; sem acesso há mais de 30 dias = desengajado).
 - *Churn*: "Proprietário do Negócio" = Thaynara Santos **e** "Analista
   Ongoing" = Thabata Harumi.
-- Meta: **100 membros ativados** no mês da "Data cadastro Ongoing" (meta
-  fixa em quantidade, não em percentual como nas outras abas). O "mês da
-  meta" aqui é o próprio mês de "Data cadastro Ongoing", sem deslocamento.
+- *Origem* (coluna "Funil CX"): **Reengajamento** quando o valor é
+  exatamente "Reengajamento", **Waid** quando é exatamente "Waid", ou
+  **Novo membro** para qualquer outro valor (inclusive vazio).
+- Meta: **membros ativados em quantidade** (não em percentual como nas
+  outras abas), com alvo que varia por mês — hoje 100 em setembro/2026 e
+  120 em outubro/2026 (ajustável em `assets/data.js`,
+  `CX_ONGOING_META_TARGET_POR_MES`). O **"mês da meta" é o mês do
+  CONSUMO** — a data da aula que ativou o membro (1ª aula registrada em
+  `consumo.csv`/`consumo_supabase.csv` a partir da "Data cadastro
+  Ongoing", cruzada pelo e-mail) — e não mais o mês de "Data cadastro
+  Ongoing". Membro que ainda não ativou não tem mês da meta. Ao escolher
+  um mês no filtro, o indicador mostra a meta daquele mês; sem filtro,
+  soma a meta de todos os meses com ativados presentes na base.
 - *Cobertura de engajamento*: % de membros com **reunião de reengajamento**
   E/OU **PDI assíncrono** realizado (`cxongoing.csv`, colunas "Data da
   reunião de reengajamento Ongoing" e "Data PDI assíncrono" — qualquer uma
@@ -245,10 +274,11 @@ navegador sempre busque a versão mais recente do arquivo.
   membro.
 - **Aba Onboarding**: Analista de Onboarding (CX), CS, data de cadastro do
   membro (intervalo), com/sem onboarding realizado, nome da empresa.
-- **Aba CX Ongoing**: CX (Analista Ongoing), mês da meta, status, origem
-  (novo membro / reengajamento), **CSM** (via `data/empresasongoing.csv` —
-  cada CSM filtra só suas próprias empresas), data de cadastro ongoing
-  (intervalo), nome da empresa, e-mail do membro.
+- **Aba CX Ongoing**: CX (Analista Ongoing), **mês da meta** (mês do
+  consumo — a aula que ativou o membro, não o cadastro ongoing), status,
+  origem (novo membro / reengajamento / waid), **CSM** (via
+  `data/empresasongoing.csv` — cada CSM filtra só suas próprias empresas),
+  data de cadastro ongoing (intervalo), nome da empresa, e-mail do membro.
 
 Clique em qualquer empresa/mês para ver os usuários/membros vinculados
 (responsável, aulas concluídas, data de onboarding/reengajamento, último
