@@ -27,7 +27,20 @@ const CS_TARGET_PCT = { // meta macro por CS (% da carteira de empresas ativada)
 const CX_TARGET_PCT = 80;      // meta macro de CX: 80% dos membros ativados
 const AULAS_PARA_ATIVAR = 3;   // membro/usuário ativado = 3 aulas concluídas
 const AULAS_PARA_ATIVAR_ONGOING = 1; // membro ongoing ativado = 1 aula (após a data de cadastro ongoing)
-const CX_ONGOING_META_TARGET = 100;  // meta fixa: 100 membros ativados no mês da data de cadastro ongoing
+const CX_ONGOING_META_TARGET = 100;  // meta padrão (fallback) para meses sem valor específico abaixo
+// Meta de membros ativados (1 aula) por mês — mês aqui é o mês do CONSUMO
+// (a data da aula que ativou o membro), não o mês de cadastro ongoing.
+// Adicione/ajuste entradas aqui conforme novas metas forem definidas mês a mês.
+const CX_ONGOING_META_TARGET_POR_MES = {
+  "2026-09": 100,
+  "2026-10": 120,
+};
+function cxOngoingMetaTarget(monthKey) {
+  if (monthKey && Object.prototype.hasOwnProperty.call(CX_ONGOING_META_TARGET_POR_MES, monthKey)) {
+    return CX_ONGOING_META_TARGET_POR_MES[monthKey];
+  }
+  return CX_ONGOING_META_TARGET;
+}
 const DIAS_DESENGAJAMENTO = 30;
 const CHURN_OWNER_NAME = "thaynara santos"; // proprietário do negócio = churn (CX)
 const CHURN_ONGOING_ANALISTA = "thabata harumi"; // analista ongoing associado ao churn de CX Ongoing
@@ -452,7 +465,13 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
      (não 3), contando só consumo ocorrido a partir da Data cadastro Ongoing.
      Churn = Proprietário do Negócio = Thaynara Santos E Analista Ongoing =
      Thabata Harumi. "Onboarding" aqui, reaproveitando os mesmos nomes de
-     campo do resto do painel, representa a reunião de reengajamento. */
+     campo do resto do painel, representa a reunião de reengajamento.
+     "Mês da meta" = mês do CONSUMO (data da aula que ativou o membro, vinda
+     de consumo.csv + consumo_supabase.csv cruzada pelo e-mail) — não mais o
+     mês da "Data cadastro Ongoing". Membro ainda não ativado não tem mês da
+     meta (metaKey null) e só aparece quando nenhum mês específico está
+     selecionado no filtro. Origem (coluna "Funil CX") agora tem 3 valores:
+     "Novo membro" (vazio), "Reengajamento" e "Waid". */
   // Relação de CSM por empresa (data/empresasongoing.csv, colunas
   // "Empresaongoing" e "CSM"). Nomes de CSM são canonicalizados para unificar
   // grafias variantes (ex.: "Patrícia Zancan" / "Patricia Zancan").
@@ -483,11 +502,21 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
       const status = isChurnOngoing ? "churn" : statusFromConsumoOngoing(stats);
       const dataReuniao = parseBRDate(pick(r, ["Data da reunião de reengajamento Ongoing"]));
       const dataPdi = parseBRDate(pick(r, ["Data PDI assíncrono", "Data PDI Assíncrono", "PDI Assíncrono"]));
-      const metaKey = rawMonthKey(dataCadastroOngoing);
-      // Funil CX: "Reengajamento" = membro veio de reengajamento; qualquer
-      // outro valor (inclusive vazio) = Novo membro.
+      // "Mês da meta" do CX Ongoing = mês do CONSUMO (a data da aula que
+      // ativou o membro, vinda de consumo.csv + consumo_supabase.csv,
+      // cruzada pelo e-mail), e não mais o mês da "Data cadastro Ongoing".
+      // `stats.consumo` já vem filtrado (só aulas desde a data de cadastro
+      // ongoing) e ordenado por data crescente — a primeira entrada é a
+      // aula que ativou o membro (ativação = 1 aula).
+      const dataAtivacaoConsumo = stats.consumo.length ? stats.consumo[0].data : null;
+      const metaKey = rawMonthKey(dataAtivacaoConsumo);
+      // Funil CX: "Reengajamento" = veio de reengajamento; "Waid" = veio do
+      // Waid; qualquer outro valor (inclusive vazio) = Novo membro.
       const funilCX = (pick(r, ["Funil CX"]) || "").trim();
-      const origem = norm(funilCX) === "reengajamento" ? "Reengajamento" : "Novo membro";
+      const funilNorm = norm(funilCX);
+      const origem = funilNorm === "reengajamento" ? "Reengajamento"
+        : funilNorm === "waid" ? "Waid"
+        : "Novo membro";
 
       return {
         id: `ongm_${idx}`,
@@ -499,8 +528,9 @@ function buildModel(empresasRaw, membrosRaw, usuariosRaw, consumoRaw, cxongoingR
         csm,
         proprietario,
         dataCadastro: dataCadastroOngoing,
-        metaKey,
-        origem, // "Novo membro" | "Reengajamento" (coluna Funil CX)
+        metaKey, // mês do consumo (aula que ativou o membro) — null se ainda não ativou
+        dataAtivacaoConsumo,
+        origem, // "Novo membro" | "Reengajamento" | "Waid" (coluna Funil CX)
         isOngoing: true, // por definição, todo mundo nesta base já está em ongoing
         consumo: stats.consumo,
         qtdAulasConcluidas: stats.qtdAulasConcluidas,
