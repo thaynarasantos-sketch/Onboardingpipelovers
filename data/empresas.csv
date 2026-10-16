@@ -1,42 +1,11 @@
 Analista Onboarding,Conta Nome,Data de Fechamento,Data de Onboarding,Número de usuários que vão usar PipeLovers,Motivo de churn - Onboarding,Data Handoff Onboarding
-Priscila Banzato,VerticalParts,13/03/2026,27/03/2026,7,,14/08/2026
-Priscila Banzato,Êxito Trade Marketing,25/03/2026,07/04/2026,4,,14/08/2026
-Priscila Banzato,Mundo da Água,27/3/2026,30/3/2026,10,churn,14/08/2026
-Nicoly Lima,Lecheloco,17/04/2026,30/04/2026,4,,11/08/2026
-Priscila Banzato,Adcos,28/04/2026,30/04/2026,20,,10/08/2026
-Nicoly Lima,Attos,29/04/2026,15/05/2026,5,,13/08/2026
-Priscila Banzato,Esquadrias Brasil,29/04/2026,11/05/2026,5,churn,
-Priscila Banzato,Nema,29/4/2026,6/5/2026,8,churn,10/08/2026
-Priscila Banzato,Cartosul Embalagens,30/04/2026,05/05/2026,19,,10/08/2026
-Nicoly Lima,Elephan,30/04/2026,15/05/2026,6,,25/08/2026
-Priscila Banzato,My Fit Mood,30/04/2026,06/05/2026,10,churn,14/08/2026
-Nicoly Lima,NewSoft,30/04/2026,13/5/2026,4,,13/08/2026
-Priscila Banzato,HarmonizaPro,07/05/2026,13/05/2026,1,churn,
-Priscila Banzato,Metlife,14/05/2026,27/05/2026,5,churn,
-Nicoly Lima,Caminhos de Equidade,15/05/2026,19/05/2026,3,churn,11/08/2026
-Nicoly Lima,Boa Digital,19/05/2026,03/06/2026,3,,11/08/2026
-Priscila Banzato,Gleebem,20/05/2026,28/05/2026,11,,10/08/2026
-Priscila Banzato,CEM,22/05/2026,02/06/2026,11,,25/08/2026
-Gonzalo Cami ,LeadHunter,25/05/2026,23/06/2026,1,VENDA CANCELADA,
-Priscila Banzato,Armando Pneus,26/05/2026,08/06/2026,24,churn,14/08/2026
-Priscila Banzato,Caelimp,26/05/2026,05/06/2026,4,,10/08/2026
-Gonzalo Cami ,LH Soluções,28/05/2026,19/06/2026,1,VENDA CANCELADA,
-Priscila Banzato,Max Protection,28/05/2026,11/06/2026,10,churn,17/08/2026
-Priscila Banzato,Catho,29/05/2026,08/06/2026,127,,23/09/2026
-Priscila Banzato,Falavinha Next,29/05/2026,01/06/2026,30,churn,
-Gonzalo Cami ,Grupo Skill,29/05/2026,18/06/2026,3,churn,
-Priscila Banzato,LEMA,29/05/2026,03/06/2026,11,churn,14/08/2026
-Nicoly Lima,M2D Telecom,29/05/2026,11/06/2026,3,,26/08/2026
-Nicoly Lima,AF Marketing,30/05/2026,15/06/2026,3,,13/08/2026
 Nicoly Lima,Star Diesel,08/06/2026,26/06/2026,6,Churn,
 Nicoly Lima,Veritas,08/06/2026,17/06/2026,5,churn,11/08/2026
-Priscila Banzato,Voip do Brasil,08/06/2026,11/06/2026,10,,21/08/2026
 Gonzalo Cami ,Agência DM Pixels,10/06/2026,22/06/2026,2,churn,
 Gonzalo Cami ,SalesHunter,17/06/2026,23/06/2026,4,,28/08/2026
 Nicoly Lima,Masterboard,18/06/2026,07/07/2026,2,churn,
 Nicoly Lima,Carioli Engenharia,19/06/2026,30/06/2026,5,,04/09/2026
 Gonzalo Cami ,IDVLabs,19/06/2026,30/06/2026,1,,31/08/2026
-Priscila Banzato,PTA Rental,19/06/2026,26/06/2026,22,,10/08/2026
 Nicoly Lima,Studio Kore,19/06/2026,02/07/2026,6,churn,
 Nicoly Lima,RvOps,22/06/2026,25/06/2026,5,,11/09/2026
 Gonzalo Cami ,Aspprev,26/06/2026,01/07/2026,3,churn,
@@ -49,8 +18,6 @@ Gonzalo Cami ,Win Distribuidora,26/06/2026,09/07/2026,3,,28/08/2026
 Nicoly Lima,Grupo Dom Bosco,29/06/2026,02/07/2026,6,,11/09/2026
 Gonzalo Cami ,Imperbrás,29/06/2026,02/07/2026,3,,31/08/2026
 Gonzalo Cami ,Bivox,30/06/2026,02/07/2026,3,,28/08/2026
-Priscila Banzato,Brasmo Industria e Comércio,30/06/2026,07/07/2026,17,,25/08/2026
-Priscila Banzato,Captei,30/06/2026,06/07/2026,20,,25/08/2026
 Maria Alice Schmitz,Grupo Decio,30/06/2026,08/07/2026,26,,08/10/2026
 Gonzalo Cami ,Itera,30/06/2026,10/07/2026,3,,28/08/2026
 Maria Alice Schmitz,Luza Group,30/06/2026,23/07/2026,50,,16/10/2026
@@ -58,16 +25,13 @@ Maria Alice Schmitz,Mantomac,30/06/2026,02/07/2026,20,,
 Gonzalo Cami ,Prs Tecnologia,30/06/2026,07/07/2026,3,churn,
 Gonzalo Cami ,t-access,30/06/2026,08/07/2026,2,churn,
 Nicoly Lima,Timol,30/06/2026,08/07/2026,26,churn,
-Priscila Banzato,WebRota,30/06/2026,10/07/2026,23,,25/08/2026
 Gonzalo Cami ,WR Automação,30/06/2026,16/07/2026,3,churn,
 Gonzalo Cami,RBR Extintores,01/07/2026,15/07/2026,3,,05/10/2026
-Priscila Banzato,Thomson Reuters,01/07/2026,07/07/2026,30,,25/08/2026
 Nicoly Lima,Transformação Digital,01/07/2026,07/07/2026,14,,03/09/2026
 Gonzalo Cami,MidFalconi,03/07/2026,08/07/2026,3,,23/09/2026
 Gonzalo Cami,Redminds mkt & tech,06/07/2026,10/07/2026,3,churn,
 Nicoly Lima,Prospercapital,08/07/2026,15/07/2026,9,,25/09/2026
 Gonzalo Cami,MRS Advogados,10/07/2026,14/07/2026,1,,29/09/2026
-Priscila Banzato,PUCPR,10/07/2026,15/07/2026,20,,25/08/2026
 Gonzalo Cami,Semelc,10/07/2026,14/07/2026,3,churn,
 Gonzalo Cami,Smart NX,10/07/2026,14/07/2026,3,,30/09/2026
 Nicoly Lima,AWA,15/07/2026,29/07/2026,10,,21/09/2026
@@ -120,14 +84,14 @@ Nicoly Lima,Assertiva Soluções,31/08/2026,,15,VENDA CANCELADA,
 Nicoly Lima,JC Ferramentas,31/08/2026,02/09/2026,15,,
 Gonzalo Cami,CRM PipeRun,31/08/2026,10/09/2026,3,,21/10/2026
 Gonzalo Cami,Up2you People,31/08/2026,,2,VENDA CANCELADA,
-Gonzalo Cami,Sales Rocket,31/08/2026,,3,,
+Gonzalo Cami,Sales Rocket,31/08/2026,,3,,15/10/2026
 Gonzalo Cami,Transmóbil,31/08/2026,03/09/2026,3,,
 Gonzalo Cami,Fluke,04/09/2026,,3,,
 Nicoly Lima,iFractal,04/09/2026,11/09/2026,5,,
 Nicoly Lima,Melbourne Engenharia,20/05/2026,10/06/2026,5,churn,03/08/2026
 Nicoly Lima,Databem,16/06/2026,19/06/2026,2,churn,03/08/2026
 Gonzalo Cami,"Somos Propriedade Intelectual
-",28/08/2026,01/09/2026,3,,16/10/2026
+",28/08/2026,01/09/2026,3,,21/10/2026
 Gonzalo Cami,Iridium Company,21/08/2026,25/08/2026,1,,13/10/2026
 Gonzalo Cami,Growmate,20/08/2026,25/08/2026,3,Churn,
 Nicoly Lima,Eleva Brasil,11/09/2026,21/09/2026,12,,
@@ -149,6 +113,7 @@ Nicoly Lima,TNS Nano,29/09/2026,05/10/2026,7,,
 Nicoly Lima,Incicle,16/09/2026,22/09/2026,20,,
 Gonzalo Cami,Meregetech,06/10/2026,09/10/2026,3,,
 Nicoly Lima,DGB ROLAMENTOS,30/09/2026,08/10/2026,12,,
-Nicoly Lima,Registre.se,30/09/2026,,15,,
+Maria Alice Schmitz,Registre.se,30/09/2026,,15,,
 Nicoly Lima,Facility seg,09/10/2026,13/10/2026,5,,
 Gonzalo Cami,DWV,09/10/2026,13/10/2026,3,,
+Maria Alice Schmitz,Prime Consórcio,15/10/2026,,15,,
