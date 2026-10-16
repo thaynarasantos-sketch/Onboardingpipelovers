@@ -132,6 +132,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 25/06/2026,Catho,SCARLET DOS SANTOS DE PAULA DOS SANTOS DE PAULA,scarlet.paula@catho.com,Thabata Harumi,Anne Siqueira,
 22/06/2026,Ayo entregas,Sarah Caroline,sarah.caroline@ayoapp.com.br,Thaynara Santos,Mariana Vieira,
 16/06/2026,Falavinha Next,SARAH BETELLI,sarah.betelli@falavinha.com.br,Thaynara Santos,João Fabrício,
+15/10/2026,CYA,SANDRO GUILHERME BECKER,sandro.becker@cya.com.br,Anne Siqueira,Anne Siqueira,
 18/08/2026,Grupo Sem Parar,SAMYA MENDES CHAMAT,SAMYA.CHAMAT@CORPAY.COM.BR,Anne Siqueira,Anne Siqueira,
 07/10/2026,Rodopeças,Samuel Luz,samuelvendas@rodopecas.com.br,João Fabrício,João Fabrício,09/10/2026
 29/07/2026,AWA,SAMUEL ALVES SILVA,comercial@coriconstrutora.com.br,Natalia Espindola,Natalia Espindola,13/08/2026
@@ -179,7 +180,6 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 30/07/2026,Alvor Corretora De Seguroa LTDA,Renan Michelon,renanmichelom17@gmail.com,João Fabrício,João Fabrício,03/09/2026
 13/08/2026,Studio Kore,RENAN FRARE MASI,renanmasileft@gmail.com,Thaynara Santos,João Fabrício,
 22/09/2026,L4S,Renan Campos,renan.campos@cmii.com.br,Natalia Espindola,Natalia Espindola,25/09/2026
-31/08/2026,Vtech Consulting,Renan Bovo,r.bovo@vtech-br.com,Mariana Vieira,Mariana Vieira,09/09/2026
 19/08/2026,Grupo Sem Parar,REGINALDO FLOR PEREIRA,REGINALDO.PEREIRA@CORPAY.COM.BR,Anne Siqueira,Anne Siqueira,
 13/08/2026,Grupo Sem Parar,REGIANE RODRIGUES,REGIANE.RODRIGUES@CORPAY.COM.BR,Anne Siqueira,Anne Siqueira,10/09/2026
 18/08/2026,Luza Group,Regiane Gonçalves,regiane.goncalves@luzagroup.com,Natalia Espindola,Natalia Espindola,20/08/2026
@@ -249,6 +249,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 19/06/2026,Omni Ribeirão Preto,Pablo,comercial.rp@omniassessoria.com.br,Thaynara Santos,Mariana Vieira,
 24/08/2026,Bodipasa,Oscar David dos Santos Ribeiro,oscar.ribeiro@bodipasa.com.br,Mariana Vieira,Mariana Vieira,09/09/2026
 09/07/2026,Timol,Orlando Farias Nascimento,orlandofariasnascimento@hotmail.com,Thaynara Santos,Mariana Vieira,31/07/2026
+15/10/2026,CYA,ODAIR MELCHIOR,odair.melchior@cya.com.br,Anne Siqueira,Anne Siqueira,
 16/06/2026,Max Protection,Nycolas Santos,nycolas.santos@maxprotection.com.br,Thabata Harumi,Anne Siqueira,18/06/2026
 13/08/2026,Grupo Sem Parar,NUBIA CRISTIANE DE OLIVEIRA SANTOS,NUBIA.OLIVEIRA@CORPAY.COM.BR,Anne Siqueira,Anne Siqueira,19/08/2026
 05/08/2026,IGA,Nivia Rodrigues,nivia.rodrigues@itau-unibanco.com.br,Natalia Espindola,Natalia Espindola,11/08/2026
@@ -336,6 +337,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 19/06/2026,SalesHunter,Maria Eduarda Linhares,maria.eduarda@saleshunter.ai,Thabata Harumi,Mariana Vieira,03/07/2026
 16/07/2026,RBR Extintores,Maria Eduarda Leone,comercial@rbrextintores.com.br,Mariana Vieira,Mariana Vieira,30/07/2026
 02/09/2026,VMK Holding,Maria Eduarda Lazari,Mariaeduardalazari16@gmail.com,João Fabrício,João Fabrício,08/09/2026
+15/10/2026,CYA,MARIA EDUARDA DA SILVA BRITO,maria.brito@cya.com.br,Anne Siqueira,Anne Siqueira,
 18/06/2026,Catho,MARIA EDUARDA,maria.souza@infojobs.com.br,Thabata Harumi,Anne Siqueira,04/08/2026
 13/08/2026,Costa e Sampaio,Maria Cristina Bovone,crisbovone.consorcios@costaesampaioseguros.com.br,João Fabrício,João Fabrício,19/08/2026
 27/07/2026,PUCPR,Maria Beatriz Borsatto Dos Reis Gomes,maria.bgomes@pucpr.br,João Fabrício,João Fabrício,14/08/2026
@@ -386,12 +388,13 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 18/08/2026,Luza Group,Luiz Bonfai,luiz.bonfai@luzagroup.com,Natalia Espindola,Natalia Espindola,21/08/2026
 14/07/2026,Compostos do Brasil,Luiz Antônio Correa,luiz.correa@compostos.com.br,Anne Siqueira,Anne Siqueira,
 13/08/2026,Accelera 360,Luis Henrique Gagliardi,luis.gagliardi@accelera360.com.br,João Fabrício,João Fabrício,09/09/2026
-31/08/2026,Vtech Consulting,Luís Felipe Caetano Silva,l.caetano@vtech-br.com,Mariana Vieira,Mariana Vieira,09/09/2026
 13/10/2026,DGB ROLAMENTOS,LUIS AGUIAR,vendastecnica1@dgbrolamentos.com.br,Natalia Espindola,Natalia Espindola,
 19/08/2026,Grupo Sem Parar,LUDMILA NUNES DE CARVALHO,ludmila.carvalho@corpay.com.br,Anne Siqueira,Anne Siqueira,
+15/10/2026,CYA,LUCIO SIDINEI SEVERO MENDONÇA,lucio.mendonça@cya.com.br,Anne Siqueira,Anne Siqueira,
 07/07/2026,MPL Corretora de Seguros,Lucimeire Moraes,meire@mplseguros.com.br,João Fabrício,João Fabrício,03/08/2026
 26/06/2026,Catho,LUCIANO RIBAS PEIXOTO RIBAS PEIXOTO,luciano.peixoto@infojobs.com.br,Thaynara Santos,Anne Siqueira,
 17/08/2026,Grupo Sem Parar,Luciano Ramos,luciano.ramos@corpay.com.br,Anne Siqueira,Anne Siqueira,23/09/2026
+15/10/2026,CYA,LUCIANO OLIVEIRA RODRIGUES,luciano.rodrigues@cya.com.br,Anne Siqueira,Anne Siqueira,
 14/08/2026,Costa e Sampaio,Luciane Luciane,luciane3711@hotmail.com,João Fabrício,João Fabrício,28/08/2026
 26/06/2026,Catho,LUCIANA RODOVALHO FRANCO RODOVALHO FRANCO,luciana.franco@infojobs.com.br,Anne Siqueira,Anne Siqueira,06/08/2026
 26/06/2026,Catho,LUCIANA MIRANDA CEBOLA MIRANDA CEBOLA,luciana.cebola@infojobs.com.br,Thabata Harumi,Anne Siqueira,
@@ -438,7 +441,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 13/06/2026,CEM,Luana Antunes,luana.antunes94@gmail.com,Thabata Harumi,Mariana Vieira,22/06/2026
 10/07/2026,Captei,Luan Souza,luan.souza@captei.com.br,João Fabrício,João Fabrício,17/07/2026
 16/06/2026,Armando Pneus,LUAN MARTINI MOTHE HOINHAS,luanmartini0018@outlook.com,Anne Siqueira,Anne Siqueira,02/07/2026
-13/10/2026,DGB ROLAMENTOS,LUAN FIRMINO,marketing@dgbrolamentos.com.br,Natalia Espindola,Natalia Espindola,
+13/10/2026,DGB ROLAMENTOS,LUAN FIRMINO,marketing@dgbrolamentos.com.br,Natalia Espindola,Natalia Espindola,16/10/2026
 26/06/2026,PTA Rental,LUAN AUGUSTO,luan.machado@ptarental.com.br,Thabata Harumi,Mariana Vieira,06/07/2026
 26/06/2026,Catho,LIVIA ELLEN DE OLIVEIRA SILVA ELLEN DE OLIVEIRA SILVA,livia.silva@catho.com,Thabata Harumi,Anne Siqueira,21/07/2026
 10/07/2026,Captei,Lilyan Maria de Abreu Pereira,lilyan.maria@captei.com.br,João Fabrício,João Fabrício,20/07/2026
@@ -657,7 +660,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 10/07/2026,Alpha cm,Iago Davi Brito Junqueira,iago@alphapcm.com.br,João Fabrício,João Fabrício,29/07/2026
 28/07/2026,Accelera 360,Humberto Barbosa da Silva Leite,humberto.barbosa@kcggroup.com.br,João Fabrício,João Fabrício,17/08/2026
 02/10/2026,Peopleware Tecnologia,Hudson Mathias,hudson.mathias@ppware.com.br,Mariana Vieira,Mariana Vieira,05/10/2026
-13/10/2026,TNS Nano,Herley Pedro Vieira,herley.vieira@tnsnano.com,Mariana Vieira,Mariana Vieira,
+13/10/2026,TNS Nano,Herley Pedro Vieira,herley.vieira@tnsnano.com,Mariana Vieira,Mariana Vieira,15/10/2026
 16/06/2026,Falavinha Next,Henrique Silva,henrique.silva@falavinha.com.br,Thaynara Santos,João Fabrício,
 01/06/2026,Just Travel,Henrique Dias,henrique.dias@justtraveltour.com,Thaynara Santos,Mariana Vieira,
 05/08/2026,FAC Engenharia,Henrique Broetto,HENRIQUE.BROETTO@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,18/08/2026
@@ -817,6 +820,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 02/09/2026,Facenter,Elizabeth Costa,facenter.elizabeth@gmail.com,João Fabrício,João Fabrício,10/09/2026
 16/07/2026,Grupo Decio,ELISANGELA SOUTO,elisangela.souto@grupodecio.com.br,João Fabrício,João Fabrício,03/08/2026
 09/07/2026,Timol,Elisangela Silva Conde Paulino,elisangelacpaulino@yahoo.com.br,Thaynara Santos,Mariana Vieira,13/08/2026
+15/10/2026,CYA,ELISANGELA DE SOUSA,elisangela.souza@cya.com.br,Anne Siqueira,Anne Siqueira,
 19/08/2026,Grupo Decio,Eliana Caetano,Eliana.caetano@grupodecio.com.br,João Fabrício,João Fabrício,31/08/2026
 13/08/2026,Costa e Sampaio,Elaine Osses,elaine.consorcios@costaesampaioseguros.com.br,João Fabrício,João Fabrício,25/08/2026
 09/07/2026,Timol,Elaine Magdalena Lima Kruger,elainekruger658@gmail.com,Thaynara Santos,Mariana Vieira,
@@ -849,7 +853,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 26/06/2026,Catho,DIOGO LOPES DOS REIS LOPES DOS REIS,diogo.lopes@infojobs.com.br,Natalia Espindola,Natalia Espindola,
 16/07/2026,BEXT,Diessyca Peres,diessyca.peres@bext.vc,Anne Siqueira,Anne Siqueira,28/07/2026
 26/06/2026,PTA Rental,DIEGO SANTOS,diego.santos@ptarental.com.br,Thabata Harumi,Mariana Vieira,07/07/2026
-13/10/2026,TNS Nano,Diego Marlon Ferro,diego.ferro@tnsnano.com,Mariana Vieira,Mariana Vieira,
+13/10/2026,TNS Nano,Diego Marlon Ferro,diego.ferro@tnsnano.com,Mariana Vieira,Mariana Vieira,15/10/2026
 26/06/2026,PTA Rental,DIANGELIS ALVES,diangelis.alves@ptarental.com.br,Thabata Harumi,Mariana Vieira,06/07/2026
 22/08/2026,Grupo Decio,Dewar Silva,dewar.tadeu@grupodecio.com.br,João Fabrício,João Fabrício,21/09/2026
 26/06/2026,PTA Rental,DENO GONÇALVES,deno.goncalves@ptarental.com.br,Thabata Harumi,Mariana Vieira,02/07/2026
@@ -970,6 +974,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 20/07/2026,Thomson Reuters,Camila Veronese,camila.veronese@thomsonreuters.com,Mariana Vieira,Mariana Vieira,10/08/2026
 28/09/2026,CRM PipeRun,Camila Pohlmann,camila.pohlmann@crmpiperun.com,Natalia Espindola,Natalia Espindola,30/09/2026
 06/08/2026,Unico Skill,Camila Paulino,camila.paulino@unico.io,João Fabrício,João Fabrício,20/08/2026
+15/10/2026,CYA,CAMILA MACHADO DUARTE,camila.duarte@cya.com.br,Anne Siqueira,Anne Siqueira,
 18/08/2026,IMPLANTEC,Camila Ferreira dos Reis Correia,camila.reis@implantecbrasil.com.br,Mariana Vieira,Mariana Vieira,25/08/2026
 13/07/2026,Brasmo Industria e Comércio,CAMILA CASAGRANDE,suporte04@brasmo.com.br,João Fabrício,João Fabrício,30/07/2026
 20/07/2026,Thomson Reuters,Camila Carvalho,camila.decarvalho@thomsonreuters.com,Mariana Vieira,Mariana Vieira,10/08/2026
@@ -1003,6 +1008,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 10/07/2026,Opus127,Bianca Maia,biancamaia@opus127.com.br,Mariana Vieira,Mariana Vieira,17/07/2026
 05/08/2026,FAC Engenharia,Bianca Federici,BIANCA.FEDERICI@FACENGENHARIA.COM.BR,João Fabrício,João Fabrício,20/08/2026
 13/08/2026,Grupo Sem Parar,BIANCA CRISTINE CORREIA DE ARAUJO,BIANCA.ARAUJO@CORPAY.COM.BR,Anne Siqueira,Anne Siqueira,09/09/2026
+15/10/2026,CYA,BIANCA BEATRICE PINTO DE MELLOS,bianca.mellos@cya.com.br,Anne Siqueira,Anne Siqueira,
 13/08/2026,Grupo Sem Parar,BIANCA ALMEIDA GAGLIARDI VICENTE,BIANCA.VICENTE@CORPAY.COM.BR,Anne Siqueira,Anne Siqueira,21/08/2026
 17/07/2026,CEM,Bia Tayla Perez,bia_tayla@hotmail.com,Mariana Vieira,Mariana Vieira,06/08/2026
 22/09/2026,STM embalagens,Bernardo Leite,lojaholambra@caixaecia.com,Natalia Espindola,Natalia Espindola,23/09/2026
@@ -1027,7 +1033,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 25/06/2026,Catho,ARIELLY BERNARDINO SILVA BERNARDINO SILVA,arielly.silva@catho.com,Thabata Harumi,Anne Siqueira,13/07/2026
 05/08/2026,Grupo Eletrolar,ARIANE SILVA,ariane.silva@grupoeletrolar.com.br,Thaynara Santos,João Fabrício,
 13/10/2026,DGB ROLAMENTOS,ANTONIO RODRIGO,vendas8@dgbrolamentos.com.br,Natalia Espindola,Natalia Espindola,
-04/08/2026,9energia,Antonio Hugo,hugodumontfilho@gmail.com,João Fabrício,João Fabrício,18/08/2026
+04/08/2026,9energia,Antonio Hugo,hugodumontfilho@gmail.com,João Fabrício,João Fabrício,17/08/2026
 31/08/2026,TMI Mice,Angela Cardinot,angela.cardinot@tmimice.com.br,Natalia Espindola,Natalia Espindola,03/09/2026
 19/08/2026,Grupo Decio,Andriel Pereira,andriel.pereira@grupodecio.com.br,João Fabrício,João Fabrício,01/09/2026
 11/08/2026,Inserra imobiliaria,Andreza Nitão,andreza@imobiliariainserra.com.br,Mariana Vieira,Mariana Vieira,24/08/2026
@@ -1104,7 +1110,7 @@ Data de cadastro membro,Conta Nome,Nome Negócios,E-mail,Proprietário do Negóc
 27/07/2026,PUCPR,Alessandra Paiva Fraresso,alessandra.fraresso@pucpr.br,Thaynara Santos,João Fabrício,
 17/09/2026,TTMS,Alessandra Lenzi,alessandra.lenzi@ttmsglobal.com,Natalia Espindola,Natalia Espindola,
 13/08/2026,Grupo Sem Parar,ALESSANDRA DE FATIMA GUEDES CESAR,ALESSANDRA.CESAR@CORPAY.COM.BR,Anne Siqueira,Anne Siqueira,08/09/2026
-16/07/2026,Trimak,Alessandra B2C,alessandra.kaye87@gmail.com,Anne Siqueira,Anne Siqueira,30/07/2026
+16/07/2026,Trimak,Alessandra B2C,alessandra.kaye87@gmail.com,Anne Siqueira,Anne Siqueira,30/7/2026
 07/07/2026,MPL Corretora de Seguros,Alcides Carminato,alcides@mplseguros.com.br,João Fabrício,João Fabrício,23/07/2026
 10/06/2026,Just Travel,Alanys Dantas,alanys.dantas@justtraveltour.com,Mariana Vieira,Mariana Vieira,03/07/2026
 14/10/2026,Higra,Alan dos Santos Meirelles,alan.meirelles@higraservicesul.com.br,Anne Siqueira,Anne Siqueira,
